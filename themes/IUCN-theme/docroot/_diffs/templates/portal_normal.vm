@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+#parse ($init)
+
+<html class="#language("lang.dir")" dir="#language("lang.dir")" lang="$w3c_language_id">
+
+<head>
+
+<script src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+<title>World Heritage Outlook</title>
+	$theme.include($top_head_include)
+</head>
+
+<body class="$css_class">
+
+
+$theme.include($body_top_include)
+
+
+#if ($permissionChecker.isOmniadmin())
+	#dockbar()
+#end
+
+##get language en_US(English US),es_ES (Espanol),fr_FR (Francias)
+
+##$themeDisplay.getLanguageId();
+
+<div class="outerWrapper">
+
+<div id="wrapper">
+
+<!--Header starts here-->
+<div id="header">
+	<div id="headerLeft">
+		<h1 class="siteLogo"><a href="#"> IUCN - World heritage Sites </a></h1>
+	</div>
+	<div id="headerRight">
+	#if ($is_signed_in && !$permissionChecker.isOmniadmin())
+		<div class="user-status" style="position:absolute; z-index:10; right:2px;">
+			Welcome $user.getFullName()
+			<!--<img src="/image/user_male_portrait?img_id=$user.portraitId&amp;" alt="Test Test" width="25">-->
+			<img src="/html/themes/classic/images/common/assign.png" alt="" style="vertical-align:middle; padding-left:1.5em;"/>
+			<a href="/c/portal/logout">#language("sign-out")</a>
+		</div>
+	#end
+
+	
+	$theme.runtime("82_INSTANCE_hr2S")
+	
+
+
+	#if ($layout.getFriendlyURL() != "/manage")
+	<!-- Asset Publisher Embedded in Theme -->
+		$velocityPortletPreferences.setValue("portletSetupShowBorders", "false")
+			#set ($instanceId = '1234')
+			<!-- xkB6uj1zjrwm-->
+			#set ($myPortletId = "56_INSTANCE_${instanceId}")$theme.runtime($myPortletId, '', $velocityPortletPreferences.toString())
+			#set ($VOID = $velocityPortletPreferences.reset())
+		
+	<!--<p>The State of World heritage provides independent, reliable and transparent information on the current state of conservation of natural World Heritage Sites and its future outlook.<a href="#" class="headerInfo"> >> Read more</a></p>-->
+	#end
+	##$theme.runtime("82_INSTANCE_hr2S")
+</div>
+
+
+#if ($has_navigation || $is_signed_in)
+	#parse ("$full_templates_path/navigation.vm")
+#end
+</div>
+<!--Header Ends here-->
+
+	<header id="banner" role="banner">
+		<div id="heading">
+		</div>
+	</header>
+
+
+	<div id="content"> 
+		#if ($isHome != 'HOME' && $layout.getFriendlyURL() != '/manage' && $layout.getFriendlyURL() != 'help' && $layout.getFriendlyURL() != '/benefits')
+			<div class="showHeaderNavigation">
+				#set ($instanceId = '6LxqysVzZu2q')
+				#set ($myPortletId = "71_INSTANCE_${instanceId}")$theme.runtime($myPortletId, '', $velocityPortletPreferences.toString())
+				#set ($VOID = $velocityPortletPreferences.reset())
+			</div>
+		#end
+		#if ($selectable)
+			$theme.include($content_include)
+		#else
+			$portletDisplay.recycle()
+
+			$portletDisplay.setTitle($the_title)
+
+			$theme.wrapPortlet("portlet.vm", $content_include)
+		#end
+	</div>
+	
+</div>
+
+<!--Footer starts here-->
+	<footer id="footer" role="contentinfo">
+		
+					
+	<div id="footerContents">
+			<div class="footerWrapper">
+			<p class="copyrightnote">&#169; International Union for Conservation of Nature and Natural Resources.</p>
+			<ul>
+				<li><a><img src="../../IUCN-theme/images/facebook.png"></a></li>
+				<li><a><img src="../../IUCN-theme/images/twitter.png"></a></li>
+				<!--<li><a><img src="../../IUCN-theme/images/my.gif"></a></li>
+				<li><a><img src="../../IUCN-theme/images/googlePlus.gif"></a></li>-->
+				
+			</ul>
+			
+			<p class="footerLogin">
+			#if (!$is_signed_in)
+					<div id="login">
+						<span>
+							<a href="$sign_in_url" id="sign-in" rel="nofollow">$sign_in_text</a>
+						</span>
+					</div>
+				#end
+			
+			</p>
+			
+			
+			<p class="powered-by">
+			#language("powered-by") <a href="http://www.rmsi.com" rel="external" target="_blank">RMSI</a>
+		</p>
+	
+			
+			</div>
+	</div>
+	
+	
+	
+		
+	
+	</footer>
+	<!--Footer Ends here-->
+</div>
+
+$theme.include($body_bottom_include)
+
+</body>
+
+$theme.include($bottom_include)
+
+</html>

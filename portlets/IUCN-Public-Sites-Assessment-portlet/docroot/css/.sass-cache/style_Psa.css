@@ -1,0 +1,393 @@
+.portlet-column {
+  display: block;
+  border: 0px solid red; }
+
+.sitesHeaderText {
+  position: absolute;
+  top: -320px;
+  width: 300px;
+  margin-left: 690px;
+  height: 318px;
+  color: #fff;
+  font-size: 13px; }
+
+.sitesHeaderText a {
+  color: #3f6565; }
+
+.gaugeHolder {
+  position: absolute;
+  top: -320px;
+  width: 496px;
+  height: 332px;
+  overflow: hidden;
+  margin-left: 165px;
+  background: url("../images/gauge.PNG") no-repeat center 20px; }
+
+.sitesSubNav {
+  float: left;
+  width: 165px;
+  background: #3f6565;
+  height: 334px;
+  color: #7f9965;
+  font-size: 12px;
+  text-transform: uppercase; }
+
+/* Site Search Bar */
+.search-wrapper {
+  height: 55px;
+  padding: 16px 0 0 77px; }
+
+.search-wrapper .see-all {
+  float: left;
+  margin: 12px 8px 0 0;
+  font-size: 18px;
+  width: auto; }
+
+.see-all, .see-all:visited, .see-all:link, .see-all:active {
+  color: #333333;
+  outline: medium none; }
+
+.see-all:hover {
+  color: #042f5b; }
+
+.search-wrapper label {
+  display: none; }
+
+.search-wrapper .search-box {
+  float: left;
+  height: 41px;
+  width: 520px;
+  background: none repeat scroll 0 0 #FFFFFF;
+  border: 1px solid #666666;
+  box-shadow: 1px 1px 3px #AAAAAA inset;
+  display: block;
+  position: relative;
+  transition: all 0.3s ease 0s; }
+
+.search-wrapper .search-box > input.disabled, .search-wrapper .search-box > input:disabled {
+  background-position: left -156px !important;
+  cursor: default; }
+
+.search-wrapper .autocomplete {
+  left: 50%;
+  position: relative;
+  width: 394px;
+  z-index: 6; }
+
+.search-wrapper .search-box > span {
+  width: 500px; }
+
+.search-wrapper .search-box > span input {
+  background: none repeat scroll 0 0 transparent;
+  border: 0 none;
+  box-shadow: none !important;
+  color: #333333;
+  font-size: 20px;
+  margin: 0;
+  padding: 0.5em 0 0 0.3em;
+  outline: medium none;
+  width: 90%; }
+
+.search-wrapper .search-box > span input[type="text"]:focus {
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3) inset; }
+
+.focused {
+  box-shadow: inset 1px 1px 4px #888; }
+
+.search-wrapper .search-box > input.disabled, #content .search-wrapper .search-box > input:disabled {
+  background-position: left -129px !important;
+  cursor: default; }
+
+.search-wrapper .search-box > input {
+  background-image: url("../images/search_site_btn.png");
+  width: 43px;
+  background-color: transparent;
+  background-position: left top;
+  background-repeat: no-repeat;
+  border: medium none;
+  bottom: -1px;
+  display: block;
+  font-size: 0;
+  line-height: 200px;
+  cursor: pointer;
+  outline: medium none;
+  overflow: hidden;
+  position: absolute;
+  right: -1px;
+  top: -1px; }
+
+.exploreMap {
+  float: right;
+  display: inline-block;
+  margin: 1em 0 0 0;
+  position: relative; }
+
+.exploreMapIcon {
+  background: url("../images/world.png") no-repeat scroll 0 0 transparent;
+  display: inline-block;
+  left: -24px;
+  padding: 10px;
+  position: absolute;
+  top: -2px; }
+
+.exploreMap a {
+  color: #3f6565;
+  text-decoration: none; }
+
+.exploreMap a:hover {
+  text-decoration: underline; }
+
+/* MultiSelect */
+.multiSelectContainer {
+  padding: 20px 0 0 20px;
+  overflow: hidden;
+  background: white url("../images/multiselectContainer_bg.png") repeat-x left top; }
+
+.multiSelectContainer select {
+  width: 100%;
+  height: 176px;
+  height: 176px\9;
+  overflow: hidden; }
+
+.multiSelectHeader {
+  font-weight: bold;
+  font-size: 16px;
+  display: block;
+  margin: 0 0 30px 300px;
+  color: #3d3d3d;
+  text-decoration: underline; }
+
+.multiselectFirstInnerContainer {
+  margin-left: -6px; }
+
+.HeadingMultiselect {
+  clear: both;
+  display: block;
+  font-weight: bold;
+  font-size: 13px;
+  padding-bottom: 4px; }
+
+.multiselectInnerContainer input {
+  box-shadow: 1px 1px 2px #D5D5D5 inset;
+  line-height: 23px;
+  outline: medium none;
+  transition: all 0.3s ease 0s;
+  vertical-align: middle;
+  width: 166px;
+  margin-bottom: 8px;
+  display: block; }
+
+.value {
+  height: 196px; }
+
+.totalSites {
+  border-bottom: 3px solid #BBBBBB;
+  display: block;
+  margin: 40px 0 6px;
+  padding-bottom: 4px;
+  text-align: left;
+  font-size: 20px;
+  clear: both; }
+
+.resultsText {
+  font-weight: bold;
+  color: #042F5B;
+  font-size: 14px; }
+
+.sitesResultCount {
+  color: #1d1f4f;
+  font-size: 14px;
+  font-weight: bold; }
+
+.sitePopup {
+  background: none repeat scroll 0 0 #FFFFFF;
+  border: 1px solid #94AB91;
+  border-radius: 8px 8px 8px 8px;
+  display: inline-block;
+  float: left;
+  height: 113px;
+  margin: 0.2em 0.5em 0.5em;
+  padding: 0.8em;
+  width: 297px; }
+
+.sitePopup_noRightMargin {
+  background: #fff;
+  border: 1px solid #94ab91;
+  border-radius: 8px 8px 8px 8px;
+  display: inline-block;
+  float: left;
+  padding: 15px 10px 13px 10px;
+  width: 300px;
+  height: 113px;
+  margin: 0 0 10px 0; }
+
+.sitePopupMiddleBlock, .sitePopupRightBlock {
+  margin-left: 13px; }
+
+.sitePopup img {
+  float: left;
+  margin-right: 9px;
+  width: 114px;
+  height: 113px; }
+
+.siteThumbnail {
+  float: left;
+  height: 113px;
+  margin-right: 9px;
+  width: 114px;
+  border: 1px solid #ddd; }
+
+.siteInfo {
+  float: left;
+  width: 170px;
+  color: #362f2d;
+  line-height: 1.25em; }
+
+.siteName {
+  color: #042F5B;
+  margin-bottom: 0.3em;
+  font-weight: bold; }
+
+.listViewDiv {
+  border: 1px solid green;
+  background: #333; }
+
+.optionDefault {
+  background: url("../images/filter-item-border.png") repeat-y scroll left top white;
+  border-bottom: 1px solid #DEDEDE;
+  border-top: 1px solid #DEDEDE;
+  cursor: pointer;
+  font-size: 12px;
+  margin-top: -1px;
+  min-height: 18px;
+  overflow: hidden;
+  padding: 8px 5px 8px 8px; }
+
+.selectedOption {
+  background: url("../images/filter-item-selected.png") repeat-y scroll left top white;
+  border-bottom: 1px solid #DEDEDE;
+  border-top: 1px solid #DEDEDE;
+  cursor: pointer;
+  font-size: 12px;
+  margin-top: -1px;
+  min-height: 18px;
+  overflow: hidden;
+  padding: 8px 5px 8px 8px; }
+
+.title {
+  color: blueviolet; }
+
+.descri {
+  margin-left: 25px;
+  color: dimgray; }
+
+.descri_footer {
+  color: lightslategrey;
+  font-size: 13px;
+  margin-top: 100px; }
+
+.test-selection {
+  background: url("../images/filter-item-selected.png") no-repeat scroll 0 0 #ececec;
+  border-bottom: 1px solid #DEDEDE;
+  border-top: 1px solid #DEDEDE;
+  cursor: pointer;
+  font-size: 12px;
+  margin-top: -1px;
+  min-height: 18px;
+  overflow: hidden;
+  padding: 8px 5px 8px 8px; }
+
+.category {
+  cursor: pointer; }
+
+.wrap_categories {
+  margin-left: 25px;
+  margin-top: 10px;
+  border: 1px solid #d6d6d6; }
+
+.wrap_categories div:hover {
+  background-color: blueviolet; }
+
+.main_categories {
+  display: inline-block;
+  width: auto; }
+
+div.category:hover {
+  color: blue; }
+
+.results-grid {
+  border: 0px solid red; }
+
+/* for rating color */
+.ratingHolder {
+  display: block;
+  clear: both;
+  margin-bottom: 0.3em; }
+
+.ratingStatus {
+  font-weight: bold; }
+
+.ratingStatusGood {
+  color: #39b54a;
+  font-weight: bold; }
+
+.ratingStatusGoodWithSomeConcerns {
+  color: #acd373;
+  font-weight: bold; }
+
+.ratingStatusSignificantConcern {
+  color: #f7941d;
+  font-weight: bold; }
+
+.ratingStatusCritical {
+  color: #ed1c24;
+  font-weight: bold; }
+
+.ratingStatusDataDeficient {
+  color: #fcfdff;
+  font-weight: bold; }
+
+.country {
+  font-style: italic;
+  font-weight: bold;
+  margin-bottom: 0.3em; }
+
+.comingsoon {
+  display: block;
+  color: #808080;
+  margin-top: 0.3em; }
+
+.ImageNotAvailableBox {
+  background: url("../images/imgUnavailable.jpg") no-repeat;
+  width: 114px;
+  height: 113px;
+  border: 1px solid #DDDDDD;
+  float: left;
+  margin-right: 9px; }
+
+.clearAnchor {
+  float: right;
+  font-size: 12px;
+  background: url("../images/edit-clear.png") 0px 0px no-repeat;
+  cursor: pointer;
+  margin-top: 0.5em;
+  padding-bottom: 4px;
+  padding-left: 1.7em; }
+
+.whiteHeader {
+  font-weight: normal;
+  font-size: 20px;
+  margin-bottom: 10px; }
+
+.whiteTxt {
+  line-height: 16px;
+  margin-bottom: 16px; }
+
+.readMoreSiteInfo {
+  margin-top: 0.3em;
+  display: block; }
+
+.publish_date {
+  float: left;
+  margin-top: 5px; }
+

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE layout-templates PUBLIC "-//Liferay//DTD Layout Templates 6.1.0//EN" "http://www.liferay.com/dtd/liferay-layout-templates_6_1_0.dtd">
+
+<layout-templates>
+	<custom>
+		<layout-template id="layouttpl_1_1_rows" name="Layouttpl 1 1 Rows">
+			<template-path>/layouttpl_1_1_rows.tpl</template-path>
+			<wap-template-path>/layouttpl_1_1_rows.wap.tpl</wap-template-path>
+			<thumbnail-path>/layouttpl_1_1_rows.png</thumbnail-path>
+		</layout-template>
+	</custom>
+</layout-templates>

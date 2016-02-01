@@ -5,5 +5,5 @@ The link to the website [http://www.worldheritageoutlook.iucn.org/](http://www.w
 The IUCN World Heritage Outlook provides an independent assessment of the state of conservation of our natural heritage and its potential to be maintained in the future. It shows World Heritage sites have a role in demonstrating excellence and becoming leaders in nature conservation. 
 ## Source code
 The source code is hereby released under GPL.
-
+Source code includes Liferay 6.1 GA2 SDK (with custom portlets and ext) 
 

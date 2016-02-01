@@ -1,0 +1,63 @@
+/*photoGallery CSS*/
+#wrapperPhotogallery {
+  float: right;
+  margin: 10px 15px 0 0;
+  width: 375px;
+  height: 263px;
+  text-align: left;
+  padding: 2px 3px 0px 10px;
+  background: url("../../images/photoGallery_bg.gif"); }
+
+#body {
+  width: 358px;
+  padding: 0; }
+
+.clearfix {
+  clear: both;
+  float: none; }
+
+#bigPic {
+  width: 358px;
+  height: 164px;
+  border: 4px solid white;
+  background-color: white;
+  margin-bottom: 1px;
+  clear: both; }
+
+#bigPic img {
+  position: absolute;
+  display: none; }
+
+h2#photogalleryHeading {
+  margin: 2px 0 0 2px;
+  font-size: 17px; }
+
+ul#thumbs li.active {
+  border: 2px solid #ccc;
+  background: #F67766;
+  padding: 2px; }
+
+ul#thumbs, ul#thumbs li {
+  width: 68px;
+  height: 58px;
+  padding: 0;
+  list-style: none; }
+
+ul#thumbs {
+  width: 400px;
+  height: 68px;
+  margin: 0 0 0 22px; }
+
+ul#thumbs li {
+  float: left;
+  margin-right: 7px;
+  margin-bottom: 5px;
+  border: 1px solid #CCC;
+  padding: 3px;
+  cursor: pointer;
+  background: white; }
+
+ul#thumbs img {
+  width: 68px;
+  height: 58px; }
+

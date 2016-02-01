@@ -1,0 +1,587 @@
+<%--
+/**
+ * Copyright (c) 2000-2012 Liferay, Inc. All rights reserved.
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ */
+--%>
+
+<%@ include file="/html/portlet/document_library/init.jsp" %>
+<%@page import="com.iucn.whp.dbservice.model.*"%>
+<%@page import="com.iucn.whp.dbservice.service.*"%>
+
+<%
+String test12323="";
+Folder folder = (com.liferay.portal.kernel.repository.model.Folder)request.getAttribute(WebKeys.DOCUMENT_LIBRARY_FOLDER);
+
+long folderId = BeanParamUtil.getLong(folder, request, "folderId", rootFolderId);
+
+if ((folder == null) && (folderId != DLFolderConstants.DEFAULT_PARENT_FOLDER_ID)) {
+	try {
+		folder = DLAppLocalServiceUtil.getFolder(folderId);
+	}
+	catch (NoSuchFolderException nsfe) {
+		folderId = DLFolderConstants.DEFAULT_PARENT_FOLDER_ID;
+	}
+}
+
+long repositoryId = scopeGroupId;
+
+if (folder != null) {
+	repositoryId = folder.getRepositoryId();
+}
+
+String displayStyle = ParamUtil.getString(request, "displayStyle");
+
+if (Validator.isNull(displayStyle)) {
+	displayStyle = portalPreferences.getValue(PortletKeys.DOCUMENT_LIBRARY, "display-style", PropsValues.DL_DEFAULT_DISPLAY_VIEW);
+}
+
+if (!ArrayUtil.contains(displayViews, displayStyle)) {
+	displayStyle = displayViews[0];
+}
+
+int entryStart = ParamUtil.getInteger(request, "entryStart");
+int entryEnd = ParamUtil.getInteger(request, "entryEnd", entriesPerPage);
+
+int entryRowsPerPage = entryEnd - entryStart;
+
+int folderStart = ParamUtil.getInteger(request, "folderStart");
+int folderEnd = ParamUtil.getInteger(request, "folderEnd", SearchContainer.DEFAULT_DELTA);
+
+int folderRowsPerPage = folderEnd - folderStart;
+
+String orderByCol = ParamUtil.getString(request, "orderByCol");
+String orderByType = ParamUtil.getString(request, "orderByType");
+
+if (Validator.isNotNull(orderByCol) && Validator.isNotNull(orderByType)) {
+	portalPreferences.setValue(PortletKeys.DOCUMENT_LIBRARY, "order-by-col", orderByCol);
+	portalPreferences.setValue(PortletKeys.DOCUMENT_LIBRARY, "order-by-type", orderByType);
+}
+
+request.setAttribute("view.jsp-folder", folder);
+
+request.setAttribute("view.jsp-folderId", String.valueOf(folderId));
+
+request.setAttribute("view.jsp-repositoryId", String.valueOf(repositoryId));
+%>
+
+<div id="<portlet:namespace />documentLibraryContainer">
+	<aui:layout cssClass="lfr-app-column-view">
+	<!-- //<div style ="display:none" >  -->
+		<aui:column columnWidth="<%= 20 %>" cssClass="navigation-pane" first="<%= true %>">
+		
+			<liferay-util:include page="/html/portlet/document_library/view_folders.jsp" />
+
+			<div class="folder-paginator"></div>
+		</aui:column>
+<!--  </div>  --> 
+		<aui:column columnWidth="<%= showFolderMenu ? 80 : 100 %>" cssClass="context-pane" last="<%= true %>">
+			<div class="lfr-header-row">
+				<div class="lfr-header-row-content">
+				<button id="btnAdvanceSearch">Advance Search</button>
+					<c:if test="<%= showFoldersSearch %>">
+						<liferay-util:include page="/html/portlet/document_library/file_entry_search.jsp" />
+					</c:if>
+			
+					<div class="toolbar">
+						<liferay-util:include page="/html/portlet/document_library/toolbar.jsp" />
+					</div>
+
+					<div class="display-style">
+						<span class="toolbar" id="<portlet:namespace />displayStyleToolbar"></span>
+					</div>
+				</div>
+			</div>
+
+			<div class="document-library-breadcrumb" id="<portlet:namespace />breadcrumbContainer" style="display: none;">
+				<liferay-util:include page="/html/portlet/document_library/breadcrumb.jsp" />
+			</div>
+
+			<liferay-portlet:renderURL varImpl="editFileEntryURL">
+				<portlet:param name="struts_action" value="/document_library/edit_file_entry" />
+			</liferay-portlet:renderURL>
+
+			<aui:form action="<%= editFileEntryURL.toString() %>" method="get" name="fm2">
+				<aui:input name="<%= Constants.CMD %>" type="hidden" />
+				<aui:input name="redirect" type="hidden" value="<%= currentURL %>" />
+				<aui:input name="repositoryId" type="hidden" value="<%= repositoryId %>" />
+				<aui:input name="newFolderId" type="hidden" />
+				<aui:input name="folderIds" type="hidden" />
+				<aui:input name="fileEntryIds" type="hidden" />
+				<aui:input name="fileShortcutIds" type="hidden" />
+
+				<div class="document-container" id="<portlet:namespace />documentContainer">
+					<liferay-util:include page="/html/portlet/document_library/view_entries.jsp" />
+				</div>
+
+				<div class="document-entries-paginator"></div>
+			</aui:form>
+		</aui:column>
+	</aui:layout>
+</div>
+
+<%
+int entriesTotal = GetterUtil.getInteger((String)request.getAttribute("view_entries.jsp-total"));
+int foldersTotal = GetterUtil.getInteger((String)request.getAttribute("view_folders.jsp-total"));
+
+if (folder != null) {
+	if (portletName.equals(PortletKeys.DOCUMENT_LIBRARY)) {
+		PortalUtil.setPageSubtitle(folder.getName(), request);
+		PortalUtil.setPageDescription(folder.getDescription(), request);
+	}
+}
+%>
+
+<aui:script>
+	Liferay.provide(
+		window,
+		'<portlet:namespace />toggleActionsButton',
+		function() {
+			var A = AUI();
+
+			var actionsButton = A.one('#<portlet:namespace />actionsButtonContainer');
+
+			var hide = (Liferay.Util.listCheckedExcept(document.<portlet:namespace />fm2, '<portlet:namespace /><%= RowChecker.ALL_ROW_IDS %>Checkbox').length == 0);
+
+			if (actionsButton) {
+				actionsButton.toggle(!hide);
+			}
+		},
+		['liferay-util-list-fields']
+	);
+
+	<portlet:namespace />toggleActionsButton();
+</aui:script>
+
+<span id="<portlet:namespace />displayStyleButtonsContainer">
+	<liferay-util:include page="/html/portlet/document_library/display_style_buttons.jsp" />
+</span>
+
+<aui:script use="liferay-document-library">
+	<liferay-portlet:resourceURL copyCurrentRenderParameters="<%= false %>" varImpl="mainURL" />
+
+	new Liferay.Portlet.DocumentLibrary(
+		{
+			actions: {
+				DELETE: '<%= Constants.DELETE %>',
+				MOVE: '<%= Constants.MOVE %>'
+			},
+			allRowIds: '<%= RowChecker.ALL_ROW_IDS %>',
+			defaultParams: {
+				p_p_id: <%= portletId %>,
+				p_p_lifecycle: 0
+			},
+			defaultParentFolderId: '<%= DLFolderConstants.DEFAULT_PARENT_FOLDER_ID %>',
+			displayStyle: '<%= HtmlUtil.escapeJS(displayStyle) %>',
+			displayViews: ['<%= StringUtil.merge(displayViews, "','") %>'],
+			editEntryUrl: '<portlet:actionURL><portlet:param name="struts_action" value="/document_library/edit_entry" /></portlet:actionURL>',
+			entriesTotal: <%= entriesTotal %>,
+			entryEnd: <%= entryEnd %>,
+			entryRowsPerPage: <%= entryRowsPerPage %>,
+			entryRowsPerPageOptions: [<%= StringUtil.merge(PropsValues.SEARCH_CONTAINER_PAGE_DELTA_VALUES) %>],
+			entryStart: <%= entryStart %>,
+			folderEnd: <%= folderEnd %>,
+			folderId: <%= folderId %>,
+			folderIdRegEx: /&?<portlet:namespace />folderId=([\d]+)/i,
+			folderIdHashRegEx: /#.*&?<portlet:namespace />folderId=([\d]+)/i,
+			folderRowsPerPage: <%= folderRowsPerPage %>,
+			folderRowsPerPageOptions: [<%= StringUtil.merge(PropsValues.SEARCH_CONTAINER_PAGE_DELTA_VALUES) %>],
+			folderStart: <%= folderStart %>,
+			foldersTotal: <%= foldersTotal %>,
+			form: {
+				method: 'post',
+				node: A.one(document.<portlet:namespace />fm2)
+			},
+			mainUrl: '<%= mainURL %>',
+			moveEntryRenderUrl: '<portlet:renderURL><portlet:param name="struts_action" value="/document_library/move_entry" /></portlet:renderURL>',
+			namespace: '<portlet:namespace />',
+			portletId: '<%= portletId %>',
+			rowIds: '<%= RowChecker.ROW_IDS %>',
+			strutsAction: '/document_library/view',
+			updateable: <%= DLFolderPermission.contains(permissionChecker, scopeGroupId, folderId, ActionKeys.UPDATE) %>
+		}
+	);
+</aui:script>
+
+
+
+
+
+<liferay-portlet:resourceURL var="advanceSearch123" >
+	<portlet:param name="struts_action" value="/document_library/search" />
+</liferay-portlet:resourceURL>
+
+ 
+
+
+
+<!-- advance search----- -->
+
+<div id="divAdvanceSerach" title="Search Criteria" style="display:none; width: 200px; background: url('/IUCN-theme/images/right_box_bg.GIF') repeat scroll 0 0 transparent;">
+
+<aui:form action="<%= advanceSearch123.toString() %>" method="get" name="advancefm2" onSubmit='<%= "event.preventDefault();advanceDocumentSearch();" %>'>
+<!-- 	<div class="formElements">
+ -->		
+<!-- 	<table class="table.documentTable">
+ -->		<table class="formBlock">
+	
+<tr>
+	<td><label class="popuplbl">Type:</label></td>
+	<td>
+<aui:select 
+			label=""
+			name="docType" 
+			id="docType" onChange="javascript:fill_Cities(this.selectedIndex);"
+			style="width:202px;"
+			>
+		<option value="">select</option>
+		<option value="Confidential">Confidential</option>
+		<option value="Public">Public</option>
+		<option value="Official">Official</option>			
+		</aui:select>
+	</td>
+</tr>
+
+<tr>
+<td><label class="popuplbl">Category:</label></td>
+<td >
+<aui:select 
+			label="" 
+			name="docCategory" 
+			id="docCategory"
+			style="width:202px;"
+			>
+		<option value="">select</option>
+	</aui:select>
+
+</td>
+</tr>
+
+						
+<tr>
+		<td><label class="popuplbl"> Author :</label></td>
+		<td>
+<aui:input id="docAuthor" label="" name="docAuthor" type="text" style="width:200px;"  />
+</td>
+</tr>
+
+
+<tr>
+<td><label class="popuplbl"> Publish Date :</label></td>
+<td>
+
+<aui:input id="docpubDate" label=" " name="docpubDate" type="text" style="width:200px;"  />
+</td>
+</tr>
+
+<tr>
+	<td><label class="popuplbl"> Upload Date :</label></td>
+	<td>
+	<aui:input id="docUploadDate" label="" name="docUploadDate" type="text" style="width:200px;"  />
+	</td>
+</tr>
+
+<tr>
+	<td><label class="popuplbl"> Copyright :</label></td>
+	<td>
+	<aui:input id="docCopyright" label="" name="docCopyright" type="text" style="width:200px;" />
+	</td>
+</tr>
+
+<tr>
+<td> <label class="popuplbl"> Language :</label></td>
+<td>
+<aui:input id="docLanguage" label="" name="docLanguage" type="text" style="width:200px;" />
+</td>
+</tr>
+
+<tr >
+<td><label class="popuplbl"> Full COM :</label></td>
+<td>
+<aui:input id="docFull_COM" label="" name="docFull_COM" type="text" style="width:200px;" />
+</td>
+</tr>
+
+
+<tr>
+<td><label class="popuplbl">  COM :</label></td>
+<td>
+<aui:input id="docCOM" label="" name="docCOM" type="text" style="width:200px;" />
+	</td>
+	</tr>
+	
+	<tr>
+		<td><label class="popuplbl"> Site :</label></td>
+		<td>
+<aui:select changesContext="<%= true %>" label="" id="docSite" name="docSite"  style="width:202px;" class="siteSelect">
+	<aui:option label="Select"  value=""/>
+	<%
+		/* String testDataID="amit";
+		List<W> listTestData = TestDataLocalServiceUtil.getData(); */
+		
+		List<whp_sites> whp_sitesList=null;
+
+
+	    //int countrycnt=country_lkpLocalServiceUtil.getcountry_lkpsCount();
+	    try{
+	    	whp_sitesList=whp_sitesLocalServiceUtil.getAllActiveSites();
+	    	
+	    }catch(Exception ex){
+	    	System.out.print("EX: "+ ex.getMessage());
+	    }
+		
+		for (whp_sites currData : whp_sitesList) {
+				%>
+				<aui:option label="<%= currData.getName_en() %>"  value="<%= currData.getName_en() %>" />
+				<%
+		}
+		%>
+						</aui:select>
+						</td>
+	</tr>
+	
+	<tr>
+			<td colspan="2" align="right">
+			
+			<br>
+	<aui:button name="search" type="submit" value="Search"  />&nbsp;
+	<aui:button name="Clear" type="reset" value="Clear" />
+	
+		<!-- <input class="btn " type="submit" value="Search"  />
+		<input class="btn" type="reset" value="Clear" /> -->
+	</td>
+		</tr>
+<!-- 	</div>
+ -->	
+	</table>
+	
+	</aui:form>	
+</div>
+ <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style_metadata_form.css" />
+    <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/demos/external/jquery.bgiframe-2.1.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/demos/style.css" />
+    <script>
+    // increase the default animation speed to exaggerate the effect
+    $.fx.speeds._default = 1000;
+    $(function() {
+        $( "#divAdvanceSerach" ).dialog({
+            autoOpen: false,
+           // show: "blind",
+            //hide: "explode"
+           // height:300,
+            width: 308
+        });
+ 
+        $( "#btnAdvanceSearch" ).click(function() {
+        	$( "#divAdvanceSerach" ).show();
+        	$( "#divAdvanceSerach" ).dialog( "open" );
+            
+            return false;
+        });
+        
+      
+    });
+   
+    </script>
+
+
+<aui:script>
+//final script for advace search
+	function advanceDocumentSearch() {
+	$('#_20_documentContainer').empty();
+	
+	if((document.getElementById("_20_docFull_COM").value=="") && (document.getElementById("_20_docLanguage").value=="")&&(document.getElementById("_20_docCopyright").value=="")&&(document.getElementById("_20_docCOM").value=="")&&(document.getElementById("_20_docAuthor").value=="")&&(document.getElementById("_20_docpubDate").value=="")&&(document.getElementById("_20_docUploadDate").value=="")&&(document.getElementById("_20_docType").value=="")&&(document.getElementById("_20_docCategory").value=="")&&(document.getElementById("_20_docSite").value=="")) 	
+ {
+		alert("Enter atleast one value to search....");
+		return false;
+		
+	}
+	else
+	
+	$("#divAdvanceSerach" ).dialog( "close" );
+	
+		Liferay.fire(
+			'<portlet:namespace />dataRequest',
+			{
+				requestParams: {
+					'<portlet:namespace />struts_action': '/document_library/search',
+					'<portlet:namespace />docType': document.<portlet:namespace />advancefm2.<portlet:namespace />docType.value,
+					'<portlet:namespace />docCategory': document.<portlet:namespace />advancefm2.<portlet:namespace />docCategory.value,
+					'<portlet:namespace />docSite': document.<portlet:namespace />advancefm2.<portlet:namespace />docSite.value,
+					'<portlet:namespace />docAuthor': document.<portlet:namespace />advancefm2.<portlet:namespace />docAuthor.value,
+					'<portlet:namespace />docpubDate': document.<portlet:namespace />advancefm2.<portlet:namespace />docpubDate.value,
+					'<portlet:namespace />docUploadDate': document.<portlet:namespace />advancefm2.<portlet:namespace />docUploadDate.value,
+					'<portlet:namespace />docCopyright': document.<portlet:namespace />advancefm2.<portlet:namespace />docCopyright.value,
+					'<portlet:namespace />docLanguage': document.<portlet:namespace />advancefm2.<portlet:namespace />docLanguage.value,
+					'<portlet:namespace />docFull_COM': document.<portlet:namespace />advancefm2.<portlet:namespace />docFull_COM.value,
+					'<portlet:namespace />docCOM': document.<portlet:namespace />advancefm2.<portlet:namespace />docCOM.value,
+					'<portlet:namespace />keywords': 'advance_search'
+				},
+				src: Liferay.DL_SEARCH
+			}
+		);
+
+		
+
+	}
+</aui:script>
+
+<aui:script>
+
+    AUI().use('aui-datepicker', function(A) {
+
+       var simpleDatepicker1 = new A.DatePicker({
+       calendar:{
+       dates:[],
+        dateFormat: '%d/%m/%Y',
+        selectMultipleDates: false
+       },
+
+        trigger: '#<portlet:namespace />docUploadDate',
+
+       }).render();
+		
+    });
+</aui:script>
+<aui:script>
+
+    AUI().use('aui-datepicker', function(A) {
+
+       var simpleDatepicker1 = new A.DatePicker({
+       calendar:{
+       dates:[],
+        dateFormat: '%d/%m/%Y',
+        selectMultipleDates: false
+       },
+
+        trigger: '#<portlet:namespace />docpubDate',
+
+       }).render();
+		
+    });
+</aui:script>
+
+
+
+
+
+<script>
+var i;
+function fill_Cities(i){
+
+var form1 = document.getElementById("_20_docCategory");
+//document.form1.docCategory.options.length=0;
+form1.options.length=0;
+switch(i)
+{ 
+case 0:
+	form1.options[0] =new Option('Select','');
+	form1.options[1] =new Option('Consultation questionnaire','Consultation questionnaire');
+	form1.options[2] =new Option('Stakeholder letter','Stakeholder letter');
+	form1.options[3] =new Option('Stakeholder report','Stakeholder report');
+	form1.options[4] =new Option('Stakeholder email','Stakeholder email');
+	form1.options[5] =new Option('IUCN/WHC internal email','IUCN/WHC internal email');
+	form1.options[6] =new Option('Other','Other');
+	form1.options[7] =new Option('Consultation questionnaire','Consultation questionnaire');
+	form1.options[8] =new Option('Stakeholder letter','Stakeholder letter');
+	form1.options[9] =new Option('Stakeholder report','Stakeholder report');
+	form1.options[10]=new Option('Stakeholder email','Stakeholder email');
+	form1.options[11] =new Option('IUCN/WHC internal email','IUCN/WHC internal email');
+	form1.options[12] =new Option('Other','Other');
+	form1.options[13] =new Option('Nomination documents','Nomination documents');
+	form1.options[14] =new Option('Nomination inventory','Nomination inventory');
+	form1.options[15] =new Option('UNESCO Inventory of nomination','UNESCO Inventory of nomination');
+	form1.options[16] =new Option('Submitted map at inscription','Submitted map at inscription');
+	form1.options[17] =new Option('Revised maps','Revised maps');
+	form1.options[18] =new Option('Electronic boundary file','Electronic boundary file');
+	form1.options[19] =new Option('Original proposed management plan','Original proposed management plan');
+	form1.options[20] =new Option('Advisory Body Evaluation report','Advisory Body Evaluation report');
+	form1.options[21] =new Option('WCMC Datasheet at inscription','WCMC Datasheet at inscription');
+	form1.options[22] =new Option('Committee decision reference number','Committee decision reference number');
+	form1.options[23] =new Option('Statement of OUV','Statement of OUV');
+	form1.options[24] =new Option('Reactive monitoring mission','Reactive monitoring mission');
+	form1.options[25] =new Option('Advisory mission','Advisory mission');
+	form1.options[26] =new Option('State Party report','State Party report');
+	form1.options[27] =new Option('UNESCO letter','UNESCO letter');
+	form1.options[28] =new Option('IUCN letter','IUCN letter');
+	form1.options[29] =new Option('Responses to UNESCO or IUCN','Responses to UNESCO or IUCN');
+	form1.options[30] =new Option('SOC report','SOC report');
+	form1.options[31] =new Option('PR (Periodic Report) Questionnaires','PR (Periodic Report) Questionnaires');
+	form1.options[32] =new Option('EIA and related documentation','EIA and related documentation');
+	form1.options[33] =new Option('DSOCR (Corrective Measures)','DSOCR (Corrective Measures)');
+	form1.options[34] =new Option('Other','Other');
+	form1.options[35]=new Option('Committee decisions','Committee decisions');
+break;
+case 1:
+form1.options[0] =new Option('Select','');
+form1.options[1] =new Option('Stakeholder letter','Stakeholder letter');
+form1.options[2] =new Option('Stakeholder report','Stakeholder report');
+form1.options[3] =new Option('Stakeholder email','Stakeholder email');
+form1.options[4] =new Option('IUCN/WHC internal email','IUCN/WHC internal email');
+form1.options[5] =new Option('Consultation questionnaire','Consultation questionnaire');
+form1.options[6] =new Option('Other','Other');
+break;
+case 2:
+form1.options[0] =new Option('Select','');
+form1.options[1] =new Option('Management Effectiveness Evaluation','Management Effectiveness Evaluation');
+form1.options[2] =new Option('Other management plan','Other management plan');
+form1.options[3] =new Option('Scientific article','Scientific article');
+form1.options[4] =new Option('Grey literature','Grey literature');
+form1.options[5] =new Option('Wildlife/habitat survey','Wildlife/habitat survey');
+form1.options[6] =new Option('Legislation','Legislation');
+form1.options[7] =new Option('Map','Map');
+form1.options[8] =new Option('Picture','Picture');
+form1.options[9] =new Option('Media article','Media article');
+form1.options[10] =new Option('Management Plan','Management Plan');
+break;
+case 3:
+form1.options[0] =new Option('Select','');
+form1.options[1] =new Option('Nomination inventory','Nomination inventory');
+form1.options[2] =new Option('UNESCO Inventory of nomination','UNESCO Inventory of nomination');
+form1.options[3] =new Option('Submitted map at inscription','Submitted map at inscription');
+form1.options[4] =new Option('Revised maps','Revised maps');
+form1.options[5] =new Option('Electronic boundary file','Electronic boundary file');
+form1.options[6] =new Option('Original proposed management plan','Original proposed management plan');
+form1.options[7] =new Option('Advisory Body Evaluation report','Advisory Body Evaluation report');
+form1.options[8] =new Option('WCMC Datasheet at inscription','WCMC Datasheet at inscription');
+form1.options[9] =new Option('Committee decision reference number','Committee decision reference number');
+form1.options[10] =new Option('Statement of OUV','Statement of OUV');
+form1.options[11] =new Option('Reactive monitoring mission','Reactive monitoring mission');
+form1.options[12] =new Option('Advisory mission','Advisory mission');
+form1.options[13] =new Option('State Party report','State Party report');
+form1.options[14] =new Option('UNESCO letter','UNESCO letter');
+form1.options[15] =new Option('IUCN letter','IUCN letter');
+form1.options[16] =new Option('Responses to UNESCO or IUCN','Responses to UNESCO or IUCN');
+form1.options[17] =new Option('SOC report','SOC report');
+form1.options[18] =new Option('PR (Periodic Report) Questionnaires','PR (Periodic Report) Questionnaires');
+form1.options[19] =new Option('EIA and related documentation','EIA and related documentation');
+form1.options[20] =new Option('DSOCR (Corrective Measures)','DSOCR (Corrective Measures)');
+form1.options[21] =new Option('Other','Other');
+form1.options[22] =new Option('Committee decisions','Committee decisions');
+form1.options[23] =new Option('Nomination documents','Nomination documents');
+}
+}
+</script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		//$('#wrapper').first('div').css('background','red');
+		//$('table.documentTable td').css('text-align','right');
+		//$('input').css('width','200px');
+		//$('.siteSelect').css('width','200px');
+		$('table.documentTable td').css('margin-bottom','10px');
+		//$('label').parent('td').css('text-align','right');
+	});
+</script>

@@ -1,0 +1,6 @@
+/*for border-radius in ie*/
+
+.sitePopup
+{
+	position: relative;
+}

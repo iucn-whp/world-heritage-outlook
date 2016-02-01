@@ -1,0 +1,2392 @@
+/*style_main CSS*/
+.outerWrapper
+{
+	background: url("../images/inner-bg.gif") repeat-x 0px 0px #FFFFFF
+	}
+
+	.showHeaderNavigation
+	{
+	display:none;
+	}
+
+/* *
+{
+	margin: 0;
+	padding: 0;
+	font-family: Arial;
+	font-size: 12px;
+	list-style:none;
+	}
+ */
+body
+{
+	background: #EAE9E7;
+}
+	
+body.baseBody
+{
+	background: #ededed;
+}
+
+body.siteInfoDashboardBody
+{
+	background: #ededed;
+}
+
+a
+{
+	color: #1124B3;
+}
+
+
+.mainBlock
+{
+	margin: 0 auto 0 auto;
+	
+	overflow: hidden;
+}
+
+.mainBlockContainer01
+{
+margin: 0;
+border: 1px solid #c4c4c4;
+overflow: hidden;
+background: #fff url('../images/strip_A.png') top right repeat-y;
+padding:0.5em 0 0 0.5em;
+}
+
+
+.mainFloatRight
+{
+	
+	float:right;
+	padding: 0 0px 0 0px;
+	overflow: hidden;
+	}
+
+.mainBlockSiteInfo
+{
+	clear:both;
+
+	
+}
+
+.siteInfoMainBlock
+{
+	border: none;
+	overflow: hidden;
+}
+
+.siteInfoTableHeading 
+{
+	margin: 10px 0 10px 0;
+}
+
+.topBar
+{
+	margin: 0 auto;
+	width: auto;
+	background:#D9E4EA url(../images/bg_top_searchbar.png) left top repeat-x;
+	border:1px solid #A2B6C6;
+	border-bottom:0px\9;
+	*border-bottom:1px;
+	padding:0.1 0 0.2m 0;
+}
+
+
+
+
+
+div.breadCrumb
+{
+	margin: 8px 0 0 20px;
+	overflow: hidden;
+}
+
+div.breadCrumb ul li
+{
+	float: left;
+}
+
+div.breadCrumb ul li span
+{
+	display: block;
+	width: 9px;
+	height: 11px;
+	background: url(../images/arrow_pointer.png) no-repeat 2px 4px;
+}
+
+div.breadCrumb a
+{
+	padding-left: 4px;
+	font-size: 11px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.spanStyle
+{
+	width: 5px;
+	height: 7px;
+	background: url('../images/aero_pointer.png');
+}
+
+a.currentPage
+{
+	color: #868686;
+}
+
+a.homeLink
+{
+	font-weight: bold;
+	color: #0e2e64;
+}
+
+.editDelete
+{
+	display: inline-block;
+	padding-left: 1.6em;
+}
+
+.siteInfoDashboardEditIcons
+{
+	margin-left: 3.5em;
+}
+
+div.editDelete a span.anchorTxt
+{
+	display: none;
+}
+
+.editIcons 
+{
+	width: 102px;
+}
+
+.editIconsSiteInfoDashboard
+{
+	width: 200px;
+}
+.back{
+	margin-right: 10px;
+}
+.edit, .delete, .view
+{
+	margin-right: 10px;
+	display: inline-block;
+	text-indent: -9999px;
+}
+
+.edit
+{
+	float: left;
+	margin-right: 10px;
+	display: block;
+	width: 26px;
+	height: 23px;
+	text-indent: -9999px;
+	background: url('../images/edit.png') no-repeat;
+}
+
+.singleIconContainer
+{
+    padding-left: 3.2em;
+}
+
+.delete
+{
+	float: left;
+	display: block;
+	width: 16px;
+	height: 18px;
+	text-indent: -9999px;
+	background: url('../images/bin.png') no-repeat;
+}
+.view
+{
+	width: 18px;
+	height: 20px;
+	background: url('../images/initiate.png') no-repeat 0 3px;
+}
+.row 
+{	
+	padding: 0.7em 0 0.7em 0.4em;
+	border-bottom: 1px dashed #CCC;
+	background: #fff;
+	overflow:hidden;
+	clear:both;
+	display:block;
+}
+
+.lastRow
+{
+	border-bottom: none;
+}
+
+.firstRow
+{	
+	clear: both;
+	margin-top: 0;
+}
+
+.inputLeft
+{
+	float: left;
+	padding: 0 0 0 20px;
+	width: 245px;
+	background: url('../images/aero_small.png') no-repeat 4px center;
+}
+
+.inputRight
+{
+	float: left;
+	/*width: 191px;*/
+}
+
+input.txtInput 
+{
+	display: inline-block;
+	margin: 0 0 0 0.4em;
+	padding: 0.02em 0.3em 0 0.3em;
+	width: 73px;
+	height: 20px;
+	border: none;
+	background: url('../images/filter_form_txtInput_bg.gif') no-repeat;
+}
+
+.altColor
+{
+	background: #FAFAFA;
+}
+
+
+.tableWrapper 
+{
+}
+
+.tableWrapperSiteInfoContacts
+{
+	width: 98%;
+}
+
+
+.linksBlock 
+{
+	width:200px;
+	margin: 0.3em 0em 0.5em 0;
+	border: 1px solid #CCC;
+	overflow: hidden;
+	background: url('../images/right_box_bg.GIF');
+}
+
+.linksBlockWrapper
+{
+	height: 100%;
+	overflow: auto;
+}
+
+.firstLinksBlock
+{
+	margin-top: 10px;
+}
+
+.linksBlock p 
+{
+	font-weight: bold;
+}
+
+.links
+ {
+	margin: 10px 0 0 0;
+	padding: 0 0 10px 8px;
+	border-bottom: none;
+	background: url(../images/aero.png) no-repeat 344px;
+}
+
+.links span
+{
+	color: #000;
+}
+
+.links a
+{
+	color: #1124B3;
+}
+
+.firstLink
+{
+	margin-top: 10px;
+}
+
+.infoWrapper 
+{
+clear:both;
+display:block;
+	/*margin: 5px 0 5px 0;*/
+}
+
+
+.infoWrapperBorder
+{
+	border:1px solid #DBDBDB;
+	margin:0 0.5em 0 0.5em;
+	
+}
+
+.rowWrapper
+{
+	clear: both;
+
+}
+
+
+.tblBlockHeader
+{
+	display: block;
+	color: #000;
+	border-bottom: 2px solid #A0A0A0;
+	margin:0.5em 0.5em 0.5em 0.5em;
+	padding:0;
+	overflow:hidden;
+}
+
+.header02
+{
+	float:left;
+	font-size:14px;
+	padding:0.3em 0 0.6em 0;
+	margin:0;
+	font-weight:bold;
+	}
+
+h2.pageHeading
+{
+	float: left;
+	display: inline-block;
+	clear: both;
+	margin: 8px 0 0 0;
+	padding: 0px 1px 0 9px;
+	/* height: 25px; */
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: none;
+	font-size: 16px;
+	color: #5A7CB4;
+}
+
+h2.siteAssessmentPageHeading 
+{
+	border: none;
+	background: url(../images/page_heading.png) no-repeat 142px 12px;
+	margin-left: 0.2em;
+}
+
+h2.siteAssessmentSubHeadings
+{
+	border: none;
+	margin-left: 10px;
+}
+
+h3 
+{
+
+}
+
+h3.pageSubHeading
+{
+
+	width: 954px;
+	height: 30px;
+	padding-left: 10px;
+	line-height: 30px;
+	margin: 10px 10px 0 0;
+	color: white;
+	background: #5296BB;
+	border: 1px solid #88B4C7;
+}
+
+
+
+
+
+
+.header01
+{
+	background: #ECF5FE;
+	overflow:hidden;
+	border-bottom:1px solid #DBDBDB; 
+	
+}
+	
+h3.basicInfoPageTitle
+ {
+	float: left;
+	display:inline-block;
+	color: #1A4D41;
+	margin:0;
+	padding:0.3em 0 0.2em 0.5em;
+	font-weight:bold;
+	font-size:18px;
+	}
+	
+	.floatRight01
+	{
+	float:right;
+	}
+
+
+
+
+.rowBasicInfo
+{
+	padding: 1em 0 2em 0.4em;
+	border-bottom: 1px dashed #cccccc;
+	background: #f5f8fb;
+}
+
+.editLink 
+{
+	float: right;
+
+	display: inline-block;
+	width: 49px;
+	height: 24px;
+	line-height: 24px;
+	text-align: center;
+	color: white;
+	text-decoration: none;
+	background: url('../images/form_button_bg.png');
+
+
+	margin: 3px 5px 0 0;
+	*margin:-27px 5px 0 0;
+}
+
+.linksBlockBasicInfo
+{
+	width: 183px;
+	margin: 12px 15px 0 4px;
+	float: left;
+}
+
+.linksBlockBasicInfo p 
+{
+	margin-top: 5px;
+	font-weight: bold;
+	margin-left: 10px;
+	color: #5263A5;
+}
+
+.thumbnail 
+{
+	margin: 0 0 0 9px;
+	height: 94px;
+	background: url(../images/mountains_of_virgin_komi_02.jpg) no-repeat;
+}
+
+.linksBlock p 
+{
+	color: #222222;
+	font-weight: bold;
+	margin: -1px 0 0 0;
+}
+
+.subNavBar
+{
+	clear: both;
+	margin-top: 6px;
+	width: 100%;
+	height: 27px;
+	border-bottom: 1px solid #DFDFDF;
+}
+
+.subNavBarlinks
+ {
+	margin-left: 7px;
+}
+
+.subNavBarlinks span
+{
+	display: none;
+}
+
+.subNavBar a 
+{
+	float: left;
+	margin: 2px 2px 0 0;
+	display: inline-block;
+	width: 102px;
+
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+	color: #484848;
+	background: url(../images/subNavBar_bg.gif);
+	border-radius: 10px 10px 0 0;
+	border: 1px solid #DFDFDF;
+	border-bottom: none;
+	text-decoration: none;
+}
+
+a.stepsSiteinfo
+{
+	width: 118px;
+}
+
+a.stepsSiteAssessment
+{
+	width: 102px;
+}
+
+.frame
+{
+	margin: 0 auto 0 auto;
+	width: 990px;
+	height: 700px;
+	overflow: hidden;
+	background: #fff;
+}
+
+th.inscriptionYr 
+{
+	width: 100px;
+}
+
+.submissionInfo460
+{
+	width: 460px;
+}
+
+.emailWidth230
+{
+	width: 230px;
+}
+
+td.inscriptionYr
+{
+	text-align: right;
+	word-wrap: nowrap;
+}
+
+th.dataDeficient
+{
+	width: 100px;
+}
+
+th.ththSiteInfoDashboard
+{
+	text-shadow: 0 1px white;
+	height: 24px;
+	line-height: 24px;
+	background: url('../images/table_header_bg.gif') repeat-x;
+}
+
+th.whSitesName
+
+{
+
+	width: 250px;
+}
+
+.siteName
+{
+	color: #103573;
+}
+
+/*table
+{
+
+	width: 100%;
+	border-top: 1px solid #d8d8d8;
+	border-right: none;
+	border-left:1px solid #d8d8d8;
+	word-wrap: no-wrap;
+}*/
+
+
+table.tableTest
+{
+	width: 100%;
+}
+
+td, th
+{
+	padding: 0.5em 0.3em;
+	border-bottom: 1px solid #d8d8d8;
+	border-right: 1px solid #d8d8d8;
+}
+
+td
+{
+	padding-left: 0.3em;
+	text-align: left;
+}
+
+/*.thSiteInfoDashboard 
+{
+	height: 24px;
+	padding: 0;
+}*/
+
+th
+{
+	text-align: left;
+	word-wrap: nowrap;
+	background: url('../images/th_gradient.gif');
+	font-weight:bold;
+	font-size:13px;
+}
+
+.addBtn
+{
+	
+	background: url("../images/add_btn_bg.gif") repeat-x scroll left top #F4F4F4;
+    border: 1px solid #A0A0A0;
+    border-radius: 5px;
+    color: #0D2938;
+    display: inline;
+    float: right;
+    font-weight: bold;
+    height: 15px;
+    margin: 0.5em 1em 0 0;
+    padding: 0.17em 0.9em;
+    position: relative;
+    text-decoration: none;
+	
+	
+	
+}
+
+.editicons
+ {
+	text-align: center;
+	width: 120px;
+}
+
+.subHeading
+{
+	margin-top: 15px;
+	border: none;
+	color: #1c4b91;
+}
+
+.tableHeading
+{
+	font-weight: bold;
+}
+
+.pageSubHeading
+{
+	display: inline-block;
+	border: none;
+	color: #2a2a9c;
+}
+
+tr.even
+{
+	background: #fff;
+}
+
+tr.odd
+{
+	background: #f2fafc;
+}
+
+.linksBlock span
+{
+	color: #000;
+}
+
+.linksBlock a
+{
+	display: block;
+}
+
+.lastmissionlink 
+{
+	padding-left: 10px;
+	padding-bottom: 20px;
+	border-bottom: none
+}
+
+
+p.docLinksHeading
+{
+	padding: 0.4em 0 0.4em 0.4em;
+	margin-top: -1px;
+	border: 1px solid #cccccc;
+	border-left: 0;
+	border-right: 0;
+	border-bottom: 0;
+	background: url('../images/accordion_default.png');
+}
+
+p.hoverAccordion
+{
+	cursor: pointer;
+	padding: 0.4em 0 0.4em 0.4em;
+	margin-top: -1px;
+	border: 1px solid #cccccc;
+	border-left: 0;
+	border-right: 0;
+	border-bottom: 0;
+	background: url('../images/accordion_hover.png') repeat-x;
+}
+
+p.accordionVisited
+{
+	padding: 0.4em 0 0.4em 0.4em;
+	margin-top: -1px;
+	border: 1px solid #cccccc;
+	border-left: 0;
+	border-right: 0;
+	border-bottom: 1px solid #cccccc;
+	background: url('../images/accordion_visited.PNG') repeat-x;
+}
+
+div.ExpandCollapseBtn
+{
+	cursor: pointer;
+	padding-left: 18px;
+    width: 100%;	
+	background: url("../images/aero_expand.png") no-repeat scroll 5px 8px transparent;
+}
+/*site information dashboard CSS starts here*/
+
+.pageHeadingSiteInfoDashboardWrapper
+{
+	display: block;
+	overflow: hidden;
+}
+
+.pageHeadingSiteInfoDashboard
+{
+	float: left;
+	display: inline-block;
+	clear: both;
+	margin: 8px 0 0 0;
+	padding: 0px 1px 0 12px;
+	border-left: 1px solid red;
+	border: none;
+	font-size: 16px;
+	color: #5A7CB4;
+}
+
+.headingStyle
+{
+	
+	/* float: left; */
+	margin: 1.7em 0 0 0.2em;
+	display: inline-block;
+	width: 338px;
+	height: 4px;
+	background: url(../images/page_heading.png) no-repeat;
+}
+
+.selectRegion
+{
+	margin-top: 0.5em;
+	width: 25em;
+}
+
+.filterBox
+{
+	display: none;
+	margin: 0 auto 0 auto;
+	width: auto;
+	height: 121px;
+	border: 1px solid #c5c5c5;
+	background: url('../images/filter_bg.gif') repeat-x;
+}
+
+.accordian
+{
+	margin: 1px auto 0 auto;
+	width: auto;
+	height: 31px;
+	border: 1px solid #c5c5c5;
+	background: url('../images/accordian_bg.gif') repeat-x;
+}
+
+.accordianContent
+{
+	padding: 0.6em 0 0 0.5em;
+}
+
+label.searchBarLabel 
+{
+	margin: 0.1em 0 0 0.3em;
+	width: 133px;
+}
+
+label.searchBarLabel select
+{
+	width: none;
+	height: none;	
+}
+
+a.expandCollapseBtn 
+{
+	display: inline-block;
+	width: 10px;
+	height: 14px;
+	text-indent: -9999px;
+	background: url('../images/aero_right.png') no-repeat 0 2px;
+}
+
+.advanceSearchBtn 
+{
+	cursor: pointer;
+	float: right;
+	width: 100px;
+	height: 29px;
+	margin: 0 0.5em 0 0;
+	border: none;
+	background: url('../images/button.png');
+}
+
+.accordian p
+{
+	margin-left: -3px;
+	display: inline;
+	
+}
+
+.aeroDown
+{
+	background: #fff;
+}
+
+.filterFormContainer
+{
+	margin: 2px 0 0 2px;
+	width: 958px;
+	height: 115px;
+	background: url('../images/filter_form_bg.gif') no-repeat;
+}
+
+.block1 
+{
+	float: left;
+	padding-top: 1em;
+	width: 352px;
+	overflow: hidden;
+}
+
+.rowBlock1
+{
+	width: 350px;
+	height: 28px;
+	display: inline-block;
+	overflow: hidden;
+}
+
+span.radioHeading
+{
+	float: left;
+	height: 12px;
+}
+
+.block2 
+{
+	float: left;
+	margin-left: 1.5em;
+	padding-top: 1em;
+	width: 287px;
+	overflow: hidden;
+}
+
+.block1 label, .block2 label, .block3 label
+{
+	margin-top: 0;
+}
+
+div.rowBlock2 
+{
+	position: relative;
+	width: 287px;
+	height: 28px;
+	display: block;
+	overflow: hidden;
+}
+
+div.rowBlock2 input, div.rowBlock3 input
+{
+	margin: 0.4em 0 0 0.3em;
+}
+
+/*div.rowBlock2 span, div.rowBlock3 span
+ {
+	display: inline-block;
+	width: 117px;
+	margin: 0.5em 0.5em 0 0;
+	float: left;
+}*/
+
+.block3 
+{
+	display: block;
+	float: right;
+	margin: 0 0.7em 0 0em;
+	padding-top: 1em;
+	width: 289px;
+	overflow: hidden;
+	position: relative;
+	top: -80px;
+}
+
+.rowBlock3
+ {
+	position: relative;
+	width: 287px;
+	height: 28px;
+	display: inline-block;
+	overflow: hidden;
+}
+
+.rowBlock3 span
+{
+	width: 146px;
+}
+
+.textInput
+{
+	width: 80px;
+}
+
+/* .filterFormContainer span
+{
+	float: right;
+	display: inline-block;
+	text-align: right;
+} */
+
+span.left
+{
+	float: left;
+}
+
+span.left span
+{
+	display: inline;
+	padding-top: 0.2em;
+	width: 88px;
+}
+
+span.right
+{
+	float: left;
+}
+
+span.right p
+{
+	float: left;
+}
+
+.left
+{
+	float: left;
+	margin-top: 0;
+	width: 180px;
+}
+
+.right
+{
+	float: left;
+	margin-top: 0;
+}
+
+.left span 
+{
+	width: 90px;
+	float: left;
+}
+
+.lblLeft
+{
+	width: 83px;
+	text-align: right;
+}
+
+
+.rowBlock2 div, .rowBlock3 div
+{
+	display: inline-block;
+}
+
+.block2Label
+{
+	width: 100px;
+}
+
+
+div.advancedSearch
+
+{
+	float: left;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+input.advancedsearchBox
+{
+	float: left;
+	padding-left: 5px;
+	width: 228px;
+	height: 25px;
+	line-height: 25px;
+	color: #a8a8a8;
+	border: none;
+	background: url('../images/search_bar.gif');
+}
+
+input.advancedsearchBtn
+{
+	float: left;
+	cursor: pointer;
+	width: 25px;
+	height: 25px;
+	border: none;
+	background: url('../images/search_btn.gif');
+}
+
+input.txtInput 
+{
+	display: inline-block;
+	margin: 0 0 0 0.4em;
+	padding: 0 0.3em 0 0.3em;
+	width: 73px;
+	height: 20px;
+	line-height: 20px;
+	border: none;
+	color: #000;
+	background: url('../images/filter_form_txtInput_bg.gif') no-repeat;
+}
+
+select.dropDown 
+{
+	/*float: right;*/
+	position: absolute;
+	/*margin: 0.4em 0 0 0.3em;*/
+}
+
+select.dropDownConcern 
+{
+	float: left;
+	margin: 0 0 0 0.5em;
+}
+
+.searchBtn 
+{
+	float: right;
+	margin: 1.3em 0.5em 0 0;
+	width: 55px;
+	height: 23px;
+	border: none;
+	cursor: pointer;
+	background: url('../images/searchBtn_filterBox.gif') no-repeat left center;
+}
+
+.siteInfoDashboardInitiate,.siteInfoDashboardEdit,.siteInfoDashboardDelete
+{
+	margin-right: 10px;
+	display: inline-block;
+}
+
+.siteInfoDashboardInitiate
+ {
+	width: 18px;
+	height: 20px;
+	background: url('../images/initiate.png') no-repeat 0 3px;
+}
+
+.siteInfoDashboardEdit
+{
+	width: 26px;
+	height: 23px;
+	background: url(../images/edit.png) no-repeat;
+}
+
+.siteInfoDashboardDelete
+ {
+	width: 16px;
+	height: 18px;
+	background: url(../images/bin.png) no-repeat;
+}
+
+.formLinksRight
+{
+	overflow: hidden;
+	float: left;
+    position: absolute;
+    right: 0;
+    top: 30px;
+}
+
+.formLinks
+{
+	overflow: hidden;
+	clear: both;
+}
+
+
+.formLinks a, .formLinksRight a
+{
+	float: right;
+	padding: 0.1em 0.9em 0 0.9em;
+	display: inline-block;
+	margin: 5px 5px 0 3px;
+	text-align: center;
+	font-weight: bold;
+	text-decoration: none;
+	border-radius: 5px 5px 5px 5px;
+	border: 1px solid #A0A0A0;
+	color: #0D2938;
+	background: url("../images/add_btn_bg.gif") repeat-x left top #F4F4F4;
+    border: 1px solid #A0A0A0;
+    border-radius: 5px;
+    color: #0D2938;
+}
+
+.formLinks a:hover
+{
+	color: #F90;
+	border-bottom: none;
+	text-decoration: none;
+}
+
+div.siteAssessmentFormLinks
+{
+	width: 944px;
+}
+
+.formLinksSiteInfoContact
+{
+	width: 100%;
+	background: url('../images/form_links_contact_bg.gif');
+
+}
+
+.formLinksSiteInfoContact a
+
+{
+	border: none;
+
+}
+
+/*site information dashboard CSS ends here*/
+
+/*site information forms CSS starts here*/
+
+/* div.formBlock
+{
+	display: none;
+	margin: 10px;
+	width: 345px;
+	font-size: 12px;
+	border: 1px solid #dddddd;
+	background: red;
+	background: url('../images/right_box_bg.gif');
+	overflow: hidden;
+} */
+
+p.formHeading
+{
+	display: block;
+	padding-left: 8px;
+	height: 32px;
+	line-height: 32px;
+	color: #212121;
+	text-shadow: 0 1px #f2f3f7;
+	background: url('../images/form_header_bg.gif');
+}
+
+label
+{
+	float: left;
+	margin-bottom: 10px;
+	overflow: hidden;
+}
+
+a.close 
+{
+float: right;
+display: inline-block;
+background: url('../images/close.png') no-repeat;
+height:17px;
+width: 18px;
+margin-right: 5px;
+margin-top:8px;
+*position:relative;
+*top:-33px;
+}
+
+span.closeTxt
+{
+	display: none;
+}
+
+.formElements
+{
+	padding: 10px;
+	overflow: hidden;
+}
+
+.dropDown li ul
+{
+	position: relative;
+	top: 1px;
+	display: none;
+	margin: 0;
+	*margin: 0;
+}
+
+.dropDown li a
+{
+	display: block;
+	padding: 0.5em 0 0 1em;
+	color: #212121;
+	text-decoration: none;
+}
+
+ul.dropDown li ul li a
+{
+	display: inline-block;
+	width: 267px;
+	height: 27px;
+	line-height: 27px;
+	color: #000;
+	font-size: 12px;
+	padding: 0 1em 0 0.4em;
+}
+
+.parentLi
+{
+	display: inline-block;
+	width: 237px;
+	height: 27px;
+	background: url('../images/form_drop_down_bg.gif')no-repeat;
+}
+
+.borderMiddle
+{
+	display: block;
+	width: 267px;
+	background: url('../images/form_dropdown_ul_border_middle.gif') repeat-y;
+	overflow: hidden;
+}
+
+.borderbottom
+{
+	display: block;
+	width: 267px;
+	height: 3px;
+	background: url('../images/form_dropdown_ul_border_bottom.gif')no-repeat;
+}
+
+
+nput
+{
+	float: right;
+}
+
+
+
+.InputCheckbox
+{
+	float: left;
+	margin-left: 5px;
+}
+
+.includeExcludeContainer
+{
+	margin-left: 5px;
+}
+
+.buttons 
+{
+	display: block;
+	margin: 10px 0 11px 93px;
+}
+
+.contactButtonsWrap
+{
+	display: block;
+	margin-left: 88px;
+}
+
+.indCommButtonsWrap
+{
+	display: block;
+	margin-left: 74px;
+}
+
+.populationButtonsWrap
+{
+	display: block;
+	margin-left: 70px;
+}
+
+.staffButtonsWrap
+{
+	display: block;
+	margin-left: 47px;
+}
+
+.visitorsButtonsWrap
+{
+	display: block;
+	margin-left: 47px;
+}
+
+.boundaryModificationsWrap
+{
+	display: block;
+	margin-left: 77px;
+}
+
+.dangerListButtonsWrap
+{
+	display: block;
+	margin-left: 99px;
+}
+
+.dsorButtonsWrap
+{
+	display: block;
+	margin-left: 42px;
+}
+
+.InscCriteriaButtonsWrap
+{
+	display: block;
+	margin-left: 54px;
+}
+
+.SOOUVButtonsWrap
+{
+	display: block;
+	margin-left: 95px;
+}
+
+.flagshipSpeciesButtonsWrap
+{
+	display: block;
+	margin-left: 138px;
+}
+
+.IUCNPaCategoryButtonsWrap
+{
+	display: block;
+	margin-left: 40px;
+}
+
+.budgetButtonsWrap
+{
+	clear: both;
+	width: 100%;
+	text-align: left;
+	float: left;
+	margin-left: 112px;
+	/*margin-left: 56px;*/
+}
+ 
+.budgetButtonsWrap input
+{
+	float: left;
+}
+
+.designationsButtonsWrap
+{
+	display: block;
+	margin-left: 88px;
+
+}
+
+input.btn
+{
+	cursor: pointer;
+	float: left;
+	margin-right: 2px;
+	width: 49px;
+	height: 24px;
+	border: none;
+	color: #fff;
+	background: url('../images/form_button_bg.png');
+}
+
+input.siteInfoTxtInput
+{
+	float: right;
+	height: 27px;
+	width: 234px;
+	margin-left: 8px;
+	padding-left: 3px;
+}
+
+
+{
+	float: right;
+	width: 241px;
+	height: 27px;
+	line-height: 27px;
+	margin-left: 8px;
+	/*background: url('../images/form_drop_down_bg.gif'); */
+}
+
+div.labelContainer
+
+{
+	display: block;
+	margin: 11px 0 5px 0;
+	overflow: hidden;
+}
+
+.labelInsideSite 
+{
+	margin-left: 5px;
+}
+
+div.specificThreatAffectingSite
+{
+	float: left;
+	clear: both;
+	width: 671px;
+}
+
+div.specificThreatAffectingSite textarea
+{
+	height: 35px;
+}
+
+label
+{
+	margin-top: 7px;
+	text-align: right;
+	float: left;
+}
+
+/*div span 
+{
+	width: 80px;
+	margin-top: 7px;
+	float: left;
+
+	text-align: right;
+}*/
+
+label.population
+{
+	width: 62px;
+}
+
+label.description
+{
+	width: 66px;
+}
+
+label.labelContact
+{
+	width: 78px;
+}
+
+label.labelStaff
+{
+	width: 39px;
+}
+
+label.labelVisitors
+{
+	width: 39px;
+}
+
+label.labelBoundryModifications
+{
+	width: 69px;
+}
+
+label.labelDangerList
+{
+	width: 91px;
+}
+
+label.labelDSOR
+{
+	width: 34px;
+}
+
+label.labelInsCriteria
+{
+	width: 46px;
+}
+
+label.labelInsHistory
+{
+	width: 85px;
+}
+
+label.labelIUCNRecommendation
+{
+	width: 41px;
+}
+
+label.labelSOOUV
+{
+	width: 87px;
+}
+
+label.labelFlagshipSpecies
+{
+	width: 130px;
+}
+
+label.labelIUCNPaCategory
+{
+	width: 32px;
+}
+
+label.labelBudget
+{
+	width: 104px;
+}
+
+textarea
+{
+	width: 564px;
+	height:57px;
+	float: right;
+	margin-left: 8px;
+
+
+}
+
+textarea.siteInfoTxtArea
+{
+	width: 238px;
+}
+
+.includeExcludeContainer 
+{
+	padding-left: 4px;
+	margin-left: 5px;
+	overflow: hidden;
+}
+
+.include
+{
+	float: right;
+	margin-left: 8px;
+	width: 267px;
+	height: 57px;
+	background: url('../images/form_textarea_bg.gif') no-repeat;
+}
+
+.include ul, .exclude ul
+{
+	padding: 7px;
+}
+
+.exclude
+{
+	float: right;
+	margin-right: 8px;
+	width: 267px;
+	height: 57px;
+	background: url('../images/form_textarea_bg.gif') no-repeat;
+}
+
+.include li, .exclude li
+{
+	height: 15px;
+	/*border: 1px solid #222222;*/
+	background: #fff;
+}
+
+.valueAffectedBtnHolder
+{
+	float: right;
+	width: 20px;
+}
+
+.btnInclude, .btnExclude
+{
+	margin: 0.5em 0 0 0;
+	display: block;
+	width: 19px;
+	height: 19px;
+	text-indent: -9999px;
+	color: white;
+	background: url('../images/include.gif') no-repeat -5px -6px;
+	text-decoration: none;
+}
+
+.btnExclude
+{
+	background: url('../images/exclude.gif') no-repeat -5px -6px;
+}
+
+/*date picker CSS starts here*/
+
+.ui-datepicker { width: 17em; padding: .2em .2em 0; display: none; }
+.ui-datepicker .ui-datepicker-header { position:relative; padding:.2em 0; }
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next { position:absolute; top: 2px; width: 1.8em; height: 1.8em; }
+.ui-datepicker .ui-datepicker-prev-hover, .ui-datepicker .ui-datepicker-next-hover { top: 1px; }
+.ui-datepicker .ui-datepicker-prev { left:2px; }
+.ui-datepicker .ui-datepicker-next { right:2px; }
+.ui-datepicker .ui-datepicker-prev-hover { left:1px; }
+.ui-datepicker .ui-datepicker-prev-hover:hover{ background: url(../images/datepicker_prev_aero.png) no-repeat 5px 5px /*{iconsHeader}*/;}
+.ui-datepicker .ui-datepicker-next-hover { right:1px; }
+.ui-datepicker .ui-datepicker-next-hover :hover{ background: url(../images/datepicker_next_aero.png) no-repeat 2px 2px /*{iconsHeader}*/;}
+.ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next span { display: block; position: absolute; left: 50%; margin-left: -8px; top: 50%; margin-top: -8px;  }
+.ui-datepicker .ui-datepicker-title { margin: 0 2.3em; line-height: 1.8em; text-align: center; }
+.ui-datepicker .ui-datepicker-title select { font-size:1em; margin:1px 0; }
+.ui-datepicker select.ui-datepicker-month-year {width: 100%;}
+.ui-datepicker select.ui-datepicker-month, 
+.ui-datepicker select.ui-datepicker-year { width: 49%;}
+.ui-datepicker table {width: 100%; font-size: .9em; border-collapse: collapse; margin:0 0 .4em; }
+.ui-datepicker table tr, .ui-datepicker table td {height: 18px}
+.ui-datepicker th { text-align: center; font-weight: bold; border: 0;}
+table.ui-datepicker-calendar th{background: none;}
+.ui-datepicker td { border: 0; padding: 1px; }
+.ui-datepicker td span, .ui-datepicker td a { display: block; padding: .2em; text-align: right; text-decoration: none; }
+.ui-datepicker .ui-datepicker-buttonpane { background-image: none; margin: .7em 0 0 0; padding:0 .2em; border-left: 0; border-right: 0; border-bottom: 0; }
+.ui-datepicker .ui-datepicker-buttonpane button { float: right; margin: .5em .2em .4em; cursor: pointer; padding: .2em .6em .3em .6em; width:auto; overflow:visible; }
+.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current { float:left; }
+#ui-datepicker-div {width: 238px;}
+
+/* with multiple calendars */
+.ui-datepicker.ui-datepicker-multi { width:auto; }
+.ui-datepicker-multi .ui-datepicker-group { float:left; }
+.ui-datepicker-multi .ui-datepicker-group table { width:95%; margin:0 auto .4em; }
+.ui-datepicker-multi-2 .ui-datepicker-group { width:50%; }
+.ui-datepicker-multi-3 .ui-datepicker-group { width:33.3%; }
+.ui-datepicker-multi-4 .ui-datepicker-group { width:25%; }
+.ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header { border-left-width:0; }
+.ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header { border-left-width:0; }
+.ui-datepicker-multi .ui-datepicker-buttonpane { clear:left; }
+.ui-datepicker-row-break { clear:both; width:100%; font-size:0em; }
+
+/* RTL support */
+.ui-datepicker-rtl { direction: rtl; }
+.ui-datepicker-rtl .ui-datepicker-prev { right: 2px; left: auto; }
+.ui-datepicker-rtl .ui-datepicker-next { left: 2px; right: auto; }
+.ui-datepicker-rtl .ui-datepicker-prev:hover { right: 1px; left: auto; }
+.ui-datepicker-rtl .ui-datepicker-next:hover { left: 1px; right: auto; }
+.ui-datepicker-rtl .ui-datepicker-buttonpane { clear:right; }
+.ui-datepicker-rtl .ui-datepicker-buttonpane button { float: left; }
+.ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current { float:right; }
+.ui-datepicker-rtl .ui-datepicker-group { float:right; }
+.ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header { border-right-width:0; border-left-width:1px; }
+.ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header { border-right-width:0; border-left-width:1px; }
+
+/* IE6 IFRAME FIX (taken from datepicker 1.5.3 */
+.ui-datepicker-cover {
+    position: absolute; /*must have*/
+    z-index: -1; /*must have*/
+    filter: mask(); /*must have*/
+    top: -4px; /*must have*/
+    left: -4px; /*must have*/
+    width: 200px; /*must have*/
+    height: 200px; /*must have*/
+}
+
+.ui-widget-header {
+border: 1px solid #AAA/*{borderColorHeader}*/;
+background: #CCC/*{bgColorHeader}*/ url(../images/ui-bg_highlight-soft_75_cccccc_1x100.png)/*{bgImgUrlHeader}*/ 50%/*{bgHeaderXPos}*/ 50%/*{bgHeaderYPos}*/ repeat-x/*{bgHeaderRepeat}*/;
+color: #222/*{fcHeader}*/;
+font-weight: bold;
+}
+
+.ui-datepicker .ui-datepicker-prev {
+left: 2px;
+}
+
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next {
+position: absolute;
+top: 2px;
+width: 1.8em;
+height: 1.8em;
+}
+
+.ui-widget-header a {
+color: #222/*{fcHeader}*/;
+}
+
+/*date picker CSS ends here*/
+/*site information forms CSS ends here*/
+
+/*IUCN_site_assessment_CSS starts here*/
+/*style_IUCN_site_assessment*/
+
+
+.tooltip
+{
+	position: relative;
+	width: 203px;
+	height: 43px;
+	line-height: 35px;
+	bottom: 60px;
+	right: 110px;
+	color: #f9f9f9;
+	line-height: 35px;
+	background: url('../images/tooltip.png')no-repeat;
+}
+
+.tooltipBgStep3
+{
+	position: relative;
+	width: 240px;
+	height: 43px;
+	line-height: 35px;
+	bottom: 60px;
+	right: 145px;
+	color: #f9f9f9;
+	background: url('../images/tooltip_01.png');
+}
+
+.tooltipBgStep4
+{
+	position: relative;
+	width: 300px;
+	height: 43px;
+	line-height: 35px;
+	bottom: 60px;
+	right: 205px;
+	color: #f9f9f9;
+	background: url('../images/tooltipBgStep4.png');
+}
+
+.tooltipBgStep6
+{
+	position: relative;
+	width: 256px;
+	height: 43px;
+	line-height: 35px;
+	bottom: 60px;
+	right: 160px;
+	color: #f9f9f9;
+	background: url('../images/tooltipBgStep6.png');
+}
+
+.tooltipBgStep8
+{
+	position: relative;
+	width: 380px;
+	height: 43px;
+	line-height: 35px;
+	bottom: 60px;
+	right: 280px;
+	color: #f9f9f9;
+	background: url('../images/tooltipBgStep8.png');
+}
+
+
+
+.topBarContent p
+{
+	display: inline-block;
+	padding: 0 8.5em  0 0;
+	font-weight: bold;
+}
+
+.topBarContent p span
+{
+	font-weight: normal;
+}
+
+#siteDashboardDiv
+{
+	margin-top: 0em;
+}
+
+
+table.tabData
+{
+	margin: 5px 5px 5px 5px;
+	border-top: 1px solid #D8D8D8;
+	border-left: 1px solid #D8D8D8;
+	width:99%;
+}
+
+
+
+/*table.tab_data th
+{
+	width: 10%;
+	height: 31px;
+	padding: 0.3em;
+	border: 1px solid #BBB;
+	border-top: none;
+	border-bottom: 1px solid #d8d8d8;
+	border-left: none;
+	border-right: 1px solid #d8d8d8;
+}*/
+
+/*table.tab_data th
+{
+	height: 0;
+	padding: 0.4em 1em 0.4em 1em;
+	background:  #E0E0E0 url('../images/table_header_bg.gif') repeat-x;
+	white-space: nowrap;
+}*/
+
+th.stats
+{
+	width: 150px;
+}
+
+.subHeading 
+{
+	padding-left: 1em;
+	font-weight: bold;
+	border-top: 1px solid white;
+	border-bottom: 1px solid white;
+	color: #000;
+	background: #C7D6E7;
+}
+
+.topics 
+
+{
+	width: 275px;
+
+
+
+
+
+
+
+}
+
+/*.description
+{
+	width: 279px;
+}*/
+
+.values
+{
+	width: 180px;
+}
+
+
+.whCriterion
+{
+	width: 150px;
+}
+
+.inputBox
+
+{
+	float: left;
+	width: 176px;
+	height: 25px;
+	border: none;
+	padding: 0 0 0 10px;
+
+
+	background: url('../images/searchInput_bg.gif') no-repeat left center;
+
+}
+
+
+a.currentPage
+{
+	color: #868686;
+
+
+
+
+
+
+
+
+
+}
+
+.buttonsSiteAssessment
+
+{
+	width: 956px;
+	margin: 0 auto;
+	padding: 0 0 0 10px;
+	height: 47px;
+	line-height: 47px;
+
+
+	border: 1px solid #cacaca;
+	border-top: none;
+}
+
+.buttonsSiteAssessment input
+{
+	cursor: pointer;
+	padding: 0 5px 0 5px;
+	height: 23px;
+
+
+
+
+
+
+	border: 1px solid #c8c9ca;
+	border-radius: 5px;
+	background: url('../images/button_bg_01.gif');
+
+
+
+
+
+
+
+}
+
+textarea 
+{
+	width: 100%;
+	height: 100%;
+}
+/*IUCN_site_assessment_CSS ends here*/
+
+table.formBlock
+{
+	width: 347px;
+	border: 1px solid #D8D8D8;
+    background: url("../images/right_box_bg.GIF") repeat scroll 0 0 transparent;    
+    /* border: 1px solid #DDDDDD;
+    display: none;
+    font-size: 12px;
+    margin: 10px;
+    overflow: hidden; */
+}
+
+label.popuplbl
+{
+	font-weight: bold;
+}
+
+table.formBlock.td,table.formBlock.tr
+{
+	border-top: none;
+	border-bottom: none;
+	border-left: none;
+	border-right: none;
+}
+
+.aui-column
+{
+	margin-top: 0.5em;
+	width: 271px;
+}
+
+.aui-w25 
+{
+    margin-left: 29em;
+    margin-top: 0.2em;
+    width: 7%;
+}
+
+table.taglib-search-iterator th
+{
+	color: #1A1A1A;
+}
+
+table.taglib-search-iterator th.col-actions
+{
+	width: 110px;
+}
+
+.align-right
+{
+	margin-right: 8px;
+}
+
+.search-results
+ {
+	margin-top: 0.5em;
+}
+
+#_SiteInfo_WAR_SiteInfoportlet_whp_sitesesSearchContainerPageIteratorBottom_itemsPerPage, 
+#_SiteInfo_WAR_SiteInfoportlet_whp_sitesesSearchContainerPageIteratorBottom_page, 
+.aui-suffix, .taglib-page-iterator .search-pages .page-links
+{
+	margin-top: 0.3em;
+}
+
+.aui-field-element, .aui-suffix
+{
+	float: left;
+}
+
+.aui-w40, .aui-w35
+{
+	width: 266px;
+	margin-top: 0.5em;
+}
+
+h3.siteInfoPageTitle
+{
+	margin-left: 0;
+	font-size: 16px;
+	color: white;
+	padding:0.3em 0 0.2em 0.5em;
+}
+
+
+
+.regionInfoRow
+{
+	margin-top: 5px;	
+}
+
+
+.aui-w40 
+{
+	width: 29%;
+	margin-top: 0.5em;
+}
+
+
+.portlet-content{
+    padding: 0;
+}
+
+.page-links
+{
+	margin-top: 0.8em;
+}
+
+.floatLeft
+{
+	float: left;
+}
+
+.siteInfoRightBlock
+{
+	display: block;
+}
+
+.siteInfoRightBlock td
+{
+	border: none;
+}
+
+#tabs1
+{
+	margin-top: -14px;
+}
+
+.siteinfoGrid
+{
+	width:100%;
+	}
+	
+	
+	.floatRightBlock
+	{
+	float:right;
+	width:210px;
+	
+	}
+	
+	.floatLeftBlock
+	{
+	float:left;
+	width:758px;
+	*width:748px;
+	padding:0;
+	}
+	
+	.borderWrapper
+	{
+	border:1px solid #DBDBDB;
+	margin:0 0 0.8em 0;
+	}
+
+.popupForm
+{
+	width: 30px;
+	background:red;
+	color: red;
+}
+
+.radioWrapper
+{
+	float: left;
+	display: inline-block;
+}
+
+.aui-panel
+{
+	display: block;
+	width: 365px;
+}
+.textsize
+{
+width:370px;
+
+}
+
+body.yui3-skin-sam
+{
+	height: 100%;
+	overflow: visible;
+}
+
+.aui-button
+{
+	margin:0 0 0.3em 0;
+	padding:0;
+	display:inline-block;
+	
+	}
+
+.aui-button-input
+{
+	margin:0;
+	padding:0;
+	}
+	
+/*Query Builder CSS Start Here*/
+
+
+	#queryBuilderWrapper, #queryBuilder_01_Wrapper
+{
+	display: inline-block;
+	margin: 0 auto;
+	width: 680px;
+	border: 1px solid #001acf;
+}
+
+.queryBuilderContent
+{
+	overflow: hidden;
+	padding: 0.4em;
+	background: url('../images/right_box_bg.gif');
+}
+
+#queryBuilderWrapper h1
+{
+	position: relative;
+	padding: 0.5em 0.2em;
+	font-size: 14px;
+	color: #000;
+	border-bottom: 1px solid #aaa;
+	background: url('../images/th_gradient.gif');
+}
+
+#queryBuilder_01_Wrapper h1
+{
+position: relative;
+	padding: 0.5em 0.2em;
+	font-size: 14px;
+	color: #000;
+	border-bottom: 1px solid #aaa;
+	background: url('../images/th_gradient.gif');
+}
+
+.contentBlocks
+{
+	float: left;
+	display: inline-block;
+}
+
+.contentBlocks span
+{
+	display: block;
+}
+
+.optionBox
+{
+	float: left;
+	clear: both;
+	padding: 0.2em;
+	display: block;
+	margin-right: 8px;
+	width: 182px;
+	height: 190px;
+	border: 1px solid #769bb8;
+	background: #fff;
+}
+
+.optionBoxButton
+{
+	float: left;
+	clear: both;
+	padding: 0.2em;
+	margin-right: 8px;
+	width: 90px;
+	height: 175px;
+	background: #fff;
+}
+
+.optionBoxValue 
+{
+	float: left;
+	clear: both;
+	padding: 0.2em;
+	display: block;
+	margin-right: 8px;
+	width: 175px;
+	height: 162px;
+	border: 1px solid #769bb8;
+	background: #fff;
+}
+.executeQueryButton
+{
+	width: 180px;
+	float: right;
+}
+
+.optionBox li
+{
+	display: block;
+}
+
+.inputContainer
+{
+	display: block;
+}
+
+.getUniqueValuesBtn
+{
+	clear: both;
+	display: block;
+	width: 157px;
+}
+
+.QueryFooter
+{
+	overflow: hidden;
+	clear: both;
+	padding: 1em 0 1em 0.5em;
+	*padding: 0.8em 0 0.8em 0.5em;
+	display: block;
+	background: #ECE9D8;
+}
+
+.QueryFooter input[type="button"]
+{
+	float: right;
+}
+
+.QueryBtnsWrapper
+{
+	padding: 0.5em 0 0.5em 0;
+	clear: both;	
+}
+
+#queryBuilderWrapper input[type="button"]
+{
+	margin: 0.1em 0;
+    padding: 0.3em 0.5em 0.2em 0.1em;
+}
+
+#queryBuilder_01_Wrapper input[type="button"]
+{
+	padding: 0.2em 0.3em;
+	*padding: 0em;
+}
+
+.selectEditValueTextArea
+{
+	display: block;
+	margin-top: 0.2em;
+	width: 250px;
+	height: 163px;
+}
+
+.queryFooterTextarea
+{
+	height: 80px;
+}
+
+.fieldTxt
+{
+	font-weight: bold;
+}
+
+.txtInputInscribed
+{
+	width: 116px;
+}
+
+.txtInputValue
+{
+	width: 170px;
+}
+
+.whereClauseTextarea
+{
+	height: 70px;
+	margin: 0.4em 0;
+}
+
+.help
+{
+	padding-left: 2em;
+	margin-top: 0.7em;
+	display: inline-block;
+	font-weight: bold;
+	color: #00027b;
+	background: url('../images/help.png') no-repeat;
+	float: left;
+}
+
+.closeBtn
+{
+	position: absolute;
+	right: 0;
+	display: inline-block;
+	margin: -0.2em 0.2em 0 0;
+	width: 16px;
+	height: 16px;
+	background: url('../images/close_btn_red.png') no-repeat;
+}
+
+.closeBtn span
+{
+	display: none;
+}
+
+.test input[type="button"]
+{
+	float: right;
+}
+
+.queryFooterBtnsContainer
+{	
+	margin-right: 0.5em;
+	width: 300px;
+	float: right;
+}
+
+.queryFooterBtnsContainer input[type="button"]
+{
+	width: 50px;
+	margin-left: 0.2em;
+}
+/*Query Builder CSS End Here*/
+
+
+input#sitename {
+    width: 200px;
+     -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-image: url("../images/forms/input_shadow.png");
+    background-repeat: no-repeat;
+    border-color: #BFBFBF #DEDEDE #DEDEDE #BFBFBF;
+    border-image: none;
+    border-style: solid;
+    border-width: 1px;
+     padding: 2px 1px;
+}
+
+input#sitename .focus {
+    background: none repeat scroll 0 0 #fff;
+    border: 1px solid #FFCC00;
+}

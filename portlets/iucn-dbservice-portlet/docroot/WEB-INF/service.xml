@@ -1,0 +1,1218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.1.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_1_0.dtd">
+<service-builder package-path="com.iucn.whp.dbservice">
+	<author>alok.sen</author>
+	<namespace>whp</namespace>
+
+	<entity name="whp_sites" local-service="true" remote-service="true">
+    	<!-- PK fields -->
+    	
+        <column name="site_id" primary="true" type="long" filter-primary="true"></column>
+        
+        <!-- Group instance -->
+        
+		<column name="groupId" type="long" />
+		<column name="companyId" type="long" />
+		
+		<!-- Other fields -->
+		
+        <column name="wdpa_id" type="long"></column>
+        <column name="unesco_id" type="long"></column>
+        <column name="name_en" type="String"></column>
+        <column name="name_fr" type="String"></column>
+        <column name="transboundary" type="boolean"></column>
+        <column name="inscription_date" type="Date"></column>
+        <column name="mixed_site" type="boolean"></column>
+        <column name="cultural_landscape" type="boolean"></column>
+        <column name="danger_list" type="boolean"></column>
+        <column name="area" type="double"></column>
+        <column name="buffer_zone" type="boolean"></column>
+        <column name="buffer_zone_area" type="double"></column>
+        <column name="boundary_modification" type="boolean"></column>
+        <column name="serial" type="boolean"></column>
+        <column name="missions" type="boolean"></column>
+        <column name="soc_reports" type="boolean"></column>
+        <column name="soouv" type="boolean"></column>
+        <column name="dsocr" type="boolean"></column>
+		<column name="management_plan" type="boolean"></column>
+		<column name="mee" type="boolean"></column>
+		<column name="staff" type="long"></column>
+		<column name="staff_update_date" type="Date"></column>
+		<column name="indigenous_communities" type="boolean"></column>
+		<column name="population" type="long"></column>
+		<column name="last_updated" type="Date"></column>
+		<column name="creation_date" type="Date"></column>
+		<column name="created_by" type="long"></column>
+		<column name="updated_by" type="long"></column>
+		<column name="active" type="boolean"></column>
+        <column name="country_ref" type="Collection" entity="whp_sites_country" mapping-key="site_id"></column>
+        <column name="soc_ref" type="Collection" entity="whp_sites_soc_reports" mapping-key="site_id"></column>
+        <column name="visitors_ref" type="Collection" entity="whp_sites_visitors" mapping-key="site_id"></column>
+        <column name="inscription_ref" type="Collection" entity="whp_sites_inscription_date" mapping-key="site_id"></column>
+        <column name="budget_ref" type="Collection" entity="whp_sites_budget" mapping-key="site_id"></column>
+        <column name="species_ref" type="Collection" entity="whp_sites_flagship_species" mapping-key="site_id"></column>
+        <column name="mee_ref" type="Collection" entity="whp_sites_mee" mapping-key="site_id"></column>
+        <column name="reinforced_ref" type="Collection" entity="reinforced_monitoring" mapping-key="site_id"></column>
+        <column name="mission_ref" type="Collection" entity="whp_sites_mission" mapping-key="site_id"></column>
+        <column name="externaldocuments_ref" entity="whp_sites_external_documents" mapping-key="site_id" type="Collection"></column>
+        <column name="sitecontact_ref" type="Collection" entity="whp_sites_contacts" mapping-key="site_id"></column>
+        <column name="pacategory_ref" entity="whp_sites_iucn_pa_category" mapping-key="site_id" type="Collection"></column>
+        <column name="designations_ref" type="Collection" entity="whp_sites_other_designations" mapping-key="site_id"></column>
+        <column name="indegeniouscommunity_ref" type="Collection" entity="whp_sites_indigenous_communities" mapping-key="site_id"></column>
+        <column name="managementplan_ref" type="Collection" entity="whp_sites_mgmt_plan_state" mapping-key="site_id"></column>
+        <column name="dsocr_ref" type="Collection" entity="whp_sites_dsocr" mapping-key="site_id"></column>
+        <column name="soouv_ref" type="Collection" entity="whp_sites_soouv" mapping-key="site_id"></column>
+        <column name="component_ref" type="Collection" entity="whp_sites_component" mapping-key="site_id"></column>
+        <column name="boundarymod_ref" type="Collection" entity="whp_sites_boundary_modification" mapping-key="site_id"></column>
+        <column name="dangerlist_ref" type="Collection" entity="whp_site_danger_list" mapping-key="site_id"></column>
+        <column name="iucnrecommendation_ref" type="Collection" entity="whp_sites_iucn_recommendation" mapping-key="site_id"></column>
+        <column name="inscriptioncriteria_ref" type="Collection" entity="whp_sites_inscription_criteria" mapping-key="site_id"></column>
+        <column name="thumbnailid" type="long"></column>
+         <column name="thumbnailid_small" type="long"></column>
+        <column name="description" type="String"></column>
+        <order by="asc">
+            <order-column name="name_en"></order-column>
+        </order>
+        <finder name="nameEn" return-type="whp_sites">
+            <finder-column name="name_en"></finder-column>
+        </finder>
+        <finder name="activeSites" return-type="Collection" db-index="false" where="active is true">
+            <finder-column name="active"></finder-column>
+        </finder>
+        <finder name="thumbnailid_small" return-type="whp_sites">
+            <finder-column name="thumbnailid_small"></finder-column>
+        </finder>
+         <finder name="thumbnailid" return-type="whp_sites">
+            <finder-column name="thumbnailid"></finder-column>
+        </finder>
+        
+        <finder name="wdpaid" return-type="whp_sites">
+            <finder-column name="wdpa_id"></finder-column>
+        </finder>
+        <reference entity="Image" package-path="com.liferay.portal"></reference>
+    </entity>
+    <entity name="country_lkp" local-service="true" remote-service="false">
+
+		<!-- PK fields -->
+
+		<column name="countryid" type="int" primary="true" filter-primary="true"/>
+
+		<!-- Other fields -->
+
+		<column name="name" type="String" />
+		<column name="a2" type="String" />
+		<column name="a3" type="String" />
+		<column name="number" type="String" />
+		<column name="idd" type="String" />
+        <column name="currency" type="String"></column>
+		<column name="ziprequired" type="boolean" />
+		<column name="active" type="boolean" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="name" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="Name" return-type="country_lkp" unique="true">
+			<finder-column name="name" />
+		</finder>
+		<finder name="A2" return-type="country_lkp" unique="true">
+			<finder-column name="a2" />
+		</finder>
+		<finder name="A3" return-type="country_lkp" unique="true">
+			<finder-column name="a3" />
+		</finder>
+	</entity>
+	<entity name="whp_sites_country" local-service="true" remote-service="false">
+	
+	<!-- PK fields -->
+	
+	<column name="whp_sites_country_id" primary="true" type="long" filter-primary="true"></column>
+	
+	<!--  other fields -->
+	<column name="site_id" type="long"></column>
+	<column name="countryid" type="int"></column>
+        <finder name="countryid" return-type="Collection">
+            <finder-column name="countryid"></finder-column>
+        </finder>
+	
+	</entity>
+    <entity local-service="true" name="unesco_region" remote-service="false">
+        <column name="unesco_region_id" type="int" primary="true" filter-primary="true"></column>
+        <column name="name" type="String"></column>
+    </entity>
+    <entity name="iucn_region" local-service="true" remote-service="false">
+        <column name="iucn_region_id" type="int" primary="true" filter-primary="true"></column>
+        <column name="name" type="String"></column>
+    </entity>
+    <entity name="whp_sites_soc_reports" local-service="true" remote-service="false">
+        <column name="whp_sites_soc_reports_id" type="long" primary="true" filter-primary="true"></column>
+        <column name="site_id" type="long"></column>
+        <column name="date_published" type="Date"></column>
+        <column name="document_link" type="String"></column>
+        <column name="fileentryid" type="long"></column>
+        <column name="doc_name" type="String"></column>
+        <finder name="fileId" return-type="whp_sites_soc_reports">
+            <finder-column name="fileentryid"></finder-column>
+        </finder>
+        <finder name="SiteId" return-type="Collection" db-index="false">
+            <finder-column name="site_id"></finder-column>
+        </finder>
+    </entity>
+        
+
+    
+    <entity name="whp_sites_visitors" local-service="true" remote-service="false">
+        <column name="whp_sites_visitors_id" type="long" primary="true" filter-primary="true"></column>
+        <column name="site_id" type="long"></column>
+        <column name="visitor_count" type="long"></column>
+        <column name="record_date" type="Date"></column>
+    </entity>
+    
+    <entity name="inscription_type_lkp" local-service="true" remote-service="false">
+        <!-- PK fields -->
+
+		<column name="incription_type_id" type="int" primary="true" filter-primary="true"></column>
+ 
+ 		<!-- Group instance -->
+
+
+		<!-- Other fields -->
+
+		<column name="type" type="String"></column>
+
+		<!-- Order -->
+
+<!-- Finder methods -->
+
+    </entity>
+    
+        <entity name="whp_sites_inscription_date" local-service="true" remote-service="false">
+        <!-- PK fields -->
+
+		<column name="whp_sites_inscription_date_id" type="long" primary="true" filter-primary="true"></column>
+ 
+ 		<!-- Group instance -->
+
+
+		<!-- Other fields -->
+
+		<column name="site_id" type="long"></column>
+		<column name="inscription_type_id" type="int"></column>
+		<column name="reference_no" type="String"></column>
+		<column name="inscription_date" type="Date"></column>
+		<!-- Order -->
+
+<!-- Finder methods -->
+        <finder name="inscriptiontype" return-type="whp_sites_inscription_date">
+            <finder-column name="inscription_type_id"></finder-column>
+        </finder>
+
+    </entity>
+    <entity name="whp_sites_budget" local-service="true" remote-service="false">
+        <column name="whp_sites_budget_id" type="long" filter-primary="true" primary="true"></column>
+        <column name="site_id" type="long"></column>
+        <column name="currency_local" type="double"></column>
+        <column name="currency" type="String"></column>
+        <column name="currency_usd" type="double"></column>
+        <column name="date" type="Date"></column>
+    </entity>
+    <entity name="flagship_species_lkp" local-service="true" remote-service="false">
+        <column name="flagship_species_id" type="int" filter-primary="true" primary="true"></column>
+        <column name="flagship_species_name" type="String"></column>
+        <column name="redlist_url" type="String"></column>
+    </entity>
+    <entity name="whp_sites_flagship_species" local-service="true" remote-service="false">
+        <column name="whp_sites_flagship_species_id" type="long" primary="true" filter-primary="true"></column>
+        <column name="site_id" type="long"></column>
+        <column name="flagship_species_id" type="int"></column>
+        <finder name="speciesid" return-type="whp_sites_flagship_species">
+            <finder-column name="flagship_species_id"></finder-column>
+        </finder>
+        <finder name="SiteID" return-type="Collection" db-index="false">
+            <finder-column name="site_id"></finder-column>
+        </finder>
+    </entity>
+    <entity name="whp_sites_mee" local-service="true" remote-service="false">
+        <column name="whp_sites_mee_id" type="long" primary="true" filter-primary="true"></column>
+        <column name="site_id" type="long"></column>
+        <column name="date_published" type="Date"></column>
+        <column name="document_link" type="String"></column>
+        <column name="fileentryid" type="long"></column>
+        <column name="doc_name" type="String"></column>
+       	<finder name="fileId" return-type="whp_sites_mee">
+            <finder-column name="fileentryid"></finder-column>
+        </finder>
+        <finder name="SiteId" return-type="Collection" db-index="false">
+            <finder-column name="site_id"></finder-column>
+        </finder>
+    </entity>
+    <entity name="reinforced_monitoring" local-service="true" remote-service="false">
+        <column name="whp_sites_reinforced_monitoring_id" type="long" primary="true" filter-primary="true"></column>
+        <column name="site_id" type="long"></column>
+        <column name="reinforced_date" type="Date"></column>
+    </entity>
+    <entity name="whp_sites_mission" local-service="true" remote-service="false">
+        <column name="whp_sites_mission_id" type="long" primary="true" filter-primary="true"></column>
+        <column name="site_id" type="long"></column>
+        <column name="missiontype" type="int"></column>
+        <column name="date_published" type="Date"></column>
+        <column name="document_link" type="String"></column>
+        <column name="fileentryid" type="long"></column>
+        <column name="doc_name" type="String"></column>
+        <finder name="missiontype" return-type="whp_sites_mission">
+            <finder-column name="missiontype"></finder-column>
+        </finder>
+        <finder name="fileId" return-type="whp_sites_mission">
+            <finder-column name="fileentryid"></finder-column>
+        </finder>
+        <finder name="SiteId" return-type="Collection" db-index="false">
+            <finder-column name="site_id"></finder-column>
+        </finder>
+    </entity>
+    <entity name="mission_lkp" local-service="true" remote-service="false">
+        <column name="mission_id" type="int" primary="true" filter-primary="true"></column>
+        <column name="mission_type" type="String"></column>
+    </entity>
+    
+    <!-- Added through script -->
+    <entity name="contact_category" local-service="true" remote-service="false">
+		<column name="contact_category_id" type="int" filter-primary="true" primary="true"></column>
+		<column name="category_name" type="String"></column>
+	</entity>
+	
+	<entity name="whp_contact" local-service="true" remote-service="false">
+		<column name="contact_id" type="int" filter-primary="true" primary="true"></column>
+		<column name="prefix" type="String"></column>
+		<column name="last_name" type="String"></column>
+		<column name="first_name" type="String"></column>
+		<column name="email" type="String"></column>
+		<column name="position" type="String"></column>
+		<column name="organization" type="String"></column>
+		<column name="address" type="String"></column>
+		<column name="telephone" type="String"></column>
+		<column name="last_updated" type="Date"></column>
+        <column name="categoryid" type="int"></column>
+        <finder name="category" return-type="whp_contact">
+            <finder-column name="categoryid"></finder-column>
+        </finder>
+	</entity>
+	
+	<entity name="iucn_pa_lkp_category" local-service="true" remote-service="false">
+		<column name="iucn_pa_category_id" type="int" filter-primary="true" primary="true"></column>
+		<column name="category" type="String"></column>
+	</entity>
+	
+	
+	<entity name="other_designation_lkp" local-service="true" remote-service="false">
+		<column name="other_designations_id" type="int" filter-primary="true" primary="true"></column>
+		<column name="designation" type="String"></column>
+	</entity>
+	
+	
+	<entity name="boundary_modification_type_lkp" local-service="true" remote-service="false">
+		<column name="bm_id" type="int" filter-primary="true" primary="true"></column>
+		<column name="bm_type" type="String"></column>
+	</entity>
+	
+	
+	<entity name="danger_list_status_lkp" local-service="true" remote-service="false">
+		<column name="dlstatus_id" type="int" filter-primary="true" primary="true"></column>
+		<column name="dl_status" type="String"></column>
+	</entity>
+	
+	
+	<entity name="recommendation_type_lkp" local-service="true" remote-service="false">
+		<column name="rec_type_id" type="int" filter-primary="true" primary="true"></column>
+		<column name="recommendation" type="String"></column>
+	</entity>
+	
+	<entity name="whp_sites_external_documents" local-service="true" remote-service="false">
+		<column name="whp_sites_external_documents_id" type="long" filter-primary="true" primary="true"></column>
+		<column name="site_id" type="long"></column>
+		<column name="document_description" type="String"></column>
+		<column name="document_link" type="String"></column>
+        <column name="fileentryid" type="long"></column>
+        <column name="doc_name" type="String"></column>
+        <finder name="fileId" return-type="whp_sites_external_documents">
+            <finder-column name="fileentryid"></finder-column>
+        </finder>
+	</entity>
+	
+	
+	<entity name="whp_sites_contacts" local-service="true" remote-service="false">
+		<column name="whp_sites_contacts_id" type="long" filter-primary="true" primary="true"></column>
+		<column name="site_id" type="long"></column>
+		<column name="contactid" type="int"></column>
+        <finder name="contactid" return-type="Collection">
+            <finder-column name="contactid"></finder-column>
+        </finder>
+        <finder name="SiteId" return-type="Collection" db-index="false">
+            <finder-column name="site_id"></finder-column>
+        </finder>
+	</entity>
+	
+	
+	<entity name="whp_sites_iucn_pa_category" local-service="true" remote-service="false">
+		<column name="whp_sites_iucn_pa_category_id" type="long" filter-primary="true" primary="true"></column>
+		<column name="site_id" type="long"></column>
+		<column name="iucn_pa_category_id" type="int"></column>
+        <finder name="SiteId" return-type="Collection" db-index="false">
+            <finder-column name="site_id"></finder-column>
+        </finder>
+        <finder name="pacategoryid" return-type="whp_sites_iucn_pa_category">
+            <finder-column name="iucn_pa_category_id"></finder-column>
+        </finder>
+	</entity>
+    <entity local-service="true" name="whp_sites_other_designations" remote-service="false">
+        <column filter-primary="true" name="whp_sites_other_designations_id" type="long" primary="true"></column>
+        <column name="site_id" type="long"></column>
+        <column name="other_designation_id" type="int"></column>
+        <finder db-index="false" name="SiteId" return-type="Collection">
+            <finder-column name="site_id"></finder-column>
+        </finder>
+        <finder name="other_designation_id" return-type="whp_sites_other_designations">
+            <finder-column name="other_designation_id"></finder-column>
+        </finder>
+    </entity>
+	
+	
+	
+	<entity name="whp_sites_indigenous_communities" local-service="true" remote-service="false">
+		<column name="whp_sites_indigenous_communities_id" type="long" filter-primary="true" primary="true"></column>
+		<column name="site_id" type="long"></column>
+		<column name="description" type="String"></column>
+	</entity>
+	
+	
+	<entity name="whp_sites_mgmt_plan_state" local-service="true" remote-service="false">
+		<column name="whp_sites_mgmt_plan_state_id" type="long" filter-primary="true" primary="true"></column>
+		<column name="site_id" type="long"></column>
+		<column name="date_published" type="Date"></column>
+		<column name="document_link" type="String"></column>
+        <column name="fileentryid" type="long"></column>
+        <column name="doc_name" type="String"></column>
+        <finder name="fileId" return-type="whp_sites_mgmt_plan_state">
+            <finder-column name="fileentryid"></finder-column>
+        </finder>
+        <finder name="SiteId" db-index="false" return-type="Collection">
+            <finder-column name="site_id"></finder-column>
+        </finder>
+	</entity>
+	
+	
+	
+	<entity name="whp_sites_dsocr" local-service="true" remote-service="false">
+		<column name="whp_sites_dsocr_id" type="long" filter-primary="true" primary="true"></column>
+		<column name="site_id" type="long"></column>
+		<column name="state_description" type="String"></column>
+		<column name="dsocr_date" type="Date"></column>
+	</entity>
+	
+	
+	<entity name="whp_sites_soouv" local-service="true" remote-service="false">
+		<column name="whp_sites_soouv_id" type="long" filter-primary="true" primary="true"></column>
+		<column name="site_id" type="long"></column>
+		<column name="description_en" type="String" lazy="true"></column>
+		<column name="description_fr" type="String" ></column>
+		<column name="soouv_date" type="Date"></column>
+	</entity>
+	
+	
+	
+	<entity name="whp_sites_component" local-service="true" remote-service="false">
+		<column name="whp_sites_component_id" type="long" filter-primary="true" primary="true"></column>
+		<column name="site_id" type="long"></column>
+		<column name="component" type="String"></column>
+        <finder name="Siteid" return-type="Collection" db-index="false">
+            <finder-column name="site_id"></finder-column>
+        </finder>
+	</entity>
+	
+	
+	
+	<entity name="whp_sites_boundary_modification" local-service="true" remote-service="false">
+		<column name="whp_sites_boundary_modification_id" type="long" filter-primary="true" primary="true"></column>
+		<column name="site_id" type="long"></column>
+		<column name="bmid" type="int"></column>
+		<column name="description" type="String"></column>
+		<column name="mod_date" type="Date"></column>
+        <finder name="bmtype" return-type="whp_sites_boundary_modification">
+            <finder-column name="bmid"></finder-column>
+        </finder>
+        <finder name="SiteId" return-type="Collection" db-index="false">
+            <finder-column name="site_id"></finder-column>
+        </finder>
+	</entity>
+	
+	
+	<entity name="whp_site_danger_list" local-service="true" remote-service="true">
+		<column name="whp_site_danger_list_id" type="long" filter-primary="true" primary="true"></column>
+		<column name="site_id" type="long"></column>
+		<column name="status_id" type="int"></column>
+		<column name="year" type="Date"></column>
+        <finder name="statusid" return-type="whp_site_danger_list">
+            <finder-column name="status_id"></finder-column>
+        </finder>
+        <finder name="site_id" return-type="Collection" db-index="false">
+            <finder-column name="site_id"></finder-column>
+        </finder>
+	</entity>
+	
+	
+	<entity name="whp_sites_iucn_recommendation" local-service="true" remote-service="true">
+		<column name="whp_sites_iucn_recommendation_id" type="long" filter-primary="true" primary="true"></column>
+		<column name="site_id" type="long"></column>
+		<column name="recommendation_type" type="int"></column>
+		<column name="rec_date" type="Date"></column>
+        <finder name="recommendationtype" return-type="whp_sites_iucn_recommendation">
+            <finder-column name="recommendation_type"></finder-column>
+        </finder>
+        <finder name="siteId" db-index="false" return-type="Collection">
+            <finder-column name="site_id"></finder-column>
+        </finder>
+	</entity>
+	
+	<entity name="whp_sites_inscription_criteria" local-service="true" remote-service="false">
+		<column name="whp_sites_inscription_criteria_id" type="long" filter-primary="true" primary="true"></column>
+		<column name="site_id" type="long"></column>
+		<column name="criteria_id" type="int"></column>
+        <finder name="inscription_critetia" return-type="whp_sites_inscription_criteria">
+            <finder-column name="criteria_id"></finder-column>
+        </finder>
+        <finder name="whp_sites_inscription" return-type="Collection">
+            <finder-column name="site_id"></finder-column>
+        </finder>
+	</entity>
+    <entity name="inscription_criteria_lkp" remote-service="false" local-service="true">
+        <column name="criteria_id" type="int" primary="true"></column>
+        <column name="criteria" type="String"></column>
+        <column name="criteria_type" type="String"></column>
+        <column name="criteria_desc" type="String"></column>
+        <column name="criteria_title" type="String"></column>
+    </entity>
+<entity name="unesco_region_country" local-service="true" remote-service="false">
+        <column name="whp_unesco_region_country_id" type="int" primary="true" filter-primary="true"></column>
+        <column name="countryid" type="int"></column>
+        <column name="unesco_region_id" type="int"></column>
+        <finder name="countryid" return-type="unesco_region_country">
+            <finder-column name="countryid"></finder-column>
+        </finder>
+        <finder name="unescoregionid" return-type="Collection">
+            <finder-column name="unesco_region_id"></finder-column>
+        </finder>
+    </entity>
+    <entity name="iucn_region_country" local-service="true" remote-service="false">
+        <column name="whp_iucn_region_country_id" type="int" primary="true" filter-primary="true"></column>
+        <column name="countryid" type="int"></column>
+        <column name="iucn_region_id" type="int"></column>
+        <finder name="countryid" return-type="iucn_region_country">
+            <finder-column name="countryid"></finder-column>
+        </finder>
+        <finder name="iucnregionid" return-type="Collection">
+            <finder-column name="iucn_region_id"></finder-column>
+        </finder>
+    </entity>
+	    <entity name="docs_customData" local-service="true" remote-service="false">
+        <column name="docs_customDataId" type="int" primary="true"></column>
+        <column name="fileentryid" type="long"></column>
+        <column name="fileversionid" type="long"></column>
+        <column name="publish_date" type="Date"></column>
+        <column name="upload_date" primary="false" type="Date"></column>
+        <column name="author" type="String"></column>
+        <column name="type" type="String"></column>
+        <column name="category" type="String"></column>
+        <column name="com" type="String"></column>
+        <column name="full_com" type="String"></column>
+        <column name="site" type="String"></column>
+        <column name="language" type="String"></column>
+        <column name="copyright" type="String"></column>
+        <column name="title" type="String"></column>
+        <finder name="fileid" return-type="Collection">
+            <finder-column name="publish_date"></finder-column>
+        </finder>
+        <finder name="fileidupload" return-type="Collection">
+            <finder-column name="upload_date"></finder-column>
+        </finder>
+        <finder name="fileidauth" return-type="Collection">
+            <finder-column name="author"></finder-column>
+        </finder>
+        <finder name="fileobj" return-type="docs_customData">
+            <finder-column name="fileentryid"></finder-column>
+        </finder>
+        <finder name="filecategory" return-type="Collection">
+            <finder-column name="category"></finder-column>
+        </finder>
+        <finder name="filetype" return-type="Collection">
+            <finder-column name="type"></finder-column>
+        </finder>
+        <finder name="FileEntryId" db-index="true" return-type="docs_customData">
+            <finder-column name="fileentryid"></finder-column>
+        </finder>
+    </entity>
+    <entity name="docs_sitedata" local-service="true" remote-service="false">
+        <column name="docs_sitedataId" type="long" primary="true"></column>
+        <column name="fileentryid" type="long"></column>
+        <column name="fileversionid" type="long"></column>
+        <column name="siteid" type="long"></column>
+        <column name="date_published" type="Date"></column>
+        <column name="doc_name" type="String"></column>
+        <column name="document_link" type="String"></column>
+        <finder name="fileid" return-type="docs_sitedata">
+            <finder-column name="fileentryid"></finder-column>
+        </finder>
+        <finder name="siteid" return-type="Collection">
+            <finder-column name="siteid"></finder-column>
+        </finder>
+    </entity>
+
+    <!-- Site Assessment Module Entities -->
+    <!-- 1 -->
+    <entity name="active_conservation_projects" local-service="true" remote-service="false">
+        <column name="acpid" type="long" primary="true"></column>
+        <column name="assessment_version_id" type="long"></column>
+        <column name="organization_individual" type="String"></column>
+        <column name="description" type="String"></column>
+        <column name="contact_details" type="String"></column>
+        <finder name="assessment_version_id" return-type="Collection">
+            <finder-column name="assessment_version_id"></finder-column>
+        </finder>
+    </entity>
+    <!-- 2 -->
+    
+    <!-- 3 -->
+    
+    <!-- 4 -->
+    <entity name="assessment_lang_version" local-service="true" remote-service="false">
+        <column name="lang_ver_id" type="long" primary="true"></column>
+        <column name="assessmentid" type="long" primary="false"></column>
+        <column name="assessment_version_id" type="long" primary="false"></column>
+        <column name="languageid" type="long" primary="false"></column>
+        <column name="published" type="boolean"></column>
+        <column name="published_date" type="Date"></column>
+         <finder name="assessmentId" return-type="Collection">
+            <finder-column name="assessmentid"></finder-column>
+        </finder>
+        <finder name="assessmentIdAndLangId" return-type="Collection" db-index="false">
+            <finder-column name="assessmentid"></finder-column>
+             <finder-column name="languageid"></finder-column>
+        </finder>
+        <finder name="assessmentVersionId" return-type="Collection">
+            <finder-column name="assessment_version_id"></finder-column>
+        </finder>
+     </entity>
+	<!-- 5 -->    
+    <entity name="assessment_lang_lkp" local-service="true" remote-service="false">
+        <column name="languageid" type="long" primary="true"></column>
+        <column name="languagecode" type="String"></column>
+        <column name="languagename" type="String"></column>
+    </entity>
+    <!-- 6 -->
+    <entity name="assessment_stages" local-service="true" remote-service="false">
+        <column name="stageid" type="long" primary="true"></column>
+        <column name="stage" type="String"></column>
+  	</entity>
+  	<!-- 7 -->
+  	<entity name="assessment_status" local-service="true" remote-service="false">
+        <column name="statusid" type="long" primary="true"></column>
+        <column name="status" type="String"></column>
+  	</entity>
+  	
+    <!-- 8 -->
+    
+    <!-- 9 -->
+ 	<entity name="assessment_whvalues" local-service="true" remote-service="false">
+        <column name="whvalues_id" type="long" primary="true"></column>
+        <column name="vn" type="long" primary="false"></column>
+        <column name="assessment_version_id" type="long"></column>
+        <column name="values" type="String"></column>
+        <column name="description" type="String"></column>
+        <column name="assessment_whvalues_whcriterion_ref" type="Collection" entity="assessment_whvalues_whcriterion" mapping-key="whvalues_id"></column>
+        
+        
+        <column name="current_state_trend_values_ref" type="Collection" entity="current_state_trend_values" mapping-key="whvalues_id"></column>
+        <finder name="assessment_version_id" return-type="Collection">
+            <finder-column name="assessment_version_id"></finder-column>
+        </finder>
+  	</entity>
+    <!-- 10 -->
+    <entity name="assessment_whvalues_whcriterion" local-service="true" remote-service="false">
+        <column name="wh_criteria_id" type="long" primary="true"></column>
+        <column name="whvalues_id" type="long" primary="false"></column>
+        <column name="criterion" type="long" primary="false"></column>
+        <finder name="whvalues_id" return-type="Collection">
+            <finder-column name="whvalues_id"></finder-column>
+        </finder>
+  	</entity>
+    <!-- 11 -->
+    <entity name="benefit_checksubtype_lkp" local-service="true" remote-service="false">
+        <column name="subbenefit_id" type="long" primary="true"></column>
+        <column name="benefit_checksubtype" type="String"></column>
+        <column name="parent_id" type="long"></column>
+  	</entity>
+    <!-- 12 -->
+    <entity name="benefit_checktype_lkp" local-service="true" remote-service="false">
+        <column name="benefit_id" type="long" primary="true"></column>
+        <column name="benefit_checktype" type="String"></column>
+        <column name="benefit_checksubtype_lkp_ref" type="Collection" entity="benefit_checksubtype_lkp" mapping-key="parent_id"></column>
+  	</entity>
+    <!-- 13 -->
+    <entity name="benefit_rating_lkp" local-service="true" remote-service="false">
+        <column name="id" type="long" primary="true"></column>
+        <column name="rating" type="String"></column>
+        <column name="description" type="String"></column>
+  	</entity>
+    <!-- 14 -->
+
+    <!-- 15 -->
+    <entity name="benefits_summary" local-service="true" remote-service="false">
+        <column name="benefits_summary_id" type="long" primary="true"></column>
+        <column name="assessment_version_id" type="long" primary="false"></column>
+        <column name="summary" type="String"></column>
+        <finder return-type="Collection" name="assessmentId">
+            <finder-column name="assessment_version_id"></finder-column>
+        </finder>
+  	</entity>
+    
+    <!-- 16 -->
+    <entity name="biodiversity_values" local-service="true" remote-service="false">
+        <column name="id" type="long" primary="true"></column>
+        <column name="vn" type="long"></column>
+        <column name="assessment_version_id" type="long"></column>
+        <column name="value" type="String"></column>
+        <column name="description" type="String"></column>
+        <finder name="assessment_version_id" return-type="Collection">
+            <finder-column name="assessment_version_id"></finder-column>
+        </finder>
+  	</entity>
+    <!-- 17 -->
+    <entity name="conservation_outlook" local-service="true" remote-service="false">
+        <column name="conservation_outlook_id" type="long" primary="true"></column>
+        <column name="assessment_version_id" type="long"></column>
+        <column name="justification" type="String"></column>
+        <column name="rating" type="long"></column>
+        <finder name="assessment_version_id" return-type="Collection">
+            <finder-column name="assessment_version_id"></finder-column>
+        </finder>
+  	</entity>
+    <!-- 18 -->
+    <entity name="conservation_outlook_rating_lkp" local-service="true" remote-service="false">
+        <column name="co_rating_id" type="long" primary="true"></column>
+        <column name="co_rating" type="String"></column>
+        <column name="description" type="String"></column>
+  	</entity>
+    <!-- 19 -->
+    <entity name="current_state_trend" local-service="true" remote-service="false">
+        <column name="state_trend_id" type="long" primary="true"></column>
+        <column name="vn" type="long"></column>
+        <column name="assessment_version_id" type="long"></column>
+        <column name="justification" type="String"></column>
+        <column name="trend_id" type="long"></column>
+        <column name="state_id" type="long"></column>
+        <column name="current_state_trend_values_ref" type="Collection" entity="current_state_trend_values" mapping-key="state_trend_id"></column>
+        <column name="is_biodiv_whval" type="boolean"></column>
+        <finder name="assessment_version_id" return-type="Collection">
+            <finder-column name="assessment_version_id"></finder-column>
+        </finder>
+  	</entity>
+  	<!-- 20 -->
+    <entity name="current_state_trend_values" local-service="true" remote-service="false">
+        <column name="id" type="long" primary="true"></column>
+        <column name="vn" type="long" primary="false"></column>
+        <column name="whvalues_id" type="long" primary="false"></column>
+        <column name="state_trend_id" type="long"></column>
+  	</entity>
+    <!-- 21 -->
+    
+    
+    <!-- 22 -->
+    <entity name="effective_prot_mgmt_iothreats" local-service="true" remote-service="false">
+        <column name="id" type="long" primary="true"></column>
+        <column name="assessment_version_id" type="long"></column>
+        <column name="justification" type="String"></column>
+        <column name="rating" type="long"></column>
+        <finder name="assversionId" return-type="Collection">
+            <finder-column name="assessment_version_id"></finder-column>
+        </finder>
+  	</entity>
+  	
+  	<!-- 23 -->
+    <entity name="key_conservation_issues" local-service="true" remote-service="false">
+        <column name="key_conservation_issues_id" type="long" primary="true"></column>
+        <column name="assessment_version_id" type="long"></column>
+        <column name="cn" type="String"></column>
+        <column name="key_conservation_issues" type="String"></column>
+        <column name="description" type="String"></column>
+        <column name="scale" type="long"></column>
+        <finder name="assessment_version_id" return-type="Collection">
+            <finder-column name="assessment_version_id"></finder-column>
+        </finder>
+  	</entity>
+  	
+  	<!-- 24 -->
+    <entity name="key_conservation_scale_lkp" local-service="true" remote-service="false">
+        <column name="scale_id" type="long" primary="true"></column>
+        <column name="scale" type="String"></column>
+        <column name="description" type="String"></column>
+  	</entity>
+    <!-- 25 -->
+    <entity name="potential_project_needs" local-service="true" remote-service="false">
+        <column name="ppn_id" type="long" primary="true"></column>
+        <column name="assessment_version_id" type="long"></column>
+        <column name="organization_individual" type="String"></column>
+        <column name="description" type="String"></column>
+        <column name="contact_details" type="String"></column>
+        <finder name="assessment_version_id" return-type="Collection">
+            <finder-column name="assessment_version_id"></finder-column>
+        </finder>
+  	</entity>
+  	
+  	<!-- 26 -->
+  	
+  	<!-- 27 -->
+  	
+  	<entity name="prot_mgmt_best_practices" local-service="true" remote-service="false">
+        <column name="best_practice_id" type="long" primary="true"></column>
+        <column name="assessment_version_id" type="long"></column>
+        <column name="description" type="String"></column>
+        <finder name="assversionId" return-type="Collection">
+            <finder-column name="assessment_version_id"></finder-column>
+        </finder>
+  	</entity>
+  	<!-- 28 -->
+  	<entity name="prot_mgmt_overall" local-service="true" remote-service="false">
+        <column name="pmo_id" type="long" primary="true"></column>
+        <column name="assessment_version_id" type="long"></column>
+        <column name="justification" type="String"></column>
+        <column name="rating" type="long"></column>
+        <finder name="assversionId" return-type="Collection">
+            <finder-column name="assessment_version_id"></finder-column>
+        </finder>
+        <finder name="AssessmentVerId" return-type="Collection">
+            <finder-column name="assessment_version_id"></finder-column>
+        </finder>
+  	</entity>
+  	
+  	<!-- 29 -->
+  	<entity name="protection_management" local-service="true" remote-service="false">
+        <column name="pm_id" type="long" primary="true"></column>
+        <column name="assessment_version_id" type="long"></column>
+        <column name="topic_id" type="long"></column>
+        <column name="justification" type="String"></column>
+        <column name="rating" type="long"></column>
+        <finder name="assessment_version_id" return-type="Collection">
+            <finder-column name="assessment_version_id"></finder-column>
+        </finder>
+  	</entity>
+  	
+  	<!-- 30 -->
+  	<entity name="protection_management_ratings_lkp" local-service="true" remote-service="false">
+        <column name="id" type="long" primary="true"></column>
+        <column name="pm_rating" type="String"></column>
+        <column name="description" type="String"></column>
+  	</entity>
+  	
+  	<!-- 31 -->
+  	<entity name="protection_mgmt_checklist_lkp" local-service="true" remote-service="false">
+        <column name="topic_id" type="long" primary="true"></column>
+        <column name="topic" type="String"></column>
+  	</entity>
+  	
+  	<!-- 32 -->
+  	<entity name="references" local-service="true" remote-service="false">
+        <column name="reference_id" type="long" primary="true"></column>
+        <column name="assessment_version_id" type="long"></column>
+        <column name="rn" type="long"></column>
+        <column name="references" type="String"></column>
+        <finder name="assessment_version_id" return-type="Collection">
+            <finder-column name="assessment_version_id"></finder-column>
+        </finder>
+  	</entity>
+  	
+  	<!-- 33 -->
+  	<entity name="state_lkp" local-service="true" remote-service="false">
+        <column name="state_id" type="long" primary="true"></column>
+        <column name="state" type="String"></column>
+  	</entity>
+  	
+  	<!-- 34 -->
+  	<entity name="state_trend_biodivvals" local-service="true" remote-service="false">
+        <column name="state_trend_biodivvals_id" type="long" primary="true"></column>
+        <column name="assessment_version_id" type="long"></column>
+        <column name="justification" type="String"></column>
+        <column name="state_id" type="long"></column>
+        <column name="trend_id" type="long"></column>
+        <finder name="assessment_version_id" return-type="Collection">
+            <finder-column name="assessment_version_id"></finder-column>
+        </finder>
+  	</entity>
+  	
+  	<!-- 35 -->
+  	<entity name="state_trend_whvalues" local-service="true" remote-service="false">
+        <column name="state_trend_whval_id" type="long" primary="true"></column>
+        <column name="assessment_version_id" type="long"></column>
+        <column name="justification" type="String"></column>
+        <column name="state_id" type="long"></column>
+        <column name="trend_id" type="long"></column>
+        <finder name="assessment_version_id" return-type="Collection">
+            <finder-column name="assessment_version_id"></finder-column>
+        </finder>
+  	</entity>
+  	
+  	<!-- 36 -->
+  	
+  	<entity name="threat_categories_lkp" local-service="true" remote-service="false">
+        <column name="threatCategoryid" type="long" primary="true"></column>
+        <column name="threat_category" type="String"></column>
+        <column name="threat_subcategories_lkp_ref" type="Collection" entity="threat_subcategories_lkp" mapping-key="parent_id"></column>
+  	</entity>
+  	
+  	<!-- 37 -->
+  	
+  	<entity name="threat_rating_lkp" local-service="true" remote-service="false">
+        <column name="id" type="long" primary="true"></column>
+        <column name="rating" type="String"></column>
+        <column name="description" type="String"></column>
+  	</entity>
+  	
+  	
+  	<!-- 38 -->
+  	
+  	<entity name="threat_subcategories_lkp" local-service="true" remote-service="false">
+        <column name="id" type="long" primary="true"></column>
+        <column name="threat_sub_category" type="String"></column>
+        <column name="parent_id" type="long"></column>
+  	</entity>
+  	
+  	
+  	<!-- 39 -->
+  	
+  	
+  	<!-- 40 -->
+  	
+  	
+  	<!-- 41 -->
+  	
+  	
+  	<!-- 42 -->
+  	
+  	<entity name="trend_lkp" local-service="true" remote-service="false">
+        <column name="trend_id" type="long" primary="true"></column>
+        <column name="trend" type="String"></column>
+  	</entity>
+  	
+  	<!-- 43 -->
+  	
+
+  	
+  	<!-- 44 -->
+  	
+  	<!-- 45 -->
+  	
+  	<entity name="whp_criteria_lkp" local-service="true" remote-service="false">
+        <column name="id" type="long" primary="true"></column>
+        <column name="criterion" type="String"></column>
+        <column name="description" type="String"></column>
+  	</entity>
+  	
+  	<!-- 46 -->
+  	<entity name="site_assessment" local-service="true" remote-service="false" cache-enabled="false">
+        <column name="assessment_id" type="long" primary="true"></column>
+        <column name="site_id" type="long"></column>
+        <column name="status_id" type="long"></column>
+        <column name="initiation_date" type="Date"></column>
+        <column name="current_userid" type="long"></column>
+        <column name="current_stageid" type="long"></column>
+        <column name="assessment_initiated_by" type="long"></column>
+        <column name="base_langid" type="long"></column>
+        <column name="archived" type="boolean"></column>
+        <column name="is_active" type="boolean"></column>
+        <column name="assessment_version_ref" type="Collection" entity="site_assessment_versions" mapping-key="assessment_version_id"></column>
+        <column name="assessment_lang_ref" entity="assessment_lang_version" mapping-key="assessmentid" type="Collection"></column>
+        <order by="desc">
+            <order-column name="initiation_date"></order-column>
+        </order>
+        <finder name="currentuserid" return-type="Collection" where="archived is false">
+            <finder-column name="current_userid"></finder-column>
+        </finder>
+        <finder name="wip_siteids" return-type="Collection" where="archived is false">
+            <finder-column name="site_id"></finder-column>
+        </finder>
+        <finder name="AllActiveSiteAssessment" return-type="Collection" where="archived is false">
+            <finder-column name="archived"></finder-column>
+        </finder>
+        <finder name="siteAssessmentByFlag" return-type="Collection" >
+        	<finder-column name="is_active"></finder-column>
+            <finder-column name="archived"></finder-column>
+        </finder>
+  	</entity>
+  	
+  	<!-- 46 -->
+  	<entity name="site_assessment_versions" local-service="true" remote-service="false">
+        <column name="assessment_version_id" type="long" primary="true"></column>
+        <column name="stage_id" type="long"></column>
+        <column name="assessment_id" type="long"></column>
+        <column name="start_date" type="Date"></column>
+        <column name="end_date" type="Date"></column>
+        <column name="userid" type="long"></column>
+        <column name="initiation_date" type="Date"></column>
+        <column name="language" type="long"></column>
+        <column name="version_code" type="double"></column>
+        <column name="is_translated" type="boolean"></column>
+        <column name="parent_assessment_versionid" type="long"></column>
+        
+        
+        
+        
+        <column name="active_conservation_projects_ref" type="Collection" entity="active_conservation_projects" mapping-key="assessment_version_id"></column>
+        <column name="assessment_whvalues_ref" type="Collection" entity="assessment_whvalues" mapping-key="assessment_version_id"></column>
+        <column name="biodiversity_values_ref" type="Collection" entity="biodiversity_values" mapping-key="assessment_version_id"></column>
+        <column name="current_state_trend_ref" type="Collection" entity="current_state_trend" mapping-key="assessment_version_id"></column>
+        <column name="state_trend_whvalues_ref" type="Collection" entity="state_trend_whvalues" mapping-key="assessment_version_id"></column>
+        <column name="references_ref" type="Collection" entity="references" mapping-key="assessment_version_id"></column>
+        <column name="effective_prot_mgmt_iothreats_ref" type="Collection" entity="effective_prot_mgmt_iothreats" mapping-key="assessment_version_id"></column>
+        <column name="potential_project_needs_ref" type="Collection" entity="potential_project_needs" mapping-key="assessment_version_id"></column>
+        <column name="state_trend_biodivvals_ref" type="Collection" entity="state_trend_biodivvals" mapping-key="assessment_version_id"></column>
+        <column name="prot_mgmt_best_practices_ref" type="Collection" entity="prot_mgmt_best_practices" mapping-key="assessment_version_id"></column>
+        <column name="prot_mgmt_overall_ref" type="Collection" entity="prot_mgmt_overall" mapping-key="assessment_version_id"></column>
+        <column name="protection_management_ref" type="Collection" entity="protection_management" mapping-key="assessment_version_id"></column>
+        <column name="benefits_summary_ref" type="Collection" entity="benefits_summary" mapping-key="assessment_version_id"></column>
+        <column name="key_conservation_issues_ref" type="Collection" entity="key_conservation_issues" mapping-key="assessment_version_id"></column>
+        <column name="conservation_outlook_ref" type="Collection" entity="conservation_outlook" mapping-key="assessment_version_id"></column>
+        <column name="benefits_ref" type="Collection" entity="benefits" mapping-key="assessment_version_id"></column>
+        <column name="assessing_threats_current_ref" type="Collection" entity="assessing_threats_current" mapping-key="assessment_version_id"></column>
+        <column name="threat_summary_current_ref" type="Collection" entity="threat_summary_current" mapping-key="assessment_version_id"></column>
+        <column name="threat_summary_potential_ref" type="Collection" entity="threat_summary_potential" mapping-key="assessment_version_id"></column>
+        <column name="assessing_threats_potential_ref" type="Collection" entity="assessing_threats_potential" mapping-key="assessment_version_id"></column>
+        <column name="threat_summary_overall_ref" type="Collection" entity="threat_summary_overall" mapping-key="assessment_version_id"></column>
+        
+        
+        <finder name="userid" return-type="Collection">
+            <finder-column name="userid"></finder-column>
+        </finder>
+        <finder name="AssessmentId" return-type="Collection">
+            <finder-column name="assessment_id"></finder-column>
+        </finder>
+        <finder name="previousVersionCode" return-type="Collection" db-index="false">
+            <finder-column name="assessment_id"></finder-column>
+            <finder-column name="version_code"></finder-column>
+        </finder>
+   	</entity>
+  	
+    <!-- Site Assessment Module Entities -->
+    <entity name="assessing_threats_current" remote-service="false" local-service="true">
+        <column name="current_threat_id" type="long" primary="true"></column>
+        <column name="assessment_version_id" type="long"></column>
+        <column name="current_threat" type="String"></column>
+        <column name="justification" type="String"></column>
+        <column name="inside_site" type="boolean"></column>
+        <column name="outside_site" type="boolean"></column>
+        <column name="threat_rating_id" type="long"></column>
+        <column name="current_threat_assessment_cat_ref" type="Collection" entity="current_threat_assessment_cat" mapping-key="current_threat_id"></column>
+        <column name="current_threat_values_ref" type="Collection" entity="current_threat_values" mapping-key="current_threat_id"></column>
+        <finder name="assesment_version_id" return-type="Collection">
+            <finder-column name="assessment_version_id"></finder-column>
+        </finder>
+    </entity>
+    <entity name="assessing_threats_potential" local-service="true" remote-service="false">
+        <column name="potential_threat_id" type="long" primary="true"></column>
+        <column name="assessment_version_id" type="long"></column>
+        <column name="potential_threat" type="String"></column>
+        <column name="justification" type="String"></column>
+        <column name="threat_rating" type="long"></column>
+        <column name="inside_site" type="boolean"></column>
+        <column name="outside_site" type="boolean"></column>
+        <column name="potential_threat_values_ref" type="Collection" entity="potential_threat_values" mapping-key="potential_threat_id"></column>
+        <column name="potential_threat_assessment_cat_ref" type="Collection" entity="potential_threat_assessment_cat" mapping-key="potential_threat_id"></column>
+        <finder name="assessment_version_id" return-type="Collection">
+            <finder-column name="assessment_version_id"></finder-column>
+        </finder>
+    </entity>
+    <entity name="potential_threat_assessment_cat" local-service="true" remote-service="false">
+        <column name="pot_threat_cat_id" type="long" primary="true"></column>
+        <column name="potential_threat_id" type="long"></column>
+        <column name="category_id" type="long"></column>
+        <column name="sub_cat_id" type="long"></column>
+        <finder name="potential_threat_id" return-type="Collection">
+            <finder-column name="potential_threat_id"></finder-column>
+        </finder>
+        <finder name="sub_cat_id" return-type="Collection">
+            <finder-column name="potential_threat_id"></finder-column>
+            <finder-column name="category_id"></finder-column>
+        </finder>
+    </entity>
+    <entity name="potential_threat_values" local-service="true" remote-service="false">
+        <column name="potential_threat_values_id" primary="true" type="long"></column>
+        <column name="potential_threat_id" type="long"></column>
+        <column name="whvalues_id" type="long"></column>
+        <column name="is_biodiv_whval" type="boolean"></column>
+        <finder name="potential_threat_id" return-type="Collection">
+            <finder-column name="potential_threat_id"></finder-column>
+        </finder>
+    </entity>
+    <entity name="threat_summary_current" local-service="true" remote-service="false">
+        <column name="threat_sum_cur_id" type="long" primary="true"></column>
+        <column name="assessment_version_id" type="long"></column>
+        <column name="overall_current" type="String"></column>
+        <column name="threat_rating" type="long"></column>
+        <finder name="assessment_version_id" return-type="Collection">
+            <finder-column name="assessment_version_id"></finder-column>
+        </finder>
+    </entity>
+    <entity name="threat_summary_overall" local-service="true" remote-service="false">
+        <column name="threat_sum_overall_id" type="long" primary="true"></column>
+        <column name="assessment_version_id" type="long"></column>
+        <column name="overall_threat" type="String"></column>
+        <column name="threat_rating" type="long"></column>
+        <finder name="assessment_version_id" return-type="Collection">
+            <finder-column name="assessment_version_id"></finder-column>
+        </finder>
+    </entity>
+
+	<entity name="threat_summary_potential" local-service="true" remote-service="false">
+        <column name="threat_sum_potential_id" type="long" primary="true"></column>
+        <column name="assessment_version_id" type="long"></column>
+        <column name="overall_potential" type="String"></column>
+        <column name="threat_rating" type="long"></column>
+        <finder name="assessment_version_id" return-type="Collection">
+            <finder-column name="assessment_version_id"></finder-column>
+        </finder>
+    </entity>
+	
+	<entity name="current_threat_assessment_cat" local-service="true" remote-service="false">
+        <column name="cur_threat_cat_id" type="long" primary="true"></column>
+        <column name="current_threat_id" type="long"></column>
+        <column name="category_id" type="long"></column>
+        <column name="sub_cat_id" type="long"></column>
+        <finder name="current_threat_id" return-type="Collection">
+            <finder-column name="current_threat_id"></finder-column>
+        </finder>
+        <finder name="sub_cat_id" return-type="Collection">
+            <finder-column name="current_threat_id"></finder-column>
+            <finder-column name="category_id"></finder-column>
+        </finder>
+    </entity>
+
+	<entity name="current_threat_values" local-service="true" remote-service="false">
+        <column name="current_threat_values_id" primary="true" type="long"></column>
+        <column name="current_threat_id" type="long"></column>
+        <column name="whvalues_id" type="long"></column>
+        <column name="is_biodiv_whval" type="boolean"></column>
+        <finder name="current_threat_id" return-type="Collection">
+            <finder-column name="current_threat_id"></finder-column>
+        </finder>
+        
+    </entity>
+    
+    <entity name="benefits_type_ref" local-service="true" remote-service="false">
+        <column name="benefits_type_ref_id" type="long" primary="true"></column>
+        <column name="benefits_id" type="long"></column>
+        <column name="benefit_checktype" type="long"></column>
+        <column name="benefit_checksubtype" type="long"></column>
+        <finder name="ByBenefits_id" return-type="Collection">
+            <finder-column name="benefits_id"></finder-column>
+        </finder>
+        <finder name="typeId" return-type="Collection">
+            <finder-column name="benefits_id"></finder-column>
+            <finder-column name="benefit_checktype"></finder-column>
+        </finder>
+    </entity>
+    
+     	
+  	<entity name="benefits" local-service="true" remote-service="false">
+        <column name="benefits_id" type="long" primary="true"></column>
+        <column name="assessment_version_id" type="long"></column>
+        <!-- <column name="benefit_checktype" type="long"></column>
+        <column name="benefit_checksubtype" type="long"></column> -->
+        <column name="selected_benefit" type="long"></column>
+        <column name="summary" type="String"></column>
+        <column name="data_deficient" type="boolean"></column>
+        <column name="community_within_site" type="long"></column>
+        <column name="community_outside_site" type="long"></column>
+        <column name="wider_community" type="long"></column>
+        <column name="benefit_checktype" type="Collection" entity="benefits_type_ref" mapping-key="benefits_id"></column>
+        <finder name="assessment_version_id" return-type="Collection">
+            <finder-column name="assessment_version_id"></finder-column>
+        </finder>
+  	</entity>
+    <entity name="assessment_validation" local-service="true" remote-service="false">
+        <column name="assessment_ver_val_id" type="long" primary="true"></column>
+        <column name="assessment_version_id" type="long"></column>
+        <column name="assessment_step" type="long"></column>
+        <column name="validation_complete" type="boolean"></column>
+        <finder name="assessment_version_id" return-type="collection">
+            <finder-column name="assessment_version_id"></finder-column>
+            <finder-column name="assessment_step"></finder-column>
+        </finder>
+        <finder name="assessment_verId" return-type="Collection">
+            <finder-column name="assessment_version_id"></finder-column>
+        </finder>
+    </entity>
+    <entity name="advance_query_assessment" local-service="true" remote-service="false">
+        <column name="id" type="long" primary="true"></column>
+        <column name="base_search_val" type="String"></column>
+        <column name="base_tab_name" type="String"></column>
+        <column name="base_tab_pk" type="String"></column>
+        <column name="base_tab_field_disp" type="String"></column>
+        <column name="base_tab_field_actual" type="String"></column>
+        <column name="relate_tab_available" type="String"></column>
+        <column name="relate_table_name" type="String"></column>
+        <column name="relate_tab_fk" type="String"></column>
+        <column name="has_lookup" type="String"></column>
+        <column name="lookup_table_name" type="String"></column>
+        <column name="lookup_pk" type="String"></column>
+        <column name="lkp_display_field" type="String"></column>
+        <column name="custom_sql" type="String"></column>
+        <column name="isboolean" type="String"></column>
+        <finder name="base_cat_tab_name" return-type="Collection">
+            <finder-column name="base_tab_name"></finder-column>
+        </finder>
+        <finder name="base_tab_diplay_name" return-type="Collection">
+            <finder-column name="base_search_val"></finder-column>
+        </finder>
+    </entity>
+    
+    <entity name="advance_query_site" local-service="true" remote-service="false">
+        <column name="id" type="long" primary="true"></column>
+        <column name="base_search_val" type="String"></column>
+        <column name="base_tab_name" type="String"></column>
+        <column name="base_tab_pk" type="String"></column>
+        <column name="base_tab_field_disp" type="String"></column>
+        <column name="base_tab_field_actual" type="String"></column>
+        <column name="relate_tab_available" type="String"></column>
+        <column name="relate_table_name" type="String"></column>
+        <column name="relate_tab_fk" type="String"></column>
+        <column name="has_lookup" type="String"></column>
+        <column name="lookup_table_name" type="String"></column>
+        <column name="lookup_pk" type="String"></column>
+        <column name="lkp_display_field" type="String"></column>
+        <column name="custom_sql" type="String"></column>
+        <column name="isboolean" type="String"></column>
+        <finder name="base_cat_tab_name" return-type="Collection">
+            <finder-column name="base_tab_name"></finder-column>
+        </finder>
+        <finder name="base_tab_diplay_name" return-type="Collection">
+            <finder-column name="base_search_val"></finder-column>
+        </finder>
+    </entity>
+    <entity name="thematic_lkp" local-service="true" remote-service="false">
+        <column name="thematicid" type="long" primary="true"></column>
+        <column name="thematic" type="String"></column>
+        <column name="description" type="String"></column>
+    </entity>
+    <entity name="sites_thematic" local-service="true" remote-service="false">
+        <column name="sitethematicid" type="long" primary="true"></column>
+        <column name="site_id" type="long"></column>
+        <column name="thematicid" type="long"></column>
+        <finder name="siteId" return-type="Collection">
+            <finder-column name="site_id"></finder-column>
+        </finder>
+        <finder name="thematicId" return-type="sites_thematic">
+            <finder-column name="thematicid"></finder-column>
+        </finder>
+    </entity>
+    
+</service-builder>

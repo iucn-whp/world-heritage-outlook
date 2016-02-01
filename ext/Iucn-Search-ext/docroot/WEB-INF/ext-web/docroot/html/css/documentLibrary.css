@@ -1,0 +1,311 @@
+.showHeaderNavigation
+{
+	display:none;
+	}
+
+.docLibraryHome
+{
+	border:1px soid green;
+	}
+	
+	
+	.portlet-document-library .lfr-list-view-content li.selected, 
+
+.portlet-document-library-display .lfr-list-view-content li.selected 
+	{
+	background-color: #3f6565; 
+	color:#7f9965;
+	}
+	
+	
+	.aui-w20 .lfr-header-row
+	{
+	background:#3f6565;
+	}
+	
+	
+	#p_p_id_20_
+	{
+	padding:1px;
+	}
+	
+	
+	
+	.outerWrapper
+	{
+	background:url("../../IUCN-theme/images/inner-bg.gif") repeat-x 0px 0px 
+
+#FFFFFF
+	}
+	
+
+
+.lfr-header-row .lfr-actions.lfr-extended, .lfr-header-row .lfr-search-combobox 
+
+{
+
+  margin:0px;
+  margin-right: 2px; }
+  
+  
+
+
+.seacrhBarTop .lfr-header-row .lfr-actions.lfr-extended, .seacrhBarTop .lfr-header-row .lfr-search-combobox 
+  {
+  border:1px solid red;
+  background:#aa2300;
+  }
+
+
+.aui-column-content,
+.aui-column-content-center 
+{
+  padding: 0 0; }
+
+
+.lfr-header-row {
+  border-bottom: 0px solid #7B7B7B;
+  min-height: 31px; }
+
+
+
+.context-pane-content .lfr-header-row-content
+{
+background:#edf5fc;
+}
+
+
+.aui-column-last .lfr-header-row
+	{
+	background:#edf5fc;
+	padding-top: 0.3em;
+	padding-bottom: 0.3em;
+	}
+
+
+
+.columns-1
+{
+width:990px;
+}
+
+.portlet-column
+{
+display:block;
+}
+
+.fileEntryTable
+{
+
+}
+
+.taglib-header
+{
+border-bottom: 0px;
+}
+
+
+.aui-datepicker-button-wrapper
+{
+margin: 0 5px 0 2px;
+position: absolute;
+margin-left: 205px;
+width: 24px;
+}
+
+
+
+.aui-datepicker-display, .aui-datepicker-select-wrapper, .aui-field-date 
+
+.aui-datepicker-display, .aui-field-date .aui-datepicker-select-wrapper, 
+
+.aui-datepicker-button-wrapper {
+  float: left; 
+
+  width: 309px;
+}
+
+
+.inputfiled02
+{
+}
+
+
+.inputField01
+{
+width:300px;
+}
+
+
+.aui-form-validator-content .aui-field-element  .aui-field-input
+{
+/*width:300PX;*/
+}
+
+
+.fileEntryTable .aui-field-input
+{
+width:300PX;
+}
+
+.fileEntryTableTD
+{
+width:300PX;
+
+}
+
+.fileEntryTableTDRight
+{
+width:300PX;
+
+}
+
+
+.add-button
+{
+	border: 0px solid;
+	border-color: #5F5F5F;
+	}
+	
+	
+	
+	
+	  .portlet-document-library .context-pane .context-pane-content, .portlet-document-library-display .context-pane .context-pane-content {
+    border-left: 0px solid #7B7B7B;
+     }
+	 
+	 .lfr-header-row-content
+	 {
+	 padding:0;
+	 }
+	 
+	 .aui-form-validator-content .aui-field-element .aui-field-input
+	 {
+	 /*width:150px;*/
+	 }
+		 
+	 .barHolder
+	 {
+	 padding-bottom:0.3em;
+	
+	 overflow:hidden;
+	 }
+	 
+	 .toolbarSiteSearch
+	 {
+	float:left;
+	 
+	 }
+	 
+	 
+	 .toolbarSiteSearch .aui-column 
+	 {
+	 padding-left:0.3em;
+	 border:0px;
+	 }
+	 
+	 
+	 
+	 
+	 .toolbarSiteSearch .aui-column-content span b
+	{
+	display:inline-block;
+	padding:0.3em 0.5em 0em 0;
+	overflow:hidden;
+	}
+	
+	.toolbarSiteSearch .aui-field-input-menu
+	{
+	padding:0.2em;
+	margin-right:0.3em
+	}
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 .toolbarCheckBox
+	 {
+	 float:left;
+	 padding-left:0.4em;
+	 }
+	 
+	 .aui-field-element 
+	 {
+	 padding: 0;
+background: none;
+border: 0px;
+border-color: transparent;
+	 }
+	 
+	 .checkboxCustom
+	 {
+
+	 }
+	 
+	 .checkboxCustom  .aui-field-element 
+	 {
+
+	 padding:0px;
+	 }
+	 
+	 
+
+	 
+	 
+	 
+
+	 
+	 .toolbarCheckBox .portlet-document-library .select-documents, .portlet-document-library-display .select-documents
+	 {
+	border:0px;
+	 background:transparent;
+	 }
+	 
+	 
+	 
+	 .toolbarCheckBox .portlet-document-library .select-documents .aui-field-element, .portlet-document-library-display .select-documents .aui-field-element
+	 {
+	 	 border:0px;
+	 background:transparent;
+	 }
+	 
+	 
+	 .seacrhBarTop
+	 {
+	 float:right;
+	 margin-right:0.3em;
+	 }
+	 
+
+	 
+	 .toolbarBottom
+	 {
+	border-top:1px solid #ccc;
+	padding:0.2em 0 0.2em 0;
+	 }
+	 
+	 
+	 .seacrhBarTop .aui-layout-content
+	 {
+	
+	 }
+	 
+	 .toolbarBottom .display-style
+	 {
+	 float:right;
+	 margin-right:0.3em;
+	 margin-bottom:0.2em;
+	 }
+	 
+	 
+	 .portlet-document-library .folder
+	 {
+	 margin-top:0px;
+	 }
+	 

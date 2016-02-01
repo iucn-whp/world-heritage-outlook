@@ -1,0 +1,752 @@
+/* IUCN_index CSS */
+
+*
+{
+	margin: 0;
+	padding: 0;
+
+	list-style:none;
+
+}
+
+
+img
+{
+border:0;
+}
+
+body
+{
+
+	background: #fff;
+	margin: 0;
+	padding: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	
+}
+
+.outerWrapper
+{
+	width: 100%;
+	background: #fff url('../images/blue_bg.PNG') repeat-x;
+}
+	
+#header
+{
+	display: block;
+	background: #042f5a;
+}
+
+.siteLogo a
+{
+	margin: 17px 0 3px 0;
+	display: block;
+	width:394px;
+	height:64px;
+	text-indent: -9999px;
+	background: url('../images/iucn_logo.PNG') no-repeat;
+}
+
+.rightHeader
+{
+	float: right;
+	width: 475px;
+	height:60px;
+}
+
+#headerLeft
+{
+	width: 365px;
+	float: left;
+}
+
+/*
+#headerRight
+{
+	float: right;
+	height: 75px;
+}
+
+*/
+
+#login span
+{
+	margin-left: 0px;
+}
+
+#login a
+{
+	text-decoration: none;
+}
+
+#searchBox
+{
+	float: right;
+	clear: both;
+	margin: 25px 10px 0 0;
+	width: 212px;
+	height: 25px;
+}
+
+.inputBox
+{
+	border: none;
+	padding: 0 0 0 10px;
+	background: url('../images/searchInput_bg.gif') no-repeat left center;
+}
+
+.searchBtn
+{
+	height: 26px;
+}
+
+#navBar ul li a.home
+{
+	display: block;
+	padding-right: 0;
+	width: 13px;
+	height: 13px;
+	text-indent: -9999px;
+	background: url('../images/home-icon.GIF') no-repeat;
+}
+
+
+
+.portlet-column-content
+{
+	height:332px;
+	padding: 0;
+}
+
+
+.region
+{
+	position: relative;
+	z-index: 100;
+	display: inline-block;
+	float: right;
+	margin: 5px 10px 0 0;
+	width: 111px;
+	background: url('../images/selectRegion_bg.png') no-repeat;
+}
+
+.region ul li ul
+{
+	display: none;
+	margin: 0;
+	*margin: 0;
+}
+
+.region1,.region2
+{
+	display: inline-block;
+	width: 111px;
+	height: 24px;
+	line-height: 24px;
+	background-color: red;
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+	background: url('../images/region_bg.png') no-repeat;
+}
+
+a.linkSelectRegion
+{
+	display: inline-block;
+	width: 93px;
+	height: 24px;
+	line-height: 24px;
+	color: white;
+	font-size: 12px;
+	text-align: right;
+	text-decoration: none;
+	padding: 0 1em 0 0.4em;
+	background: url('../images/arrow_down.png') no-repeat 98px 10px;
+}
+	
+
+
+.mapholder
+{
+	left: 0;
+	top:0;
+	width: 100%;
+	height: 360px;
+	position:absolute;
+	z-index:97;
+	/*background: url('../images/map-sample.gif') no-repeat;*/
+	
+}
+
+.stripLeft
+{
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 360px;
+	background: url('../images/frame_bg.png');
+}
+
+.stripRight
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 360px;
+	background: url('../images/frame_bg.png');
+}
+
+.map
+{
+	position: absolute;
+}
+
+
+
+
+
+/*.viewMoreBtn, .closeBtn
+{
+	float: left;
+	width: 28px;
+	height: 24px;
+	display: block;
+	text-indent: -9999px;
+	background: url('../images/icon-collapse.png') 2px 2px no-repeat;
+}*/
+
+.viewLessBtn
+{
+	float: left;
+	margin: 16px 4px 0 0;
+	width: 30px;
+	height: 30px;
+	display: block;
+	text-indent: -9999px;
+	background: url('../images/icon-collapse.png') 2px 2px no-repeat;
+}
+
+.viewMoreBtn
+{
+	float: left;
+	margin: 16px 4px 0 0;
+	width: 30px;
+	height: 30px;
+	display: block;
+	text-indent: -9999px;
+	background: url('../images/icon-expand.png') 2px 2px no-repeat;
+}
+
+.closeBtn
+{
+	background: url('../images/close_btn.png') no-repeat;
+}
+
+
+.continentsListContainerBtn
+{
+    position: absolute;
+    top:0px;
+    right:0px;
+}
+
+
+.searchLabel
+{
+	padding: 8px;
+	position: absolute;
+	top: 60px;
+	right: 71px;
+	z-index: 99999;
+	background: url('../images/searchLabel.png') no-repeat; 
+}
+
+
+
+.seeAll
+{
+	color: #fff;
+}
+
+
+.searchSiteBar
+{
+	position: relative;
+	/* overflow: hidden; */
+}
+
+.browseSitesForm
+{
+	margin: 0.4em 0;
+}
+
+.searchSiteInput
+{
+	
+}
+
+.searchSiteBtn {
+    background: url("../images/searchSiteBtn.png") no-repeat scroll 0 0 transparent;
+    float: right;
+    padding: 0.8em;
+    position: absolute;
+    right: 2.3em;
+    top: 4.45em;
+}
+
+.browseAllLink
+{
+	font-size: 13px;
+	color: #fff;
+  	margin: 0.5em 0 0 0;
+  	float: left;
+}
+
+.browseSitesForm a:hover
+{
+	text-decoration: underline;
+}
+
+.continentsListContainerFooter
+{
+	width: 260px;
+	height: 10px;
+	background: url("../images/continent_list_container_bg.png")transparent;
+}
+
+.newsContainer
+{
+	height: 284px;
+	background: #fff;
+	clear:both;
+	display:block;
+	margin-top: 360px;
+	*padding-top:360px;
+}
+
+.newsTitle
+{
+	font-size: 14px;
+	color: #00498a;
+}
+
+.newsTitle a
+{
+	color: #00498a;
+}
+
+.news
+{
+	float: left;
+	display: block;
+	width: 589px;
+	height: 284px;
+	background: url('../images/news_gradient.png') repeat-y;
+}
+
+.totalSites
+{
+	font-weight: bold;	
+}
+
+
+.news h1
+{
+float: left;
+margin: 15px 0 0 20px;
+color: #00498A;
+font-size: 22px;
+}
+
+div.newsBlock
+{
+	clear: both;
+	margin: 0 0 0 15px;
+	padding: 15px 0 0 0;
+	display: block;
+	width: 540px;
+	height: 95px;
+}
+
+.newsBlock1
+{
+	border-bottom: 1px solid #dadcd0;
+}
+
+.news h1
+{
+	float: left;
+	margin: 15px 0 0 20px;
+	color: #00498a;
+	font-size: 23px;
+}
+
+.news p
+{
+	float: left;
+	margin: 0 0 5px 0;
+	font-size: 12px;
+	width: 410px;
+	color: #666666;
+}
+
+.newsContainer h2, .newsContainer h5
+{
+	color: #00498a;
+}
+
+.newsContainer h2
+{
+	float: left;
+	margin-bottom: 10px;
+}
+
+h5
+{
+	margin-bottom: 5px;
+	text-decoration: underline;
+}
+
+.moreNews
+{
+	float: right;
+	margin: 15px 30px 0 0;
+	color: #00498a;
+	font-size: 12px;
+}
+
+.newsThumb
+{
+	float: left;
+	clear: both;
+	margin-right: 10px;
+	display: block;
+	width: 68px;
+	height: 68px;
+	background: url('../images/news_thumb.gif');
+}
+
+.readMore
+{
+	display: block;
+	margin: 0 0 0 80px;
+	font-size: 11px;
+	color: #006699;
+	clear: both;
+}
+
+.more
+{
+	float: right;
+	margin: 3px 30px 0 0;
+	color: #006699;
+	font-size: 12px;
+}
+
+
+.moreLinks
+{
+	float: right;
+	font-size: 12px;
+	font-weight: bold;
+	color: #034ea2;
+}
+
+.moreLinks a
+{
+	color: #034ea2;
+	margin-right: 12px;
+}
+
+.moreLinks a:hover
+{
+	color: #e46d2c;
+}
+
+
+/*photoGallery CSS*/
+
+.wrapperPhotogallery {
+float: right;
+margin: 10px 1px 0 0;
+width: 388px;
+height: 266px;
+text-align: left;
+padding: 2px 3px 0px 10px;
+background: url('../images/photoGallery_bg.gif') no-repeat;
+}
+
+.body {
+width: 358px;
+padding: 0;
+}
+
+.clearfix{
+	clear:both;
+	float:none;
+}
+
+.bigPic {
+width: 358px;
+height: 164px;
+border: 3px solid white;
+background-color: white;
+margin-bottom: 1px;
+clear: both;
+}
+
+.bigPic img{
+	position:absolute;
+	width: 358px;
+	height: 164px;
+	display:none;
+}
+
+h2.photogalleryHeading {
+float: left;
+display: inline-block;
+margin: 0px 0 0 2px;
+font-size: 18px;
+color: #00498A;
+}
+
+ul.thumbs li.active{
+	border:2px solid #ccc;
+	background:#F67766;
+	padding:2px;
+}
+ul.thumbs, ul.thumbs li{
+	width: 68px;
+	height: 58px;
+	padding:0;
+	list-style:none;
+}
+
+ul.thumbs {
+width: 420px;
+height: 68px;
+}
+
+ul.thumbs img
+{
+	width: 60px;
+	height: 50px;
+}
+
+ul.thumbs li {
+float: left;
+width: 60px;
+height: 50px;
+margin-right: 6px;
+margin-bottom: 5px;
+border: 1px solid #CCC;
+padding: 3px;
+cursor: pointer;
+background: white;
+}
+
+.mapbtns
+{
+	position:absolute;
+	background:none repeat scroll 0 0 rgba(0, 0, 0, 0.0);
+	padding:1.5px;
+	z-index:800;
+	left: 43px;
+	top:9px;
+}
+	
+.anchorbtns
+{
+display:inline-block; 
+color:white;
+text-align: center;
+margin:1px 10px 0 0;
+background:none repeat scroll 0 0 rgba(0, 0, 0, 0.5); 
+padding:0.5em;
+z-index:900;
+width: 50px;
+}
+
+#siteAutoComplete
+{
+	position: relative;
+}
+
+#selectedSiteItems
+{
+	margin: 10px;
+}
+
+#siteAutoComplete input
+{
+	float: left;
+	border-radius: 4px;
+	color: #8b8b8b;
+ 	width: 202px;
+	padding: 0.4em 2em 0.4em 0.45em;
+	background-image: none;
+	font-size:12px;
+	color:#666;
+	height:13px;	
+}
+
+#siteAutoComplete button
+{
+	display: none;	
+}
+
+.aui-autocomplete span
+{
+	display: inline-block;
+	float: left;
+}
+
+.olPopup
+{
+	border: 5px solid red;
+}
+
+
+
+.continentsListContainer {
+    color: #FFFFFF;
+    left: 662px;
+    margin: 0;
+    position: relative;
+    width: 330px;
+    z-index: 0;
+	}
+
+
+.heading {
+	maring:0;
+	overflow: hidden;
+	color:#fff;
+	display:block;
+	height:40px;
+	background:url("../images/transparentStripMap.png");
+	padding:10px 0px 0px 30px
+  }
+  
+  .heading h2
+  {
+  font-size:26px;
+  font-weight:normal;
+  }
+
+
+
+.list {
+  display: block;
+  overflow: hidden;
+  background:url("../images/transparentStripMap.png");
+  padding:0px 0px 0px 30px;
+  height:284px;
+}
+
+.siteSearchBtn
+{
+	width: 27px;
+	height: 28px;
+  	background:url("../images/search_btn.PNG") no-repeat left top;
+  	float: left;
+}
+
+
+.veiwByRatings
+{
+	font-weight: normal;
+	display:block;
+	font-size:20px;
+	border-bottom:1px solid #fff;
+	padding-top:15px;
+	padding-bottom:5px;
+	clear: both;
+}
+
+.siteStatusContainer
+{
+	font-size:12px;
+	margin-top:1em;
+}
+
+.siteStatusContainer li
+	{
+	margin:0 0 0.5em 0;
+	}
+
+.siteStatusContainer a
+{
+	font-weight: normal;
+	padding: 0 0 0.1em 0.1em;
+}
+
+.siteStatusContainer a:hover
+{
+	text-decoration: underline;
+}
+
+.statusGood
+{
+	color: #39b54a;
+}
+
+
+.statusgdWthSmConcerns
+{
+	color: #acd373;
+}
+
+.statusSigficntConcern
+{
+	color: #f7941d;
+}
+.statusCritical
+{
+	color: #ed1c24;
+}
+
+
+
+.statusDataDeficient
+{
+	color: #fcfdff;
+}
+
+.statusComingSoon
+{
+	color: #808080;
+}
+
+
+/* .portlet-topper
+{
+	display: none;
+} */
+
+
+/*	Prashant */
+
+
+.mapcontainer
+{
+	position:absolute;
+	clear:both;
+    left: 0;
+    width: 100%;
+    height:334px;
+}
+
+
+/* .portlet-borderless-container {
+	position: static;
+} */
+#p_p_id_Attribute_Viewer_WAR_Attribute_Viewerportlet_ .portlet-borderless-container
+{
+	position: static;
+	}
+	
+	.showHeaderNavigation {
+	display: none;
+}

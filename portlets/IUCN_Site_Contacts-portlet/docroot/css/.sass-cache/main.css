@@ -1,0 +1,93 @@
+/*style_main CSS*/
+.outerWrapper {
+  background: url("../images/inner-bg.gif") repeat-x 0px 0px white; }
+
+.showHeaderNavigation {
+  display: none; }
+
+#contactDiv {
+  border: 1px solid #D7D7D7; }
+
+h3.siteInfoPageTitle {
+  margin-left: 0;
+  font-size: 18px;
+  color: white;
+  background: url("../images/site_info_heading_bg.png") repeat-x #2c5368; }
+
+.addBtn {
+  clear: both;
+  padding: 0 1em;
+  display: inline-block;
+  margin: 3px 0 0 0.3em;
+  float: right;
+  height: 15px;
+  border-radius: 6px 6px 0 0;
+  border: 1px solid #a0a0a0;
+  font-weight: bold;
+  color: #0d2938;
+  border-bottom: none;
+  background: url("../images/add_btn_bg.gif");
+  text-decoration: none; }
+
+.pageHeadingSiteContacts {
+  float: left;
+  display: inline-block;
+  clear: both;
+  margin: 8px 0 0 0;
+  padding: 0px 1px 0 12px;
+  border-left: 1px solid red;
+  border: none;
+  font-size: 16px;
+  color: #5A7CB4; }
+
+.headingStyle {
+  /* float: left; */
+  margin: 1.7em 0 0 0.2em;
+  display: inline-block;
+  width: 338px;
+  height: 4px;
+  background: url(../images/page_heading.png) no-repeat; }
+
+.topBarCS {
+  background: url("../images/bg_top_searchbar.png") repeat-x scroll left top #d9e4ea;
+  border: 1px solid #A2B6C6;
+  margin: 0 auto;
+  width: auto;
+  padding-bottom: 0.3em;
+  margin-bottom: 1em; }
+
+.inputHolderCS {
+  width: 300px;
+  margin-top: 0.3em; }
+
+.inputAutoComplete input {
+  width: 250px; }
+
+.selectHolder {
+  width: 275px;
+  margin-top: 0.3em; }
+
+.selectHolder select {
+  width: 250px;
+  padding: 0.31em 0.2em 0.33em 0; }
+
+.aui-toolbar-content {
+  margin-top: 0.4em; }
+
+.btnHolderCS {
+  margin: 2em 0.5em 0 0; }
+
+.btnHolderCS input {
+  padding: 4px !important; }
+
+.clearAnchorCS {
+  float: left;
+  font-size: 12px;
+  background: url("../images/edit-clear.png") 0px 0px no-repeat;
+  cursor: pointer;
+  margin-top: 0.5em;
+  padding-bottom: 4px;
+  padding-left: 1.7em;
+  margin-top: -2em;
+  position: absolute; }
+

@@ -1,0 +1,197 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="com.iucn.whp.dbservice.service.active_conservation_projectsLocalService" class="com.iucn.whp.dbservice.service.impl.active_conservation_projectsLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.active_conservation_projectsPersistence" class="com.iucn.whp.dbservice.service.persistence.active_conservation_projectsPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.advance_query_assessmentLocalService" class="com.iucn.whp.dbservice.service.impl.advance_query_assessmentLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.advance_query_assessmentPersistence" class="com.iucn.whp.dbservice.service.persistence.advance_query_assessmentPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.advance_query_siteLocalService" class="com.iucn.whp.dbservice.service.impl.advance_query_siteLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.advance_query_sitePersistence" class="com.iucn.whp.dbservice.service.persistence.advance_query_sitePersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.assessing_threats_currentLocalService" class="com.iucn.whp.dbservice.service.impl.assessing_threats_currentLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.assessing_threats_currentPersistence" class="com.iucn.whp.dbservice.service.persistence.assessing_threats_currentPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.assessing_threats_potentialLocalService" class="com.iucn.whp.dbservice.service.impl.assessing_threats_potentialLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.assessing_threats_potentialPersistence" class="com.iucn.whp.dbservice.service.persistence.assessing_threats_potentialPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.assessment_lang_lkpLocalService" class="com.iucn.whp.dbservice.service.impl.assessment_lang_lkpLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.assessment_lang_lkpPersistence" class="com.iucn.whp.dbservice.service.persistence.assessment_lang_lkpPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.assessment_lang_versionLocalService" class="com.iucn.whp.dbservice.service.impl.assessment_lang_versionLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.assessment_lang_versionPersistence" class="com.iucn.whp.dbservice.service.persistence.assessment_lang_versionPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.assessment_stagesLocalService" class="com.iucn.whp.dbservice.service.impl.assessment_stagesLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.assessment_stagesPersistence" class="com.iucn.whp.dbservice.service.persistence.assessment_stagesPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.assessment_statusLocalService" class="com.iucn.whp.dbservice.service.impl.assessment_statusLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.assessment_statusPersistence" class="com.iucn.whp.dbservice.service.persistence.assessment_statusPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.assessment_validationLocalService" class="com.iucn.whp.dbservice.service.impl.assessment_validationLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.assessment_validationPersistence" class="com.iucn.whp.dbservice.service.persistence.assessment_validationPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.assessment_whvaluesLocalService" class="com.iucn.whp.dbservice.service.impl.assessment_whvaluesLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.assessment_whvaluesPersistence" class="com.iucn.whp.dbservice.service.persistence.assessment_whvaluesPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.assessment_whvalues_whcriterionLocalService" class="com.iucn.whp.dbservice.service.impl.assessment_whvalues_whcriterionLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.assessment_whvalues_whcriterionPersistence" class="com.iucn.whp.dbservice.service.persistence.assessment_whvalues_whcriterionPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.benefit_checksubtype_lkpLocalService" class="com.iucn.whp.dbservice.service.impl.benefit_checksubtype_lkpLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.benefit_checksubtype_lkpPersistence" class="com.iucn.whp.dbservice.service.persistence.benefit_checksubtype_lkpPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.benefit_checktype_lkpLocalService" class="com.iucn.whp.dbservice.service.impl.benefit_checktype_lkpLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.benefit_checktype_lkpPersistence" class="com.iucn.whp.dbservice.service.persistence.benefit_checktype_lkpPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.benefit_rating_lkpLocalService" class="com.iucn.whp.dbservice.service.impl.benefit_rating_lkpLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.benefit_rating_lkpPersistence" class="com.iucn.whp.dbservice.service.persistence.benefit_rating_lkpPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.benefitsLocalService" class="com.iucn.whp.dbservice.service.impl.benefitsLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.benefitsPersistence" class="com.iucn.whp.dbservice.service.persistence.benefitsPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.benefits_summaryLocalService" class="com.iucn.whp.dbservice.service.impl.benefits_summaryLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.benefits_summaryPersistence" class="com.iucn.whp.dbservice.service.persistence.benefits_summaryPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.benefits_type_refLocalService" class="com.iucn.whp.dbservice.service.impl.benefits_type_refLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.benefits_type_refPersistence" class="com.iucn.whp.dbservice.service.persistence.benefits_type_refPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.biodiversity_valuesLocalService" class="com.iucn.whp.dbservice.service.impl.biodiversity_valuesLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.biodiversity_valuesPersistence" class="com.iucn.whp.dbservice.service.persistence.biodiversity_valuesPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.boundary_modification_type_lkpLocalService" class="com.iucn.whp.dbservice.service.impl.boundary_modification_type_lkpLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.boundary_modification_type_lkpPersistence" class="com.iucn.whp.dbservice.service.persistence.boundary_modification_type_lkpPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.conservation_outlookLocalService" class="com.iucn.whp.dbservice.service.impl.conservation_outlookLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.conservation_outlookPersistence" class="com.iucn.whp.dbservice.service.persistence.conservation_outlookPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.conservation_outlook_rating_lkpLocalService" class="com.iucn.whp.dbservice.service.impl.conservation_outlook_rating_lkpLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.conservation_outlook_rating_lkpPersistence" class="com.iucn.whp.dbservice.service.persistence.conservation_outlook_rating_lkpPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.contact_categoryLocalService" class="com.iucn.whp.dbservice.service.impl.contact_categoryLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.contact_categoryPersistence" class="com.iucn.whp.dbservice.service.persistence.contact_categoryPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.country_lkpLocalService" class="com.iucn.whp.dbservice.service.impl.country_lkpLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.country_lkpPersistence" class="com.iucn.whp.dbservice.service.persistence.country_lkpPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.current_state_trendLocalService" class="com.iucn.whp.dbservice.service.impl.current_state_trendLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.current_state_trendPersistence" class="com.iucn.whp.dbservice.service.persistence.current_state_trendPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.current_state_trend_valuesLocalService" class="com.iucn.whp.dbservice.service.impl.current_state_trend_valuesLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.current_state_trend_valuesPersistence" class="com.iucn.whp.dbservice.service.persistence.current_state_trend_valuesPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.current_threat_assessment_catLocalService" class="com.iucn.whp.dbservice.service.impl.current_threat_assessment_catLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.current_threat_assessment_catPersistence" class="com.iucn.whp.dbservice.service.persistence.current_threat_assessment_catPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.current_threat_valuesLocalService" class="com.iucn.whp.dbservice.service.impl.current_threat_valuesLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.current_threat_valuesPersistence" class="com.iucn.whp.dbservice.service.persistence.current_threat_valuesPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.danger_list_status_lkpLocalService" class="com.iucn.whp.dbservice.service.impl.danger_list_status_lkpLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.danger_list_status_lkpPersistence" class="com.iucn.whp.dbservice.service.persistence.danger_list_status_lkpPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.docs_customDataLocalService" class="com.iucn.whp.dbservice.service.impl.docs_customDataLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.docs_customDataPersistence" class="com.iucn.whp.dbservice.service.persistence.docs_customDataPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.docs_customDataFinder" class="com.iucn.whp.dbservice.service.persistence.docs_customDataFinderImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.docs_sitedataLocalService" class="com.iucn.whp.dbservice.service.impl.docs_sitedataLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.docs_sitedataPersistence" class="com.iucn.whp.dbservice.service.persistence.docs_sitedataPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.effective_prot_mgmt_iothreatsLocalService" class="com.iucn.whp.dbservice.service.impl.effective_prot_mgmt_iothreatsLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.effective_prot_mgmt_iothreatsPersistence" class="com.iucn.whp.dbservice.service.persistence.effective_prot_mgmt_iothreatsPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.flagship_species_lkpLocalService" class="com.iucn.whp.dbservice.service.impl.flagship_species_lkpLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.flagship_species_lkpPersistence" class="com.iucn.whp.dbservice.service.persistence.flagship_species_lkpPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.inscription_criteria_lkpLocalService" class="com.iucn.whp.dbservice.service.impl.inscription_criteria_lkpLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.inscription_criteria_lkpPersistence" class="com.iucn.whp.dbservice.service.persistence.inscription_criteria_lkpPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.inscription_type_lkpLocalService" class="com.iucn.whp.dbservice.service.impl.inscription_type_lkpLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.inscription_type_lkpPersistence" class="com.iucn.whp.dbservice.service.persistence.inscription_type_lkpPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.iucn_pa_lkp_categoryLocalService" class="com.iucn.whp.dbservice.service.impl.iucn_pa_lkp_categoryLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.iucn_pa_lkp_categoryPersistence" class="com.iucn.whp.dbservice.service.persistence.iucn_pa_lkp_categoryPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.iucn_regionLocalService" class="com.iucn.whp.dbservice.service.impl.iucn_regionLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.iucn_regionPersistence" class="com.iucn.whp.dbservice.service.persistence.iucn_regionPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.iucn_region_countryLocalService" class="com.iucn.whp.dbservice.service.impl.iucn_region_countryLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.iucn_region_countryPersistence" class="com.iucn.whp.dbservice.service.persistence.iucn_region_countryPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.key_conservation_issuesLocalService" class="com.iucn.whp.dbservice.service.impl.key_conservation_issuesLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.key_conservation_issuesPersistence" class="com.iucn.whp.dbservice.service.persistence.key_conservation_issuesPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.key_conservation_scale_lkpLocalService" class="com.iucn.whp.dbservice.service.impl.key_conservation_scale_lkpLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.key_conservation_scale_lkpPersistence" class="com.iucn.whp.dbservice.service.persistence.key_conservation_scale_lkpPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.mission_lkpLocalService" class="com.iucn.whp.dbservice.service.impl.mission_lkpLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.mission_lkpPersistence" class="com.iucn.whp.dbservice.service.persistence.mission_lkpPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.other_designation_lkpLocalService" class="com.iucn.whp.dbservice.service.impl.other_designation_lkpLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.other_designation_lkpPersistence" class="com.iucn.whp.dbservice.service.persistence.other_designation_lkpPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.potential_project_needsLocalService" class="com.iucn.whp.dbservice.service.impl.potential_project_needsLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.potential_project_needsPersistence" class="com.iucn.whp.dbservice.service.persistence.potential_project_needsPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.potential_threat_assessment_catLocalService" class="com.iucn.whp.dbservice.service.impl.potential_threat_assessment_catLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.potential_threat_assessment_catPersistence" class="com.iucn.whp.dbservice.service.persistence.potential_threat_assessment_catPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.potential_threat_valuesLocalService" class="com.iucn.whp.dbservice.service.impl.potential_threat_valuesLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.potential_threat_valuesPersistence" class="com.iucn.whp.dbservice.service.persistence.potential_threat_valuesPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.prot_mgmt_best_practicesLocalService" class="com.iucn.whp.dbservice.service.impl.prot_mgmt_best_practicesLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.prot_mgmt_best_practicesPersistence" class="com.iucn.whp.dbservice.service.persistence.prot_mgmt_best_practicesPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.prot_mgmt_overallLocalService" class="com.iucn.whp.dbservice.service.impl.prot_mgmt_overallLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.prot_mgmt_overallPersistence" class="com.iucn.whp.dbservice.service.persistence.prot_mgmt_overallPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.protection_managementLocalService" class="com.iucn.whp.dbservice.service.impl.protection_managementLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.protection_managementPersistence" class="com.iucn.whp.dbservice.service.persistence.protection_managementPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.protection_management_ratings_lkpLocalService" class="com.iucn.whp.dbservice.service.impl.protection_management_ratings_lkpLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.protection_management_ratings_lkpPersistence" class="com.iucn.whp.dbservice.service.persistence.protection_management_ratings_lkpPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.protection_mgmt_checklist_lkpLocalService" class="com.iucn.whp.dbservice.service.impl.protection_mgmt_checklist_lkpLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.protection_mgmt_checklist_lkpPersistence" class="com.iucn.whp.dbservice.service.persistence.protection_mgmt_checklist_lkpPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.recommendation_type_lkpLocalService" class="com.iucn.whp.dbservice.service.impl.recommendation_type_lkpLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.recommendation_type_lkpPersistence" class="com.iucn.whp.dbservice.service.persistence.recommendation_type_lkpPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.referencesLocalService" class="com.iucn.whp.dbservice.service.impl.referencesLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.referencesPersistence" class="com.iucn.whp.dbservice.service.persistence.referencesPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.reinforced_monitoringLocalService" class="com.iucn.whp.dbservice.service.impl.reinforced_monitoringLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.reinforced_monitoringPersistence" class="com.iucn.whp.dbservice.service.persistence.reinforced_monitoringPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.site_assessmentLocalService" class="com.iucn.whp.dbservice.service.impl.site_assessmentLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.site_assessmentPersistence" class="com.iucn.whp.dbservice.service.persistence.site_assessmentPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.site_assessmentFinder" class="com.iucn.whp.dbservice.service.persistence.site_assessmentFinderImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.site_assessment_versionsLocalService" class="com.iucn.whp.dbservice.service.impl.site_assessment_versionsLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.site_assessment_versionsPersistence" class="com.iucn.whp.dbservice.service.persistence.site_assessment_versionsPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.site_assessment_versionsFinder" class="com.iucn.whp.dbservice.service.persistence.site_assessment_versionsFinderImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.sites_thematicLocalService" class="com.iucn.whp.dbservice.service.impl.sites_thematicLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.sites_thematicPersistence" class="com.iucn.whp.dbservice.service.persistence.sites_thematicPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.state_lkpLocalService" class="com.iucn.whp.dbservice.service.impl.state_lkpLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.state_lkpPersistence" class="com.iucn.whp.dbservice.service.persistence.state_lkpPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.state_trend_biodivvalsLocalService" class="com.iucn.whp.dbservice.service.impl.state_trend_biodivvalsLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.state_trend_biodivvalsPersistence" class="com.iucn.whp.dbservice.service.persistence.state_trend_biodivvalsPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.state_trend_whvaluesLocalService" class="com.iucn.whp.dbservice.service.impl.state_trend_whvaluesLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.state_trend_whvaluesPersistence" class="com.iucn.whp.dbservice.service.persistence.state_trend_whvaluesPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.thematic_lkpLocalService" class="com.iucn.whp.dbservice.service.impl.thematic_lkpLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.thematic_lkpPersistence" class="com.iucn.whp.dbservice.service.persistence.thematic_lkpPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.threat_categories_lkpLocalService" class="com.iucn.whp.dbservice.service.impl.threat_categories_lkpLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.threat_categories_lkpPersistence" class="com.iucn.whp.dbservice.service.persistence.threat_categories_lkpPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.threat_rating_lkpLocalService" class="com.iucn.whp.dbservice.service.impl.threat_rating_lkpLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.threat_rating_lkpPersistence" class="com.iucn.whp.dbservice.service.persistence.threat_rating_lkpPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.threat_subcategories_lkpLocalService" class="com.iucn.whp.dbservice.service.impl.threat_subcategories_lkpLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.threat_subcategories_lkpPersistence" class="com.iucn.whp.dbservice.service.persistence.threat_subcategories_lkpPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.threat_summary_currentLocalService" class="com.iucn.whp.dbservice.service.impl.threat_summary_currentLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.threat_summary_currentPersistence" class="com.iucn.whp.dbservice.service.persistence.threat_summary_currentPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.threat_summary_overallLocalService" class="com.iucn.whp.dbservice.service.impl.threat_summary_overallLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.threat_summary_overallPersistence" class="com.iucn.whp.dbservice.service.persistence.threat_summary_overallPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.threat_summary_potentialLocalService" class="com.iucn.whp.dbservice.service.impl.threat_summary_potentialLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.threat_summary_potentialPersistence" class="com.iucn.whp.dbservice.service.persistence.threat_summary_potentialPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.trend_lkpLocalService" class="com.iucn.whp.dbservice.service.impl.trend_lkpLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.trend_lkpPersistence" class="com.iucn.whp.dbservice.service.persistence.trend_lkpPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.unesco_regionLocalService" class="com.iucn.whp.dbservice.service.impl.unesco_regionLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.unesco_regionPersistence" class="com.iucn.whp.dbservice.service.persistence.unesco_regionPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.unesco_region_countryLocalService" class="com.iucn.whp.dbservice.service.impl.unesco_region_countryLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.unesco_region_countryPersistence" class="com.iucn.whp.dbservice.service.persistence.unesco_region_countryPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.whp_contactLocalService" class="com.iucn.whp.dbservice.service.impl.whp_contactLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.whp_contactPersistence" class="com.iucn.whp.dbservice.service.persistence.whp_contactPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.whp_criteria_lkpLocalService" class="com.iucn.whp.dbservice.service.impl.whp_criteria_lkpLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.whp_criteria_lkpPersistence" class="com.iucn.whp.dbservice.service.persistence.whp_criteria_lkpPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.whp_site_danger_listLocalService" class="com.iucn.whp.dbservice.service.impl.whp_site_danger_listLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.whp_site_danger_listService" class="com.iucn.whp.dbservice.service.impl.whp_site_danger_listServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.whp_site_danger_listPersistence" class="com.iucn.whp.dbservice.service.persistence.whp_site_danger_listPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.whp_sitesLocalService" class="com.iucn.whp.dbservice.service.impl.whp_sitesLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.whp_sitesService" class="com.iucn.whp.dbservice.service.impl.whp_sitesServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.whp_sitesPersistence" class="com.iucn.whp.dbservice.service.persistence.whp_sitesPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.whp_sitesFinder" class="com.iucn.whp.dbservice.service.persistence.whp_sitesFinderImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.whp_sites_boundary_modificationLocalService" class="com.iucn.whp.dbservice.service.impl.whp_sites_boundary_modificationLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.whp_sites_boundary_modificationPersistence" class="com.iucn.whp.dbservice.service.persistence.whp_sites_boundary_modificationPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.whp_sites_budgetLocalService" class="com.iucn.whp.dbservice.service.impl.whp_sites_budgetLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.whp_sites_budgetPersistence" class="com.iucn.whp.dbservice.service.persistence.whp_sites_budgetPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.whp_sites_componentLocalService" class="com.iucn.whp.dbservice.service.impl.whp_sites_componentLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.whp_sites_componentPersistence" class="com.iucn.whp.dbservice.service.persistence.whp_sites_componentPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.whp_sites_contactsLocalService" class="com.iucn.whp.dbservice.service.impl.whp_sites_contactsLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.whp_sites_contactsPersistence" class="com.iucn.whp.dbservice.service.persistence.whp_sites_contactsPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.whp_sites_countryLocalService" class="com.iucn.whp.dbservice.service.impl.whp_sites_countryLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.whp_sites_countryPersistence" class="com.iucn.whp.dbservice.service.persistence.whp_sites_countryPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.whp_sites_dsocrLocalService" class="com.iucn.whp.dbservice.service.impl.whp_sites_dsocrLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.whp_sites_dsocrPersistence" class="com.iucn.whp.dbservice.service.persistence.whp_sites_dsocrPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.whp_sites_external_documentsLocalService" class="com.iucn.whp.dbservice.service.impl.whp_sites_external_documentsLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.whp_sites_external_documentsPersistence" class="com.iucn.whp.dbservice.service.persistence.whp_sites_external_documentsPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.whp_sites_flagship_speciesLocalService" class="com.iucn.whp.dbservice.service.impl.whp_sites_flagship_speciesLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.whp_sites_flagship_speciesPersistence" class="com.iucn.whp.dbservice.service.persistence.whp_sites_flagship_speciesPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.whp_sites_indigenous_communitiesLocalService" class="com.iucn.whp.dbservice.service.impl.whp_sites_indigenous_communitiesLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.whp_sites_indigenous_communitiesPersistence" class="com.iucn.whp.dbservice.service.persistence.whp_sites_indigenous_communitiesPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.whp_sites_inscription_criteriaLocalService" class="com.iucn.whp.dbservice.service.impl.whp_sites_inscription_criteriaLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.whp_sites_inscription_criteriaPersistence" class="com.iucn.whp.dbservice.service.persistence.whp_sites_inscription_criteriaPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.whp_sites_inscription_dateLocalService" class="com.iucn.whp.dbservice.service.impl.whp_sites_inscription_dateLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.whp_sites_inscription_datePersistence" class="com.iucn.whp.dbservice.service.persistence.whp_sites_inscription_datePersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.whp_sites_iucn_pa_categoryLocalService" class="com.iucn.whp.dbservice.service.impl.whp_sites_iucn_pa_categoryLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.whp_sites_iucn_pa_categoryPersistence" class="com.iucn.whp.dbservice.service.persistence.whp_sites_iucn_pa_categoryPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.whp_sites_iucn_recommendationLocalService" class="com.iucn.whp.dbservice.service.impl.whp_sites_iucn_recommendationLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.whp_sites_iucn_recommendationService" class="com.iucn.whp.dbservice.service.impl.whp_sites_iucn_recommendationServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.whp_sites_iucn_recommendationPersistence" class="com.iucn.whp.dbservice.service.persistence.whp_sites_iucn_recommendationPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.whp_sites_meeLocalService" class="com.iucn.whp.dbservice.service.impl.whp_sites_meeLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.whp_sites_meePersistence" class="com.iucn.whp.dbservice.service.persistence.whp_sites_meePersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.whp_sites_mgmt_plan_stateLocalService" class="com.iucn.whp.dbservice.service.impl.whp_sites_mgmt_plan_stateLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.whp_sites_mgmt_plan_statePersistence" class="com.iucn.whp.dbservice.service.persistence.whp_sites_mgmt_plan_statePersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.whp_sites_missionLocalService" class="com.iucn.whp.dbservice.service.impl.whp_sites_missionLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.whp_sites_missionPersistence" class="com.iucn.whp.dbservice.service.persistence.whp_sites_missionPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.whp_sites_other_designationsLocalService" class="com.iucn.whp.dbservice.service.impl.whp_sites_other_designationsLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.whp_sites_other_designationsPersistence" class="com.iucn.whp.dbservice.service.persistence.whp_sites_other_designationsPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.whp_sites_soc_reportsLocalService" class="com.iucn.whp.dbservice.service.impl.whp_sites_soc_reportsLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.whp_sites_soc_reportsPersistence" class="com.iucn.whp.dbservice.service.persistence.whp_sites_soc_reportsPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.whp_sites_soouvLocalService" class="com.iucn.whp.dbservice.service.impl.whp_sites_soouvLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.whp_sites_soouvPersistence" class="com.iucn.whp.dbservice.service.persistence.whp_sites_soouvPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.whp_sites_visitorsLocalService" class="com.iucn.whp.dbservice.service.impl.whp_sites_visitorsLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.whp_sites_visitorsPersistence" class="com.iucn.whp.dbservice.service.persistence.whp_sites_visitorsPersistenceImpl" parent="basePersistence" />
+</beans>

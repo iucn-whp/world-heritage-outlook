@@ -1,0 +1,247 @@
+/* Tabs	*/
+ul.tabs {
+  float: left;
+  left: 0;
+  overflow: hidden;
+  position: relative;
+  top: 15.5px; }
+
+ul.tabs li a {
+  position: relative;
+  padding: 1px 10px 0 15px; }
+
+ul.tabs li a span {
+  position: absolute; }
+
+.tabs li {
+  list-style: none;
+  display: inline-block;
+  position: relative;
+  margin-right: 18px;
+  float: left; }
+
+.selectedTabLi {
+  z-index: 9999; }
+
+.middleTabLi {
+  z-index: 1; }
+
+.lastTabLi {
+  z-index: 0;
+  *z-index: -1; }
+
+/*			.tabs a {
+				padding:2px 10px;
+				display:inline-block;
+				background:#f0f0f0;
+				color:#fff;
+				text-decoration:none;
+				border:1px solid #c3c3c3;
+				color:#164289;
+			}
+			
+			
+
+			.tabs a.active {
+			
+				background:#fff;
+				color:#000;
+				border-bottom:1px solid #fff;
+			}
+			*/
+#tab1, #tab2, #tab3 {
+  position: relative;
+  clear: both; }
+
+/* Accordion */
+/* Accordion */
+#mainPageSummary {
+  position: relative;
+  min-height: 0;
+  border-radius: 10px 10px 0px 0px;
+  background: #fff;
+  margin-bottom: 0.3em; }
+
+p {
+  margin: 0; }
+
+.clear {
+  clear: both; }
+
+/* --- Headings --- */
+a, .accordion .switch a {
+  color: #3f6565;
+  border-width: 0 0 0px 0;
+  text-decoration: none; }
+
+.accordion {
+  overflow: hidden; }
+
+a.trigger {
+  display: block;
+  padding-left: 26px;
+  background: url("../images/plus.GIF") no-repeat 7px 3px;
+  color: #000;
+  text-decoration: none; }
+
+a.trigger.open {
+  background: url("../images/minus.GIF") no-repeat 7px 2px transparent; }
+
+.titleAssesmentSection {
+  background: #fff;
+  padding: 2em 0.5em 0.85em 1em;
+  display: block;
+  overflow: hidden;
+  clear: both; }
+
+.blockTitleHeading {
+  font-size: 18px;
+  color: #3f6565;
+  padding: 0.7em 0 0.7em 0.5em;
+  font-weight: bold; }
+
+.outer {
+  background: #ECF5FE;
+  overflow: hidden; }
+
+.switch {
+  position: absolute;
+  right: 1em;
+  top: 7.2em; }
+
+.summarygistbdr_01 {
+  float: left;
+  width: 470px;
+  padding: 0 0.5em 0 0; }
+
+.summarygistbdrStatus {
+  background: none repeat scroll 0 0 #FFFFFF;
+  border-radius: 10px;
+  display: block;
+  float: right;
+  padding: 3em 0 3em 0em;
+  text-align: center;
+  width: 145px;
+  position: relative;
+  font-weight: bold;
+  font-size: 18px; }
+
+h3.h {
+  border-bottom: 2px solid #b0b1b1;
+  margin: 0 0em 0em 0.5em;
+  padding: 0.5em 0 0 0;
+  font-size: 18px;
+  font-weight: bold; }
+
+h4.h {
+  width: 100%;
+  font-weight: normal;
+  font-size: 18px; }
+
+.assessmentInfoValueContentHolder {
+  display: block;
+  overflow: hidden;
+  padding: 1.3em 1em 0.3em 1em; }
+
+.innerAccordionContentHolder {
+  clear: both;
+  display: block;
+  position: relative;
+  background: #fff;
+  margin: 1em 1em 1em 1em;
+  padding: 0.6em 0 0.6em 0;
+  border-radius: 8px; }
+
+.innerAccordionContentHolder .outer {
+  background: #fff; }
+
+.innerAccordionContentHolder_level2 {
+  margin: 1em 1em 0 1em;
+  position: relative; }
+
+.innerAccordionContentHolder_level2 .new {
+  position: relative;
+  margin-bottom: 0.5em; }
+
+.innerAccordionContentHolder_level2 h5 {
+  font-size: 12px;
+  font-weight: bold;
+  border-bottom: 1px dotted #ccc;
+  position: relative;
+  padding-bottom: 0.5em;
+  text-decoration: none;
+  margin-top: 0.5em;
+  display: block;
+  clear: both;
+  overflow: hidden; }
+
+.innerAccordionContentHolder_level2 h5 span.lbl2 {
+  display: inline-block;
+  width: 400px; }
+
+.accordion .inner .innerAccordionContentHolder_level2 a.trigger {
+  width: 350px; }
+
+.summarytxt03 {
+  padding: 0.5em 0.5em 1em 0.5em; }
+
+.conclusionh5 {
+  position: absolute;
+  right: 0px;
+  width: 230px;
+  margin: 0.5em 0em 0 0;
+  font-weight: bold;
+  top: -7px;
+  text-align: right;
+  font-size: 12px;
+  font-weight: bold;
+  color: #3f6565; }
+
+.conclusionh5 .lbltxt {
+  width: 110px;
+  display: inline-block;
+  margin-right: 0.2em; }
+
+.conclusionh4 {
+  position: absolute;
+  right: 0px;
+  margin: 0.6em 0em 0 0;
+  font-weight: normal;
+  top: 0px;
+  font-size: 18px;
+  text-align: right;
+  padding: 0 0.5em 0 0; }
+
+.conclusionh4 .lbltxt {
+  width: 172px;
+  display: inline-block;
+  margin-right: 0.2em;
+  vertical-align: top;
+  line-height: 0.9em; }
+
+.siteStatusValue {
+  color: #3f6565; }
+
+.conclusionh5inner {
+  border-bottom: 1px dotted #ccc;
+  padding: 0.3em; }
+
+.conclusionh5inner .lbltxt {
+  display: inline-block;
+  width: 200px;
+  padding: 0 0.2em 0 0.2em;
+  color: #3f6565; }
+
+.conclusionh5inner .normal {
+  font-weight: bold; }
+
+.natxtl1 {
+  padding-left: 1em;
+  padding-top: 1em; }
+
+.blockTitleSubHeadingsHolder {
+  margin-top: 2em; }
+
+.inner .shown {
+  margin: 0.7em 0 0.7em 0; }
+

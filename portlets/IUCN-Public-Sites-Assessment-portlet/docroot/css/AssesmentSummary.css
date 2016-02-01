@@ -1,0 +1,670 @@
+.sitesHeaderText
+{
+	display:none;
+	}
+	
+	
+	.sitesSubNav
+	{
+		float: left;
+		width: 165px;
+		background: #3f6565;
+		height: 334px;
+		color: #7f9965;
+		font-size:12px;
+		text-transform:uppercase;
+	}
+	
+	
+	.siteDescriptionPageBannerContent 
+	{
+    border-right: 2px solid #3F6565;
+    height: 335px;
+    left: 165px;
+    overflow: hidden;
+    position: absolute;
+    top: -340px;
+    width: 826px;
+	}
+	
+	.siteimage
+	{
+	float:left;
+	width:498px;
+	overflow:hidden;
+	}
+	
+		
+	.siteimage img
+	{
+	border:0px;
+	width:498px;
+	height:335px;
+	overflow:hidden;
+	}
+	
+	
+	
+	.SiteassesementImage
+	{
+	float:right;
+	width:325px;
+	color:#7F9965;
+	}
+	
+	
+	
+	.siteHeading
+	{
+	font-size:20px;
+	font-weight:normal;
+	margin-left: 1.5em;
+	margin-top:0.5em;
+	margin-right:0.5em;
+	height:70px;
+	}
+	
+	
+	
+	
+	.siteadditionalinfo
+	{
+	display: block;
+    font-size: 12px;
+	}
+	
+	
+	
+	
+	
+	
+	
+	.SiteassesementImage .critical
+	{
+	background: url("../images/status_critical.png") repeat scroll left top transparent;
+    height: 210px;
+    width: 313px;
+    margin-left:0.3em;
+    margin-top:25px;
+    }
+    
+    	.SiteassesementImage .goodAssesment
+	{
+	background: url("../images/status_good.png") repeat scroll left top transparent;
+    height: 210px;
+    width: 313px;
+    margin-left:0.3em;
+    margin-top:25px;
+    }
+    
+    
+    	.SiteassesementImage .gwscAssesment
+	{
+	background: url("../images/status_goodwithSomeConcerns.png") repeat scroll left top transparent;
+    height: 210px;
+    width: 313px;
+    margin-left:0.3em;
+    margin-top:25px;
+    }
+    
+    	.SiteassesementImage .significantCAssesment
+	{
+	background: url("../images/status_significantconcern.png") repeat scroll left top transparent;
+    height: 210px;
+    width: 313px;
+    margin-left:0.3em;
+    margin-top:25px;
+    }
+    
+    
+    	.SiteassesementImage .DDAssesment
+	{
+	background: url("../images/status_datadeficient.png") repeat scroll left top transparent;
+    height: 210px;
+    width: 313px;
+    margin-left:0.3em;
+    margin-top:25px;
+    }
+	
+	
+	
+	
+	.siteAssessmentPublicPageLeftBlock
+{
+	width: 660px;
+	float: left;
+	margin-right:2px;
+	}
+	
+	
+.siteAssessmentPublicPageRightBlock
+{
+	width: 330px;
+	float: right;		
+}
+
+.rightBlockTopIcons1 li {
+    display: inline-block;
+    margin-right: 0.4em;
+    padding: 0.4em 0;
+}
+
+
+	
+	
+.mainBlockSiteAssessmentPublicPages
+{
+	margin: 0 auto;
+	padding-bottom: 10px;
+	
+	border: 0px solid #dddddd;
+	overflow: hidden;
+	background:#fff;
+}
+
+
+.mainBlockSiteAssessmentPublicPages
+{
+	line-height:1.5em;
+	}
+
+
+
+.siteAssessmentPublicPageSiteHeading
+{
+	font-weight: normal;
+	font-size: 48px;
+	color: #042f5b;
+	margin-top: 1em;
+}
+
+
+.siteAssessmentPublicPageInfo
+{
+	font-weight:bold;
+}
+
+
+
+/* Tabs */
+
+
+
+
+
+
+.tabHolder
+  {
+	margin-left: 55px;
+ }
+
+.tab
+{
+	color: #2f3336;
+	float: left;
+	font-size: 12px;
+	/*left: -15px;
+	margin-left: -29px;
+	padding: 4px 10px 0 13px;*/
+	position: relative;
+	text-decoration: none;
+	z-index: 1000;
+	background: #C5CDD4;
+	padding-left: 15px;
+	font-weight:bold;
+}
+
+.tabPrevious
+{
+	color: #2f3336;
+	float: left;
+	font-size: 12px;
+	left: -15px;
+	margin-left: -29px;
+	padding: 4px 10px 0 13px;
+	position: relative;
+	text-decoration: none;
+	background: #C5CDD4;
+	font-weight:bold;
+}
+
+.tabWithShadow
+{
+	color: #000000;
+	float: left;
+	font-size: 12px;
+	font-weight:bold;
+	left: -15px;
+	margin-left: -29px;
+	padding: 4px 10px 0 13px;
+	position: relative;
+	text-decoration: none;
+	background: #C5CDD4 url('../images/tab_shadow.png') no-repeat 2px 0;
+}
+
+.pageContentWrapper
+{
+	width: 96%;
+	height: 450px;
+	background: #ecf5fe;
+	clear: both;
+	border-radius: 10px;
+	padding: 3px 5px 5px 5px;
+}
+
+.pageContent
+{
+	width: 100%;
+	height: 450px;
+	background: #fff;
+}
+
+.leftCornerGrey
+{	
+	display: inline-block;
+	height: 19px;
+	left: -8px;
+	top: 0;
+	*left: -8px;
+	position: relative;
+	width: 8px;
+	background: url("../images/tab_left_corner.gif") no-repeat scroll left bottom transparent;
+}
+
+.leftCornerBlue
+{
+	display: inline-block;
+	height: 19px;
+	left: -8px;
+	top: 0;
+	*left: -8px;
+	position: relative;
+	width: 8px;
+	background: url("../images/tab_left_corner_selected.gif") no-repeat scroll left bottom transparent;
+}
+
+.rightCornerGrey
+{
+	background: url("../images/tab_right_corner.png") no-repeat scroll left bottom transparent;
+	display: inline-block;
+	float: left;
+	height: 19px;
+	right: -25px;
+	*right: -25px;
+	position: relative;
+	top: 0;
+	width: 25px;
+}
+
+.rightCornerBlue
+{
+	background: url("../images/tab_right_corner_selected.png") no-repeat scroll left bottom transparent;
+	display: inline-block;
+	float: left;
+	height: 19px;
+	right: -25px;
+	position: relative;
+	top: 0;
+	width: 25px;
+}
+
+.cornerLight
+{
+	background: url("../images/corner_light.png") no-repeat scroll left bottom transparent;
+	display: inline-block;
+	float: left;
+	height: 12px;
+	left: -15px;
+	position: relative;
+	top: 7px;
+	width: 25px;
+	z-index: 100;
+}
+
+.tabSelected
+{
+	padding: 4px 10px 0 13px;
+	z-index: 100;
+	text-decoration: none;
+	background: #ecf5fe;
+}
+
+.tabShadow
+{
+	display: inline-block;
+	height: 19px;
+	left: -10px;
+	top: 0;
+	*left: -10px;
+	position: relative;
+	width: 25px;
+	background: url("../images/tab_left_corner_shadow.png") no-repeat scroll left bottom transparent;
+}
+
+.tabNotSelected
+{
+	background: #c5cdd4;
+}
+
+.innerSection
+{
+	
+	overflow:hidden;
+	}
+
+
+.tab1InnerSection, .tab2InnerSection
+{
+	border-radius: 10px 10px 0 0;
+	background: #fff;
+	padding: 10px 9px;
+	overflow: hidden;
+	display: block;
+	position: relative;
+}
+
+
+/* Tab ENDS */
+
+
+
+
+.siteAssessmentInfoWrapper
+{
+	padding: 4px 4px 4px 4px;
+	background: #ECF5FE;
+	border-radius: 0 10px 10px 10px;
+	margin: 34px 5px 0 0;
+}
+
+
+.conservationOutlookH2
+{
+	color: #1A4D41;
+    font-size: 18px;
+	margin: 4px 0 19px 0;
+	font-weight:bold;
+	
+}
+
+#tab1 h4
+{
+	margin-bottom: 12px;
+	font-size: 14px;
+	font-weight:normal;
+	font-weight:bold;
+	
+}
+
+
+
+
+
+
+
+
+
+
+.assessmentBlock
+{
+	padding-top: 10px;
+	display: block;
+}
+
+
+.assessmentSubBlock
+{
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+
+.assessmentType
+{
+	float: left;
+    overflow: hidden;
+    padding-top: 23px;
+    width: 195px;;
+}
+
+.assessmentDescription
+{
+	background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 10px 10px 10px 10px;
+    float: left;
+    padding: 10px;
+    width: 430px;
+    min-height: 138px;
+}
+
+.assessmentDescription span
+{
+	display: inline-block;
+	font-style: italic;
+	margin-bottom: 10px;
+	font-size:13px;
+}
+
+
+.assessmentDescription h6
+{
+	font-weight:bold;
+	font-size:13px;
+	}
+
+
+.red
+{
+	background: url("../images/red.png") no-repeat scroll center top transparent;
+    height: 62px;
+    margin-top: 10px;
+    width: 100%;
+}
+.orange
+{
+	background: url("../images/orange.png") no-repeat scroll center top transparent;
+    height: 62px;
+    margin-top: 10px;
+    width: 100%;
+}
+.darkgreen
+{
+	background: url("../images/darkgreen.png") no-repeat scroll center top transparent;
+    height: 62px;
+    margin-top: 10px;
+    width: 100%;
+}
+.gray
+{
+	background: url("../images/gray.png") no-repeat scroll center top transparent;
+    height: 62px;
+    margin-top: 10px;
+    width: 100%;
+}
+.lightgreen
+{
+	background: url("../images/LightGreen.png") no-repeat scroll center top transparent;
+    height: 62px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.assessmentType h3
+{
+	text-align: center;
+	color: #1A4D41;
+	font-size: 18px;
+	font-weight: bold;
+	
+}
+
+.assessmentType span
+{
+	text-align: center;
+	display: block;
+	font-size: 13px;
+}
+
+
+
+
+
+
+
+
+.mapHolder
+{
+	height: 221px;
+	border: 1px solid #d1d1cf;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.siteDescription1
+{
+	display: block;
+	background: #cbe6af;
+	margin-top: 1em;
+	overflow: hidden;
+	padding: 0.5em;
+	
+	
+}
+.siteDescription1 h2
+{
+	font-size: 16px;
+	margin-bottom: 0.5em;
+}
+
+.siteDescription
+{
+	display: block;
+	background: #cbe6af;
+	margin-top: 1em;
+	overflow: hidden;
+	padding: 0.5em;
+	height: 400px;
+	overflow: auto;
+	
+	
+}
+.inner_benefit {
+  margin-bottom: 10px;
+  width: 100%;
+  float: left;
+  
+}
+.siteDescription h2
+{
+	font-size: 16px;
+	margin-bottom: 0.5em;
+}
+.siteDescription h3
+{
+	font-size: 14px;
+	margin-bottom: 0.2em;
+}
+
+.moreInfoContainer
+{
+	margin-top: 0.5em;
+	padding: 0.5em;
+	}
+	
+	.moreInfo
+{
+	margin-bottom: 1em;
+}
+
+.moreInfo h3
+{
+	font-size: 16px;
+	font-weight:bold;
+	
+}
+
+.moreInfo a
+{
+	color:#3f6565;
+	font-size:14px;
+	}
+	
+
+.referencesTable, .actvConservationPrjctsTable
+{
+	border: 1px solid #e5e5e5;
+	border-right: none;
+	border-bottom: none;
+	margin: 0.5em 0.5em 0em 0.5em;
+	background: #fff;
+}
+
+.referencesTable img
+{
+	float: left;
+	margin-right: 8px;
+	border: 1px solid #ebebeb;
+}
+
+.referencesTable td, .actvConservationPrjctsTable td
+{
+	padding: 8px 5px;
+	border-right: 1px solid #e5e5e5;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.referencesTable th, .actvConservationPrjctsTable th
+{
+	padding: 2px 4px;
+	word-wrap: normal;
+	background: #f6f6f6 url('../images/gradient_01.png') repeat-x left top;
+	border-right: 1px solid #e5e5e5;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+
+td.tdindividual
+	{
+	width:150px;
+	}
+	
+	td.tddescription
+	{
+	width:250px;
+	}
+	
+	td.tdcontactDetails
+	{
+	width:180px;
+	}
+	
+	
+.backBtnHolder
+{
+	float: right;
+    margin: 3px 10px 0 0;
+}
+
+.backBtn
+{
+	padding: 5px 9px 5px 9px;
+    *padding: 5px 9px 5px 9px;
+    display: inline-block;
+    float: right;
+	background: #ECF5FE;
+    color: #333;
+	margin-top: 5px;
+	margin-left: 10px;
+	border-radius: 5px 5px 0 0;
+	    
+}
+	
+}
+.backBtn a {
+  
+}
+	#publish_date {
+      color: #042F5B;
+    float: right;
+    font-size: 12px;
+    font-weight: bold;
+    }
