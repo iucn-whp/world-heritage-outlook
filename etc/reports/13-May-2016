@@ -1,0 +1,23 @@
+Daily Report, 13 May 2016
+
+
+#32115 - Setup development version of the site running on AWS - 100% done
+ 
+ (Development server has been setup:  http://ec2-52-34-48-63.us-west-2.compute.amazonaws.com:8080 )
+
+#32088 - Ensure ALL functionality is working on the development environments - 80% done
+
+ (Most of functionality tested successfully)
+ 
+#32091 - Document Management - Check that the documents when assigned to a site can only be seen by assessors of that site or admin type users  - 100% done
+
+  (Works as expected)
+  
+#32092 - Document Management - Check that the documents assigned to a site can be seen in the site details by the relevant permission users  - 100% done 
+
+ (Works as expected)
+ 
+#32093 - New Cycle Assessment - Make ‘2016 Cycle’ the default Site Assessments seen - 20% done 
+
+ (Started working on, investigating current implementation. New column added to
+   

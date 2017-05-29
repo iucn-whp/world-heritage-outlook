@@ -369,6 +369,8 @@ public class potential_project_needsPersistenceImpl extends BasePersistenceImpl<
 		potential_project_needsImpl.setOrganization_individual(potential_project_needs.getOrganization_individual());
 		potential_project_needsImpl.setDescription(potential_project_needs.getDescription());
 		potential_project_needsImpl.setContact_details(potential_project_needs.getContact_details());
+		potential_project_needsImpl.setProjectDurationFrom(potential_project_needs.getProjectDurationFrom());
+		potential_project_needsImpl.setProjectDurationTo(potential_project_needs.getProjectDurationTo());
 
 		return potential_project_needsImpl;
 	}
@@ -1206,6 +1208,10 @@ public class potential_project_needsPersistenceImpl extends BasePersistenceImpl<
 	protected key_conservation_scale_lkpPersistence key_conservation_scale_lkpPersistence;
 	@BeanReference(type = mission_lkpPersistence.class)
 	protected mission_lkpPersistence mission_lkpPersistence;
+	@BeanReference(type = negative_factors_level_impactPersistence.class)
+	protected negative_factors_level_impactPersistence negative_factors_level_impactPersistence;
+	@BeanReference(type = negative_factors_trendPersistence.class)
+	protected negative_factors_trendPersistence negative_factors_trendPersistence;
 	@BeanReference(type = other_designation_lkpPersistence.class)
 	protected other_designation_lkpPersistence other_designation_lkpPersistence;
 	@BeanReference(type = potential_project_needsPersistence.class)

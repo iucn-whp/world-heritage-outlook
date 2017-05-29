@@ -1,6 +1,22 @@
 <!--?xml version="1.0" encoding="UTF-8"?-->
-<custom-sql> 
-<sql id="com.iucn.whp.dbservice.service.persistence.SiteFinder.getAllActiveSites"> 
-<![CDATA[ SELECT whp_sites.* FROM whp_sites WHERE whp_sites.active_ is true ]]>
-</sql> 
+<custom-sql>
+    <sql id="com.iucn.whp.dbservice.service.persistence.SiteFinder.getAllActiveSites">
+        <![CDATA[ SELECT whp_sites.* FROM whp_sites WHERE whp_sites.active_ is true ]]>
+    </sql>
+
+    <sql id="com.iucn.whp.dbservice.service.persistence.SiteFinder.findActiveSiteByUserId">
+        SQL query wrapped in
+        <![CDATA[ SELECT * from whp_whp_sites WHERE site_id IN (SELECT site_id FROM whp_site_assessment WHERE assessment_id IN (SELECT  DISTINCT assessment_id from whp_site_assessment_versions WHERE userId = ?)) AND whp_whp_sites.active_ = ? ]]>
+    </sql>
+
+    <sql id="com.iucn.whp.dbservice.service.persistence.benefit_checktype_lkpPersistence.ActiveStatus">
+        <![CDATA[ SELECT benefit_checktype_lkp.* FROM whp_benefit_checktype_lkp WHERE benefit_checktype_lkp.active_ is ? ]]>
+    </sql>
+
+    <sql id="com.iucn.whp.dbservice.service.persistence.benefit_checksubtype_lkpPersistence.ActiveStatus">
+        <![CDATA[ SELECT benefit_checksubtype_lkp.* FROM whp_benefit_checksubtype_lkp WHERE benefit_checksubtype_lkp.active_ is ? ]]>
+    </sql>
 </custom-sql>
+
+
+

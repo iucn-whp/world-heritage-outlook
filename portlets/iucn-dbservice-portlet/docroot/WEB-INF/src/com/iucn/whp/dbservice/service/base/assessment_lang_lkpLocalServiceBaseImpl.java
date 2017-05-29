@@ -56,6 +56,8 @@ import com.iucn.whp.dbservice.service.iucn_region_countryLocalService;
 import com.iucn.whp.dbservice.service.key_conservation_issuesLocalService;
 import com.iucn.whp.dbservice.service.key_conservation_scale_lkpLocalService;
 import com.iucn.whp.dbservice.service.mission_lkpLocalService;
+import com.iucn.whp.dbservice.service.negative_factors_level_impactLocalService;
+import com.iucn.whp.dbservice.service.negative_factors_trendLocalService;
 import com.iucn.whp.dbservice.service.other_designation_lkpLocalService;
 import com.iucn.whp.dbservice.service.persistence.active_conservation_projectsPersistence;
 import com.iucn.whp.dbservice.service.persistence.advance_query_assessmentPersistence;
@@ -99,6 +101,8 @@ import com.iucn.whp.dbservice.service.persistence.iucn_region_countryPersistence
 import com.iucn.whp.dbservice.service.persistence.key_conservation_issuesPersistence;
 import com.iucn.whp.dbservice.service.persistence.key_conservation_scale_lkpPersistence;
 import com.iucn.whp.dbservice.service.persistence.mission_lkpPersistence;
+import com.iucn.whp.dbservice.service.persistence.negative_factors_level_impactPersistence;
+import com.iucn.whp.dbservice.service.persistence.negative_factors_trendPersistence;
 import com.iucn.whp.dbservice.service.persistence.other_designation_lkpPersistence;
 import com.iucn.whp.dbservice.service.persistence.potential_project_needsPersistence;
 import com.iucn.whp.dbservice.service.persistence.potential_threat_assessment_catPersistence;
@@ -2038,6 +2042,82 @@ public abstract class assessment_lang_lkpLocalServiceBaseImpl
 	public void setmission_lkpPersistence(
 		mission_lkpPersistence mission_lkpPersistence) {
 		this.mission_lkpPersistence = mission_lkpPersistence;
+	}
+
+	/**
+	 * Returns the negative_factors_level_impact local service.
+	 *
+	 * @return the negative_factors_level_impact local service
+	 */
+	public negative_factors_level_impactLocalService getnegative_factors_level_impactLocalService() {
+		return negative_factors_level_impactLocalService;
+	}
+
+	/**
+	 * Sets the negative_factors_level_impact local service.
+	 *
+	 * @param negative_factors_level_impactLocalService the negative_factors_level_impact local service
+	 */
+	public void setnegative_factors_level_impactLocalService(
+		negative_factors_level_impactLocalService negative_factors_level_impactLocalService) {
+		this.negative_factors_level_impactLocalService = negative_factors_level_impactLocalService;
+	}
+
+	/**
+	 * Returns the negative_factors_level_impact persistence.
+	 *
+	 * @return the negative_factors_level_impact persistence
+	 */
+	public negative_factors_level_impactPersistence getnegative_factors_level_impactPersistence() {
+		return negative_factors_level_impactPersistence;
+	}
+
+	/**
+	 * Sets the negative_factors_level_impact persistence.
+	 *
+	 * @param negative_factors_level_impactPersistence the negative_factors_level_impact persistence
+	 */
+	public void setnegative_factors_level_impactPersistence(
+		negative_factors_level_impactPersistence negative_factors_level_impactPersistence) {
+		this.negative_factors_level_impactPersistence = negative_factors_level_impactPersistence;
+	}
+
+	/**
+	 * Returns the negative_factors_trend local service.
+	 *
+	 * @return the negative_factors_trend local service
+	 */
+	public negative_factors_trendLocalService getnegative_factors_trendLocalService() {
+		return negative_factors_trendLocalService;
+	}
+
+	/**
+	 * Sets the negative_factors_trend local service.
+	 *
+	 * @param negative_factors_trendLocalService the negative_factors_trend local service
+	 */
+	public void setnegative_factors_trendLocalService(
+		negative_factors_trendLocalService negative_factors_trendLocalService) {
+		this.negative_factors_trendLocalService = negative_factors_trendLocalService;
+	}
+
+	/**
+	 * Returns the negative_factors_trend persistence.
+	 *
+	 * @return the negative_factors_trend persistence
+	 */
+	public negative_factors_trendPersistence getnegative_factors_trendPersistence() {
+		return negative_factors_trendPersistence;
+	}
+
+	/**
+	 * Sets the negative_factors_trend persistence.
+	 *
+	 * @param negative_factors_trendPersistence the negative_factors_trend persistence
+	 */
+	public void setnegative_factors_trendPersistence(
+		negative_factors_trendPersistence negative_factors_trendPersistence) {
+		this.negative_factors_trendPersistence = negative_factors_trendPersistence;
 	}
 
 	/**
@@ -4481,6 +4561,14 @@ public abstract class assessment_lang_lkpLocalServiceBaseImpl
 	protected mission_lkpLocalService mission_lkpLocalService;
 	@BeanReference(type = mission_lkpPersistence.class)
 	protected mission_lkpPersistence mission_lkpPersistence;
+	@BeanReference(type = negative_factors_level_impactLocalService.class)
+	protected negative_factors_level_impactLocalService negative_factors_level_impactLocalService;
+	@BeanReference(type = negative_factors_level_impactPersistence.class)
+	protected negative_factors_level_impactPersistence negative_factors_level_impactPersistence;
+	@BeanReference(type = negative_factors_trendLocalService.class)
+	protected negative_factors_trendLocalService negative_factors_trendLocalService;
+	@BeanReference(type = negative_factors_trendPersistence.class)
+	protected negative_factors_trendPersistence negative_factors_trendPersistence;
 	@BeanReference(type = other_designation_lkpLocalService.class)
 	protected other_designation_lkpLocalService other_designation_lkpLocalService;
 	@BeanReference(type = other_designation_lkpPersistence.class)

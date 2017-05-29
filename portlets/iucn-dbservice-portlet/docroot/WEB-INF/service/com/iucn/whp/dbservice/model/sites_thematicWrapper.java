@@ -186,7 +186,8 @@ public class sites_thematicWrapper implements sites_thematic,
 		return new sites_thematicWrapper((sites_thematic)_sites_thematic.clone());
 	}
 
-	public int compareTo(sites_thematic sites_thematic) {
+	public int compareTo(
+		com.iucn.whp.dbservice.model.sites_thematic sites_thematic) {
 		return _sites_thematic.compareTo(sites_thematic);
 	}
 
@@ -195,11 +196,11 @@ public class sites_thematicWrapper implements sites_thematic,
 		return _sites_thematic.hashCode();
 	}
 
-	public com.liferay.portal.model.CacheModel<sites_thematic> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<com.iucn.whp.dbservice.model.sites_thematic> toCacheModel() {
 		return _sites_thematic.toCacheModel();
 	}
 
-	public sites_thematic toEscapedModel() {
+	public com.iucn.whp.dbservice.model.sites_thematic toEscapedModel() {
 		return new sites_thematicWrapper(_sites_thematic.toEscapedModel());
 	}
 

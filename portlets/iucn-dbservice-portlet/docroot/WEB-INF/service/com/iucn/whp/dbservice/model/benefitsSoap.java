@@ -33,6 +33,17 @@ public class benefitsSoap implements Serializable {
 		soapModel.setAssessment_version_id(model.getAssessment_version_id());
 		soapModel.setSelected_benefit(model.getSelected_benefit());
 		soapModel.setSummary(model.getSummary());
+		soapModel.setHabitatChangeLevel(model.getHabitatChangeLevel());
+		soapModel.setHabitatChangeTrend(model.getHabitatChangeTrend());
+		soapModel.setPollutionLevel(model.getPollutionLevel());
+		soapModel.setPollutionTrend(model.getPollutionTrend());
+		soapModel.setOverExploitationLevel(model.getOverExploitationLevel());
+		soapModel.setOverExploitationTrend(model.getOverExploitationTrend());
+		soapModel.setClimateChangeLevel(model.getClimateChangeLevel());
+		soapModel.setClimateChangeTrend(model.getClimateChangeTrend());
+		soapModel.setInvasiveSpeciesLevel(model.getInvasiveSpeciesLevel());
+		soapModel.setInvasiveSpeciesTrend(model.getInvasiveSpeciesTrend());
+		soapModel.setComment(model.getComment());
 		soapModel.setData_deficient(model.getData_deficient());
 		soapModel.setCommunity_within_site(model.getCommunity_within_site());
 		soapModel.setCommunity_outside_site(model.getCommunity_outside_site());
@@ -121,6 +132,94 @@ public class benefitsSoap implements Serializable {
 		_summary = summary;
 	}
 
+	public long getHabitatChangeLevel() {
+		return _habitatChangeLevel;
+	}
+
+	public void setHabitatChangeLevel(long habitatChangeLevel) {
+		_habitatChangeLevel = habitatChangeLevel;
+	}
+
+	public long getHabitatChangeTrend() {
+		return _habitatChangeTrend;
+	}
+
+	public void setHabitatChangeTrend(long habitatChangeTrend) {
+		_habitatChangeTrend = habitatChangeTrend;
+	}
+
+	public long getPollutionLevel() {
+		return _pollutionLevel;
+	}
+
+	public void setPollutionLevel(long pollutionLevel) {
+		_pollutionLevel = pollutionLevel;
+	}
+
+	public long getPollutionTrend() {
+		return _pollutionTrend;
+	}
+
+	public void setPollutionTrend(long pollutionTrend) {
+		_pollutionTrend = pollutionTrend;
+	}
+
+	public long getOverExploitationLevel() {
+		return _overExploitationLevel;
+	}
+
+	public void setOverExploitationLevel(long overExploitationLevel) {
+		_overExploitationLevel = overExploitationLevel;
+	}
+
+	public long getOverExploitationTrend() {
+		return _overExploitationTrend;
+	}
+
+	public void setOverExploitationTrend(long overExploitationTrend) {
+		_overExploitationTrend = overExploitationTrend;
+	}
+
+	public long getClimateChangeLevel() {
+		return _climateChangeLevel;
+	}
+
+	public void setClimateChangeLevel(long climateChangeLevel) {
+		_climateChangeLevel = climateChangeLevel;
+	}
+
+	public long getClimateChangeTrend() {
+		return _climateChangeTrend;
+	}
+
+	public void setClimateChangeTrend(long climateChangeTrend) {
+		_climateChangeTrend = climateChangeTrend;
+	}
+
+	public long getInvasiveSpeciesLevel() {
+		return _invasiveSpeciesLevel;
+	}
+
+	public void setInvasiveSpeciesLevel(long invasiveSpeciesLevel) {
+		_invasiveSpeciesLevel = invasiveSpeciesLevel;
+	}
+
+	public long getInvasiveSpeciesTrend() {
+		return _invasiveSpeciesTrend;
+	}
+
+	public void setInvasiveSpeciesTrend(long invasiveSpeciesTrend) {
+		_invasiveSpeciesTrend = invasiveSpeciesTrend;
+	}
+
+	public String getComment() {
+		return _comment;
+	}
+
+	public void setComment(String comment) {
+		_comment = comment;
+	}
+
 	public boolean getData_deficient() {
 		return _data_deficient;
 	}
@@ -161,6 +260,17 @@ public class benefitsSoap implements Serializable {
 	private long _assessment_version_id;
 	private long _selected_benefit;
 	private String _summary;
+	private long _habitatChangeLevel;
+	private long _habitatChangeTrend;
+	private long _pollutionLevel;
+	private long _pollutionTrend;
+	private long _overExploitationLevel;
+	private long _overExploitationTrend;
+	private long _climateChangeLevel;
+	private long _climateChangeTrend;
+	private long _invasiveSpeciesLevel;
+	private long _invasiveSpeciesTrend;
+	private String _comment;
 	private boolean _data_deficient;
 	private long _community_within_site;
 	private long _community_outside_site;

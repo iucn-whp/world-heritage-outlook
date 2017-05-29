@@ -67,6 +67,7 @@ public class benefit_checktype_lkpClp extends BaseModelImpl<benefit_checktype_lk
 
 		attributes.put("benefit_id", getBenefit_id());
 		attributes.put("benefit_checktype", getBenefit_checktype());
+		attributes.put("active", getActive());
 
 		return attributes;
 	}
@@ -84,6 +85,12 @@ public class benefit_checktype_lkpClp extends BaseModelImpl<benefit_checktype_lk
 		if (benefit_checktype != null) {
 			setBenefit_checktype(benefit_checktype);
 		}
+
+		Boolean active = (Boolean)attributes.get("active");
+
+		if (active != null) {
+			setActive(active);
+		}
 	}
 
 	public long getBenefit_id() {
@@ -100,6 +107,18 @@ public class benefit_checktype_lkpClp extends BaseModelImpl<benefit_checktype_lk
 
 	public void setBenefit_checktype(String benefit_checktype) {
 		_benefit_checktype = benefit_checktype;
+	}
+
+	public boolean getActive() {
+		return _active;
+	}
+
+	public boolean isActive() {
+		return _active;
+	}
+
+	public void setActive(boolean active) {
+		_active = active;
 	}
 
 	public BaseModel<?> getbenefit_checktype_lkpRemoteModel() {
@@ -133,6 +152,7 @@ public class benefit_checktype_lkpClp extends BaseModelImpl<benefit_checktype_lk
 
 		clone.setBenefit_id(getBenefit_id());
 		clone.setBenefit_checktype(getBenefit_checktype());
+		clone.setActive(getActive());
 
 		return clone;
 	}
@@ -183,19 +203,21 @@ public class benefit_checktype_lkpClp extends BaseModelImpl<benefit_checktype_lk
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(5);
+		StringBundler sb = new StringBundler(7);
 
 		sb.append("{benefit_id=");
 		sb.append(getBenefit_id());
 		sb.append(", benefit_checktype=");
 		sb.append(getBenefit_checktype());
+		sb.append(", active=");
+		sb.append(getActive());
 		sb.append("}");
 
 		return sb.toString();
 	}
 
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(10);
+		StringBundler sb = new StringBundler(13);
 
 		sb.append("<model><model-name>");
 		sb.append("com.iucn.whp.dbservice.model.benefit_checktype_lkp");
@@ -209,6 +231,10 @@ public class benefit_checktype_lkpClp extends BaseModelImpl<benefit_checktype_lk
 			"<column><column-name>benefit_checktype</column-name><column-value><![CDATA[");
 		sb.append(getBenefit_checktype());
 		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>active</column-name><column-value><![CDATA[");
+		sb.append(getActive());
+		sb.append("]]></column-value></column>");
 
 		sb.append("</model>");
 
@@ -217,5 +243,6 @@ public class benefit_checktype_lkpClp extends BaseModelImpl<benefit_checktype_lk
 
 	private long _benefit_id;
 	private String _benefit_checktype;
+	private boolean _active;
 	private BaseModel<?> _benefit_checktype_lkpRemoteModel;
 }

@@ -32,6 +32,7 @@ public class protection_mgmt_checklist_lkpSoap implements Serializable {
 
 		soapModel.setTopic_id(model.getTopic_id());
 		soapModel.setTopic(model.getTopic());
+		soapModel.setTopic_sort(model.getTopic_sort());
 
 		return soapModel;
 	}
@@ -103,6 +104,15 @@ public class protection_mgmt_checklist_lkpSoap implements Serializable {
 		_topic = topic;
 	}
 
+	public int getTopic_sort() {
+		return _topic_sort;
+	}
+
+	public void setTopic_sort(int topic_sort) {
+		_topic_sort = topic_sort;
+	}
+
 	private long _topic_id;
 	private String _topic;
+	private int _topic_sort;
 }

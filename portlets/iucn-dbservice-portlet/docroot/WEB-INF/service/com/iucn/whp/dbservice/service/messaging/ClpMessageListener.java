@@ -56,6 +56,8 @@ import com.iucn.whp.dbservice.service.iucn_region_countryLocalServiceUtil;
 import com.iucn.whp.dbservice.service.key_conservation_issuesLocalServiceUtil;
 import com.iucn.whp.dbservice.service.key_conservation_scale_lkpLocalServiceUtil;
 import com.iucn.whp.dbservice.service.mission_lkpLocalServiceUtil;
+import com.iucn.whp.dbservice.service.negative_factors_level_impactLocalServiceUtil;
+import com.iucn.whp.dbservice.service.negative_factors_trendLocalServiceUtil;
 import com.iucn.whp.dbservice.service.other_designation_lkpLocalServiceUtil;
 import com.iucn.whp.dbservice.service.potential_project_needsLocalServiceUtil;
 import com.iucn.whp.dbservice.service.potential_threat_assessment_catLocalServiceUtil;
@@ -211,6 +213,10 @@ public class ClpMessageListener extends BaseMessageListener {
 			key_conservation_scale_lkpLocalServiceUtil.clearService();
 
 			mission_lkpLocalServiceUtil.clearService();
+
+			negative_factors_level_impactLocalServiceUtil.clearService();
+
+			negative_factors_trendLocalServiceUtil.clearService();
 
 			other_designation_lkpLocalServiceUtil.clearService();
 

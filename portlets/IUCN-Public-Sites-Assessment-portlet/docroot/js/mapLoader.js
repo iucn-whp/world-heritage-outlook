@@ -2,6 +2,7 @@ var vector_point;
 var map_static;
 var gmap;
 var wmsurl = "http://www.worldheritageoutlook.iucn.org/geoserver/IUCN/wms";
+//var wmsurl = "http://localhost:8080/geoserver/IUCN/wms";
 function mapLoader(){
 
 	this.init = function(wdpaid){
@@ -231,16 +232,23 @@ function getNS(layerName,wmsurl){
 	
 	return featureNS;
 }
-function zoomToActiveSite(curGeom) {
-	
-	var bounds = null;
 
-		bounds = curGeom.getBounds();
-	var newBounds = bounds.transform(new OpenLayers.Projection("EPSG:4326"),
-				map_static.getProjectionObject());
-	map_static.zoomToExtent(newBounds);
-	
+function zoomToActiveSite(curGeom) {
+	var bounds = curGeom.getBounds();
+	var newBounds = bounds.transform(
+		new OpenLayers.Projection("EPSG:4326"),
+		map_static.getProjectionObject());
+
+	try {
+		map_static.setCenter(newBounds.getCenterLonLat(), 4);
+	} catch (e) {}
+
+	try {
+		map_static.zoomToExtent(newBounds);
+	} catch (e) {}
+
 }
+
 function createStaticXML() {
 	
 	var maxFeatureCount = 1;

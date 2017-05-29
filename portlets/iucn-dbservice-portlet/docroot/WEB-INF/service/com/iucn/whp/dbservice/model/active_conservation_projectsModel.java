@@ -130,6 +130,36 @@ public interface active_conservation_projectsModel extends BaseModel<active_cons
 	 */
 	public void setContact_details(String contact_details);
 
+	/**
+	 * Returns the project duration from of this active_conservation_projects.
+	 *
+	 * @return the project duration from of this active_conservation_projects
+	 */
+	@AutoEscape
+	public String getProjectDurationFrom();
+
+	/**
+	 * Sets the project duration from of this active_conservation_projects.
+	 *
+	 * @param projectDurationFrom the project duration from of this active_conservation_projects
+	 */
+	public void setProjectDurationFrom(String projectDurationFrom);
+
+	/**
+	 * Returns the project duration to of this active_conservation_projects.
+	 *
+	 * @return the project duration to of this active_conservation_projects
+	 */
+	@AutoEscape
+	public String getProjectDurationTo();
+
+	/**
+	 * Sets the project duration to of this active_conservation_projects.
+	 *
+	 * @param projectDurationTo the project duration to of this active_conservation_projects
+	 */
+	public void setProjectDurationTo(String projectDurationTo);
+
 	public boolean isNew();
 
 	public void setNew(boolean n);

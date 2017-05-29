@@ -51,6 +51,7 @@ public class assessing_threats_potentialWrapper
 		attributes.put("assessment_version_id", getAssessment_version_id());
 		attributes.put("potential_threat", getPotential_threat());
 		attributes.put("justification", getJustification());
+		attributes.put("threadExtentValue", getThreadExtentValue());
 		attributes.put("threat_rating", getThreat_rating());
 		attributes.put("inside_site", getInside_site());
 		attributes.put("outside_site", getOutside_site());
@@ -82,6 +83,12 @@ public class assessing_threats_potentialWrapper
 
 		if (justification != null) {
 			setJustification(justification);
+		}
+
+		String threadExtentValue = (String)attributes.get("threadExtentValue");
+
+		if (threadExtentValue != null) {
+			setThreadExtentValue(threadExtentValue);
 		}
 
 		Long threat_rating = (Long)attributes.get("threat_rating");
@@ -191,6 +198,24 @@ public class assessing_threats_potentialWrapper
 	*/
 	public void setJustification(java.lang.String justification) {
 		_assessing_threats_potential.setJustification(justification);
+	}
+
+	/**
+	* Returns the thread extent value of this assessing_threats_potential.
+	*
+	* @return the thread extent value of this assessing_threats_potential
+	*/
+	public java.lang.String getThreadExtentValue() {
+		return _assessing_threats_potential.getThreadExtentValue();
+	}
+
+	/**
+	* Sets the thread extent value of this assessing_threats_potential.
+	*
+	* @param threadExtentValue the thread extent value of this assessing_threats_potential
+	*/
+	public void setThreadExtentValue(java.lang.String threadExtentValue) {
+		_assessing_threats_potential.setThreadExtentValue(threadExtentValue);
 	}
 
 	/**

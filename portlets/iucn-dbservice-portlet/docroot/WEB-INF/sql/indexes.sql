@@ -23,6 +23,10 @@ create index IX_3A39EA59 on whp_assessment_whvalues (assessment_version_id);
 
 create index IX_7BE25730 on whp_assessment_whvalues_whcriterion (whvalues_id);
 
+create index IX_FE2FF2D7 on whp_benefit_checksubtype_lkp (active_);
+
+create index IX_D8696F57 on whp_benefit_checktype_lkp (active_);
+
 create index IX_30EF9C2D on whp_benefits (assessment_version_id);
 
 create index IX_90FAFBA6 on whp_benefits_summary (assessment_version_id);
@@ -91,6 +95,7 @@ create index IX_7D275403 on whp_site_assessment (site_id);
 
 create index IX_CF1D4AE2 on whp_site_assessment_versions (assessment_id);
 create index IX_EBC124E0 on whp_site_assessment_versions (userid);
+create index IX_56FFED0 on whp_site_assessment_versions (userid, stage_id);
 
 create index IX_9E6F7B01 on whp_sites_thematic (site_id);
 create index IX_3534BCBA on whp_sites_thematic (thematicid);

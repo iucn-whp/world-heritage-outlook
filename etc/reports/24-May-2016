@@ -1,0 +1,29 @@
+Daily Report, 24 May 2016
+
+#32097 - New Cycle Assessment - New ‘cycle 2016’ assessment functionality - 30% done
+ 1 tab - done. 2 tab - questions asked. 3,4,5 tabs - in progress.
+ Please, answer Redmine questions:
+    * https://redmine.aimprosoft.com/issues/32097#note-5 ;
+    * https://redmine.aimprosoft.com/issues/32534 
+    
+#32096 - New Cycle Assessment - Behaviour of ‘start assessment’ (2014 or 2016 or blank) - 100% done.
+ All newly created assessments are 2106 version now.
+ All old assessments are 2014 version.
+
+#32485 - The “Site data” page displays “Site information” as the heading at the moment. It needs to be changed to “Site data”. - 100% done.
+ Fixed. Deployed to Development server.
+ 
+#32492 - Add IUCN and World Commission on Protected Areas logo at bottom of page - 100% done.
+ Fixed. Deployed to Development server.
+  
+#32494 - Insert “© UNESCO” at the end of the site description panel - 100% done.
+ Fixed. Deployed to Development server.
+   
+#32496 - Change hyperlink text in sidebar from "Unesco World Heritage Convention" to "UNESCO World Heritage Centre" - 100% done.
+ Fixed. Deployed to Development server.
+    
+#32497 - Delete IUCN hyperlink in sidebar - 100% done.
+ Fixed. Deployed to Development server.
+     
+#32498 - Fix inscription criteria punctuation (right now there is no space between the different criteria numbers – see top right hand side of site assessment page) - 100% done.
+ Fixed. Deployed to Development server.

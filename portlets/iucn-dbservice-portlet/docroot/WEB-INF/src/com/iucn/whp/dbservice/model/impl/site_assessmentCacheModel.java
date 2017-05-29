@@ -17,6 +17,7 @@ package com.iucn.whp.dbservice.model.impl;
 import com.iucn.whp.dbservice.model.site_assessment;
 
 import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.model.CacheModel;
 
 import java.io.Serializable;
@@ -34,7 +35,7 @@ public class site_assessmentCacheModel implements CacheModel<site_assessment>,
 	Serializable {
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(21);
+		StringBundler sb = new StringBundler(23);
 
 		sb.append("{assessment_id=");
 		sb.append(assessment_id);
@@ -56,6 +57,8 @@ public class site_assessmentCacheModel implements CacheModel<site_assessment>,
 		sb.append(archived);
 		sb.append(", is_active=");
 		sb.append(is_active);
+		sb.append(", assessment_cycle=");
+		sb.append(assessment_cycle);
 		sb.append("}");
 
 		return sb.toString();
@@ -82,6 +85,13 @@ public class site_assessmentCacheModel implements CacheModel<site_assessment>,
 		site_assessmentImpl.setArchived(archived);
 		site_assessmentImpl.setIs_active(is_active);
 
+		if (assessment_cycle == null) {
+			site_assessmentImpl.setAssessment_cycle(StringPool.BLANK);
+		}
+		else {
+			site_assessmentImpl.setAssessment_cycle(assessment_cycle);
+		}
+
 		site_assessmentImpl.resetOriginalValues();
 
 		return site_assessmentImpl;
@@ -97,4 +107,5 @@ public class site_assessmentCacheModel implements CacheModel<site_assessment>,
 	public long base_langid;
 	public boolean archived;
 	public boolean is_active;
+	public String assessment_cycle;
 }

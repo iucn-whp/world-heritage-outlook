@@ -33,7 +33,7 @@ public class active_conservation_projectsCacheModel implements CacheModel<active
 	Serializable {
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(11);
+		StringBundler sb = new StringBundler(15);
 
 		sb.append("{acpid=");
 		sb.append(acpid);
@@ -45,6 +45,10 @@ public class active_conservation_projectsCacheModel implements CacheModel<active
 		sb.append(description);
 		sb.append(", contact_details=");
 		sb.append(contact_details);
+		sb.append(", projectDurationFrom=");
+		sb.append(projectDurationFrom);
+		sb.append(", projectDurationTo=");
+		sb.append(projectDurationTo);
 		sb.append("}");
 
 		return sb.toString();
@@ -77,6 +81,20 @@ public class active_conservation_projectsCacheModel implements CacheModel<active
 			active_conservation_projectsImpl.setContact_details(contact_details);
 		}
 
+		if (projectDurationFrom == null) {
+			active_conservation_projectsImpl.setProjectDurationFrom(StringPool.BLANK);
+		}
+		else {
+			active_conservation_projectsImpl.setProjectDurationFrom(projectDurationFrom);
+		}
+
+		if (projectDurationTo == null) {
+			active_conservation_projectsImpl.setProjectDurationTo(StringPool.BLANK);
+		}
+		else {
+			active_conservation_projectsImpl.setProjectDurationTo(projectDurationTo);
+		}
+
 		active_conservation_projectsImpl.resetOriginalValues();
 
 		return active_conservation_projectsImpl;
@@ -87,4 +105,6 @@ public class active_conservation_projectsCacheModel implements CacheModel<active
 	public String organization_individual;
 	public String description;
 	public String contact_details;
+	public String projectDurationFrom;
+	public String projectDurationTo;
 }

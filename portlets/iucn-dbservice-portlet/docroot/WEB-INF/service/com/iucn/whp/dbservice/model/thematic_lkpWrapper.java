@@ -186,7 +186,7 @@ public class thematic_lkpWrapper implements thematic_lkp,
 		return new thematic_lkpWrapper((thematic_lkp)_thematic_lkp.clone());
 	}
 
-	public int compareTo(thematic_lkp thematic_lkp) {
+	public int compareTo(com.iucn.whp.dbservice.model.thematic_lkp thematic_lkp) {
 		return _thematic_lkp.compareTo(thematic_lkp);
 	}
 
@@ -195,11 +195,11 @@ public class thematic_lkpWrapper implements thematic_lkp,
 		return _thematic_lkp.hashCode();
 	}
 
-	public com.liferay.portal.model.CacheModel<thematic_lkp> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<com.iucn.whp.dbservice.model.thematic_lkp> toCacheModel() {
 		return _thematic_lkp.toCacheModel();
 	}
 
-	public thematic_lkp toEscapedModel() {
+	public com.iucn.whp.dbservice.model.thematic_lkp toEscapedModel() {
 		return new thematic_lkpWrapper(_thematic_lkp.toEscapedModel());
 	}
 

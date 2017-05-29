@@ -16,11 +16,11 @@ long assessmentid=0;
 	if(!tempAssementid.isEmpty()){
 		assessmentid =Long.parseLong(tempAssementid);
 	}else{
-		assessmentid=site_assessment_versionsLocalServiceUtil.getsite_assessment_versions(Long.parseLong(ParamUtil.getString(request, "assessment_versionId"))).getAssessment_id();		
-		
+		assessmentid=site_assessment_versionsLocalServiceUtil.getsite_assessment_versions(Long.parseLong(ParamUtil.getString(request, "assessment_versionId"))).getAssessment_id();
+
 	}
 long curruserId=user.getUserId();
-if(!"view".equalsIgnoreCase(tempMode)){ 
+if(!"view".equalsIgnoreCase(tempMode) && AssessmentActionUtil.hasLinkVisible(assessmentid, user.getUserId(), AssessmentContstant.ACTION_VIEW_PREVIOUS_VERSION)){
 	if(prevAssesmentVersionId>0){
 %>
 

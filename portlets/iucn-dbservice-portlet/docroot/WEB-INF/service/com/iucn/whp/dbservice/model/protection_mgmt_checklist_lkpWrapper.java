@@ -49,6 +49,7 @@ public class protection_mgmt_checklist_lkpWrapper
 
 		attributes.put("topic_id", getTopic_id());
 		attributes.put("topic", getTopic());
+		attributes.put("topic_sort", getTopic_sort());
 
 		return attributes;
 	}
@@ -64,6 +65,12 @@ public class protection_mgmt_checklist_lkpWrapper
 
 		if (topic != null) {
 			setTopic(topic);
+		}
+
+		Integer topic_sort = (Integer)attributes.get("topic_sort");
+
+		if (topic_sort != null) {
+			setTopic_sort(topic_sort);
 		}
 	}
 
@@ -119,6 +126,24 @@ public class protection_mgmt_checklist_lkpWrapper
 	*/
 	public void setTopic(java.lang.String topic) {
 		_protection_mgmt_checklist_lkp.setTopic(topic);
+	}
+
+	/**
+	* Returns the topic_sort of this protection_mgmt_checklist_lkp.
+	*
+	* @return the topic_sort of this protection_mgmt_checklist_lkp
+	*/
+	public int getTopic_sort() {
+		return _protection_mgmt_checklist_lkp.getTopic_sort();
+	}
+
+	/**
+	* Sets the topic_sort of this protection_mgmt_checklist_lkp.
+	*
+	* @param topic_sort the topic_sort of this protection_mgmt_checklist_lkp
+	*/
+	public void setTopic_sort(int topic_sort) {
+		_protection_mgmt_checklist_lkp.setTopic_sort(topic_sort);
 	}
 
 	public boolean isNew() {

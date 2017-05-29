@@ -1,0 +1,2762 @@
+.outerWrapper
+{
+	background: url("../images/inner-bg.gif") repeat-x 0px 0px #FFFFFF
+	}
+
+	.showHeaderNavigation
+	{
+	display:none;
+	}
+
+
+/*.spanStyle
+{
+	width: 5px;
+	height: 7px;
+	background: url('../images/aero_pointer.png');
+}*/
+
+a.currentPage
+{
+	color: #868686;
+}
+
+a.homeLink
+{
+	font-weight: bold;
+	color: #0e2e64;
+}
+
+.editDelete 
+{
+	width: 70px;
+	display: inline-block;
+	text-align: center;
+	padding-left: 1.9em;
+}
+
+.siteInfoDashboardEditIcons
+{
+	margin-left: 3.5em;
+}
+
+div.editDelete a span.anchorTxt
+{
+	display: none;
+}
+
+
+.editIconsSiteInfoDashboard
+{
+	width: 200px;
+}
+
+.edit, .delete, .initiate
+{
+	margin-right: 10px;
+	display: inline-block;
+	text-indent: -9999px;
+}
+
+.edit 
+{
+    background: url("../images/edit.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    float: left;
+    height: 23px;
+    margin-right: 10px;
+    text-indent: -9999px;
+    width: 26px;
+}
+
+.delete 
+{
+    background: url("../images/bin.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    float: left;
+    height: 18px;
+    text-indent: -9999px;
+    width: 16px;
+}
+
+.initiate 
+{
+    background: url("../images/initiate.png") no-repeat scroll 0 3px transparent;
+    display: block;
+    float: left;
+    height: 20px;
+    width: 18px;
+}
+
+.row
+ {
+	padding: 1em 0 2em 0.4em;
+	border-bottom: 1px dashed #CCC;
+	background: #F5F8FB;
+}
+
+.firstRow
+{	
+	clear: both;
+	margin-top: 0;
+}
+
+.inputLeft
+{
+	float: left;
+	padding: 0 0 0 20px;
+	width: 245px;
+	background: url('../images/aero_small.png') no-repeat left center;
+}
+
+input.browseBtn
+{
+	clear: both;
+	margin: 5px 0 0 88px;
+	padding: 0.1em 0.8em 0.1em 0.8em;
+	float: left;	
+}
+
+.inputRight
+{
+	float: left;
+	width: 191px;
+}
+
+input.documentsFileNameTxtInput
+{
+	margin-left: 25px;
+}
+
+.altColor
+{
+	background: #F3F3F3;
+}
+
+#footer
+{
+	width: 100%;
+	height: 60px;
+	background: #fff;
+	/* border: 1px solid #eeeeee; */
+	border-left: none;
+	border-right: none;
+	clear: both;
+}
+
+.powered-by
+{
+	
+	padding: 0.5em 0 0 0.5em;
+}
+
+.footerSiteInfo
+{	
+	padding: 1.1em 0 1.1em 0.5em;
+	margin: 0 auto 0 auto;
+}
+
+#footer p
+{
+	float: left;
+}
+
+#footerContents
+{
+	padding-left: 20px;
+	color: #999999;
+	overflow: hidden;
+}
+
+#footerContents a img
+{
+	border: none;
+}
+
+#footerContents ul
+{
+	float: left;
+}
+
+#footerContents ul li
+{
+	float: left;
+	display: inline-block;
+	margin: 0 4px 0 0;
+	width: 16px;
+	height: 16px;
+}
+
+#footerContents p
+{
+	display: inline;
+}
+
+.bookmark
+{
+	display: inline-block;
+	padding: 0 0 0 20px;
+	color: #999999;
+	height: 16px;
+	line-height: 16px;
+	background: url('../images/bookmark.gif') no-repeat;
+}
+
+.moreLinks
+{
+	float: right;
+	font-size: 12px;
+	font-weight: bold;
+	color: #034ea2;
+}
+
+.moreLinks a
+{
+	color: #034ea2;
+	margin-right: 12px;
+}
+
+.moreLinks a:hover
+{
+	color: #e46d2c;
+}
+
+.tableWrapper 
+{
+	margin: 0em 0.4em 0em 0.4em;
+}
+
+.infoSection
+{
+	background:#ECF5FE;
+	border: 1px solid #b8b8b8;
+	margin:0 0 1em 0;
+}
+
+
+
+
+
+
+
+.infoSectionContent
+{
+	padding:0.5em;
+	overflow:hidden;
+	clear:both;
+} 
+
+
+.siteInfoTableHeading
+{
+	margin: 20px 0 10px 0;
+	padding: 5px 0 3px 5px;
+	border-bottom: 2px solid #A0A0A0;
+}
+
+.tableWrapperSiteInfoContacts
+{
+	
+}
+
+.linksBlock 
+{
+	width: 310px;
+	margin: 6px 8px 0 10px;
+	border: 1px solid #CCC;
+	float: right;
+	background: url('../images/right_box_bg.gif');
+}
+
+.firstLinksBlock
+{
+	margin-top: 10px;
+}
+
+.linksBlock p 
+{
+	font-weight: bold;
+}
+
+.links
+ {
+	margin: 10px 0 0 0;
+	padding: 0 0 10px 8px;
+	border-bottom: none;
+	background: url(../images/aero.png) no-repeat 344px;
+}
+
+.links span
+{
+	color: #000;
+}
+
+.links a
+{
+	color: #1124B3;
+}
+
+.firstLink
+{
+	margin-top: 10px;
+}
+
+.infoWrapper 
+{
+	float: right;
+	margin: 5px 0 5px 0;
+	width: 771px;
+}
+
+h2 
+{
+	font-size: 1.1em;
+}
+
+.headingBTN
+{
+	clear:both;
+	overflow:hidden;
+	margin: 0.8em 0.8em 0.5em 0.8em;
+	padding:0 0 0.6em 0;
+	}
+	
+.headingBTN h2.floatHeading
+{
+	float:left;
+	font-size: 20px;
+	color: #042f5b   ;
+	font-weight:normal;
+	} 
+
+
+.headerLinks
+{
+	float:right;
+	
+	overflow:hidden;
+
+	}
+
+h2.pageHeading
+{
+	margin: 8px 0 0 0;
+	padding: 4px 13px 4px 9px;
+	border-bottom: 1px solid #DDD;
+	font-size: 16px;
+	color: #5A7CB4;
+	background: url(../images/page_heading.png) no-repeat 205px 15px;
+}
+
+h2.siteAssessmentPageHeading 
+{
+	border: none;
+	background: url(../images/page_heading.png) no-repeat 142px 12px;
+	margin-left: 0.2em;
+}
+
+h2.siteAssessmentSubHeadings
+{
+	background:#fff;
+	font-size:16px;
+	font-weight:bold;
+	color:#3F6565;
+	padding:0.3em 0 0.3em 0.5em;
+	margin:0;
+	border-bottom:1px solid #b8b8b8;
+}
+
+
+
+
+
+h2.siteAssessmentSubHeadings a
+{
+	float: right;
+	padding: 0.2em 0.5em;
+	display: inline-block;
+	margin-top: -2px;
+	*margin-top: -25px;
+	text-align: center;
+	text-decoration: none;
+	color: #225398;
+	border-radius: 4px 4px 4px 4px;
+	border: 1px solid #b3afaf;
+	background:#ffffff url('../images/bg_add_btn.png') left bottom repeat-x;
+	margin-right:0.5em;
+	font-size:12px;
+}
+
+h2.siteAssessmentSubHeadings a:hover
+{
+	color: #3f6565;
+	}
+
+h2.siteAssessmentSubHeadings a.addBtn
+{
+	
+	background:#transparent url('../images/add_cion_14.png') left bottom no-repeat;
+	}
+
+
+
+
+.infoSectionYellow
+{
+	border: 1px solid #f0d35b;
+	margin:0 0 1em 0;
+}
+
+
+.infoSectionYellow h2.siteAssessmentSubHeadings
+{
+	background:#f9ecb8 url(../images/bg-yellow-table.gif) left top repeat-x ;
+	border-bottom:1px solid #f0d35b;
+}
+
+
+
+
+
+h2.siteAssessmentPublicPageLeftBlockInfoHeadings
+{
+	font-size: 18px;
+	border-bottom: 1px dootted #1c408a;
+	color: #1c408a;
+}
+
+/*h3 
+{
+	padding: 0.5em 0 0.5em 0.6em;
+	margin: 10px 0 10px 0;
+}*/
+
+h3.pageSubHeading
+{
+	width: 954px;
+	height: 30px;
+	padding-left: 10px;
+	line-height: 30px;
+	margin: 10px 10px 0 0;
+	color: white;
+	background: #5296BB;
+	border: 1px solid #88B4C7;
+}
+
+h3.basicInfoPageTitle
+ {
+	float: right;
+	width: 761px;
+	margin: 10px 0 0 2px;
+	color: white;
+	border: 1px solid #7BA0B1;
+	background: url('../images/site_info_heading_bg.png') repeat-x #5296BB;
+}
+
+h3.siteInfoPageTitle
+{
+	color: #fff;
+	background: url('../images/site_info_heading_bg.png');
+}
+
+.rowBasicInfo
+{
+	padding: 1em 0 2em 0.4em;
+	border-bottom: 1px dashed #cccccc;
+	background: #f5f8fb;
+}
+
+.altColor
+{
+	background: #ECEEFF;
+}
+
+.editLink 
+{
+	float: right;
+	display: inline-block;
+	color: white;
+	margin: 0 10px 0 0;
+	*margin: -12px 10px 0 0;
+}
+
+.linksBlockBasicInfo
+{
+	width: 183px;
+	margin: 12px 15px 0 4px;
+	float: left;
+}
+
+.linksBlockBasicInfo p 
+{
+	font-weight: bold;
+	margin-left: 9px;
+	color: #5263A5;
+}
+
+.bascicInfoThumbnail 
+{
+	float: left;
+	margin: 10px 0 0 9px;
+}
+
+.bascicInfoThumbnail  img
+{
+	width: 168px;
+	height: 94px;
+}
+
+.bascicInfoThumbnail p 
+{
+	color: #5263a5;
+	font-weight: bold;
+	margin: 4px 0 0 0;
+}
+
+.subNavBar 
+{
+	margin-top: 6px;
+	height: 35px;
+	border-bottom: 1px solid #DFDFDF;
+	background: #D6D6D6;
+}
+
+.subNavBarlinks
+ {
+	margin-left: 7px;
+}
+
+.onFocusOutTabImage
+{
+	background-image: url('../images/subNavBar_bg.gif');
+}
+
+.subNavBarlinks span
+{
+	display: none;
+}
+
+.subNavBar a 
+{
+	float: left;
+	margin: 9px 2px 0 0;
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+	color: #484848;
+	background: url(../images/subNavBar_tab_bg_gradient.png);
+	border-radius: 10px 10px 0 0;
+	border: 1px solid #DFDFDF;
+	border-bottom: 1px solid #fff;
+	text-decoration: none;
+}
+
+a.stepsSiteInfo
+{
+	width: 118px;
+}
+
+a.stepsSiteAssessment
+{
+	width: 102px;
+}
+
+.siteAssessmentTableContainer
+{
+	margin-top: 12px;
+}
+
+.frame
+{
+	margin: 0 auto 0 auto;
+	width: 990px;
+	height: 700px;
+	overflow: hidden;
+	background: #fff;
+}
+
+th.inscriptionYr 
+{
+	width: 100px;
+}
+
+.submissionInfo460
+{
+	width: 460px;
+}
+
+.emailWidth230
+{
+	width: 230px;
+}
+
+td.inscriptionYr
+{
+	text-align: right;
+	word-wrap: normal;
+}
+
+th.dataDeficient
+{
+	width: 100px;
+}
+
+th.ththSiteInfoDashboard
+{
+	text-shadow: 0 1px white;
+	height: 24px;
+	line-height: 24px;
+	background: url('../images/table_header_bg.gif') repeat-x;
+}
+
+th.whSitesName
+{
+	width: 250px;
+}
+
+.siteName
+{
+	color: #103573;
+}
+
+table
+{
+	width: 100%;
+	word-wrap: normal;
+}
+
+
+.thSiteInfoDashboard 
+{
+	height: 24px;
+	padding: 0;
+}
+
+
+.editIcons
+ {
+	text-align: right;
+	width: 75px;
+}
+
+.editIconsPublicPagesWrapper
+{
+	margin-top: 38px;
+	float: left;
+	width: 100px;
+	height: 16px;
+}
+
+.editIconsPublicPagesWrapper a
+{
+	margin: 0;
+	margin-right: 3px;
+}
+
+.editIconsPublicPages
+{
+	margin: 0;
+	width: 16px;
+	height: 16px;
+}
+
+.icon1
+{
+	background: url('../images/123.png');
+}
+
+.icon2
+{
+	background: url('../images/234.png');
+}
+
+.icon3
+{
+	background: url('../images/345.png');
+}
+
+.subHeading
+{
+	margin-top: 15px;
+	border: none;
+	color: #1c4b91;
+}
+
+.tableHeading
+{
+	font-weight: bold;
+}
+
+.pageSubHeading
+{
+	display: inline-block;
+	border: none;
+	color: #2a2a9c;
+}
+
+tr.even
+{
+	background: #fff;
+}
+
+tr.odd
+{
+	background: #f2fafc;
+}
+
+.linksBlock span
+{
+	color: #000;
+}
+
+.linksBlock a
+{
+	display: block;
+}
+
+.docLinksHeading 
+{
+	margin-top: -1px;
+	padding-left: 10px;
+	height: 27px;
+	line-height: 27px;
+	background: url('../images/header_bg_01.gif');
+}
+/*site information dashboard CSS starts here*/
+
+.mainBlockSiteInfoDashboard
+{
+	width: 992px;
+	margin: 2px auto 0 auto;
+	height: 530px;
+}
+
+.mainBlockSiteInfoDashboard table
+{
+	margin: 0 auto;
+	width: 966px;
+	border-top: 1px solid #D8D8D8;
+	border-right: none;
+	border-left: 1px solid #D8D8D8;	
+}
+
+.pageHeadingSiteInfoDashboard
+{
+	display: block;
+	clear: both;
+	margin: 0.8em 0 0.8em 0;
+
+	font-size: 20px;
+	color: #042f5b;
+	font-weight:normal;
+	
+}
+
+.topBar
+{
+	margin: 0 auto;
+	padding:0.2em;
+	height: 33px;
+	border:1px solid #ccc;
+	background: url(../images/multiselectContainer_bg.png);
+	
+}
+
+.topBarContent 
+{
+	padding: 0.3em 0 0 0;
+	overflow: hidden;
+}
+
+.topBarContent p
+{
+	margin-top: 0.5em;
+	display: inline-block;
+	padding: 0 8.5em  0 0;
+	font-weight: bold;
+}
+
+.topBarContent p span
+{
+	font-weight: normal;
+}
+
+.topBarContent span 
+{
+	font-weight: bold;
+}
+
+table.topBarContentTable 
+{
+	padding: 0.5em 0.3em;
+	border: none;
+	overflow: hidden;
+}
+
+table.topBarContentTable td
+{
+	padding: 0.7em 0 0 1em;
+	border: none;
+}
+
+.topBarContentTable p
+{
+	display: inline-block;
+	font-weight: bold;
+}
+
+.filterBox
+{
+	display: none;
+	margin: 0 auto 0 auto;
+	width: 966px;
+	height: 121px;
+	border: 1px solid #c5c5c5;
+	background: url('../images/filter_bg.gif') repeat-x;
+}
+
+.accordian
+{
+	margin: 1px auto 0 auto;
+	width: 966px;
+	height: 31px;
+	border: 1px solid #c5c5c5;
+	background: url('../images/accordian_bg.gif') repeat-x;
+}
+
+.accordianContent
+{
+	padding: 0.6em 0 0 0.5em;
+}
+
+.searchBarLabel 
+{
+	float: left;
+	margin: 0.4em 0 0 0.5em;
+	display: inline-block;
+}
+
+.searchBarLabel select
+{
+	padding: 0;
+}
+
+a.expandCollapseBtn 
+{
+	display: inline-block;
+	width: 10px;
+	height: 14px;
+	text-indent: -9999px;
+	background: url('../images/aero_right.png') no-repeat 0 2px;
+}
+
+.advanceSearchBtn 
+{
+	cursor: pointer;
+	float: right;
+	width: 100px;
+	height: 23px;
+	margin: 0.1em 0.5em 0 0;
+	padding: 0;
+	border: none;
+	vertical-align: middle;
+	background: url('../images/button.png');
+}
+
+.accordian p
+{
+	margin-left: -3px;
+	display: inline;
+	
+}
+
+.aeroDown
+{
+	background: #fff;
+}
+
+.filterFormContainer
+{
+	margin: 2px 0 0 2px;
+	width: 958px;
+	height: 115px;
+	background: url('../images/filter_form_bg.gif') no-repeat;
+}
+
+.block1 
+{
+	float: left;
+	padding-top: 1em;
+	width: 352px;
+	overflow: hidden;
+}
+
+.rowBlock1
+{
+	width: 350px;
+	height: 28px;
+	display: inline-block;
+	overflow: hidden;
+}
+
+span.radioHeading
+{
+width: 135px;
+}
+
+.block2 
+{
+	float: left;
+	margin-left: 1.5em;
+	padding-top: 1em;
+	width: 287px;
+	overflow: hidden;
+}
+
+.block1 label, .block2 label, .block3 label
+{
+	margin-top: 0;
+}
+
+div.rowBlock2 
+{
+	width: 287px;
+	height: 28px;
+	display: block;
+	overflow: hidden;
+}
+
+.inputContainer
+{
+	display: inline-block;
+	float: left;
+}
+
+div.rowBlock2 input, div.rowBlock3 input
+{
+	margin: 0em 0 0 0.1em;
+	*margin: -0.7em 0 0 0.1em;
+}
+
+.block3 
+{
+	display: block;
+	float: right;
+	margin: 0 0.7em 0 0em;
+	padding-top: 1em;
+	width: 289px;
+	overflow: hidden;
+}
+
+.rowBlock3
+ {
+	width: 287px;
+	margin-bottom: 10px;
+}
+
+.textInput
+{
+	width: 80px;
+}
+
+.filterFormContainer span
+{
+	float: left;
+	display: inline-block;
+	text-align: right;
+}
+
+span.left
+{
+	float: left;
+}
+
+span.left span
+{
+	display: inline;
+	padding-top: 0.2em;
+	width: 88px;
+}
+
+span.right
+{
+	float: left;
+}
+
+span.right p
+{
+	float: left;
+}
+
+.left
+{
+	float: left;
+	margin-top: 0;
+	width: 180px;
+}
+
+.right
+{
+	float: left;
+	margin-top: 0;
+}
+
+.left span 
+{
+	width: 90px;
+	float: left;
+}
+
+.lblLeft
+{
+	width: 83px;
+	text-align: right;
+}
+
+.rowBlock2 div, .rowBlock3 div
+{
+	display: inline-block;
+}
+
+.block2Label
+{
+	width: 100px;
+}
+
+div.advancedSearch
+{
+	float: left;
+	display: inline-block;
+	margin: 0;
+	padding: 0 0 0 0.5em;
+	overflow: hidden;
+}
+
+input.advancedsearchBox
+{
+	float: left;
+	padding-left: 5px;
+	width: 228px;
+	height: 25px;
+	line-height: 25px;
+	color: #a8a8a8;
+	border: none;
+	background: url('../images/search_bar.gif');
+}
+
+input.advancedsearchBtn
+{
+	float: left;
+	cursor: pointer;
+	width: 25px;
+	height: 25px;
+	border: none;
+	background: url('../images/search_btn.gif');
+}
+
+input.txtInput 
+{
+	margin: 0 0 0 0.4em;
+	width: 80px;
+	height: 20px;
+	border: none;
+	background: url('../images/filter_form_txtInput_bg.gif') no-repeat;
+}
+
+select.dropDown 
+{
+	float: right;
+}
+
+select.dropDownConcern 
+{
+	float: left;
+	margin: 0 0 0 0.5em;
+}
+
+.searchBtn 
+{
+	float: right;
+	margin: 1.2em 0.5em 0 0;
+	width: 55px;
+	height: 23px;
+	border: none;
+	cursor: pointer;
+	background: url('../images/searchBtn_filterBox.gif') no-repeat left center;
+}
+
+.siteInfoDashboardInitiate,.siteInfoDashboardEdit,.siteInfoDashboardDelete
+{
+	margin-right: 10px;
+	display: inline-block;
+}
+
+.siteInfoDashboardInitiate
+ {
+	width: 18px;
+	height: 20px;
+	background: url('../images/initiate.png') no-repeat 0 3px;
+}
+
+.siteInfoDashboardEdit
+{
+	width: 26px;
+	height: 23px;
+	background: url(../images/edit.png) no-repeat;
+}
+
+.siteInfoDashboardDelete
+ {
+	width: 16px;
+	height: 18px;
+	background: url(../images/bin.png) no-repeat;
+}
+
+.formLinks 
+{
+	width: 940px;
+	margin-top: 10px;
+	clear: both;
+	margin: 10px auto 0 auto;
+	width: 966px;
+	height: 38px;
+	line-height: 38px;
+	color: #fff;
+	border: 1px solid #A3A3A3;
+	display: block;
+	background: url('../images/add_new_site_bg.gif') #5e6e85 repeat-x 0 -1px;
+	text-decoration: none;
+}
+
+.formLinks a 
+{
+	border-right: 1px solid white;
+}
+
+.formLinksSiteInfoContact
+{
+	width: 100%;
+	background: url('../images/form_links_contact_bg.gif');
+}
+
+.formLinksSiteInfoContact a
+{
+	border: none;
+}
+
+.formLinks a 
+{
+	padding: 0 5px 0 5px;
+	text-decoration: none;
+	font-weight: bold;
+	color: white;
+}
+
+
+
+
+
+
+table.formBlock {
+	border: 1px solid #D8D8D8;
+    background: url("../images/right_box_bg.GIF") repeat scroll 0 0 transparent;    
+   
+}
+
+table.formBlock td 
+	{
+	border-bottom:1px solid #d8d8d8;
+	padding:0.3em;
+	}
+
+p.formHeading
+{
+	display: block;
+	padding-left: 8px;
+	height: 32px;
+	line-height: 32px;
+	color: #212121;
+	text-shadow: 0 1px #f2f3f7;
+	background: url('../images/form_header_bg.gif');
+}
+
+
+.aui-field-label-inline-label
+{
+	margin-top: 0.3em;	
+}
+
+a.close 
+{
+float: right;
+display: inline-block;
+background: url('../images/close.png') no-repeat;
+height:17px;
+width: 18px;
+margin-right: 5px;
+margin-top:8px;
+*position:relative;
+*top:-33px;
+}
+
+span.closeTxt
+{
+	display: none;
+}
+
+.formElements
+{
+	padding: 10px;
+	overflow: hidden;
+}
+
+.dropDown 
+{
+	float: left;
+}
+
+.dropDown li ul
+{
+	position: relative;
+	top: 1px;
+	display: none;
+	margin: 0;
+	*margin: 0;
+}
+
+.dropDown li a
+{
+	display: block;
+	padding: 0.5em 0 0 1em;
+	color: #212121;
+	text-decoration: none;
+}
+
+ul.dropDown li ul li a
+{
+	display: inline-block;
+	width: 267px;
+	height: 27px;
+	line-height: 27px;
+	color: #000;
+	font-size: 12px;
+	padding: 0 1em 0 0.4em;
+}
+
+.parentLi
+{
+	display: inline-block;
+	width: 237px;
+	height: 27px;
+	background: url('../images/form_drop_down_bg.gif')no-repeat;
+}
+
+.borderMiddle
+{
+	display: block;
+	width: 267px;
+	background: url('../images/form_dropdown_ul_border_middle.gif') repeat-y;
+	overflow: hidden;
+}
+
+.borderbottom
+{
+	display: block;
+	width: 267px;
+	height: 3px;
+	background: url('../images/form_dropdown_ul_border_bottom.gif')no-repeat;
+}
+
+.InputCheckbox
+{
+	float: left;
+	margin-left: 5px;
+}
+
+.includeExcludeContainer
+{
+	margin-left: 5px;
+}
+
+.buttons 
+{
+	display: block;
+	margin: 10px 0 11px 93px;
+}
+
+.contactButtonsWrap
+{
+	display: block;
+	margin-left: 88px;
+}
+
+.IUCNRecommendationButtonsWrap
+{
+	margin-left: 85px;
+}
+
+.indCommButtonsWrap
+{
+	display: block;
+	margin-left: 74px;
+}
+
+.populationButtonsWrap
+{
+	display: block;
+	margin-left: 70px;
+}
+
+.staffButtonsWrap
+{
+	display: block;
+	margin-left: 47px;
+}
+
+.visitorsButtonsWrap
+{
+	display: block;
+	margin-left: 47px;
+}
+
+.boundaryModificationsWrap
+{
+	display: block;
+	margin-left: 77px;
+}
+
+.dangerListButtonsWrap
+{
+	display: block;
+	margin-left: 99px;
+}
+
+.dsorButtonsWrap
+{
+	display: block;
+	margin-left: 42px;
+}
+
+.InscCriteriaButtonsWrap
+{
+	display: block;
+	margin-left: 54px;
+}
+
+.SOOUVButtonsWrap
+{
+	display: block;
+	margin-left: 95px;
+}
+
+.flagshipSpeciesButtonsWrap
+{
+	display: block;
+	margin-left: 138px;
+}
+
+.IUCNPaCategoryButtonsWrap
+{
+	display: block;
+	margin-left: 40px;
+}
+
+.budgetButtonsWrap
+{
+	clear: both;
+	width: 100%;
+	text-align: left;
+	float: left;
+	margin-left: 112px;
+	/*margin-left: 56px;*/
+}
+ 
+.budgetButtonsWrap input
+{
+	float: left;
+}
+
+.designationsButtonsWrap
+{
+	display: block;
+	margin-left: 88px;
+}
+
+input.btn
+{
+	cursor: pointer;
+	float: left;
+	margin-right: 2px;
+	width: 49px;
+	height: 24px;
+	border: none;
+	color: #fff;
+	background: url('../images/form_button_bg.png');
+}
+
+input.siteInfoTxtInput
+{
+	padding: 0.5em 0 0.5em 0.5em;
+	float: right;
+	width: 234px;
+}
+
+/*input.siteInfoDocumentsTxtInput
+{
+	margin-left: 25px;
+}*/
+
+
+input.UploadedByInput
+{
+	margin-left: 10px;
+	float: none;
+}
+
+select.formDropDown
+{
+	float: right;
+	width: 244px;
+}
+
+div.labelContainer
+{
+	display: block;
+	margin: 11px 0 5px 0;
+	overflow: hidden;
+}
+
+.labelInsideSite 
+{
+	margin-left: 5px;
+}
+
+div.specificThreatAffectingSite
+{
+	float: left;
+	clear: both;
+	width: 671px;
+}
+
+div.specificThreatAffectingSite textarea
+{
+	height: 35px;
+}
+
+label.labelSubmissionInfo
+{
+	margin-top: 1px;
+}
+label.population
+{
+	width: 62px;
+}
+
+label.description
+{
+	width: 66px;
+}
+
+label.labelContact
+{
+	width: 78px;
+}
+
+label.labelStaff
+{
+	width: 39px;
+}
+
+label.labelVisitors
+{
+	width: 39px;
+}
+
+label.labelBoundryModifications
+{
+	width: 69px;
+}
+
+label.labelDangerList
+{
+	width: 91px;
+}
+
+label.labelDSOR
+{
+	width: 34px;
+}
+
+label.labelInsCriteria
+{
+	width: 46px;
+}
+
+label.labelInsHistory
+{
+	width: 85px;
+}
+
+label.labelIUCNRecommendation
+{
+	width: 73px;
+}
+
+label.labelSOOUV
+{
+	width: 87px;
+}
+
+label.labelFlagshipSpecies
+{
+	width: 130px;
+}
+
+label.labelIUCNPaCategory
+{
+	width: 32px;
+}
+
+label.labelBudget
+{
+	width: 104px;
+}
+
+/*textarea
+{
+	width: 564px;
+	height:57px;
+	float: right;
+	margin-left: 8px;
+}*/
+
+textarea.siteInfoTxtArea
+{
+	float: right;
+	padding: 0.5em 0 0 0.5em;
+	width: 236px;
+	height: 60px;
+}
+
+.includeExcludeContainer 
+{
+	padding-left: 4px;
+	margin-left: 5px;
+	overflow: hidden;
+}
+
+.include
+{
+	float: right;
+	margin-left: 8px;
+	width: 267px;
+	height: 57px;
+	background: url('../images/form_textarea_bg.gif') no-repeat;
+}
+
+.include ul, .exclude ul
+{
+	padding: 7px;
+}
+
+.exclude
+{
+	float: right;
+	margin-right: 8px;
+	width: 267px;
+	height: 57px;
+	background: url('../images/form_textarea_bg.gif') no-repeat;
+}
+
+.include li, .exclude li
+{
+	height: 15px;
+	/*border: 1px solid #222222;*/
+	background: #fff;
+}
+
+.valueAffectedBtnHolder
+{
+	float: right;
+	width: 20px;
+}
+
+.btnInclude, .btnExclude
+{
+	margin: 0.5em 0 0 0;
+	display: block;
+	width: 19px;
+	height: 19px;
+	text-indent: -9999px;
+	color: white;
+	background: url('../images/include.gif') no-repeat -5px -6px;
+	text-decoration: none;
+}
+
+.btnExclude
+{
+	background: url('../images/exclude.gif') no-repeat -5px -6px;
+}
+
+/*date picker CSS starts here*/
+
+.ui-datepicker { width: 17em; padding: .2em .2em 0; display: none; }
+.ui-datepicker .ui-datepicker-header { position:relative; padding:.2em 0; }
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next { position:absolute; top: 2px; width: 1.8em; height: 1.8em; }
+.ui-datepicker .ui-datepicker-prev-hover, .ui-datepicker .ui-datepicker-next-hover { top: 1px; }
+.ui-datepicker .ui-datepicker-prev { left:2px; }
+.ui-datepicker .ui-datepicker-next { right:2px; }
+.ui-datepicker .ui-datepicker-prev-hover { left:1px; }
+.ui-datepicker .ui-datepicker-prev-hover:hover{ background: url(../images/datepicker_prev_aero.png) no-repeat 5px 5px /*{iconsHeader}*/;}
+.ui-datepicker .ui-datepicker-next-hover { right:1px; }
+.ui-datepicker .ui-datepicker-next-hover :hover{ background: url(../images/datepicker_next_aero.png) no-repeat 2px 2px /*{iconsHeader}*/;}
+.ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next span { display: block; position: absolute; left: 50%; margin-left: -8px; top: 50%; margin-top: -8px;  }
+.ui-datepicker .ui-datepicker-title { margin: 0 2.3em; line-height: 1.8em; text-align: center; }
+.ui-datepicker .ui-datepicker-title select { font-size:1em; margin:1px 0; }
+.ui-datepicker select.ui-datepicker-month-year {width: 100%;}
+.ui-datepicker select.ui-datepicker-month, 
+.ui-datepicker select.ui-datepicker-year { width: 49%;}
+.ui-datepicker table {width: 100%; font-size: .9em; border-collapse: collapse; margin:0 0 .4em; }
+.ui-datepicker table tr, .ui-datepicker table td {height: 18px}
+.ui-datepicker th { text-align: center; font-weight: bold; border: 0;}
+table.ui-datepicker-calendar th{background: none;}
+.ui-datepicker td { border: 0; padding: 1px; }
+.ui-datepicker td span, .ui-datepicker td a { display: block; padding: .2em; text-align: right; text-decoration: none; }
+.ui-datepicker .ui-datepicker-buttonpane { background-image: none; margin: .7em 0 0 0; padding:0 .2em; border-left: 0; border-right: 0; border-bottom: 0; }
+.ui-datepicker .ui-datepicker-buttonpane button { float: right; margin: .5em .2em .4em; cursor: pointer; padding: .2em .6em .3em .6em; width:auto; overflow:visible; }
+.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current { float:left; }
+#ui-datepicker-div {width: 238px;}
+
+/* with multiple calendars */
+.ui-datepicker.ui-datepicker-multi { width:auto; }
+.ui-datepicker-multi .ui-datepicker-group { float:left; }
+.ui-datepicker-multi .ui-datepicker-group table { width:95%; margin:0 auto .4em; }
+.ui-datepicker-multi-2 .ui-datepicker-group { width:50%; }
+.ui-datepicker-multi-3 .ui-datepicker-group { width:33.3%; }
+.ui-datepicker-multi-4 .ui-datepicker-group { width:25%; }
+.ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header { border-left-width:0; }
+.ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header { border-left-width:0; }
+.ui-datepicker-multi .ui-datepicker-buttonpane { clear:left; }
+.ui-datepicker-row-break { clear:both; width:100%; font-size:0em; }
+
+/* RTL support */
+.ui-datepicker-rtl { direction: rtl; }
+.ui-datepicker-rtl .ui-datepicker-prev { right: 2px; left: auto; }
+.ui-datepicker-rtl .ui-datepicker-next { left: 2px; right: auto; }
+.ui-datepicker-rtl .ui-datepicker-prev:hover { right: 1px; left: auto; }
+.ui-datepicker-rtl .ui-datepicker-next:hover { left: 1px; right: auto; }
+.ui-datepicker-rtl .ui-datepicker-buttonpane { clear:right; }
+.ui-datepicker-rtl .ui-datepicker-buttonpane button { float: left; }
+.ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current { float:right; }
+.ui-datepicker-rtl .ui-datepicker-group { float:right; }
+.ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header { border-right-width:0; border-left-width:1px; }
+.ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header { border-right-width:0; border-left-width:1px; }
+
+/* IE6 IFRAME FIX (taken from datepicker 1.5.3 */
+.ui-datepicker-cover {
+    position: absolute; /*must have*/
+    z-index: -1; /*must have*/
+    top: -4px; /*must have*/
+    left: -4px; /*must have*/
+    width: 200px; /*must have*/
+    height: 200px; /*must have*/
+}
+
+.ui-widget-header {
+border: 1px solid #AAA/*{borderColorHeader}*/;
+background: #CCC/*{bgColorHeader}*/ url(../images/ui-bg_highlight-soft_75_cccccc_1x100.png)/*{bgImgUrlHeader}*/ 50%/*{bgHeaderXPos}*/ 50%/*{bgHeaderYPos}*/ repeat-x/*{bgHeaderRepeat}*/;
+color: #222/*{fcHeader}*/;
+font-weight: bold;
+}
+
+.ui-datepicker .ui-datepicker-prev {
+left: 2px;
+}
+
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next {
+position: absolute;
+top: 2px;
+width: 1.8em;
+height: 1.8em;
+}
+
+.ui-widget-header a {
+color: #222/*{fcHeader}*/;
+}
+
+/*date picker CSS ends here*/
+/*site information forms CSS ends here*/
+
+/*IUCN_site_assessment_CSS starts here*/
+/*style_IUCN_site_assessment*/
+
+
+.tooltip
+{
+	z-index: 1000;
+	position: relative;
+	width: 203px;
+	height: 43px;
+	line-height: 35px;
+	bottom: 60px;
+	right: 110px;
+	color: #f9f9f9;
+	line-height: 35px;
+	background: url('../images/tooltip.png')no-repeat;
+}
+
+.tooltipBgStep3
+{
+	position: relative;
+	width: 240px;
+	height: 43px;
+	line-height: 35px;
+	bottom: 60px;
+	right: 145px;
+	color: #f9f9f9;
+	background: url('../images/tooltip_01.png');
+}
+
+.tooltipBgStep4
+{
+	position: relative;
+	width: 300px;
+	height: 43px;
+	line-height: 35px;
+	bottom: 60px;
+	right: 205px;
+	color: #f9f9f9;
+	background: url('../images/tooltipBgStep4.png');
+}
+
+.tooltipBgStep6
+{
+	position: relative;
+	width: 256px;
+	height: 43px;
+	line-height: 35px;
+	bottom: 60px;
+	right: 160px;
+	color: #f9f9f9;
+	background: url('../images/tooltipBgStep6.png');
+}
+
+.tooltipBgStep8
+{
+	position: relative;
+	width: 380px;
+	height: 43px;
+	line-height: 35px;
+	bottom: 60px;
+	right: 280px;
+	color: #f9f9f9;
+	background: url('../images/tooltipBgStep8.png');
+}
+
+
+table.tab_data
+{
+	/* width: 99%; */
+
+	border: 1px solid #D8D8D8;
+	background:#fff;
+	
+}
+
+table.tab_data td
+{
+	color: #344c0c;
+	height: 31px;
+	padding: 0.3em 0.4em 0.2em 0.4em;
+	border-right: 1px solid #D8D8D8;
+	border-bottom: 1px solid #D8D8D8;
+	vertical-align:top;
+}
+
+table.tab_data th
+{
+	padding: 0.2em 0.3em 0.1em 0.3em;
+	color: #1A1A1A;
+	height: 25px;
+	border-right: 1px solid #D8D8D8;
+	border-bottom: 1px solid #D8D8D8;
+	text-align: left;
+	background:#fff url('../images/bg_A_info.gif') bottom left repeat-x;
+}
+
+table.tab_dataValues
+{
+	/* width: 99%; */
+	margin: 0;
+	border: 1px solid #D8D8D8;
+	background:#fff;
+}
+
+table.tab_dataValues td
+{
+	color: #344c0c;
+	height: 31px;
+	padding: 0.1em 0.4em;
+	border-right: 1px solid #D8D8D8;
+	border-bottom: 1px solid #D8D8D8;
+	text-align: justify;
+}
+
+table.tab_dataValues th
+{
+	
+	color: #1A1A1A;
+	height: 31px;
+	border-right: 0px none;
+	border-bottom: 0px none;
+	text-align: left;
+	font-weight: bold;
+}
+
+th.dataHeading {
+	color: #000;
+	height: 31px;
+	border-right: 0px none;
+	border-bottom: 2px solid #B0B1B1;
+	text-align: left;
+	font-weight: bold;
+	white-space: normal;
+	background: #fff;
+	padding-left:0.4em;	
+
+
+}
+
+th.stats
+{
+	width: 150px;
+}
+
+table.step2InnerTable
+{
+	border: none;
+}
+
+table.step2InnerTable tr:first-child td
+{
+	border-top: none;
+}
+
+table.step2InnerTable td
+{
+	
+	border-top: 1px solid #D8D8D8;
+	border-bottom: none;
+}
+
+table.step2InnerTable td:last-child
+{
+	border-right: none;
+	
+}
+
+.subHeading 
+{
+	padding-left: 1em;
+	font-weight: bold;
+	border-top: 1px solid white;
+	border-bottom: 1px solid white;
+	color: #000;
+	background: #C7D6E7;
+}
+
+.topics 
+{
+	width: 275px;
+}
+
+.values
+{
+	width: 180px;
+}
+
+.whCriterion
+{
+	width: 150px;
+}
+
+.inputBox
+{
+	float: left;
+	width: 176px;
+	height: 25px;
+	border: none;
+	padding: 0 0 0 10px;
+	background: url('../images/searchInput_bg.gif') no-repeat left center;
+}
+
+.buttonsSiteAssessment
+{
+	/*width: 968px;*/
+	margin: 0 auto;
+	padding: 10px 10px;
+	border: 0px;
+	border-top: none;
+	text-align:center;
+	border-bottom:1px solid #a9a9a9;
+}
+
+.aui-tabview
+{
+	width: auto;
+	margin: 0 auto;
+	border:1px solid #a9a9a9;
+	border-bottom:0px;
+	background:#ECF5FE;
+
+}
+
+.formLinks a:hover
+{
+	text-decoration: underline;
+}
+
+.buttonsSiteAssessment input
+{
+	cursor: pointer;
+	padding: 0 8px 0 8px;
+	height: 23px;
+	border: 1px solid #c8c9ca;
+	border-radius: 5px;
+	background: url('../images/button_bg_01.GIF');
+}
+
+textarea 
+{
+	width: 100%;
+	height: 100%;
+}
+
+.checkboxList 
+{
+	height:100px;
+	width: 100%;
+	overflow:auto;
+	background:#fff;
+	border:1px solid #c8c9ca;
+}
+
+.checkboxListforThreat 
+{
+	height:75px;
+	width: 100%;
+	overflow:auto;
+	background:#fff;
+	border:1px solid #c8c9ca;
+}
+
+
+.search-results 
+{
+	margin-top: 0.5em;
+}
+.blankCellStyle 
+{
+color: #ff3f00;
+/* font-weight: bold; */
+}
+	
+/*IUCN_site_assessment_CSS ends here*/
+
+
+
+
+
+
+
+/*****************tab css start here*************/
+
+
+
+.aui-tabview-list
+{
+background:#f8f8f8 url('../images/bg_wizard.gif') repeat-x left bottom;
+border:1px solid #b5b5b5;
+border-left:0px;
+border-right:0px;
+overflow:hidden;
+}
+
+
+.aui-tabview-list li
+{
+float:left;
+font-size:13px;
+
+height:32px;
+padding:0 0em 0 0.5em;
+}
+
+
+
+.aui-tab-label
+{
+display:table-cell;
+height:32px;
+vertical-align:middle;
+padding:0.1em 1.1em 0 0.1em;
+line-height:12px;
+}
+.aui-tabview-list .aui-state-complete .aui-tab-label
+{
+padding:0.1em 0.7em 0 0.5em;
+}
+
+
+.ie7fix
+{
+	*padding:0.7em 1.5em 0 0.1em;
+	}
+
+
+/* Default */
+.aui-tabview-list .aui-state-default
+{
+	background:none;
+}
+
+.aui-tabview-list .aui-state-default span.aui-tab-content
+{
+position:relative;
+background: transparent url('../images/step_arrows_tip.png') no-repeat right top;
+display:block;
+
+height:32px;
+right:-10px;
+}
+
+.aui-tabview-list .aui-state-default span.aui-tab-content a
+{
+color:#909090;
+}
+.aui-tabview-list .aui-state-default span.aui-tab-content a:hover
+{
+color:#3f6565;
+}
+/* Active */
+
+.aui-tabview-list .aui-state-active
+{
+background:#fffaf6 url('../images/bg_active_step.gif') repeat-x left bottom;
+font-weight:bold;
+
+}
+
+.aui-tabview-list .aui-state-active span.aui-tab-content
+{
+position:relative;
+background: transparent url('../images/step_arrows_tip.png') no-repeat right center;
+display:block;
+
+height:32px;
+right:-10px;
+}
+
+.aui-tabview-list .aui-state-active span.aui-tab-content a
+{
+color:#333333;
+}
+
+.aui-tabview-list .aui-state-active span.aui-tab-content a:hover
+{
+color:#3f6565;
+text-shadow:none;
+}
+
+/* Complete */
+.aui-tabview-list .aui-state-complete
+{
+background:#d6f8c2 url('../images/bg_complete_step.gif') repeat-x left bottom;
+}
+
+.aui-tabview-list .aui-state-complete span.aui-tab-content
+{
+position:relative;
+background: transparent url('../images/step_arrows_tip.png') no-repeat right bottom;
+display:block;
+height:32px;
+right:-10px;
+}
+
+
+.aui-tabview-list .aui-state-complete span.aui-tab-content a
+{
+color:#000;
+}
+.aui-tabview-list .aui-state-complete span.aui-tab-content a:hover
+{
+color:#3f6565;
+text-shadow:none;
+}
+
+
+.aui-tabview-list:hover
+{
+color:#225398;
+text-shadow:none;
+}
+
+
+
+
+.aui-tab
+{
+	position:static;
+}
+
+.aui-tabview-list .first, .aui-tabview-list .aui-tab:first-child
+{border-left-color:transparent;
+border-left-width:0PX;
+	}
+
+
+.aui-state-default, .aui-state-active, .aui-state-hover, .aui-calendar-content, .aui-colorpicker-content, .aui-colorpicker-panel-content, .aui-image-gallery-paginator .aui-image-gallery-paginator-thumb, .aui-image-viewer-loading .aui-image-viewer-bd, .aui-loadingmask-message, .aui-loadingmask-message-content, .aui-progress-bar-content, .aui-progress-bar-status, .aui-form-builder-field, .aui-form-builder-default-message, .aui-tabview-list
+{
+	border-radius:0px 0px 0px 0px;
+	padding:0;
+	}
+	
+	.aui-tab-content
+	{
+	border-style:none;
+	border-width:0px;
+	padding:0 0.4em;
+	}
+	
+	
+	.aui-tab-active .aui-tab-content
+	{
+	box-shadow: none;
+	}
+	
+	.aui-tab-active .aui-tab-label
+	{
+	text-shadow:none;
+	}
+	
+	.aui-state-default
+{
+	background:none;
+}
+	.aui-state-hover
+	{
+	background:none;
+	}
+	
+	.aui-tabview-list-content
+	{
+	margin-bottom: 0em;
+	}
+	
+	
+	.aui-tabview-list
+	{
+	margin-bottom: 0.7em;
+	}
+	
+/*******************tab css end here**************/
+
+
+	
+	.topBarGrey
+	{
+	display:block;
+	clear:both;
+	overflow:hidden;
+	/*background:#fff url('../images/bg_A_info.gif') bottom left repeat-x;*/
+	background:#CBE6AF;
+	padding:0.5em 0em 0.5em 0em;
+
+	}
+
+	
+	.topBarGrey p
+	
+	{
+	margin:0;
+	padding:0 0.5em 0 0.5em;
+	float:left;
+	font-weight:bold;
+
+	}
+	
+	.siteNameP
+	{
+	width:360px;
+	}
+	
+	.siteDateP
+	{
+	width:110px;
+	}
+	
+	.AssessorP
+	{
+	width:320px;
+	}
+	
+	.versionP
+	{
+	width:100px;
+	}
+	
+	
+	
+		.topBarGrey p span
+		{
+		display: inline-block;
+		font-weight:normal;
+		}
+		
+		
+		
+		
+	.wizardFooter
+	{
+		background:#fff;
+		border-top:1px solid #A9A9A9;
+		border-bottom:1px solid #A9A9A9;
+		text-align:right;
+		padding:0.5em 0.5em 0.5em 0.5em; 
+	}
+	
+	.roundedcornerBTN {
+	cursor:pointer;
+	text-decoration:none;
+	background:url("../images/bg-btn-corp2.png") no-repeat left top; 
+	padding-right:0px; 
+	display:inline-block;
+	line-height:24px;
+	height:24px;
+	font-size:12px;
+	color:#FFFFFF;
+	font-weight:bold;
+	margin:0 0.5em 0 0;
+}
+	
+	
+	
+.roundedcornerBTN span {
+background: url("../images/bg-btn-corp2.png") no-repeat right top;
+padding-left: 0px;
+line-height: 24px;
+height: 24px;
+display: inline-block;
+position: relative;
+right: -6px;
+padding:0 0.7em 0 0.7em;
+}
+
+
+
+.roundedcornerBTN:hover {
+	background-position:left -39px;
+}
+
+.roundedcornerBTN:hover span {
+	background-position:right -39px;
+}
+
+
+
+.roundedcornerBTN:active {
+  background-position:left -78px;
+}
+
+.roundedcornerBTN:active span {
+  background-position:right -78px;
+  
+}
+
+.tipsSection
+{
+	background:#fefdf8 url("../images/tips_bg.gif") repeat-x left bottom;
+	
+	}
+	
+.tiptext {
+    background:transparent url("../images/tip-bulb.png") no-repeat 5px 4px;
+    color: #333333;
+    margin: 0;
+    padding: 0.4em 0.3em 0.3em 2.3em;
+    font-size:12px;
+    font-style: italic;
+}
+
+.noteInfo{
+	padding-left: 0.5em;
+}
+
+
+.roundedwhiteBTN {
+	cursor:pointer;
+	text-decoration:none;
+	background:url("../images/whiteBtn.gif") no-repeat left top; 
+	padding-right:0px; 
+	display:inline-block;
+	line-height:21px;
+	height:21px;
+	font-size:12px;
+	color:#3f6565;
+	font-weight:normal;
+	margin-right:1em;
+}
+
+span.roundedwhiteBTN {
+	vertical-align: middle;
+}
+
+
+
+.roundedwhiteBTN span {
+background: url("../images/whiteBtn.gif") no-repeat right top;
+padding-left: 0px;
+line-height: 21px;
+height: 21px;
+display: inline-block;
+position: relative;
+right: -6px;
+padding-right:6px;
+}
+
+
+.roundedwhiteBTN span p {
+display: inline-block;
+border: 0px solid red;
+margin: 0;
+padding: 0;
+background: url("../images/icon_back.png") no-repeat 1px center;
+padding: 0 0 0 1.3em;
+font-weight:normal;
+}
+
+
+
+.roundedwhiteBTN span p.help {
+display: inline-block;
+margin: 0;
+padding: 0;
+background: url("../images/icon_help.png") no-repeat 0px center;
+padding: 0 0 0 1.5em;
+font-weight:normal;
+color:#3f6565;
+}
+
+
+
+
+.roundedwhiteBTN:hover {
+	background-position:left -39px;
+}
+
+.roundedwhiteBTN:hover span {
+	background-position:right -39px;
+}
+
+
+
+
+
+.inputBTN {
+	cursor:pointer;
+	text-decoration:none;
+	background:url("../images/bg-btn-corp2.png") no-repeat left top; 
+	padding-right:0px; 
+	display:inline-block;
+	height:24px;
+	}
+
+.inputBTN input {
+cursor: pointer;
+background: transparent url("../images/bg-btn-corp2.png") no-repeat right top;
+border: 0;
+padding-top: 0px;
+font-size: 12px;
+font-weight:bold;
+color: #FFFFFF;
+position: relative;
+right: -4px;
+height: 24px;
+}
+
+
+.inputBTN:hover {
+	background-position:left -39px;
+}
+
+.inputBTN:hover input {
+	background-position:right -39px;
+}
+
+
+.aui-dialog
+{
+width: 650px;
+
+}
+.lblTD
+	{
+	width:440px;
+
+	
+	}
+
+.negative-factors-table {
+	display: inline-block;
+	width:150px;
+}
+	
+	.multiLinetxt
+	{
+	width: 100%;
+
+	}
+
+.selctinputtxt
+{
+	width:250px;
+	}
+	
+.valueTD textarea
+	{
+	width: 440px;
+	height:80px;
+	}
+	
+.btnTD
+{
+	text-align:right;
+	padding:0 2em 0 0;
+	}
+	
+	.floatLeftX
+	{
+	float:left;
+	margin:0 0.5em 0 0;
+	}
+	
+		.floatLeftX label
+		{
+		float:left;
+		}
+		
+				.floatLeftX span
+				{
+				float:left;
+				}
+
+				
+tr.highlightrow
+{
+	background:#f9ecb8 url(../images/bg-yellow-table.gif) left top repeat-x ;
+}
+
+
+.lowthreatcell
+{
+		background:transparent url(../images/low_threat.png) 0px 0px no-repeat;
+		padding:0.1em 0 0.2em 2em;
+	
+}
+.verylowThreatcell
+{
+			background:transparent url(../images/very_low_threat.png) 0px 0px no-repeat;
+		padding:0.1em 0 0.2em 2em;
+}
+
+.highThreatcell
+{
+			background:transparent url(../images/high_threat.png) 0px 0px no-repeat;
+		padding:0.1em 0 0.2em 2em;
+}
+
+.veryhighThreatcell
+{
+			background:transparent url(../images/very_high_threat.png) 0px 0px no-repeat;
+		padding:0.1em 0 0.2em 2em;
+}
+.datadeficientcell
+{
+			background:transparent url(../images/data_deficient.png) 0px 0px no-repeat;
+			padding:0.1em 0 0.2em 2em;
+}
+
+
+
+/*Query Builder CSS Start Here*/
+.searchBarbutton
+{
+	float: left;
+	display: inline-block;
+}	
+
+
+	#queryBuilderWrapper, #queryBuilder_01_Wrapper
+{
+	display: inline-block;
+	margin: 0 auto;
+	width: 630px;
+	border: 1px solid #001acf;
+}
+
+#queryBuilder_01_Wrapper
+{
+	width: 670px;
+}
+
+.queryBuilderContent
+{
+	overflow: hidden;
+	padding: 0.4em;
+	background: url('../images/right_box_bg.gif');
+}
+
+#queryBuilderWrapper h1
+{
+	position: relative;
+	padding: 0.5em 0.2em;
+	font-size: 14px;
+	color: #000;
+	border-bottom: 1px solid #aaa;
+	background: url('../images/th_gradient.gif');
+}
+
+#queryBuilder_01_Wrapper h1
+{
+position: relative;
+	padding: 0.5em 0.2em;
+	font-size: 14px;
+	color: #000;
+	border-bottom: 1px solid #aaa;
+	background: url('../images/th_gradient.gif');
+}
+
+.contentBlocks
+{
+	float: left;
+	display: inline-block;
+}
+
+.contentBlocks span
+{
+	display: block;
+}
+
+.optionBox
+{
+	float: left;
+	clear: both;
+	padding: 0.2em;
+	display: block;
+	margin-right: 8px;
+	width: 175px;
+	height: 190px;
+	border: 1px solid #769bb8;
+	background: #fff;
+}
+
+.optionBoxButton
+{
+	float: left;
+	clear: both;
+	padding: 0.2em;
+	margin-right: 8px;
+	width: 55px;
+	height: 175px;
+	background: #fff;
+}
+
+.optionBoxValue 
+{
+	float: left;
+	clear: both;
+	padding: 0.2em;
+	display: block;
+	margin-right: 8px;
+	width: 175px;
+	height: 162px;
+	border: 1px solid #769bb8;
+	background: #fff;
+}
+.executeQueryButton
+{
+	width: 180px;
+	float: right;
+}
+
+.optionBox li
+{
+	display: block;
+}
+
+.inputContainer
+{
+	display: block;
+}
+
+.getUniqueValuesBtn
+{
+	clear: both;
+	display: block;
+	width: 157px;
+}
+
+.QueryFooter
+{
+	overflow: hidden;
+	clear: both;
+	padding: 1em 0 1em 0.5em;
+	*padding: 0.8em 0 0.8em 0.5em;
+	display: block;
+	background: #ECE9D8;
+}
+
+.QueryFooter input[type="button"]
+{
+	float: right;
+}
+
+.QueryBtnsWrapper
+{
+	padding: 0.5em 0 0.5em 0;
+	clear: both;	
+}
+
+#queryBuilderWrapper input[type="button"]
+{
+	padding: 0.2em 0.3em;
+}
+
+#queryBuilder_01_Wrapper input[type="button"]
+{
+	padding: 0.2em 0.3em;
+	*padding: 0em;
+}
+
+.searchBarbutton input[type="button"]
+{
+	
+    margin: 0.1em 0em 0.2em 0.5em;
+    padding: 0.25em;
+}
+	
+.searchBarbutton input[type="reset"]
+{
+	
+    margin: 0.1em 0.4em 0.2em 0.6em;
+    padding: 0.25em;
+}
+
+
+
+.selectEditValueTextArea
+{
+	display: block;
+	margin-top: 0.2em;
+	width: 250px;
+	height: 163px;
+}
+
+.queryFooterTextarea
+{
+	height: 80px;
+}
+
+.fieldTxt
+{
+	font-weight: bold;
+}
+
+.txtInputInscribed
+{
+	width: 116px;
+}
+
+.txtInputValue
+{
+	width: 170px;
+}
+
+.whereClauseTextarea
+{
+	height: 70px;
+	margin: 0.4em 0;
+}
+
+.help
+{
+	padding-left: 2em;
+	margin-top: 0.7em;
+	display: inline-block;
+	font-weight: bold;
+	color: #00027b;
+	background: url('../images/help.png') no-repeat;
+	float: left;
+}
+
+.closeBtn
+{
+	position: absolute;
+	right: 0;
+	display: inline-block;
+	margin: -0.2em 0.2em 0 0;
+	width: 16px;
+	height: 16px;
+	background: url('../images/close_btn_red.png') no-repeat;
+}
+
+.closeBtn span
+{
+	display: none;
+}
+
+.test input[type="button"]
+{
+	float: right;
+}
+
+.queryFooterBtnsContainer
+{	
+	margin-right: 0.5em;
+	width: 300px;
+	float: right;
+}
+
+.queryFooterBtnsContainer input[type="button"]
+{
+	width: 50px;
+	margin-left: 0.2em;
+}
+
+/* Site Assessment */
+
+table.tab_data th.good {
+	background: #92d050;
+}
+
+table.tab_data th.low-concern {
+	background: #acd373;
+}
+
+table.tab_data th.high-concern {
+	background: #ffc000;
+}
+
+table.tab_data th.critical {
+	background: #ff0000;
+}
+
+/*Query Builder CSS End Here*/
+
+
+	.portlet-column
+	
+	{
+	display:block;
+	}
+	

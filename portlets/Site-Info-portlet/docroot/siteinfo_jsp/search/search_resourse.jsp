@@ -31,14 +31,19 @@
 
 
 <%
+//	String assessmentCycleID=ParamUtil.getString(request, "assessmentCycle");
 	String searchType=ParamUtil.getString(request, "searchType");
     int iucnRegionId=ParamUtil.getInteger(request, "iucnRegionId");
     int countryId=ParamUtil.getInteger(request, "countryID");
     String  sitename =ParamUtil.getString(request,"sitename");
-    
+
     
     List<country_lkp> countryList=null;
     List<whp_sites> whp_sitesList=null;
+	List<site_assessment> site_assessmentList=null;
+
+	site_assessmentList = site_assessmentLocalServiceUtil.getAllActiveSiteAssessment();
+
     if(searchType.equalsIgnoreCase("advanceSearch")){
     	long[] lstSiteId = ParamUtil.getLongValues(request, "siteIds");
  	   //String lstassessmentIdstr =request.getAttribute("assessmentIdList").toString();
@@ -362,6 +367,9 @@
     	    	/* countryList= iucn_region_countryLocalServiceUtil.getCountryObject(iucnRegionId); */
     	    	countryList=unesco_region_countryLocalServiceUtil.getCountryObject(iucnRegionId);
     	    }
+
+
+
     	   			int size = countryList.size();
     				for(int i=0;i<size;i++){
     					country_lkp countryObj=countryList.get(i);
@@ -492,7 +500,45 @@ String siteIds="";
         
         <%
         long tempSiteID=sites.getSite_id();
-        Date inscription_date=sites.getInscription_date();
+
+			String assessment_cycle =  "";
+
+			site_assessment site_assessmentObj = null;
+
+			List<site_assessment> tempSiteAssessmentArr = new ArrayList<site_assessment>();
+
+			if(site_assessmentList != null){
+				int assessmentCycleCount = 0;
+				for (site_assessment aSite_assessmentList : site_assessmentList) {
+					if (aSite_assessmentList.getSite_id() == tempSiteID) {
+						tempSiteAssessmentArr.add(aSite_assessmentList);
+					}
+				}
+			}
+
+			/*if site has more than one assessment - check all versions */
+			if(tempSiteAssessmentArr.size() > 1){
+				String cycle2014 = "";
+				// 22.07.2016 - We changed version from 2016 to 2017 (why? - I don't know, but I need to rename this ugly variables)
+				String cycle2016 = "";
+				for(site_assessment bSite_assessmentList :  tempSiteAssessmentArr){
+					if(bSite_assessmentList.getAssessment_cycle().equals("2014")){
+						cycle2014 = bSite_assessmentList.getAssessment_cycle();
+					}
+					// changed from '2016'
+					if(bSite_assessmentList.getAssessment_cycle().equals("2017")){
+						cycle2016 = bSite_assessmentList.getAssessment_cycle();
+					}
+				}
+				assessment_cycle = cycle2014;
+				if(!cycle2016.equals(null) && !cycle2016.equals("")){
+					assessment_cycle = assessment_cycle + ", " + cycle2016;
+				}
+			}else if(tempSiteAssessmentArr.size() == 1){
+				assessment_cycle = tempSiteAssessmentArr.get(0).getAssessment_cycle();
+			}
+
+			Date inscription_date=sites.getInscription_date();
         String year="";
         if(inscription_date!=null){
         	year=(inscription_date.getYear()+1900)+"";
@@ -550,8 +596,10 @@ String siteIds="";
         <liferay-ui:search-container-column-text
           name="Inscription Year"
           value='<%= year %>' />
-          
-                        
+
+		<liferay-ui:search-container-column-text
+				name="Assessment Cycles"
+				value='<%= assessment_cycle %>' />
                         
       <liferay-ui:search-container-column-jsp
        name="Actions"

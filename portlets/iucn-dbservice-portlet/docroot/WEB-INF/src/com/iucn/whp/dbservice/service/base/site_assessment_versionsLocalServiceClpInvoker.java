@@ -105,29 +105,29 @@ public class site_assessment_versionsLocalServiceClpInvoker {
 				"boolean"
 			};
 
-		_methodName418 = "getBeanIdentifier";
+		_methodName426 = "getBeanIdentifier";
 
-		_methodParameterTypes418 = new String[] {  };
+		_methodParameterTypes426 = new String[] {  };
 
-		_methodName419 = "setBeanIdentifier";
+		_methodName427 = "setBeanIdentifier";
 
-		_methodParameterTypes419 = new String[] { "java.lang.String" };
+		_methodParameterTypes427 = new String[] { "java.lang.String" };
 
-		_methodName424 = "findByUserId";
+		_methodName432 = "findByUserId";
 
-		_methodParameterTypes424 = new String[] { "long" };
+		_methodParameterTypes432 = new String[] { "long" };
 
-		_methodName425 = "findByAssessmentId";
+		_methodName433 = "findByAssessmentId";
 
-		_methodParameterTypes425 = new String[] { "long" };
+		_methodParameterTypes433 = new String[] { "long" };
 
-		_methodName426 = "findByPrevAssementCodeId";
+		_methodName434 = "findByPrevAssementCodeId";
 
-		_methodParameterTypes426 = new String[] { "long", "java.lang.Double" };
+		_methodParameterTypes434 = new String[] { "long", "java.lang.Double" };
 
-		_methodName427 = "findSite_assessment_versionsByCustomQuery";
+		_methodName435 = "findSite_assessment_versionsByCustomQuery";
 
-		_methodParameterTypes427 = new String[] { "java.lang.String", "int", "int" };
+		_methodParameterTypes435 = new String[] { "java.lang.String", "int", "int" };
 	}
 
 	public Object invokeMethod(String name, String[] parameterTypes,
@@ -219,34 +219,34 @@ public class site_assessment_versionsLocalServiceClpInvoker {
 				((Boolean)arguments[1]).booleanValue());
 		}
 
-		if (_methodName418.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes418, parameterTypes)) {
-			return site_assessment_versionsLocalServiceUtil.getBeanIdentifier();
-		}
-
-		if (_methodName419.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes419, parameterTypes)) {
-			site_assessment_versionsLocalServiceUtil.setBeanIdentifier((java.lang.String)arguments[0]);
-		}
-
-		if (_methodName424.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes424, parameterTypes)) {
-			return site_assessment_versionsLocalServiceUtil.findByUserId(((Long)arguments[0]).longValue());
-		}
-
-		if (_methodName425.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes425, parameterTypes)) {
-			return site_assessment_versionsLocalServiceUtil.findByAssessmentId(((Long)arguments[0]).longValue());
-		}
-
 		if (_methodName426.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes426, parameterTypes)) {
-			return site_assessment_versionsLocalServiceUtil.findByPrevAssementCodeId(((Long)arguments[0]).longValue(),
-				(java.lang.Double)arguments[1]);
+			return site_assessment_versionsLocalServiceUtil.getBeanIdentifier();
 		}
 
 		if (_methodName427.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes427, parameterTypes)) {
+			site_assessment_versionsLocalServiceUtil.setBeanIdentifier((java.lang.String)arguments[0]);
+		}
+
+		if (_methodName432.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes432, parameterTypes)) {
+			return site_assessment_versionsLocalServiceUtil.findByUserId(((Long)arguments[0]).longValue());
+		}
+
+		if (_methodName433.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes433, parameterTypes)) {
+			return site_assessment_versionsLocalServiceUtil.findByAssessmentId(((Long)arguments[0]).longValue());
+		}
+
+		if (_methodName434.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes434, parameterTypes)) {
+			return site_assessment_versionsLocalServiceUtil.findByPrevAssementCodeId(((Long)arguments[0]).longValue(),
+				(java.lang.Double)arguments[1]);
+		}
+
+		if (_methodName435.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes435, parameterTypes)) {
 			return site_assessment_versionsLocalServiceUtil.findSite_assessment_versionsByCustomQuery((java.lang.String)arguments[0],
 				((Integer)arguments[1]).intValue(),
 				((Integer)arguments[2]).intValue());
@@ -287,16 +287,16 @@ public class site_assessment_versionsLocalServiceClpInvoker {
 	private String[] _methodParameterTypes14;
 	private String _methodName15;
 	private String[] _methodParameterTypes15;
-	private String _methodName418;
-	private String[] _methodParameterTypes418;
-	private String _methodName419;
-	private String[] _methodParameterTypes419;
-	private String _methodName424;
-	private String[] _methodParameterTypes424;
-	private String _methodName425;
-	private String[] _methodParameterTypes425;
 	private String _methodName426;
 	private String[] _methodParameterTypes426;
 	private String _methodName427;
 	private String[] _methodParameterTypes427;
+	private String _methodName432;
+	private String[] _methodParameterTypes432;
+	private String _methodName433;
+	private String[] _methodParameterTypes433;
+	private String _methodName434;
+	private String[] _methodParameterTypes434;
+	private String _methodName435;
+	private String[] _methodParameterTypes435;
 }

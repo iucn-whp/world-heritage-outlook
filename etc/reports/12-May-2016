@@ -1,0 +1,20 @@
+Daily Report, 12 May 2016
+
+
+#32115 - Setup development version of the site running on AWS - 70% done
+ 
+ (Postgres installed, DB backup restored, Liferay backup uploaded. Need to increase server capacity to setup Liferay env.)
+
+#32088 - Ensure ALL functionality is working on the development environments - 60% done
+
+ (Functionality described in specs works, need to check in more details)
+ 
+#32089 - Document Management - Check document upload functionality  - 100% done
+
+ (Works as expected)
+
+#32090 - Document Management - Check that documents can be assigned to sites - 100% done
+ 
+ (Works as expected)
+ 
+ 

@@ -66,6 +66,14 @@ for(assessing_threats_potential potentialThreat:lstthreats_potential){
 	 }
 	 int rowcount = lstthreat_assessment_cat.size();
 	 Set<Long> setCategory = new HashSet<Long>();
+
+	Collections.sort(lstthreat_assessment_cat, new Comparator<potential_threat_assessment_cat>() {
+		@Override
+		public int compare(potential_threat_assessment_cat o1, potential_threat_assessment_cat o2) {
+			return Long.compare(o1.getCategory_id(), o2.getCategory_id());
+		}
+	});
+
 	 for(potential_threat_assessment_cat threatCat:lstthreat_assessment_cat){
 		 long category = threatCat.getCategory_id();
 		 setCategory.add(category);
@@ -80,6 +88,14 @@ for(assessing_threats_potential potentialThreat:lstthreats_potential){
 			String category_val = threat_categories_lkpLocalServiceUtil.getthreat_categories_lkp(category_id).getThreat_category();
 			String subcatval="";
 			List<potential_threat_assessment_cat> lstSubCat = potential_threat_assessment_catLocalServiceUtil.getPotentialThreatSubCategories(potential_id,category_id);
+
+			Collections.sort(lstSubCat, new Comparator<potential_threat_assessment_cat>() {
+				@Override
+				public int compare(potential_threat_assessment_cat o1, potential_threat_assessment_cat o2) {
+					return Long.compare(o1.getCategory_id(), o2.getCategory_id());
+				}
+			});
+
 			int subRowCount = lstSubCat.size();
 			int subCategoryCounter = 0;
 			for(potential_threat_assessment_cat subCat:lstSubCat){
@@ -95,7 +111,7 @@ for(assessing_threats_potential potentialThreat:lstthreats_potential){
 						<%=subCategoriesVal %>
 					</td>
 					<td rowspan = "<%=rowcount %>" id="${threatId}_PT_WH_TD"><%=strwhValues %></td>
-					<td rowspan = "<%=rowcount %>" id="${threatId}_PT_IN_TD"><%=potentialThreat.getInside_site() ? "Yes" : "No"%></td>
+					<td rowspan = "<%=rowcount %>" id="${threatId}_PT_IN_TD"><%=potentialThreat.getInside_site() ? "Yes, " + potentialThreat.getThreadExtentValue() : "No"%></td>
 					<td rowspan = "<%=rowcount %>" id="${threatId}_PT_OUT_TD"><%=potentialThreat.getOutside_site()? "Yes" : "No" %></td>
 					<td rowspan = "<%=rowcount %>" id="${threatId}_PT_JF_TD" ><%=justification%></td>
 					<td rowspan = "<%=rowcount %>" id="${threatId}_PT_RT_TD" ><span class ="<%=threatRating.getCssClass() %>"><%=assessment %></span></td>

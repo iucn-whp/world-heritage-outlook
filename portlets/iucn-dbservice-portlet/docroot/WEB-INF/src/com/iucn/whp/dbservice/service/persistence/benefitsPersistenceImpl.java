@@ -357,6 +357,17 @@ public class benefitsPersistenceImpl extends BasePersistenceImpl<benefits>
 		benefitsImpl.setAssessment_version_id(benefits.getAssessment_version_id());
 		benefitsImpl.setSelected_benefit(benefits.getSelected_benefit());
 		benefitsImpl.setSummary(benefits.getSummary());
+		benefitsImpl.setHabitatChangeLevel(benefits.getHabitatChangeLevel());
+		benefitsImpl.setHabitatChangeTrend(benefits.getHabitatChangeTrend());
+		benefitsImpl.setPollutionLevel(benefits.getPollutionLevel());
+		benefitsImpl.setPollutionTrend(benefits.getPollutionTrend());
+		benefitsImpl.setOverExploitationLevel(benefits.getOverExploitationLevel());
+		benefitsImpl.setOverExploitationTrend(benefits.getOverExploitationTrend());
+		benefitsImpl.setClimateChangeLevel(benefits.getClimateChangeLevel());
+		benefitsImpl.setClimateChangeTrend(benefits.getClimateChangeTrend());
+		benefitsImpl.setInvasiveSpeciesLevel(benefits.getInvasiveSpeciesLevel());
+		benefitsImpl.setInvasiveSpeciesTrend(benefits.getInvasiveSpeciesTrend());
+		benefitsImpl.setComment(benefits.getComment());
 		benefitsImpl.setData_deficient(benefits.isData_deficient());
 		benefitsImpl.setCommunity_within_site(benefits.getCommunity_within_site());
 		benefitsImpl.setCommunity_outside_site(benefits.getCommunity_outside_site());
@@ -1429,6 +1440,10 @@ public class benefitsPersistenceImpl extends BasePersistenceImpl<benefits>
 	protected key_conservation_scale_lkpPersistence key_conservation_scale_lkpPersistence;
 	@BeanReference(type = mission_lkpPersistence.class)
 	protected mission_lkpPersistence mission_lkpPersistence;
+	@BeanReference(type = negative_factors_level_impactPersistence.class)
+	protected negative_factors_level_impactPersistence negative_factors_level_impactPersistence;
+	@BeanReference(type = negative_factors_trendPersistence.class)
+	protected negative_factors_trendPersistence negative_factors_trendPersistence;
 	@BeanReference(type = other_designation_lkpPersistence.class)
 	protected other_designation_lkpPersistence other_designation_lkpPersistence;
 	@BeanReference(type = potential_project_needsPersistence.class)

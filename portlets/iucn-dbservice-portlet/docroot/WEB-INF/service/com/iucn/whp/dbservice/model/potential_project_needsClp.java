@@ -70,6 +70,8 @@ public class potential_project_needsClp extends BaseModelImpl<potential_project_
 		attributes.put("organization_individual", getOrganization_individual());
 		attributes.put("description", getDescription());
 		attributes.put("contact_details", getContact_details());
+		attributes.put("projectDurationFrom", getProjectDurationFrom());
+		attributes.put("projectDurationTo", getProjectDurationTo());
 
 		return attributes;
 	}
@@ -106,6 +108,19 @@ public class potential_project_needsClp extends BaseModelImpl<potential_project_
 
 		if (contact_details != null) {
 			setContact_details(contact_details);
+		}
+
+		String projectDurationFrom = (String)attributes.get(
+				"projectDurationFrom");
+
+		if (projectDurationFrom != null) {
+			setProjectDurationFrom(projectDurationFrom);
+		}
+
+		String projectDurationTo = (String)attributes.get("projectDurationTo");
+
+		if (projectDurationTo != null) {
+			setProjectDurationTo(projectDurationTo);
 		}
 	}
 
@@ -149,6 +164,22 @@ public class potential_project_needsClp extends BaseModelImpl<potential_project_
 		_contact_details = contact_details;
 	}
 
+	public String getProjectDurationFrom() {
+		return _projectDurationFrom;
+	}
+
+	public void setProjectDurationFrom(String projectDurationFrom) {
+		_projectDurationFrom = projectDurationFrom;
+	}
+
+	public String getProjectDurationTo() {
+		return _projectDurationTo;
+	}
+
+	public void setProjectDurationTo(String projectDurationTo) {
+		_projectDurationTo = projectDurationTo;
+	}
+
 	public BaseModel<?> getpotential_project_needsRemoteModel() {
 		return _potential_project_needsRemoteModel;
 	}
@@ -183,6 +214,8 @@ public class potential_project_needsClp extends BaseModelImpl<potential_project_
 		clone.setOrganization_individual(getOrganization_individual());
 		clone.setDescription(getDescription());
 		clone.setContact_details(getContact_details());
+		clone.setProjectDurationFrom(getProjectDurationFrom());
+		clone.setProjectDurationTo(getProjectDurationTo());
 
 		return clone;
 	}
@@ -233,7 +266,7 @@ public class potential_project_needsClp extends BaseModelImpl<potential_project_
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(11);
+		StringBundler sb = new StringBundler(15);
 
 		sb.append("{ppn_id=");
 		sb.append(getPpn_id());
@@ -245,13 +278,17 @@ public class potential_project_needsClp extends BaseModelImpl<potential_project_
 		sb.append(getDescription());
 		sb.append(", contact_details=");
 		sb.append(getContact_details());
+		sb.append(", projectDurationFrom=");
+		sb.append(getProjectDurationFrom());
+		sb.append(", projectDurationTo=");
+		sb.append(getProjectDurationTo());
 		sb.append("}");
 
 		return sb.toString();
 	}
 
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(19);
+		StringBundler sb = new StringBundler(25);
 
 		sb.append("<model><model-name>");
 		sb.append("com.iucn.whp.dbservice.model.potential_project_needs");
@@ -277,6 +314,14 @@ public class potential_project_needsClp extends BaseModelImpl<potential_project_
 			"<column><column-name>contact_details</column-name><column-value><![CDATA[");
 		sb.append(getContact_details());
 		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>projectDurationFrom</column-name><column-value><![CDATA[");
+		sb.append(getProjectDurationFrom());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>projectDurationTo</column-name><column-value><![CDATA[");
+		sb.append(getProjectDurationTo());
+		sb.append("]]></column-value></column>");
 
 		sb.append("</model>");
 
@@ -288,5 +333,7 @@ public class potential_project_needsClp extends BaseModelImpl<potential_project_
 	private String _organization_individual;
 	private String _description;
 	private String _contact_details;
+	private String _projectDurationFrom;
+	private String _projectDurationTo;
 	private BaseModel<?> _potential_project_needsRemoteModel;
 }

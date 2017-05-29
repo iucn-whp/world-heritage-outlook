@@ -59,9 +59,10 @@ public class protection_mgmt_checklist_lkpModelImpl extends BaseModelImpl<protec
 	public static final String TABLE_NAME = "whp_protection_mgmt_checklist_lkp";
 	public static final Object[][] TABLE_COLUMNS = {
 			{ "topic_id", Types.BIGINT },
-			{ "topic", Types.VARCHAR }
+			{ "topic", Types.VARCHAR },
+			{ "topic_sort", Types.INTEGER }
 		};
-	public static final String TABLE_SQL_CREATE = "create table whp_protection_mgmt_checklist_lkp (topic_id LONG not null primary key,topic VARCHAR(100) null)";
+	public static final String TABLE_SQL_CREATE = "create table whp_protection_mgmt_checklist_lkp (topic_id LONG not null primary key,topic VARCHAR(100) null,topic_sort INTEGER)";
 	public static final String TABLE_SQL_DROP = "drop table whp_protection_mgmt_checklist_lkp";
 	public static final String DATA_SOURCE = "liferayDataSource";
 	public static final String SESSION_FACTORY = "liferaySessionFactory";
@@ -109,6 +110,7 @@ public class protection_mgmt_checklist_lkpModelImpl extends BaseModelImpl<protec
 
 		attributes.put("topic_id", getTopic_id());
 		attributes.put("topic", getTopic());
+		attributes.put("topic_sort", getTopic_sort());
 
 		return attributes;
 	}
@@ -125,6 +127,12 @@ public class protection_mgmt_checklist_lkpModelImpl extends BaseModelImpl<protec
 
 		if (topic != null) {
 			setTopic(topic);
+		}
+
+		Integer topic_sort = (Integer)attributes.get("topic_sort");
+
+		if (topic_sort != null) {
+			setTopic_sort(topic_sort);
 		}
 	}
 
@@ -147,6 +155,14 @@ public class protection_mgmt_checklist_lkpModelImpl extends BaseModelImpl<protec
 
 	public void setTopic(String topic) {
 		_topic = topic;
+	}
+
+	public int getTopic_sort() {
+		return _topic_sort;
+	}
+
+	public void setTopic_sort(int topic_sort) {
+		_topic_sort = topic_sort;
 	}
 
 	@Override
@@ -179,6 +195,7 @@ public class protection_mgmt_checklist_lkpModelImpl extends BaseModelImpl<protec
 
 		protection_mgmt_checklist_lkpImpl.setTopic_id(getTopic_id());
 		protection_mgmt_checklist_lkpImpl.setTopic(getTopic());
+		protection_mgmt_checklist_lkpImpl.setTopic_sort(getTopic_sort());
 
 		protection_mgmt_checklist_lkpImpl.resetOriginalValues();
 
@@ -249,24 +266,28 @@ public class protection_mgmt_checklist_lkpModelImpl extends BaseModelImpl<protec
 			protection_mgmt_checklist_lkpCacheModel.topic = null;
 		}
 
+		protection_mgmt_checklist_lkpCacheModel.topic_sort = getTopic_sort();
+
 		return protection_mgmt_checklist_lkpCacheModel;
 	}
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(5);
+		StringBundler sb = new StringBundler(7);
 
 		sb.append("{topic_id=");
 		sb.append(getTopic_id());
 		sb.append(", topic=");
 		sb.append(getTopic());
+		sb.append(", topic_sort=");
+		sb.append(getTopic_sort());
 		sb.append("}");
 
 		return sb.toString();
 	}
 
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(10);
+		StringBundler sb = new StringBundler(13);
 
 		sb.append("<model><model-name>");
 		sb.append("com.iucn.whp.dbservice.model.protection_mgmt_checklist_lkp");
@@ -280,6 +301,10 @@ public class protection_mgmt_checklist_lkpModelImpl extends BaseModelImpl<protec
 			"<column><column-name>topic</column-name><column-value><![CDATA[");
 		sb.append(getTopic());
 		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>topic_sort</column-name><column-value><![CDATA[");
+		sb.append(getTopic_sort());
+		sb.append("]]></column-value></column>");
 
 		sb.append("</model>");
 
@@ -292,5 +317,6 @@ public class protection_mgmt_checklist_lkpModelImpl extends BaseModelImpl<protec
 		};
 	private long _topic_id;
 	private String _topic;
+	private int _topic_sort;
 	private protection_mgmt_checklist_lkp _escapedModelProxy;
 }

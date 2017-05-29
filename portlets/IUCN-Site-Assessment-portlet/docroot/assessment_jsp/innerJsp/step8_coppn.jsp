@@ -2,15 +2,16 @@
 
 
 <%
-List<potential_project_needs> lstpotential_project =null;
+List<potential_project_needs> lstpotential_project = new ArrayList<potential_project_needs>();
 
 try
 { 
 	
 	long assesmentVersionId=Long.parseLong(request.getAttribute("versionId").toString());
 
- 	lstpotential_project=potential_project_needsLocalServiceUtil.getpotential_projectsByVersion(assesmentVersionId);
- 
+ 	lstpotential_project.addAll(potential_project_needsLocalServiceUtil.getpotential_projectsByVersion(assesmentVersionId));
+
+	Collections.sort(lstpotential_project);
 
 /*  	lstpotential_project.get(0).getPpn_id();
  	lstpotential_project.get(0).getOrganization_individual();
@@ -33,9 +34,9 @@ try
 <tbody>
 <tr>
 <th class="number">No.</th>
-<th class="OrganisationIndividuals">Organisation / individuals</th>
-<th>Brief Description of Active Projects</th>
-<th>Contact details </th>
+<%--<th class="OrganisationIndividuals">Organisation / individuals</th>--%>
+<th>Brief description of potential site needs</th>
+<%--<th>Contact details </th>--%>
 <th class="editIcons hideAdminAction">Edit / Delete</th>
 </tr>
 
@@ -44,7 +45,7 @@ if(lstpotential_project.isEmpty())
 {
 	%>
 	<tr>
-	<td colspan=5 align="center"><span class="blankCellStyle">Add Compilation of potential project needs</span></td>
+	<td colspan=5 align="center"><span class="blankCellStyle">Add site needs</span></td>
 	
 	
 	</tr>
@@ -60,13 +61,13 @@ if(lstpotential_project.isEmpty())
  <c:set var="count" value="${count + 1}" scope="page"/>		
 <tr id="${potential_project.getOrganization_individual()}_TR2" >
 <td><c:out value="${count}"/></td>
-<td id="${potential_project.getOrganization_individual()}OI_TD2"><c:out value="${potential_project.getOrganization_individual()}" /></td>
+<%--<td id="${potential_project.getOrganization_individual()}OI_TD2"><c:out value="${potential_project.getOrganization_individual()}" /></td>--%>
 <td id="${potential_project.getOrganization_individual()}OD_TD2"><c:out value="${potential_project.getDescription()}" /></td>
-<td id="${potential_project.getOrganization_individual()}OC_TD2"><c:out value="${potential_project.getContact_details()}" /></td>
+<%--<td id="${potential_project.getOrganization_individual()}OC_TD2"><c:out value="${potential_project.getContact_details()}" /></td>--%>
 <td class="editIcons hideAdminAction">
 <div class="editDelete">
-<a href="#" onclick="javascript:dynamicPopup('${UpdateUrl}','${potential_project.getPpn_id()}','potential project needs',event); return false;" class="edit">edit</a>
-<a href="javascript:deletePopup('${RefreshUrl}','${currentDiv}','${potential_project.getPpn_id()}','potential project needs');" class="delete">delete</a>
+<a href="#" onclick="javascript:dynamicPopup('${UpdateUrl}','${potential_project.getPpn_id()}','Add site need',event); return false;" class="edit">edit</a>
+<a href="javascript:deletePopup('${RefreshUrl}','${currentDiv}','${potential_project.getPpn_id()}','Delete site need');" class="delete">delete</a>
 </div>
 </td>
 </tr>

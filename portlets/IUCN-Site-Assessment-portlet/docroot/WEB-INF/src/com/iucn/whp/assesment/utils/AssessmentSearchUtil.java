@@ -1,60 +1,7 @@
 package com.iucn.whp.assesment.utils;
 
-import java.io.IOException;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.portlet.PortletException;
-import javax.portlet.ResourceRequest;
-import javax.portlet.ResourceResponse;
-
-import com.iucn.whp.dbservice.model.advance_query_assessment;
-import com.iucn.whp.dbservice.model.assessment_lang_lkp;
-import com.iucn.whp.dbservice.model.assessment_lang_version;
-import com.iucn.whp.dbservice.model.assessment_stages;
-import com.iucn.whp.dbservice.model.assessment_status;
-import com.iucn.whp.dbservice.model.benefit_checksubtype_lkp;
-import com.iucn.whp.dbservice.model.benefit_checktype_lkp;
-import com.iucn.whp.dbservice.model.benefit_rating_lkp;
-import com.iucn.whp.dbservice.model.conservation_outlook_rating_lkp;
-import com.iucn.whp.dbservice.model.inscription_criteria_lkp;
-import com.iucn.whp.dbservice.model.key_conservation_scale_lkp;
-import com.iucn.whp.dbservice.model.protection_management_ratings_lkp;
-import com.iucn.whp.dbservice.model.site_assessment;
-import com.iucn.whp.dbservice.model.site_assessment_versions;
-import com.iucn.whp.dbservice.model.state_lkp;
-import com.iucn.whp.dbservice.model.threat_categories_lkp;
-import com.iucn.whp.dbservice.model.threat_rating_lkp;
-import com.iucn.whp.dbservice.model.threat_subcategories_lkp;
-import com.iucn.whp.dbservice.model.trend_lkp;
-import com.iucn.whp.dbservice.model.whp_criteria_lkp;
-import com.iucn.whp.dbservice.model.whp_sites;
-import com.iucn.whp.dbservice.service.ClpSerializer;
-import com.iucn.whp.dbservice.service.advance_query_assessmentLocalServiceUtil;
-import com.iucn.whp.dbservice.service.assessing_threats_currentLocalServiceUtil;
-import com.iucn.whp.dbservice.service.assessment_lang_lkpLocalServiceUtil;
-import com.iucn.whp.dbservice.service.assessment_lang_versionLocalServiceUtil;
-import com.iucn.whp.dbservice.service.assessment_stagesLocalServiceUtil;
-import com.iucn.whp.dbservice.service.assessment_statusLocalServiceUtil;
-import com.iucn.whp.dbservice.service.benefit_checksubtype_lkpLocalServiceUtil;
-import com.iucn.whp.dbservice.service.benefit_checktype_lkpLocalServiceUtil;
-import com.iucn.whp.dbservice.service.benefit_rating_lkpLocalServiceUtil;
-import com.iucn.whp.dbservice.service.conservation_outlookLocalServiceUtil;
-import com.iucn.whp.dbservice.service.inscription_criteria_lkpLocalServiceUtil;
-import com.iucn.whp.dbservice.service.key_conservation_issuesLocalServiceUtil;
-import com.iucn.whp.dbservice.service.key_conservation_scale_lkpLocalServiceUtil;
-import com.iucn.whp.dbservice.service.protection_management_ratings_lkpLocalServiceUtil;
-import com.iucn.whp.dbservice.service.site_assessmentLocalServiceUtil;
-import com.iucn.whp.dbservice.service.site_assessment_versionsLocalServiceUtil;
-import com.iucn.whp.dbservice.service.whp_criteria_lkpLocalServiceUtil;
-import com.iucn.whp.dbservice.service.whp_sitesLocalServiceUtil;
+import com.iucn.whp.dbservice.model.*;
+import com.iucn.whp.dbservice.service.*;
 import com.iucn.whp.dto.SiteAssessmentDTO;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
@@ -63,6 +10,13 @@ import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Validator;
+
+import javax.portlet.PortletException;
+import javax.portlet.ResourceRequest;
+import javax.portlet.ResourceResponse;
+import java.io.IOException;
+import java.lang.reflect.Method;
+import java.util.*;
 
 public class AssessmentSearchUtil {
 	
@@ -108,11 +62,13 @@ public class AssessmentSearchUtil {
 			andCriteria.add("whp_whp_sites.site_id in( "+regionQueryStr+countryId+")");
 			
 		}
-		if(userId>0){
+		/*this code was committed for issue customer's.
+		"The search filters at the top of the Manage Assessments page do not work when you’re signed in as a coordinator. They work when you’re signed in as an administrator, which makes me think that perhaps it’s a permissions issue. It is important that the filters work because that is how we’re going to distinguish sites which are part of the 2017 cycle (especially as now a site can have several entries/IDs/rows, which wasn’t the case before)"
+		*/
+		if(userId > 0) {
 			if(!AssessmentPermissionUtil.isAdminOrWhpStaffUser(userId)){
 				andCriteria.add("whp_site_assessment.current_userid="+userId+"");
 			}
-			
 		}
 		andCriteria.add("whp_site_assessment.archived is false");
 		
@@ -186,18 +142,17 @@ public class AssessmentSearchUtil {
 				long siteAssessmentId=objSite_assessment.getAssessment_id();
 				List<site_assessment_versions> site_assessment_versionsList=site_assessment_versionsLocalServiceUtil.findByAssessmentId(siteAssessmentId);
 				
-				if(site_assessment_versionsList!=null && site_assessment_versionsList.size()>0){
+				if(site_assessment_versionsList != null && site_assessment_versionsList.size() > 0){
 					Collections.sort(site_assessment_versionsList, new Comparator<site_assessment_versions>(){
 					    public int compare(site_assessment_versions one, site_assessment_versions other) {
 					        return String.valueOf(other.getAssessment_version_id()).compareTo(String.valueOf(one.getAssessment_version_id()));
 					    }
 					});
-					if(site_assessment_versionsList!=null){
-						currentSite_assessment_versions=site_assessment_versionsList.get(0);
-						currentVersionCode=currentSite_assessment_versions.getVersion_code()+"";
-					}
-					
+
+					currentSite_assessment_versions = site_assessment_versionsList.get(0);
+					currentVersionCode = currentSite_assessment_versions.getVersion_code()+"";
 				}
+
 				whp_sites objwhp_sites=whp_sitesLocalServiceUtil.getSiteBySiteId(objSite_assessment.getSite_id());
 				
 				List<assessment_lang_version> lstassessment_lang_version=assessment_lang_versionLocalServiceUtil.findByAssessmentId(siteAssessmentId);

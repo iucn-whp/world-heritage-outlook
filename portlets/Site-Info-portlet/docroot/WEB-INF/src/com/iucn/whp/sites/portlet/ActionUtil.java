@@ -1,11 +1,5 @@
 package com.iucn.whp.sites.portlet;
 
-import java.util.Collections;
-import java.util.List;
-
-import javax.portlet.ActionRequest;
-import javax.portlet.RenderRequest;
-
 import com.iucn.whp.dbservice.model.whp_sites;
 import com.iucn.whp.dbservice.model.whp_sites_inscription_date;
 import com.iucn.whp.dbservice.service.whp_sitesLocalServiceUtil;
@@ -13,6 +7,11 @@ import com.iucn.whp.dbservice.service.whp_sites_inscription_dateLocalServiceUtil
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.util.ParamUtil;
+
+import javax.portlet.ActionRequest;
+import javax.portlet.RenderRequest;
+import java.util.Collections;
+import java.util.List;
 
 public class ActionUtil {
 
@@ -33,8 +32,8 @@ public class ActionUtil {
 
         try {
             tempResults = whp_sitesLocalServiceUtil.getAllActiveSites();
-            
-            System.out.println("Active Site Count = " + tempResults.size());
+
+//            System.out.println("Active Site Count = " + tempResults.size());
         }
 
         catch (SystemException ex) {

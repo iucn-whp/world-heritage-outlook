@@ -13,7 +13,7 @@ try
 	
 	lstKey_conservationIssues=key_conservation_issuesLocalServiceUtil.getkey_conversionissueByVersion(assesmentVersionId);
 	
-	Collections.sort(lstKey_conservationIssues);
+//	Collections.sort(lstKey_conservationIssues);
 	for(key_conservation_issues key_conservationIssues :lstKey_conservationIssues)
 	{
 		KeyconservationIssue  keyconservationIssueobj = new KeyconservationIssue();
@@ -34,9 +34,13 @@ try
 		lstclassKeyconservation.add(keyconservationIssueobj);
 	}
 
-	
-	
-	
+	Collections.sort(lstclassKeyconservation, new Comparator<KeyconservationIssue>() {
+		@Override
+		public int compare(KeyconservationIssue o1, KeyconservationIssue o2) {
+			return Long.compare(o1.getKey_conservation().getKey_conservation_issues_id(), o2.getKey_conservation().getKey_conservation_issues_id());
+		}
+	});
+
 	
  }catch(Exception e)
 {

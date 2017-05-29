@@ -100,6 +100,41 @@ public interface benefit_checksubtype_lkpModel extends BaseModel<benefit_checksu
 	 */
 	public void setParent_id(long parent_id);
 
+	/**
+	 * Returns the position of this benefit_checksubtype_lkp.
+	 *
+	 * @return the position of this benefit_checksubtype_lkp
+	 */
+	public long getPosition();
+
+	/**
+	 * Sets the position of this benefit_checksubtype_lkp.
+	 *
+	 * @param position the position of this benefit_checksubtype_lkp
+	 */
+	public void setPosition(long position);
+
+	/**
+	 * Returns the active of this benefit_checksubtype_lkp.
+	 *
+	 * @return the active of this benefit_checksubtype_lkp
+	 */
+	public boolean getActive();
+
+	/**
+	 * Returns <code>true</code> if this benefit_checksubtype_lkp is active.
+	 *
+	 * @return <code>true</code> if this benefit_checksubtype_lkp is active; <code>false</code> otherwise
+	 */
+	public boolean isActive();
+
+	/**
+	 * Sets whether this benefit_checksubtype_lkp is active.
+	 *
+	 * @param active the active of this benefit_checksubtype_lkp
+	 */
+	public void setActive(boolean active);
+
 	public boolean isNew();
 
 	public void setNew(boolean n);

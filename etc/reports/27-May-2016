@@ -1,0 +1,11 @@
+Daily Report, 27 May 2016
+
+#32487 -  "	Latest news page: News item thumbnails are not uploading and displaying correctly:
+          http://www.worldheritageoutlook.iucn.org/latest-news" Done, added small images to news, removed
+          icons if no images in database.
+#32488  - "Individual news items pages: empty box thumbnail icons should not be
+          appearing if only one photo has been uploaded." Done, removed icons if no images in database.
+#32511 -  "Allow for upload of more than two images" Done, we have added 2 more fields to web content structure.
+#32510 -  "Create option to include hyperlinks in sidebar of page " Done, we have added options to
+           add hyperlinks in sidebar of page
+#32514 - "Insert capacity for administrators to add copyright creditation to images"  in progress

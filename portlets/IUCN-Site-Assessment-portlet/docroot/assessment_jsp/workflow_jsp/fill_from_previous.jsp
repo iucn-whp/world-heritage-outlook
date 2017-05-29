@@ -42,7 +42,7 @@
 		//currUserId=Long.parseLong(currUserIdKey);
 	}
 	catch(Exception ex){
-	    ex.printStackTrace();
+//	    ex.printStackTrace();
 	}
 
 	site_assessment objsite_assessment=site_assessmentLocalServiceUtil.getsite_assessment(assessmentId);
@@ -230,7 +230,7 @@ else {
 	</tr>
 	<tr >
 	<td style="text-align:center;">
-		<aui:button name="" type="button" value="&nbsp;&nbsp;No&nbsp;&nbsp;" onclick="javascript:top.document.getElementById('closethick').click();"/>
+		<aui:button name="" type="button" value="&nbsp;&nbsp;OK&nbsp;&nbsp;" onclick="javascript:top.document.getElementById('closethick').click();"/>
 	
 	</td>
 	

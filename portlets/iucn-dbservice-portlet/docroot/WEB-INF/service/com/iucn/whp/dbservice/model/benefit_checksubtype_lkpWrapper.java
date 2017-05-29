@@ -49,6 +49,8 @@ public class benefit_checksubtype_lkpWrapper implements benefit_checksubtype_lkp
 		attributes.put("subbenefit_id", getSubbenefit_id());
 		attributes.put("benefit_checksubtype", getBenefit_checksubtype());
 		attributes.put("parent_id", getParent_id());
+		attributes.put("position", getPosition());
+		attributes.put("active", getActive());
 
 		return attributes;
 	}
@@ -71,6 +73,18 @@ public class benefit_checksubtype_lkpWrapper implements benefit_checksubtype_lkp
 
 		if (parent_id != null) {
 			setParent_id(parent_id);
+		}
+
+		Long position = (Long)attributes.get("position");
+
+		if (position != null) {
+			setPosition(position);
+		}
+
+		Boolean active = (Boolean)attributes.get("active");
+
+		if (active != null) {
+			setActive(active);
 		}
 	}
 
@@ -144,6 +158,51 @@ public class benefit_checksubtype_lkpWrapper implements benefit_checksubtype_lkp
 	*/
 	public void setParent_id(long parent_id) {
 		_benefit_checksubtype_lkp.setParent_id(parent_id);
+	}
+
+	/**
+	* Returns the position of this benefit_checksubtype_lkp.
+	*
+	* @return the position of this benefit_checksubtype_lkp
+	*/
+	public long getPosition() {
+		return _benefit_checksubtype_lkp.getPosition();
+	}
+
+	/**
+	* Sets the position of this benefit_checksubtype_lkp.
+	*
+	* @param position the position of this benefit_checksubtype_lkp
+	*/
+	public void setPosition(long position) {
+		_benefit_checksubtype_lkp.setPosition(position);
+	}
+
+	/**
+	* Returns the active of this benefit_checksubtype_lkp.
+	*
+	* @return the active of this benefit_checksubtype_lkp
+	*/
+	public boolean getActive() {
+		return _benefit_checksubtype_lkp.getActive();
+	}
+
+	/**
+	* Returns <code>true</code> if this benefit_checksubtype_lkp is active.
+	*
+	* @return <code>true</code> if this benefit_checksubtype_lkp is active; <code>false</code> otherwise
+	*/
+	public boolean isActive() {
+		return _benefit_checksubtype_lkp.isActive();
+	}
+
+	/**
+	* Sets whether this benefit_checksubtype_lkp is active.
+	*
+	* @param active the active of this benefit_checksubtype_lkp
+	*/
+	public void setActive(boolean active) {
+		_benefit_checksubtype_lkp.setActive(active);
 	}
 
 	public boolean isNew() {

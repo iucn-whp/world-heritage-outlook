@@ -33,7 +33,7 @@ public class potential_project_needsCacheModel implements CacheModel<potential_p
 	Serializable {
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(11);
+		StringBundler sb = new StringBundler(15);
 
 		sb.append("{ppn_id=");
 		sb.append(ppn_id);
@@ -45,6 +45,10 @@ public class potential_project_needsCacheModel implements CacheModel<potential_p
 		sb.append(description);
 		sb.append(", contact_details=");
 		sb.append(contact_details);
+		sb.append(", projectDurationFrom=");
+		sb.append(projectDurationFrom);
+		sb.append(", projectDurationTo=");
+		sb.append(projectDurationTo);
 		sb.append("}");
 
 		return sb.toString();
@@ -77,6 +81,20 @@ public class potential_project_needsCacheModel implements CacheModel<potential_p
 			potential_project_needsImpl.setContact_details(contact_details);
 		}
 
+		if (projectDurationFrom == null) {
+			potential_project_needsImpl.setProjectDurationFrom(StringPool.BLANK);
+		}
+		else {
+			potential_project_needsImpl.setProjectDurationFrom(projectDurationFrom);
+		}
+
+		if (projectDurationTo == null) {
+			potential_project_needsImpl.setProjectDurationTo(StringPool.BLANK);
+		}
+		else {
+			potential_project_needsImpl.setProjectDurationTo(projectDurationTo);
+		}
+
 		potential_project_needsImpl.resetOriginalValues();
 
 		return potential_project_needsImpl;
@@ -87,4 +105,6 @@ public class potential_project_needsCacheModel implements CacheModel<potential_p
 	public String organization_individual;
 	public String description;
 	public String contact_details;
+	public String projectDurationFrom;
+	public String projectDurationTo;
 }

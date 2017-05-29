@@ -22,6 +22,7 @@ import com.liferay.portal.kernel.util.DateUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.model.CacheModel;
 import com.liferay.portal.model.impl.BaseModelImpl;
 import com.liferay.portal.service.ServiceContext;
@@ -68,9 +69,10 @@ public class site_assessmentModelImpl extends BaseModelImpl<site_assessment>
 			{ "assessment_initiated_by", Types.BIGINT },
 			{ "base_langid", Types.BIGINT },
 			{ "archived", Types.BOOLEAN },
-			{ "is_active", Types.BOOLEAN }
+			{ "is_active", Types.BOOLEAN },
+			{ "assessment_cycle", Types.VARCHAR }
 		};
-	public static final String TABLE_SQL_CREATE = "create table whp_site_assessment (assessment_id LONG not null primary key,site_id LONG,status_id LONG,initiation_date DATE null,current_userid LONG,current_stageid LONG,assessment_initiated_by LONG,base_langid LONG,archived BOOLEAN,is_active BOOLEAN)";
+	public static final String TABLE_SQL_CREATE = "create table whp_site_assessment (assessment_id LONG not null primary key,site_id LONG,status_id LONG,initiation_date DATE null,current_userid LONG,current_stageid LONG,assessment_initiated_by LONG,base_langid LONG,archived BOOLEAN,is_active BOOLEAN,assessment_cycle VARCHAR(75) null)";
 	public static final String TABLE_SQL_DROP = "drop table whp_site_assessment";
 	public static final String ORDER_BY_JPQL = " ORDER BY site_assessment.initiation_date DESC";
 	public static final String ORDER_BY_SQL = " ORDER BY whp_site_assessment.initiation_date DESC";
@@ -134,6 +136,7 @@ public class site_assessmentModelImpl extends BaseModelImpl<site_assessment>
 		attributes.put("base_langid", getBase_langid());
 		attributes.put("archived", getArchived());
 		attributes.put("is_active", getIs_active());
+		attributes.put("assessment_cycle", getAssessment_cycle());
 
 		return attributes;
 	}
@@ -199,6 +202,12 @@ public class site_assessmentModelImpl extends BaseModelImpl<site_assessment>
 
 		if (is_active != null) {
 			setIs_active(is_active);
+		}
+
+		String assessment_cycle = (String)attributes.get("assessment_cycle");
+
+		if (assessment_cycle != null) {
+			setAssessment_cycle(assessment_cycle);
 		}
 	}
 
@@ -340,6 +349,19 @@ public class site_assessmentModelImpl extends BaseModelImpl<site_assessment>
 		return _originalIs_active;
 	}
 
+	public String getAssessment_cycle() {
+		if (_assessment_cycle == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _assessment_cycle;
+		}
+	}
+
+	public void setAssessment_cycle(String assessment_cycle) {
+		_assessment_cycle = assessment_cycle;
+	}
+
 	public long getColumnBitmask() {
 		return _columnBitmask;
 	}
@@ -382,6 +404,7 @@ public class site_assessmentModelImpl extends BaseModelImpl<site_assessment>
 		site_assessmentImpl.setBase_langid(getBase_langid());
 		site_assessmentImpl.setArchived(getArchived());
 		site_assessmentImpl.setIs_active(getIs_active());
+		site_assessmentImpl.setAssessment_cycle(getAssessment_cycle());
 
 		site_assessmentImpl.resetOriginalValues();
 
@@ -487,12 +510,20 @@ public class site_assessmentModelImpl extends BaseModelImpl<site_assessment>
 
 		site_assessmentCacheModel.is_active = getIs_active();
 
+		site_assessmentCacheModel.assessment_cycle = getAssessment_cycle();
+
+		String assessment_cycle = site_assessmentCacheModel.assessment_cycle;
+
+		if ((assessment_cycle != null) && (assessment_cycle.length() == 0)) {
+			site_assessmentCacheModel.assessment_cycle = null;
+		}
+
 		return site_assessmentCacheModel;
 	}
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(21);
+		StringBundler sb = new StringBundler(23);
 
 		sb.append("{assessment_id=");
 		sb.append(getAssessment_id());
@@ -514,13 +545,15 @@ public class site_assessmentModelImpl extends BaseModelImpl<site_assessment>
 		sb.append(getArchived());
 		sb.append(", is_active=");
 		sb.append(getIs_active());
+		sb.append(", assessment_cycle=");
+		sb.append(getAssessment_cycle());
 		sb.append("}");
 
 		return sb.toString();
 	}
 
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(34);
+		StringBundler sb = new StringBundler(37);
 
 		sb.append("<model><model-name>");
 		sb.append("com.iucn.whp.dbservice.model.site_assessment");
@@ -566,6 +599,10 @@ public class site_assessmentModelImpl extends BaseModelImpl<site_assessment>
 			"<column><column-name>is_active</column-name><column-value><![CDATA[");
 		sb.append(getIs_active());
 		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>assessment_cycle</column-name><column-value><![CDATA[");
+		sb.append(getAssessment_cycle());
+		sb.append("]]></column-value></column>");
 
 		sb.append("</model>");
 
@@ -594,6 +631,7 @@ public class site_assessmentModelImpl extends BaseModelImpl<site_assessment>
 	private boolean _is_active;
 	private boolean _originalIs_active;
 	private boolean _setOriginalIs_active;
+	private String _assessment_cycle;
 	private long _columnBitmask;
 	private site_assessment _escapedModelProxy;
 }

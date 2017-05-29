@@ -33,6 +33,8 @@ public class benefit_checksubtype_lkpSoap implements Serializable {
 		soapModel.setSubbenefit_id(model.getSubbenefit_id());
 		soapModel.setBenefit_checksubtype(model.getBenefit_checksubtype());
 		soapModel.setParent_id(model.getParent_id());
+		soapModel.setPosition(model.getPosition());
+		soapModel.setActive(model.getActive());
 
 		return soapModel;
 	}
@@ -112,7 +114,29 @@ public class benefit_checksubtype_lkpSoap implements Serializable {
 		_parent_id = parent_id;
 	}
 
+	public long getPosition() {
+		return _position;
+	}
+
+	public void setPosition(long position) {
+		_position = position;
+	}
+
+	public boolean getActive() {
+		return _active;
+	}
+
+	public boolean isActive() {
+		return _active;
+	}
+
+	public void setActive(boolean active) {
+		_active = active;
+	}
+
 	private long _subbenefit_id;
 	private String _benefit_checksubtype;
 	private long _parent_id;
+	private long _position;
+	private boolean _active;
 }

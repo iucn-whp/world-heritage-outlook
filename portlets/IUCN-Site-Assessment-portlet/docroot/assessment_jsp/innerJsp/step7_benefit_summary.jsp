@@ -14,7 +14,8 @@ try
 
 	long assesmentVersionId=Long.parseLong(request.getAttribute("versionId").toString());
  	lst_benefits_summary=benefits_summaryLocalServiceUtil.getEntriesFromAssessmentId(assesmentVersionId);
- 
+
+    Collections.sort(lst_benefits_summary);
 	
 }catch(Exception e )
 {

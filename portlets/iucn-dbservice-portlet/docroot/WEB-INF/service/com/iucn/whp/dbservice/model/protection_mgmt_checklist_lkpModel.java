@@ -86,6 +86,20 @@ public interface protection_mgmt_checklist_lkpModel extends BaseModel<protection
 	 */
 	public void setTopic(String topic);
 
+	/**
+	 * Returns the topic_sort of this protection_mgmt_checklist_lkp.
+	 *
+	 * @return the topic_sort of this protection_mgmt_checklist_lkp
+	 */
+	public int getTopic_sort();
+
+	/**
+	 * Sets the topic_sort of this protection_mgmt_checklist_lkp.
+	 *
+	 * @param topic_sort the topic_sort of this protection_mgmt_checklist_lkp
+	 */
+	public void setTopic_sort(int topic_sort);
+
 	public boolean isNew();
 
 	public void setNew(boolean n);

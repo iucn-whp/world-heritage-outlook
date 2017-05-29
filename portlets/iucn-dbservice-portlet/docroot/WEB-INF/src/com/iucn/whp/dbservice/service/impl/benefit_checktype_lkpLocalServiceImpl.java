@@ -14,12 +14,14 @@
 
 package com.iucn.whp.dbservice.service.impl;
 
-import com.iucn.whp.dbservice.model.benefit_checksubtype_lkp;
 import com.iucn.whp.dbservice.model.benefit_checktype_lkp;
 import com.iucn.whp.dbservice.service.base.benefit_checktype_lkpLocalServiceBaseImpl;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -43,7 +45,23 @@ public class benefit_checktype_lkpLocalServiceImpl
 	 *
 	 * Never reference this interface directly. Always use {@link com.iucn.whp.dbservice.service.benefit_checktype_lkpLocalServiceUtil} to access the benefit_checktype_lkp local service.
 	 */
-	
+
+
+	public List<benefit_checktype_lkp> findBenefitCheckTypeByActiveStatus(boolean active_) throws SystemException {
+		List<benefit_checktype_lkp> benefitChecktypeLkpList = benefit_checktype_lkpPersistence.findByActiveStatus(active_);
+
+		List<benefit_checktype_lkp> sortedList = new ArrayList<benefit_checktype_lkp>();
+		sortedList.addAll(benefitChecktypeLkpList);
+
+		Collections.sort(sortedList, new Comparator<benefit_checktype_lkp>() {
+			@Override
+			public int compare(benefit_checktype_lkp o1, benefit_checktype_lkp o2) {
+				return (int) (o1.getBenefit_id() - o2.getBenefit_id());
+			}
+		});
+
+		return sortedList;
+	}
 	
 	public List<benefit_checktype_lkp> findAll()
 	throws PortalException, SystemException {

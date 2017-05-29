@@ -86,6 +86,27 @@ public interface benefit_checktype_lkpModel extends BaseModel<benefit_checktype_
 	 */
 	public void setBenefit_checktype(String benefit_checktype);
 
+	/**
+	 * Returns the active of this benefit_checktype_lkp.
+	 *
+	 * @return the active of this benefit_checktype_lkp
+	 */
+	public boolean getActive();
+
+	/**
+	 * Returns <code>true</code> if this benefit_checktype_lkp is active.
+	 *
+	 * @return <code>true</code> if this benefit_checktype_lkp is active; <code>false</code> otherwise
+	 */
+	public boolean isActive();
+
+	/**
+	 * Sets whether this benefit_checktype_lkp is active.
+	 *
+	 * @param active the active of this benefit_checktype_lkp
+	 */
+	public void setActive(boolean active);
+
 	public boolean isNew();
 
 	public void setNew(boolean n);

@@ -32,7 +32,7 @@ import java.io.Serializable;
 public class benefitsCacheModel implements CacheModel<benefits>, Serializable {
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(17);
+		StringBundler sb = new StringBundler(39);
 
 		sb.append("{benefits_id=");
 		sb.append(benefits_id);
@@ -42,6 +42,28 @@ public class benefitsCacheModel implements CacheModel<benefits>, Serializable {
 		sb.append(selected_benefit);
 		sb.append(", summary=");
 		sb.append(summary);
+		sb.append(", habitatChangeLevel=");
+		sb.append(habitatChangeLevel);
+		sb.append(", habitatChangeTrend=");
+		sb.append(habitatChangeTrend);
+		sb.append(", pollutionLevel=");
+		sb.append(pollutionLevel);
+		sb.append(", pollutionTrend=");
+		sb.append(pollutionTrend);
+		sb.append(", overExploitationLevel=");
+		sb.append(overExploitationLevel);
+		sb.append(", overExploitationTrend=");
+		sb.append(overExploitationTrend);
+		sb.append(", climateChangeLevel=");
+		sb.append(climateChangeLevel);
+		sb.append(", climateChangeTrend=");
+		sb.append(climateChangeTrend);
+		sb.append(", invasiveSpeciesLevel=");
+		sb.append(invasiveSpeciesLevel);
+		sb.append(", invasiveSpeciesTrend=");
+		sb.append(invasiveSpeciesTrend);
+		sb.append(", comment=");
+		sb.append(comment);
 		sb.append(", data_deficient=");
 		sb.append(data_deficient);
 		sb.append(", community_within_site=");
@@ -69,6 +91,24 @@ public class benefitsCacheModel implements CacheModel<benefits>, Serializable {
 			benefitsImpl.setSummary(summary);
 		}
 
+		benefitsImpl.setHabitatChangeLevel(habitatChangeLevel);
+		benefitsImpl.setHabitatChangeTrend(habitatChangeTrend);
+		benefitsImpl.setPollutionLevel(pollutionLevel);
+		benefitsImpl.setPollutionTrend(pollutionTrend);
+		benefitsImpl.setOverExploitationLevel(overExploitationLevel);
+		benefitsImpl.setOverExploitationTrend(overExploitationTrend);
+		benefitsImpl.setClimateChangeLevel(climateChangeLevel);
+		benefitsImpl.setClimateChangeTrend(climateChangeTrend);
+		benefitsImpl.setInvasiveSpeciesLevel(invasiveSpeciesLevel);
+		benefitsImpl.setInvasiveSpeciesTrend(invasiveSpeciesTrend);
+
+		if (comment == null) {
+			benefitsImpl.setComment(StringPool.BLANK);
+		}
+		else {
+			benefitsImpl.setComment(comment);
+		}
+
 		benefitsImpl.setData_deficient(data_deficient);
 		benefitsImpl.setCommunity_within_site(community_within_site);
 		benefitsImpl.setCommunity_outside_site(community_outside_site);
@@ -83,6 +123,17 @@ public class benefitsCacheModel implements CacheModel<benefits>, Serializable {
 	public long assessment_version_id;
 	public long selected_benefit;
 	public String summary;
+	public long habitatChangeLevel;
+	public long habitatChangeTrend;
+	public long pollutionLevel;
+	public long pollutionTrend;
+	public long overExploitationLevel;
+	public long overExploitationTrend;
+	public long climateChangeLevel;
+	public long climateChangeTrend;
+	public long invasiveSpeciesLevel;
+	public long invasiveSpeciesTrend;
+	public String comment;
 	public boolean data_deficient;
 	public long community_within_site;
 	public long community_outside_site;

@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 import com.iucn.whp.dbservice.model.protection_management;
 
-public class SiteAssessment_PotectionMgtDTO implements Serializable {
+public class SiteAssessment_PotectionMgtDTO implements Serializable, Comparable<SiteAssessment_PotectionMgtDTO> {
 
 	/**
 	 * 
@@ -53,4 +53,17 @@ public class SiteAssessment_PotectionMgtDTO implements Serializable {
 		this.protection_management = protection_management;
 	}
 
+	@Override
+	public int compareTo(SiteAssessment_PotectionMgtDTO o) {
+
+		if (this.getTopicId() < o.getTopicId()) {
+			return -1;
+		}
+		else if (this.getTopicId() > o.getTopicId()) {
+			return 1;
+		}
+		else {
+			return 0;
+		}
+	}
 }

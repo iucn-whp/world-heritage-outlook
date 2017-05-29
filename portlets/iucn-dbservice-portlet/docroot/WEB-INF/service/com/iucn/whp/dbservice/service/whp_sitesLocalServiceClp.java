@@ -216,61 +216,65 @@ public class whp_sitesLocalServiceClp implements whp_sitesLocalService {
 
 		_methodParameterTypes44 = new String[] {  };
 
-		_methodName45 = "getWhpSiteDangerListBySiteId";
+		_methodName45 = "getAllActiveSitesByUserId";
 
 		_methodParameterTypes45 = new String[] { "long" };
 
-		_methodName46 = "getWhpSiterecommendationListBySiteId";
+		_methodName46 = "getWhpSiteDangerListBySiteId";
 
 		_methodParameterTypes46 = new String[] { "long" };
 
-		_methodName47 = "getWhpSiteBoundaryModificationBySiteId";
+		_methodName47 = "getWhpSiterecommendationListBySiteId";
 
 		_methodParameterTypes47 = new String[] { "long" };
 
-		_methodName48 = "getWhpSiteFlagshipSpeciesBySiteId";
+		_methodName48 = "getWhpSiteBoundaryModificationBySiteId";
 
 		_methodParameterTypes48 = new String[] { "long" };
 
-		_methodName49 = "getWhpSiteIUCNPACategoryBySiteId";
+		_methodName49 = "getWhpSiteFlagshipSpeciesBySiteId";
 
 		_methodParameterTypes49 = new String[] { "long" };
 
-		_methodName50 = "getWhpSiteOtherDesignationsBySiteId";
+		_methodName50 = "getWhpSiteIUCNPACategoryBySiteId";
 
 		_methodParameterTypes50 = new String[] { "long" };
 
-		_methodName51 = "getWhpSiteMgmtPlanStatesBySiteId";
+		_methodName51 = "getWhpSiteOtherDesignationsBySiteId";
 
 		_methodParameterTypes51 = new String[] { "long" };
 
-		_methodName52 = "getWhpSiteMissionBySiteId";
+		_methodName52 = "getWhpSiteMgmtPlanStatesBySiteId";
 
 		_methodParameterTypes52 = new String[] { "long" };
 
-		_methodName53 = "getWhpSiteMeeBySiteId";
+		_methodName53 = "getWhpSiteMissionBySiteId";
 
 		_methodParameterTypes53 = new String[] { "long" };
 
-		_methodName54 = "getWhpSiteSocReportsBySiteId";
+		_methodName54 = "getWhpSiteMeeBySiteId";
 
 		_methodParameterTypes54 = new String[] { "long" };
 
-		_methodName55 = "getDocs_SiteDataBySiteId";
+		_methodName55 = "getWhpSiteSocReportsBySiteId";
 
 		_methodParameterTypes55 = new String[] { "long" };
 
-		_methodName56 = "updateThumbnail";
+		_methodName56 = "getDocs_SiteDataBySiteId";
 
-		_methodParameterTypes56 = new String[] { "long", "byte[][]" };
+		_methodParameterTypes56 = new String[] { "long" };
 
-		_methodName57 = "deleteThumbnail";
+		_methodName57 = "updateThumbnail";
 
-		_methodParameterTypes57 = new String[] { "long" };
+		_methodParameterTypes57 = new String[] { "long", "byte[][]" };
 
-		_methodName58 = "getWhp_sitesByCustomQuery";
+		_methodName58 = "deleteThumbnail";
 
-		_methodParameterTypes58 = new String[] { "java.lang.String", "int", "int" };
+		_methodParameterTypes58 = new String[] { "long" };
+
+		_methodName59 = "getWhp_sitesByCustomQuery";
+
+		_methodParameterTypes59 = new String[] { "java.lang.String", "int", "int" };
 	}
 
 	public com.iucn.whp.dbservice.model.whp_sites addwhp_sites(
@@ -1611,6 +1615,39 @@ public class whp_sitesLocalServiceClp implements whp_sitesLocalService {
 		return (java.util.List<com.iucn.whp.dbservice.model.whp_sites>)ClpSerializer.translateOutput(returnObj);
 	}
 
+	public java.util.List<com.iucn.whp.dbservice.model.whp_sites> getAllActiveSitesByUserId(
+		long id)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		Object returnObj = null;
+
+		try {
+			returnObj = _invokableLocalService.invokeMethod(_methodName45,
+					_methodParameterTypes45, new Object[] { id });
+		}
+		catch (Throwable t) {
+			t = ClpSerializer.translateThrowable(t);
+
+			if (t instanceof com.liferay.portal.kernel.exception.PortalException) {
+				throw (com.liferay.portal.kernel.exception.PortalException)t;
+			}
+
+			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
+				throw (com.liferay.portal.kernel.exception.SystemException)t;
+			}
+
+			if (t instanceof RuntimeException) {
+				throw (RuntimeException)t;
+			}
+			else {
+				throw new RuntimeException(t.getClass().getName() +
+					" is not a valid exception");
+			}
+		}
+
+		return (java.util.List<com.iucn.whp.dbservice.model.whp_sites>)ClpSerializer.translateOutput(returnObj);
+	}
+
 	public java.util.List<com.iucn.whp.dbservice.model.whp_site_danger_list> getWhpSiteDangerListBySiteId(
 		long siteId)
 		throws com.liferay.portal.kernel.exception.PortalException,
@@ -1618,8 +1655,8 @@ public class whp_sitesLocalServiceClp implements whp_sitesLocalService {
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName45,
-					_methodParameterTypes45, new Object[] { siteId });
+			returnObj = _invokableLocalService.invokeMethod(_methodName46,
+					_methodParameterTypes46, new Object[] { siteId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -1651,8 +1688,8 @@ public class whp_sitesLocalServiceClp implements whp_sitesLocalService {
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName46,
-					_methodParameterTypes46, new Object[] { siteId });
+			returnObj = _invokableLocalService.invokeMethod(_methodName47,
+					_methodParameterTypes47, new Object[] { siteId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -1684,8 +1721,8 @@ public class whp_sitesLocalServiceClp implements whp_sitesLocalService {
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName47,
-					_methodParameterTypes47, new Object[] { siteId });
+			returnObj = _invokableLocalService.invokeMethod(_methodName48,
+					_methodParameterTypes48, new Object[] { siteId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -1717,8 +1754,8 @@ public class whp_sitesLocalServiceClp implements whp_sitesLocalService {
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName48,
-					_methodParameterTypes48, new Object[] { siteId });
+			returnObj = _invokableLocalService.invokeMethod(_methodName49,
+					_methodParameterTypes49, new Object[] { siteId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -1750,8 +1787,8 @@ public class whp_sitesLocalServiceClp implements whp_sitesLocalService {
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName49,
-					_methodParameterTypes49, new Object[] { siteId });
+			returnObj = _invokableLocalService.invokeMethod(_methodName50,
+					_methodParameterTypes50, new Object[] { siteId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -1783,8 +1820,8 @@ public class whp_sitesLocalServiceClp implements whp_sitesLocalService {
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName50,
-					_methodParameterTypes50, new Object[] { siteId });
+			returnObj = _invokableLocalService.invokeMethod(_methodName51,
+					_methodParameterTypes51, new Object[] { siteId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -1816,8 +1853,8 @@ public class whp_sitesLocalServiceClp implements whp_sitesLocalService {
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName51,
-					_methodParameterTypes51, new Object[] { siteId });
+			returnObj = _invokableLocalService.invokeMethod(_methodName52,
+					_methodParameterTypes52, new Object[] { siteId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -1849,8 +1886,8 @@ public class whp_sitesLocalServiceClp implements whp_sitesLocalService {
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName52,
-					_methodParameterTypes52, new Object[] { siteId });
+			returnObj = _invokableLocalService.invokeMethod(_methodName53,
+					_methodParameterTypes53, new Object[] { siteId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -1882,8 +1919,8 @@ public class whp_sitesLocalServiceClp implements whp_sitesLocalService {
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName53,
-					_methodParameterTypes53, new Object[] { siteId });
+			returnObj = _invokableLocalService.invokeMethod(_methodName54,
+					_methodParameterTypes54, new Object[] { siteId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -1915,8 +1952,8 @@ public class whp_sitesLocalServiceClp implements whp_sitesLocalService {
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName54,
-					_methodParameterTypes54, new Object[] { siteId });
+			returnObj = _invokableLocalService.invokeMethod(_methodName55,
+					_methodParameterTypes55, new Object[] { siteId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -1948,8 +1985,8 @@ public class whp_sitesLocalServiceClp implements whp_sitesLocalService {
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName55,
-					_methodParameterTypes55, new Object[] { siteId });
+			returnObj = _invokableLocalService.invokeMethod(_methodName56,
+					_methodParameterTypes56, new Object[] { siteId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -1981,8 +2018,8 @@ public class whp_sitesLocalServiceClp implements whp_sitesLocalService {
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName56,
-					_methodParameterTypes56,
+			returnObj = _invokableLocalService.invokeMethod(_methodName57,
+					_methodParameterTypes57,
 					new Object[] { siteId, ClpSerializer.translateInput(bytes) });
 		}
 		catch (Throwable t) {
@@ -2012,8 +2049,8 @@ public class whp_sitesLocalServiceClp implements whp_sitesLocalService {
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		try {
-			_invokableLocalService.invokeMethod(_methodName57,
-				_methodParameterTypes57, new Object[] { siteId });
+			_invokableLocalService.invokeMethod(_methodName58,
+				_methodParameterTypes58, new Object[] { siteId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -2043,8 +2080,8 @@ public class whp_sitesLocalServiceClp implements whp_sitesLocalService {
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName58,
-					_methodParameterTypes58,
+			returnObj = _invokableLocalService.invokeMethod(_methodName59,
+					_methodParameterTypes59,
 					new Object[] { ClpSerializer.translateInput(query), start, end });
 		}
 		catch (Throwable t) {
@@ -2187,4 +2224,6 @@ public class whp_sitesLocalServiceClp implements whp_sitesLocalService {
 	private String[] _methodParameterTypes57;
 	private String _methodName58;
 	private String[] _methodParameterTypes58;
+	private String _methodName59;
+	private String[] _methodParameterTypes59;
 }

@@ -33,7 +33,7 @@ public class assessing_threats_currentCacheModel implements CacheModel<assessing
 	Serializable {
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(15);
+		StringBundler sb = new StringBundler(17);
 
 		sb.append("{current_threat_id=");
 		sb.append(current_threat_id);
@@ -43,6 +43,8 @@ public class assessing_threats_currentCacheModel implements CacheModel<assessing
 		sb.append(current_threat);
 		sb.append(", justification=");
 		sb.append(justification);
+		sb.append(", threadExtentValue=");
+		sb.append(threadExtentValue);
 		sb.append(", inside_site=");
 		sb.append(inside_site);
 		sb.append(", outside_site=");
@@ -74,6 +76,13 @@ public class assessing_threats_currentCacheModel implements CacheModel<assessing
 			assessing_threats_currentImpl.setJustification(justification);
 		}
 
+		if (threadExtentValue == null) {
+			assessing_threats_currentImpl.setThreadExtentValue(StringPool.BLANK);
+		}
+		else {
+			assessing_threats_currentImpl.setThreadExtentValue(threadExtentValue);
+		}
+
 		assessing_threats_currentImpl.setInside_site(inside_site);
 		assessing_threats_currentImpl.setOutside_site(outside_site);
 		assessing_threats_currentImpl.setThreat_rating_id(threat_rating_id);
@@ -87,6 +96,7 @@ public class assessing_threats_currentCacheModel implements CacheModel<assessing
 	public long assessment_version_id;
 	public String current_threat;
 	public String justification;
+	public String threadExtentValue;
 	public boolean inside_site;
 	public boolean outside_site;
 	public long threat_rating_id;

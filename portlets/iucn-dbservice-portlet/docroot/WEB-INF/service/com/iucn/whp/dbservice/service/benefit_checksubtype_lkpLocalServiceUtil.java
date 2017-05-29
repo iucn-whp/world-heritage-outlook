@@ -278,6 +278,12 @@ public class benefit_checksubtype_lkpLocalServiceUtil {
 		return getService().invokeMethod(name, parameterTypes, arguments);
 	}
 
+	public static java.util.List<com.iucn.whp.dbservice.model.benefit_checksubtype_lkp> findBenefitCheckSubTypeByActiveStatus(
+		boolean active_)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getService().findBenefitCheckSubTypeByActiveStatus(active_);
+	}
+
 	public static java.util.List<com.iucn.whp.dbservice.model.benefit_checksubtype_lkp> findAll()
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {

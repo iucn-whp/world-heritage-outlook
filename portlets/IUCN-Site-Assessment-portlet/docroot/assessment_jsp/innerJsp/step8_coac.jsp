@@ -1,14 +1,16 @@
 <%@include file="/init_import.jsp" %>
 <%
-List<active_conservation_projects> lstactive_projects =null;
+List<active_conservation_projects> lstactive_projects = new ArrayList<active_conservation_projects>();
 
 try
 { 
 	
 	long assesmentVersionId=Long.parseLong(request.getAttribute("versionId").toString());
-	lstactive_projects=active_conservation_projectsLocalServiceUtil.getactive_conservation_projectsByVersion(assesmentVersionId);
+	lstactive_projects.addAll(active_conservation_projectsLocalServiceUtil
+			.getactive_conservation_projectsByVersion(assesmentVersionId));
 	
-	 
+	Collections.sort(lstactive_projects);
+
 }catch(Exception e)
 {
 	e.printStackTrace();
@@ -24,6 +26,7 @@ try
 <tr>
 <th class="number">No.</th>
 <th class="OrganisationIndividuals">Organisation / individuals</th>
+<th style="width: 100px">Project duration</th>
 <th class="briefdiscription">Brief Description of Active Projects</th>
 <th class="contactdetail">Contact details </th>
 <th class="editIcons hideAdminAction">Edit / Delete</th>
@@ -33,7 +36,7 @@ if(lstactive_projects.isEmpty())
 {
 	%>
 	<tr>
-	<td colspan=5 align="center"><span class="blankCellStyle">Add Compilation Of Active Conservation Projects And Project Needs</span></td>
+	<td colspan=5 align="center"><span class="blankCellStyle">Add active conservation projects</span></td>
 	
 	
 	</tr>
@@ -47,12 +50,13 @@ if(lstactive_projects.isEmpty())
 <tr id="${activeconservation.getOrganization_individual()}_TR" >
 <td><c:out value="${count}"/></td>
 <td id="${activeconservation.getOrganization_individual()}OI_TD"><c:out value="${activeconservation.getOrganization_individual()}" /></td>
+<td id="${activeconservation.getOrganization_individual()}OI_TD"><c:out value="${activeconservation.projectDurationFrom} - ${activeconservation.projectDurationTo}" /></td>
 <td id="${activeconservation.getOrganization_individual()}OD_TD"><c:out value="${activeconservation.getDescription()}" /></td>
 <td id="${activeconservation.getOrganization_individual()}OC_TD"><c:out value="${activeconservation.getContact_details()}" /></td>
 <td class="editIcons hideAdminAction">
 <div class="editDelete">
-<a href="#" onclick="javascript:dynamicPopup('${UpdateUrl}','${activeconservation.getAcpid()}','Conservation Projects Needs',event); return false;" class="edit">edit</a>
-<a href="javascript:deletePopup('${RefreshUrl}','${currentDiv}','${activeconservation.getAcpid()}','Conservation Projects Needs');" class="delete">delete</a>
+<a href="#" onclick="javascript:dynamicPopup('${UpdateUrl}','${activeconservation.getAcpid()}','Add conservation project',event); return false;" class="edit">edit</a>
+<a href="javascript:deletePopup('${RefreshUrl}','${currentDiv}','${activeconservation.getAcpid()}','Delete conservation project', event);" class="delete">delete</a>
 </div>
 </td>
 </tr>

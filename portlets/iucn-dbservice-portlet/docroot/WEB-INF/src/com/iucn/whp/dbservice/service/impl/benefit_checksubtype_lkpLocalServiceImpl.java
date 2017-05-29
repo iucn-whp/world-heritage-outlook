@@ -14,12 +14,15 @@
 
 package com.iucn.whp.dbservice.service.impl;
 
-import java.util.List;
-
 import com.iucn.whp.dbservice.model.benefit_checksubtype_lkp;
 import com.iucn.whp.dbservice.service.base.benefit_checksubtype_lkpLocalServiceBaseImpl;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 /**
  * The implementation of the benefit_checksubtype_lkp local service.
@@ -37,9 +40,22 @@ import com.liferay.portal.kernel.exception.SystemException;
  */
 public class benefit_checksubtype_lkpLocalServiceImpl
 	extends benefit_checksubtype_lkpLocalServiceBaseImpl {
-	
-	
-	
+
+
+	public List<benefit_checksubtype_lkp> findBenefitCheckSubTypeByActiveStatus(boolean active_) throws SystemException {
+		List<benefit_checksubtype_lkp> benefitChecksubtypeLkps = benefit_checksubtype_lkpPersistence.findByActiveStatus(active_);
+		List<benefit_checksubtype_lkp> sortedList = new ArrayList<benefit_checksubtype_lkp>();
+		sortedList.addAll(benefitChecksubtypeLkps);
+
+		Collections.sort(sortedList, new Comparator<benefit_checksubtype_lkp>() {
+			@Override
+			public int compare(benefit_checksubtype_lkp o1, benefit_checksubtype_lkp o2) {
+				return (int) (o1.getSubbenefit_id() - o2.getSubbenefit_id());
+			}
+		});
+
+		return sortedList;
+	}
 	
 
 	public List<benefit_checksubtype_lkp> findAll()

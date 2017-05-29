@@ -14,6 +14,10 @@
 
 package com.liferay.portlet.documentlibrary.action;
 
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,6 +30,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.zip.ZipOutputStream;
 
+import javax.imageio.ImageIO;
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
 import javax.portlet.PortletConfig;
@@ -112,11 +117,12 @@ import com.liferay.portlet.documentlibrary.service.DLFileVersionLocalServiceUtil
 import com.liferay.portlet.documentlibrary.util.DLUtil;
 import com.liferay.portlet.dynamicdatamapping.StorageFieldRequiredException;
 import com.liferay.portlet.dynamicdatamapping.storage.Fields;
+import sun.java2d.SunGraphics2D;
 
 /**
  * @author Brian Wing Shun Chan
  * @author Alexander Chow
- * @author Sergio González
+ * @author Sergio Gonzï¿½lez
  */
 public class EditFileEntryAction extends PortletAction {
 
@@ -805,7 +811,45 @@ public class EditFileEntryAction extends PortletAction {
 				}
 			}
 
-			inputStream = uploadPortletRequest.getFileAsStream("file");
+			String copyR = ParamUtil.getString(uploadPortletRequest, "ExpandoAttribute--Copyright--");
+
+            File uplFile = uploadPortletRequest.getFile("file");
+
+            if (contentType != null && copyR != null && contentType.startsWith("image") && !copyR.isEmpty()) {
+                try {
+                    final BufferedImage image1 = ImageIO.read(uplFile);
+
+                    Graphics g = image1.getGraphics();
+
+                    int imgHeight = ((SunGraphics2D) g).getCompClip().getHeight();
+                    int imgWidth = ((SunGraphics2D) g).getCompClip().getWidth();
+                    float boundPercent = 0.07f;
+
+                    Color c = new Color(0.0f,0f,0f, 0.6f);
+                    g.setColor(c);
+                    g.fillRect(0, imgHeight - Math.round(imgHeight*boundPercent), imgWidth, Math.round(imgHeight*boundPercent));
+
+                    c = new Color(1.0f, 1.0f, 1.0f, 0.6f);
+                    g.setColor(c);
+
+                    g.setFont(g.getFont().deriveFont(imgHeight*boundPercent*0.7f));
+                    FontMetrics fm = g.getFontMetrics();
+                    int copyWidth = fm.stringWidth(copyR);
+
+                    g.drawString(copyR, (imgWidth - copyWidth - Math.round(imgWidth*0.03f)), (imgHeight - Math.round(imgHeight*boundPercent*0.25f)));
+                    g.dispose();
+
+                    ImageIO.write(image1, contentType.substring(contentType.indexOf("/") + 1), uplFile);
+
+                    size = uplFile.length();
+
+                    //inputStream = new FileInputStream(file);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            inputStream = new FileInputStream(uplFile);
 
 			ServiceContext serviceContext = ServiceContextFactory.getInstance(
 				DLFileEntry.class.getName(), uploadPortletRequest);
@@ -1631,7 +1675,7 @@ public class EditFileEntryAction extends PortletAction {
 			//docs_customDataLocalServiceUtil.adddocs_customData(fileentryid, versionid, publish_date, upload_date, type, category, author);
 			
 			//docs_customDataLocalServiceUtil.a
-			docs_customDataLocalServiceUtil.adddocs_customData1(fileentryid,versionid,publish_date,upload_date, type,category,author,sitename,com,fullcom,cpyright,language);
+			docs_customDataLocalServiceUtil.adddocs_customData1(fileentryid,versionid,publish_date,upload_date, type,category,author,sitename,com,fullcom,cpyright,language, sitename);
 			return true;
 		} catch (PortalException e) {
 			// TODO Auto-generated catch block
@@ -1653,7 +1697,7 @@ public class EditFileEntryAction extends PortletAction {
 			//docs_customDataLocalServiceUtil.adddocs_customData(fileentryid, versionid, publish_date, upload_date, type, category, author);
 			
 			//docs_customDataLocalServiceUtil.a
-			docs_customDataLocalServiceUtil.adddocs_customData1(fileentryid,versionid,publish_date,upload_date, types,category,author,sitename,com,fullcom,cpyright,language);
+			docs_customDataLocalServiceUtil.adddocs_customData1(fileentryid,versionid,publish_date,upload_date, types,category,author,sitename,com,fullcom,cpyright,language, sitename);
 			return true;
 		} catch (PortalException e) {
 			// TODO Auto-generated catch block

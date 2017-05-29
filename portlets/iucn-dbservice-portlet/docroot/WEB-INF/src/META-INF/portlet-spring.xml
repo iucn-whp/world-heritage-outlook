@@ -84,6 +84,10 @@
 	<bean id="com.iucn.whp.dbservice.service.persistence.key_conservation_scale_lkpPersistence" class="com.iucn.whp.dbservice.service.persistence.key_conservation_scale_lkpPersistenceImpl" parent="basePersistence" />
 	<bean id="com.iucn.whp.dbservice.service.mission_lkpLocalService" class="com.iucn.whp.dbservice.service.impl.mission_lkpLocalServiceImpl" />
 	<bean id="com.iucn.whp.dbservice.service.persistence.mission_lkpPersistence" class="com.iucn.whp.dbservice.service.persistence.mission_lkpPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.negative_factors_level_impactLocalService" class="com.iucn.whp.dbservice.service.impl.negative_factors_level_impactLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.negative_factors_level_impactPersistence" class="com.iucn.whp.dbservice.service.persistence.negative_factors_level_impactPersistenceImpl" parent="basePersistence" />
+	<bean id="com.iucn.whp.dbservice.service.negative_factors_trendLocalService" class="com.iucn.whp.dbservice.service.impl.negative_factors_trendLocalServiceImpl" />
+	<bean id="com.iucn.whp.dbservice.service.persistence.negative_factors_trendPersistence" class="com.iucn.whp.dbservice.service.persistence.negative_factors_trendPersistenceImpl" parent="basePersistence" />
 	<bean id="com.iucn.whp.dbservice.service.other_designation_lkpLocalService" class="com.iucn.whp.dbservice.service.impl.other_designation_lkpLocalServiceImpl" />
 	<bean id="com.iucn.whp.dbservice.service.persistence.other_designation_lkpPersistence" class="com.iucn.whp.dbservice.service.persistence.other_designation_lkpPersistenceImpl" parent="basePersistence" />
 	<bean id="com.iucn.whp.dbservice.service.potential_project_needsLocalService" class="com.iucn.whp.dbservice.service.impl.potential_project_needsLocalServiceImpl" />

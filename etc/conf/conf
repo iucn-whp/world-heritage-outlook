@@ -1,0 +1,17 @@
+1)on 'success-stories' (http://ec2-52-34-48-63.us-west-2.compute.amazonaws.com:8080/web/iucn/success-stories)
+page change filter tag: from 'IUCN News'   to 'IUCN News Article'
+
+2) On Partners_webcontent  (http://ec2-52-34-48-63.us-west-2.compute.amazonaws.com:8080/web/iucn/our-partners)
+in configurations add style="height:800px" to
+<marquee behavior="scroll" direction="up" scrollamount="2" style="height:800px">
+
+#32489
+3) to "news" - "Latest news"  add content display with source "<div class="journal-content-article">
+                                                           	<h2 class="pageHeaderTitle">
+                                                           		Latest news</h2>
+                                                           </div>"
+
+4)  to "news" - "Succes stories"  add content display with source "<div class="journal-content-article">
+                                                           	<h2 class="pageHeaderTitle">
+                                                           		Succes stories</h2>
+                                                           </div>"

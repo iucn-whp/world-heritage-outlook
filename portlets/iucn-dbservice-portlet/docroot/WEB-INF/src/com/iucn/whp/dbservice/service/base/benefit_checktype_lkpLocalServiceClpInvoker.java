@@ -104,17 +104,21 @@ public class benefit_checktype_lkpLocalServiceClpInvoker {
 				"com.iucn.whp.dbservice.model.benefit_checktype_lkp", "boolean"
 			};
 
-		_methodName418 = "getBeanIdentifier";
+		_methodName426 = "getBeanIdentifier";
 
-		_methodParameterTypes418 = new String[] {  };
+		_methodParameterTypes426 = new String[] {  };
 
-		_methodName419 = "setBeanIdentifier";
+		_methodName427 = "setBeanIdentifier";
 
-		_methodParameterTypes419 = new String[] { "java.lang.String" };
+		_methodParameterTypes427 = new String[] { "java.lang.String" };
 
-		_methodName424 = "findAll";
+		_methodName432 = "findBenefitCheckTypeByActiveStatus";
 
-		_methodParameterTypes424 = new String[] {  };
+		_methodParameterTypes432 = new String[] { "boolean" };
+
+		_methodName433 = "findAll";
+
+		_methodParameterTypes433 = new String[] {  };
 	}
 
 	public Object invokeMethod(String name, String[] parameterTypes,
@@ -206,18 +210,23 @@ public class benefit_checktype_lkpLocalServiceClpInvoker {
 				((Boolean)arguments[1]).booleanValue());
 		}
 
-		if (_methodName418.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes418, parameterTypes)) {
+		if (_methodName426.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes426, parameterTypes)) {
 			return benefit_checktype_lkpLocalServiceUtil.getBeanIdentifier();
 		}
 
-		if (_methodName419.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes419, parameterTypes)) {
+		if (_methodName427.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes427, parameterTypes)) {
 			benefit_checktype_lkpLocalServiceUtil.setBeanIdentifier((java.lang.String)arguments[0]);
 		}
 
-		if (_methodName424.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes424, parameterTypes)) {
+		if (_methodName432.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes432, parameterTypes)) {
+			return benefit_checktype_lkpLocalServiceUtil.findBenefitCheckTypeByActiveStatus(((Boolean)arguments[0]).booleanValue());
+		}
+
+		if (_methodName433.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes433, parameterTypes)) {
 			return benefit_checktype_lkpLocalServiceUtil.findAll();
 		}
 
@@ -256,10 +265,12 @@ public class benefit_checktype_lkpLocalServiceClpInvoker {
 	private String[] _methodParameterTypes14;
 	private String _methodName15;
 	private String[] _methodParameterTypes15;
-	private String _methodName418;
-	private String[] _methodParameterTypes418;
-	private String _methodName419;
-	private String[] _methodParameterTypes419;
-	private String _methodName424;
-	private String[] _methodParameterTypes424;
+	private String _methodName426;
+	private String[] _methodParameterTypes426;
+	private String _methodName427;
+	private String[] _methodParameterTypes427;
+	private String _methodName432;
+	private String[] _methodParameterTypes432;
+	private String _methodName433;
+	private String[] _methodParameterTypes433;
 }

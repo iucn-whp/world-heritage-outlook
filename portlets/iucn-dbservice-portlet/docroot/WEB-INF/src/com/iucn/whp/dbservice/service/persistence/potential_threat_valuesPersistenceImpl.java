@@ -1203,6 +1203,10 @@ public class potential_threat_valuesPersistenceImpl extends BasePersistenceImpl<
 	protected key_conservation_scale_lkpPersistence key_conservation_scale_lkpPersistence;
 	@BeanReference(type = mission_lkpPersistence.class)
 	protected mission_lkpPersistence mission_lkpPersistence;
+	@BeanReference(type = negative_factors_level_impactPersistence.class)
+	protected negative_factors_level_impactPersistence negative_factors_level_impactPersistence;
+	@BeanReference(type = negative_factors_trendPersistence.class)
+	protected negative_factors_trendPersistence negative_factors_trendPersistence;
 	@BeanReference(type = other_designation_lkpPersistence.class)
 	protected other_designation_lkpPersistence other_designation_lkpPersistence;
 	@BeanReference(type = potential_project_needsPersistence.class)

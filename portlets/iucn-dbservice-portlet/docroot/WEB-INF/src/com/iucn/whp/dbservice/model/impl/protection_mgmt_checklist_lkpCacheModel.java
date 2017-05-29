@@ -33,12 +33,14 @@ public class protection_mgmt_checklist_lkpCacheModel implements CacheModel<prote
 	Serializable {
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(5);
+		StringBundler sb = new StringBundler(7);
 
 		sb.append("{topic_id=");
 		sb.append(topic_id);
 		sb.append(", topic=");
 		sb.append(topic);
+		sb.append(", topic_sort=");
+		sb.append(topic_sort);
 		sb.append("}");
 
 		return sb.toString();
@@ -56,6 +58,8 @@ public class protection_mgmt_checklist_lkpCacheModel implements CacheModel<prote
 			protection_mgmt_checklist_lkpImpl.setTopic(topic);
 		}
 
+		protection_mgmt_checklist_lkpImpl.setTopic_sort(topic_sort);
+
 		protection_mgmt_checklist_lkpImpl.resetOriginalValues();
 
 		return protection_mgmt_checklist_lkpImpl;
@@ -63,4 +67,5 @@ public class protection_mgmt_checklist_lkpCacheModel implements CacheModel<prote
 
 	public long topic_id;
 	public String topic;
+	public int topic_sort;
 }

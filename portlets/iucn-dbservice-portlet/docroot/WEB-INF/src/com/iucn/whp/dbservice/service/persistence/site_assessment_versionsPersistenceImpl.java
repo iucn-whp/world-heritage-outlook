@@ -150,6 +150,33 @@ public class site_assessment_versionsPersistenceImpl extends BasePersistenceImpl
 			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION,
 			"countBypreviousVersionCode",
 			new String[] { Long.class.getName(), Double.class.getName() });
+	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_VERSIONBYUSERIDANDSTAGEID =
+		new FinderPath(site_assessment_versionsModelImpl.ENTITY_CACHE_ENABLED,
+			site_assessment_versionsModelImpl.FINDER_CACHE_ENABLED,
+			site_assessment_versionsImpl.class,
+			FINDER_CLASS_NAME_LIST_WITH_PAGINATION,
+			"findByversionByuserIdAndStageId",
+			new String[] {
+				Long.class.getName(), Long.class.getName(),
+				
+			"java.lang.Integer", "java.lang.Integer",
+				"com.liferay.portal.kernel.util.OrderByComparator"
+			});
+	public static final FinderPath FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_VERSIONBYUSERIDANDSTAGEID =
+		new FinderPath(site_assessment_versionsModelImpl.ENTITY_CACHE_ENABLED,
+			site_assessment_versionsModelImpl.FINDER_CACHE_ENABLED,
+			site_assessment_versionsImpl.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION,
+			"findByversionByuserIdAndStageId",
+			new String[] { Long.class.getName(), Long.class.getName() },
+			site_assessment_versionsModelImpl.USERID_COLUMN_BITMASK |
+			site_assessment_versionsModelImpl.STAGE_ID_COLUMN_BITMASK);
+	public static final FinderPath FINDER_PATH_COUNT_BY_VERSIONBYUSERIDANDSTAGEID =
+		new FinderPath(site_assessment_versionsModelImpl.ENTITY_CACHE_ENABLED,
+			site_assessment_versionsModelImpl.FINDER_CACHE_ENABLED, Long.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION,
+			"countByversionByuserIdAndStageId",
+			new String[] { Long.class.getName(), Long.class.getName() });
 	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_ALL = new FinderPath(site_assessment_versionsModelImpl.ENTITY_CACHE_ENABLED,
 			site_assessment_versionsModelImpl.FINDER_CACHE_ENABLED,
 			site_assessment_versionsImpl.class,
@@ -432,6 +459,29 @@ public class site_assessment_versionsPersistenceImpl extends BasePersistenceImpl
 				FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_PREVIOUSVERSIONCODE,
 					args);
 				FinderCacheUtil.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_PREVIOUSVERSIONCODE,
+					args);
+			}
+
+			if ((site_assessment_versionsModelImpl.getColumnBitmask() &
+					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_VERSIONBYUSERIDANDSTAGEID.getColumnBitmask()) != 0) {
+				Object[] args = new Object[] {
+						Long.valueOf(site_assessment_versionsModelImpl.getOriginalUserid()),
+						Long.valueOf(site_assessment_versionsModelImpl.getOriginalStage_id())
+					};
+
+				FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_VERSIONBYUSERIDANDSTAGEID,
+					args);
+				FinderCacheUtil.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_VERSIONBYUSERIDANDSTAGEID,
+					args);
+
+				args = new Object[] {
+						Long.valueOf(site_assessment_versionsModelImpl.getUserid()),
+						Long.valueOf(site_assessment_versionsModelImpl.getStage_id())
+					};
+
+				FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_VERSIONBYUSERIDANDSTAGEID,
+					args);
+				FinderCacheUtil.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_VERSIONBYUSERIDANDSTAGEID,
 					args);
 			}
 		}
@@ -1745,6 +1795,417 @@ public class site_assessment_versionsPersistenceImpl extends BasePersistenceImpl
 	}
 
 	/**
+	 * Returns all the site_assessment_versionses where userid = &#63; and stage_id = &#63;.
+	 *
+	 * @param userid the userid
+	 * @param stage_id the stage_id
+	 * @return the matching site_assessment_versionses
+	 * @throws SystemException if a system exception occurred
+	 */
+	public List<site_assessment_versions> findByversionByuserIdAndStageId(
+		long userid, long stage_id) throws SystemException {
+		return findByversionByuserIdAndStageId(userid, stage_id,
+			QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
+	}
+
+	/**
+	 * Returns a range of all the site_assessment_versionses where userid = &#63; and stage_id = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+	 * </p>
+	 *
+	 * @param userid the userid
+	 * @param stage_id the stage_id
+	 * @param start the lower bound of the range of site_assessment_versionses
+	 * @param end the upper bound of the range of site_assessment_versionses (not inclusive)
+	 * @return the range of matching site_assessment_versionses
+	 * @throws SystemException if a system exception occurred
+	 */
+	public List<site_assessment_versions> findByversionByuserIdAndStageId(
+		long userid, long stage_id, int start, int end)
+		throws SystemException {
+		return findByversionByuserIdAndStageId(userid, stage_id, start, end,
+			null);
+	}
+
+	/**
+	 * Returns an ordered range of all the site_assessment_versionses where userid = &#63; and stage_id = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+	 * </p>
+	 *
+	 * @param userid the userid
+	 * @param stage_id the stage_id
+	 * @param start the lower bound of the range of site_assessment_versionses
+	 * @param end the upper bound of the range of site_assessment_versionses (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @return the ordered range of matching site_assessment_versionses
+	 * @throws SystemException if a system exception occurred
+	 */
+	public List<site_assessment_versions> findByversionByuserIdAndStageId(
+		long userid, long stage_id, int start, int end,
+		OrderByComparator orderByComparator) throws SystemException {
+		FinderPath finderPath = null;
+		Object[] finderArgs = null;
+
+		if ((start == QueryUtil.ALL_POS) && (end == QueryUtil.ALL_POS) &&
+				(orderByComparator == null)) {
+			finderPath = FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_VERSIONBYUSERIDANDSTAGEID;
+			finderArgs = new Object[] { userid, stage_id };
+		}
+		else {
+			finderPath = FINDER_PATH_WITH_PAGINATION_FIND_BY_VERSIONBYUSERIDANDSTAGEID;
+			finderArgs = new Object[] {
+					userid, stage_id,
+					
+					start, end, orderByComparator
+				};
+		}
+
+		List<site_assessment_versions> list = (List<site_assessment_versions>)FinderCacheUtil.getResult(finderPath,
+				finderArgs, this);
+
+		if ((list != null) && !list.isEmpty()) {
+			for (site_assessment_versions site_assessment_versions : list) {
+				if ((userid != site_assessment_versions.getUserid()) ||
+						(stage_id != site_assessment_versions.getStage_id())) {
+					list = null;
+
+					break;
+				}
+			}
+		}
+
+		if (list == null) {
+			StringBundler query = null;
+
+			if (orderByComparator != null) {
+				query = new StringBundler(4 +
+						(orderByComparator.getOrderByFields().length * 3));
+			}
+			else {
+				query = new StringBundler(3);
+			}
+
+			query.append(_SQL_SELECT_SITE_ASSESSMENT_VERSIONS_WHERE);
+
+			query.append(_FINDER_COLUMN_VERSIONBYUSERIDANDSTAGEID_USERID_2);
+
+			query.append(_FINDER_COLUMN_VERSIONBYUSERIDANDSTAGEID_STAGE_ID_2);
+
+			if (orderByComparator != null) {
+				appendOrderByComparator(query, _ORDER_BY_ENTITY_ALIAS,
+					orderByComparator);
+			}
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(userid);
+
+				qPos.add(stage_id);
+
+				list = (List<site_assessment_versions>)QueryUtil.list(q,
+						getDialect(), start, end);
+			}
+			catch (Exception e) {
+				throw processException(e);
+			}
+			finally {
+				if (list == null) {
+					FinderCacheUtil.removeResult(finderPath, finderArgs);
+				}
+				else {
+					cacheResult(list);
+
+					FinderCacheUtil.putResult(finderPath, finderArgs, list);
+				}
+
+				closeSession(session);
+			}
+		}
+
+		return list;
+	}
+
+	/**
+	 * Returns the first site_assessment_versions in the ordered set where userid = &#63; and stage_id = &#63;.
+	 *
+	 * @param userid the userid
+	 * @param stage_id the stage_id
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching site_assessment_versions
+	 * @throws com.iucn.whp.dbservice.NoSuchsite_assessment_versionsException if a matching site_assessment_versions could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	public site_assessment_versions findByversionByuserIdAndStageId_First(
+		long userid, long stage_id, OrderByComparator orderByComparator)
+		throws NoSuchsite_assessment_versionsException, SystemException {
+		site_assessment_versions site_assessment_versions = fetchByversionByuserIdAndStageId_First(userid,
+				stage_id, orderByComparator);
+
+		if (site_assessment_versions != null) {
+			return site_assessment_versions;
+		}
+
+		StringBundler msg = new StringBundler(6);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("userid=");
+		msg.append(userid);
+
+		msg.append(", stage_id=");
+		msg.append(stage_id);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchsite_assessment_versionsException(msg.toString());
+	}
+
+	/**
+	 * Returns the first site_assessment_versions in the ordered set where userid = &#63; and stage_id = &#63;.
+	 *
+	 * @param userid the userid
+	 * @param stage_id the stage_id
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching site_assessment_versions, or <code>null</code> if a matching site_assessment_versions could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	public site_assessment_versions fetchByversionByuserIdAndStageId_First(
+		long userid, long stage_id, OrderByComparator orderByComparator)
+		throws SystemException {
+		List<site_assessment_versions> list = findByversionByuserIdAndStageId(userid,
+				stage_id, 0, 1, orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the last site_assessment_versions in the ordered set where userid = &#63; and stage_id = &#63;.
+	 *
+	 * @param userid the userid
+	 * @param stage_id the stage_id
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching site_assessment_versions
+	 * @throws com.iucn.whp.dbservice.NoSuchsite_assessment_versionsException if a matching site_assessment_versions could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	public site_assessment_versions findByversionByuserIdAndStageId_Last(
+		long userid, long stage_id, OrderByComparator orderByComparator)
+		throws NoSuchsite_assessment_versionsException, SystemException {
+		site_assessment_versions site_assessment_versions = fetchByversionByuserIdAndStageId_Last(userid,
+				stage_id, orderByComparator);
+
+		if (site_assessment_versions != null) {
+			return site_assessment_versions;
+		}
+
+		StringBundler msg = new StringBundler(6);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("userid=");
+		msg.append(userid);
+
+		msg.append(", stage_id=");
+		msg.append(stage_id);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchsite_assessment_versionsException(msg.toString());
+	}
+
+	/**
+	 * Returns the last site_assessment_versions in the ordered set where userid = &#63; and stage_id = &#63;.
+	 *
+	 * @param userid the userid
+	 * @param stage_id the stage_id
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching site_assessment_versions, or <code>null</code> if a matching site_assessment_versions could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	public site_assessment_versions fetchByversionByuserIdAndStageId_Last(
+		long userid, long stage_id, OrderByComparator orderByComparator)
+		throws SystemException {
+		int count = countByversionByuserIdAndStageId(userid, stage_id);
+
+		List<site_assessment_versions> list = findByversionByuserIdAndStageId(userid,
+				stage_id, count - 1, count, orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the site_assessment_versionses before and after the current site_assessment_versions in the ordered set where userid = &#63; and stage_id = &#63;.
+	 *
+	 * @param assessment_version_id the primary key of the current site_assessment_versions
+	 * @param userid the userid
+	 * @param stage_id the stage_id
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the previous, current, and next site_assessment_versions
+	 * @throws com.iucn.whp.dbservice.NoSuchsite_assessment_versionsException if a site_assessment_versions with the primary key could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	public site_assessment_versions[] findByversionByuserIdAndStageId_PrevAndNext(
+		long assessment_version_id, long userid, long stage_id,
+		OrderByComparator orderByComparator)
+		throws NoSuchsite_assessment_versionsException, SystemException {
+		site_assessment_versions site_assessment_versions = findByPrimaryKey(assessment_version_id);
+
+		Session session = null;
+
+		try {
+			session = openSession();
+
+			site_assessment_versions[] array = new site_assessment_versionsImpl[3];
+
+			array[0] = getByversionByuserIdAndStageId_PrevAndNext(session,
+					site_assessment_versions, userid, stage_id,
+					orderByComparator, true);
+
+			array[1] = site_assessment_versions;
+
+			array[2] = getByversionByuserIdAndStageId_PrevAndNext(session,
+					site_assessment_versions, userid, stage_id,
+					orderByComparator, false);
+
+			return array;
+		}
+		catch (Exception e) {
+			throw processException(e);
+		}
+		finally {
+			closeSession(session);
+		}
+	}
+
+	protected site_assessment_versions getByversionByuserIdAndStageId_PrevAndNext(
+		Session session, site_assessment_versions site_assessment_versions,
+		long userid, long stage_id, OrderByComparator orderByComparator,
+		boolean previous) {
+		StringBundler query = null;
+
+		if (orderByComparator != null) {
+			query = new StringBundler(6 +
+					(orderByComparator.getOrderByFields().length * 6));
+		}
+		else {
+			query = new StringBundler(3);
+		}
+
+		query.append(_SQL_SELECT_SITE_ASSESSMENT_VERSIONS_WHERE);
+
+		query.append(_FINDER_COLUMN_VERSIONBYUSERIDANDSTAGEID_USERID_2);
+
+		query.append(_FINDER_COLUMN_VERSIONBYUSERIDANDSTAGEID_STAGE_ID_2);
+
+		if (orderByComparator != null) {
+			String[] orderByConditionFields = orderByComparator.getOrderByConditionFields();
+
+			if (orderByConditionFields.length > 0) {
+				query.append(WHERE_AND);
+			}
+
+			for (int i = 0; i < orderByConditionFields.length; i++) {
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+				query.append(orderByConditionFields[i]);
+
+				if ((i + 1) < orderByConditionFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(WHERE_GREATER_THAN_HAS_NEXT);
+					}
+					else {
+						query.append(WHERE_LESSER_THAN_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(WHERE_GREATER_THAN);
+					}
+					else {
+						query.append(WHERE_LESSER_THAN);
+					}
+				}
+			}
+
+			query.append(ORDER_BY_CLAUSE);
+
+			String[] orderByFields = orderByComparator.getOrderByFields();
+
+			for (int i = 0; i < orderByFields.length; i++) {
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+				query.append(orderByFields[i]);
+
+				if ((i + 1) < orderByFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(ORDER_BY_ASC_HAS_NEXT);
+					}
+					else {
+						query.append(ORDER_BY_DESC_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(ORDER_BY_ASC);
+					}
+					else {
+						query.append(ORDER_BY_DESC);
+					}
+				}
+			}
+		}
+
+		String sql = query.toString();
+
+		Query q = session.createQuery(sql);
+
+		q.setFirstResult(0);
+		q.setMaxResults(2);
+
+		QueryPos qPos = QueryPos.getInstance(q);
+
+		qPos.add(userid);
+
+		qPos.add(stage_id);
+
+		if (orderByComparator != null) {
+			Object[] values = orderByComparator.getOrderByConditionValues(site_assessment_versions);
+
+			for (Object value : values) {
+				qPos.add(value);
+			}
+		}
+
+		List<site_assessment_versions> list = q.list();
+
+		if (list.size() == 2) {
+			return list.get(1);
+		}
+		else {
+			return null;
+		}
+	}
+
+	/**
 	 * Returns all the site_assessment_versionses.
 	 *
 	 * @return the site_assessment_versionses
@@ -1897,6 +2358,21 @@ public class site_assessment_versionsPersistenceImpl extends BasePersistenceImpl
 		double version_code) throws SystemException {
 		for (site_assessment_versions site_assessment_versions : findBypreviousVersionCode(
 				assessment_id, version_code)) {
+			remove(site_assessment_versions);
+		}
+	}
+
+	/**
+	 * Removes all the site_assessment_versionses where userid = &#63; and stage_id = &#63; from the database.
+	 *
+	 * @param userid the userid
+	 * @param stage_id the stage_id
+	 * @throws SystemException if a system exception occurred
+	 */
+	public void removeByversionByuserIdAndStageId(long userid, long stage_id)
+		throws SystemException {
+		for (site_assessment_versions site_assessment_versions : findByversionByuserIdAndStageId(
+				userid, stage_id)) {
 			remove(site_assessment_versions);
 		}
 	}
@@ -2069,6 +2545,65 @@ public class site_assessment_versionsPersistenceImpl extends BasePersistenceImpl
 				}
 
 				FinderCacheUtil.putResult(FINDER_PATH_COUNT_BY_PREVIOUSVERSIONCODE,
+					finderArgs, count);
+
+				closeSession(session);
+			}
+		}
+
+		return count.intValue();
+	}
+
+	/**
+	 * Returns the number of site_assessment_versionses where userid = &#63; and stage_id = &#63;.
+	 *
+	 * @param userid the userid
+	 * @param stage_id the stage_id
+	 * @return the number of matching site_assessment_versionses
+	 * @throws SystemException if a system exception occurred
+	 */
+	public int countByversionByuserIdAndStageId(long userid, long stage_id)
+		throws SystemException {
+		Object[] finderArgs = new Object[] { userid, stage_id };
+
+		Long count = (Long)FinderCacheUtil.getResult(FINDER_PATH_COUNT_BY_VERSIONBYUSERIDANDSTAGEID,
+				finderArgs, this);
+
+		if (count == null) {
+			StringBundler query = new StringBundler(3);
+
+			query.append(_SQL_COUNT_SITE_ASSESSMENT_VERSIONS_WHERE);
+
+			query.append(_FINDER_COLUMN_VERSIONBYUSERIDANDSTAGEID_USERID_2);
+
+			query.append(_FINDER_COLUMN_VERSIONBYUSERIDANDSTAGEID_STAGE_ID_2);
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(userid);
+
+				qPos.add(stage_id);
+
+				count = (Long)q.uniqueResult();
+			}
+			catch (Exception e) {
+				throw processException(e);
+			}
+			finally {
+				if (count == null) {
+					count = Long.valueOf(0);
+				}
+
+				FinderCacheUtil.putResult(FINDER_PATH_COUNT_BY_VERSIONBYUSERIDANDSTAGEID,
 					finderArgs, count);
 
 				closeSession(session);
@@ -7239,6 +7774,10 @@ public class site_assessment_versionsPersistenceImpl extends BasePersistenceImpl
 	protected key_conservation_scale_lkpPersistence key_conservation_scale_lkpPersistence;
 	@BeanReference(type = mission_lkpPersistence.class)
 	protected mission_lkpPersistence mission_lkpPersistence;
+	@BeanReference(type = negative_factors_level_impactPersistence.class)
+	protected negative_factors_level_impactPersistence negative_factors_level_impactPersistence;
+	@BeanReference(type = negative_factors_trendPersistence.class)
+	protected negative_factors_trendPersistence negative_factors_trendPersistence;
 	@BeanReference(type = other_designation_lkpPersistence.class)
 	protected other_designation_lkpPersistence other_designation_lkpPersistence;
 	@BeanReference(type = potential_project_needsPersistence.class)
@@ -8033,6 +8572,10 @@ public class site_assessment_versionsPersistenceImpl extends BasePersistenceImpl
 		"site_assessment_versions.assessment_id = ? AND ";
 	private static final String _FINDER_COLUMN_PREVIOUSVERSIONCODE_VERSION_CODE_2 =
 		"site_assessment_versions.version_code = ?";
+	private static final String _FINDER_COLUMN_VERSIONBYUSERIDANDSTAGEID_USERID_2 =
+		"site_assessment_versions.userid = ? AND ";
+	private static final String _FINDER_COLUMN_VERSIONBYUSERIDANDSTAGEID_STAGE_ID_2 =
+		"site_assessment_versions.stage_id = ?";
 	private static final String _ORDER_BY_ENTITY_ALIAS = "site_assessment_versions.";
 	private static final String _NO_SUCH_ENTITY_WITH_PRIMARY_KEY = "No site_assessment_versions exists with the primary key ";
 	private static final String _NO_SUCH_ENTITY_WITH_KEY = "No site_assessment_versions exists with the key {";

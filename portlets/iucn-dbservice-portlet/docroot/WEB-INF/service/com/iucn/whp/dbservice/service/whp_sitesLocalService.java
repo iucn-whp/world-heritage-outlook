@@ -451,6 +451,12 @@ public interface whp_sitesLocalService extends BaseLocalService,
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public java.util.List<com.iucn.whp.dbservice.model.whp_sites> getAllActiveSitesByUserId(
+		long id)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException;
+
 	/**
 	* WHP_DANGER LIST********************************
 	*/

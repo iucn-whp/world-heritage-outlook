@@ -248,6 +248,10 @@ public interface benefit_checktype_lkpLocalService extends BaseLocalService,
 		java.lang.String[] parameterTypes, java.lang.Object[] arguments)
 		throws java.lang.Throwable;
 
+	public java.util.List<com.iucn.whp.dbservice.model.benefit_checktype_lkp> findBenefitCheckTypeByActiveStatus(
+		boolean active_)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
 	public java.util.List<com.iucn.whp.dbservice.model.benefit_checktype_lkp> findAll()
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;

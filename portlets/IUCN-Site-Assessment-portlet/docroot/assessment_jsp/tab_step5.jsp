@@ -1,7 +1,7 @@
-<%@page import="com.iucn.whp.dbservice.service.*"%>
-<%@page import="com.iucn.whp.dbservice.model.*"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.util.List"%>
+<%@include file="/init.jsp" %>
+<%
+    Long currentAssessmentId = ParamUtil.getLong(request, "assesmentId");
+%>
 
 <div class="mainBlock siteInfoMainBlock">
 <div class="tableWrapper tableWrapperSiteInfoContacts">
@@ -10,9 +10,20 @@
 <div id="outerstep5Div">
 
 		<div class="infoSection">
-		<h2 class="siteAssessmentSubHeadings">Assessing Conservation Outlook</h2>
+		<h2 class="siteAssessmentSubHeadings">Summary of Assessments of Values, Threats, and Protection and Management</h2>
 		<div class="tipsSection">
-		<p class="tiptext">The current state of values is assessed against five ratings: Good, Low Concern, High Concern, Critical and Data Deficient Guidelines). The baseline for the assessment should be the condition at the time of inscription, with reference to the best-recorded historical conservation state. Trend is assessed in relation to whether the condition of a value is Improving, Stable, Deteriorating or Data Deficient, and is intended to be snapshot of recent developments over the last five years. Conservation Outlook is assessed against five ratings: Good, Good with some concerns, Significant Concern, Critical, and Data Deficient. The justifications of assessment and assessments are taken from previous assessment steps. Only the Conservation Outlook assessment is new.</p>
+			<p class="tiptext">
+				Indicate the conservation outlook for the World Heritage site in the table below,
+				based on the assessments of current state and trend of World Heritage values, threats, and protection and management
+				for the site (Steps 1-4). Conservation Outlook is assessed against five ratings: Good, Good with Some Concerns,
+				Significant Concern, Critical, and Data Deficient. The Guidelines provide further details on how each category is defined.
+				Please note, the "Summary of Assessments of Values, Threats, and Protection and Management" table containing
+				the "Justification Of Assessment" and "Assessment" fields has been automatically populated in this table from the
+				previous assessment steps and only the "Assessment of Conservation Outlook" table is new. The assessment summaries
+				and Conservation Outlook should be as detailed and stand-alone as possible.
+				<a target="_blank" href="<%= themeDisplay.getURLPortal().concat("/")
+            .concat("IUCN-Site-Assessment-portlet/Guidelines_IUCN_Conservation_Outlook_Assessments_Version_2_0_FINAL.pdf") %>">Access Guidelines for this Step.</a>
+			</p>
 		</div>
 		<div id="step5Div" class="infoSectionContent">
 		<jsp:include page="/assessment_jsp/innerJsp/step5_assess_outlook.jsp"></jsp:include>
@@ -37,18 +48,21 @@
 
 		<div class="wizardFooter">
 			<a href="#" class="roundedcornerBTN" onclick="javascript:$('#step4').click();"><span>&#60;&#60; Previous</span></a>
-			<a href="#" class="roundedcornerBTN" onclick="javascript:$('#step6').click();"><span>Next &#62;&#62;</span></a>
+			<a href="#" class="roundedcornerBTN" onclick="javascript:$('#step7').click();"><span>Save and continue &#62;&#62;</span></a>
 			</div>
 
 </div>
-
+<%--
 <div class="buttonsSiteAssessment hideAdminAction">
-	<%@include file="/assessment_jsp/tab_step9_buttons.jsp" %> 
-	<input type="button" value="View Differences" onClick="javascript: viewDiff_5();"/>
-	<input type="button" value="Clear Highlights" onClick="javascript: removeDiff_5();"/>
-	
-	
-</div>
+	<%@include file="/assessment_jsp/tab_step9_buttons.jsp" %>
+
+	<c:if test="<%= AssessmentActionUtil.hasLinkVisible(currentAssessmentId, user.getUserId(), AssessmentContstant.ACTION_VIEW_DIFFERENCES) %>">
+		<input type="button" value="View Differences" onClick="javascript: viewDiff_5();"/>
+	</c:if>
+	<c:if test="<%= AssessmentActionUtil.hasLinkVisible(currentAssessmentId, user.getUserId(), AssessmentContstant.ACTION_CLEAR_HIGHLIGHTS) %>">
+		<input type="button" value="Clear Highlights" onClick="javascript: removeDiff_5();"/>
+	</c:if>
+</div>--%>
 
 
 <script type="text/javascript">

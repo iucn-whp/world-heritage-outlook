@@ -1,9 +1,14 @@
 <!--mainBlock Starts Here-->
-<%@include file="/init_import.jsp" %>
+<%@include file="/init.jsp" %>
 <%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
 
 
 <portlet:resourceURL var="updateStatusStep2"/>
+
+<%
+    Long currentAssessmentId = ParamUtil.getLong(request, "assesmentId");
+%>
+
 <div class="mainBlock siteInfoMainBlock">
 <div class="tableWrapper tableWrapperSiteInfoContacts">
 
@@ -13,7 +18,15 @@
 	<a href="#" onclick= "javascript:dynamicPopup('/assessment_jsp/popup/step2_current_threat.jsp','','Add Current Threats',event); return false;" class="addBtn hideAdminAction">+Add Current Threats</a>
 	</h2>
 	<div class="tipsSection">
-		<p class="tiptext">Threats corresponding to selected heritage site are identified and are then cross-referenced to the values they affect. Threats are then assessed against five assessment ratings - Very Low Threat, Low Threat, High Threat, Very High Threat, and Data Deficient. The justification for the assessment is also captured in threat assessment.</p>
+		<p class="tiptext">
+			Identify threats to the World Heritage site and then cross-reference these to the values they affect.
+			Assess threats against five ratings - Very Low Threat, Low Threat, High Threat, Very High Threat, and
+			Data Deficient (please refer to the Guidelines for a detailed definition of each category). The
+			justification for the assessment is also captured in the threat assessment and must be systematically
+			referenced (e.g. SOC report, 2014). <a target="_blank" href="<%= themeDisplay.getURLPortal().concat("/")
+            .concat("IUCN-Site-Assessment-portlet/Guidelines_IUCN_Conservation_Outlook_Assessments_Version_2_0_FINAL.pdf") %>">Access Guidelines for this Step.</a>
+
+		</p>
 		</div>
 	<div id="step2ctDiv" class="infoSectionContent">
 	<jsp:include page="/assessment_jsp/innerJsp/step2_ct.jsp"></jsp:include>
@@ -56,20 +69,23 @@
 
 		<div class="wizardFooter">
 		<a href="#" class="roundedcornerBTN" onclick="javascript:$('#step1').click();"><span>&#60;&#60; Previous</span></a>
-		<a href="#" class="roundedcornerBTN" onclick="javascript:$('#step3').click();"><span>Next &#62;&#62;</span></a>
+		<a href="#" class="roundedcornerBTN" onclick="javascript:$('#step3').click();"><span>Save and continue &#62;&#62;</span></a>
 		</div>
 	
 
 </div>
 
-
+<%--
 <div class="buttonsSiteAssessment hideAdminAction">
 	 <!-- <input type="button" value="Fill from previous assessment" /> -->
-	
-	<input type="button" value="View Differences" onClick="javascript: viewDiff_2();"/>
-	<input type="button" value="Clear Highlights" onClick="javascript: removeDiff_2();"/>
+	<c:if test="<%= AssessmentActionUtil.hasLinkVisible(currentAssessmentId, user.getUserId(), AssessmentContstant.ACTION_VIEW_DIFFERENCES) %>">
+		<input type="button" value="View Differences" onClick="javascript: viewDiff_2();"/>
+	</c:if>
+	<c:if test="<%= AssessmentActionUtil.hasLinkVisible(currentAssessmentId, user.getUserId(), AssessmentContstant.ACTION_CLEAR_HIGHLIGHTS) %>">
+		<input type="button" value="Clear Highlights" onClick="javascript: removeDiff_2();"/>
+	</c:if>
 	<jsp:include page="/assessment_jsp/tab_buttons.jsp" />
-</div>
+</div>--%>
 <script type="text/javascript">
 
 

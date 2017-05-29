@@ -22,7 +22,7 @@ long assessmentVersionId=0;
    lstprotection_mgmt_checklist_lkp=protection_mgmt_checklist_lkpLocalServiceUtil.findAll();
    listprotection_management=protection_managementLocalServiceUtil.findByAssessementVersionId(assessmentVersionId);
     
-   if(listprotection_management.size()>=lstprotection_mgmt_checklist_lkp.size())
+   if(listprotection_management.size() >= lstprotection_mgmt_checklist_lkp.size() || (listprotection_management.size() == 15 && lstprotection_mgmt_checklist_lkp.size() == 16))
    {  
 
  try
@@ -163,7 +163,7 @@ long assessmentVersionId=0;
 	
 	if(description==""){
 		isValid =false;
-		alert("Justification Of Assessment is required.");
+		alert("Please provide a description of best practice examples.");
 	}
 	
 	

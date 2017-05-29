@@ -69,6 +69,7 @@ public class assessing_threats_currentClp extends BaseModelImpl<assessing_threat
 		attributes.put("assessment_version_id", getAssessment_version_id());
 		attributes.put("current_threat", getCurrent_threat());
 		attributes.put("justification", getJustification());
+		attributes.put("threadExtentValue", getThreadExtentValue());
 		attributes.put("inside_site", getInside_site());
 		attributes.put("outside_site", getOutside_site());
 		attributes.put("threat_rating_id", getThreat_rating_id());
@@ -101,6 +102,12 @@ public class assessing_threats_currentClp extends BaseModelImpl<assessing_threat
 
 		if (justification != null) {
 			setJustification(justification);
+		}
+
+		String threadExtentValue = (String)attributes.get("threadExtentValue");
+
+		if (threadExtentValue != null) {
+			setThreadExtentValue(threadExtentValue);
 		}
 
 		Boolean inside_site = (Boolean)attributes.get("inside_site");
@@ -152,6 +159,14 @@ public class assessing_threats_currentClp extends BaseModelImpl<assessing_threat
 
 	public void setJustification(String justification) {
 		_justification = justification;
+	}
+
+	public String getThreadExtentValue() {
+		return _threadExtentValue;
+	}
+
+	public void setThreadExtentValue(String threadExtentValue) {
+		_threadExtentValue = threadExtentValue;
 	}
 
 	public boolean getInside_site() {
@@ -219,6 +234,7 @@ public class assessing_threats_currentClp extends BaseModelImpl<assessing_threat
 		clone.setAssessment_version_id(getAssessment_version_id());
 		clone.setCurrent_threat(getCurrent_threat());
 		clone.setJustification(getJustification());
+		clone.setThreadExtentValue(getThreadExtentValue());
 		clone.setInside_site(getInside_site());
 		clone.setOutside_site(getOutside_site());
 		clone.setThreat_rating_id(getThreat_rating_id());
@@ -272,7 +288,7 @@ public class assessing_threats_currentClp extends BaseModelImpl<assessing_threat
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(15);
+		StringBundler sb = new StringBundler(17);
 
 		sb.append("{current_threat_id=");
 		sb.append(getCurrent_threat_id());
@@ -282,6 +298,8 @@ public class assessing_threats_currentClp extends BaseModelImpl<assessing_threat
 		sb.append(getCurrent_threat());
 		sb.append(", justification=");
 		sb.append(getJustification());
+		sb.append(", threadExtentValue=");
+		sb.append(getThreadExtentValue());
 		sb.append(", inside_site=");
 		sb.append(getInside_site());
 		sb.append(", outside_site=");
@@ -294,7 +312,7 @@ public class assessing_threats_currentClp extends BaseModelImpl<assessing_threat
 	}
 
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(25);
+		StringBundler sb = new StringBundler(28);
 
 		sb.append("<model><model-name>");
 		sb.append("com.iucn.whp.dbservice.model.assessing_threats_current");
@@ -315,6 +333,10 @@ public class assessing_threats_currentClp extends BaseModelImpl<assessing_threat
 		sb.append(
 			"<column><column-name>justification</column-name><column-value><![CDATA[");
 		sb.append(getJustification());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>threadExtentValue</column-name><column-value><![CDATA[");
+		sb.append(getThreadExtentValue());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>inside_site</column-name><column-value><![CDATA[");
@@ -338,6 +360,7 @@ public class assessing_threats_currentClp extends BaseModelImpl<assessing_threat
 	private long _assessment_version_id;
 	private String _current_threat;
 	private String _justification;
+	private String _threadExtentValue;
 	private boolean _inside_site;
 	private boolean _outside_site;
 	private long _threat_rating_id;

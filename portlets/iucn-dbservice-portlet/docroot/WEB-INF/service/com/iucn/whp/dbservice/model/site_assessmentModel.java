@@ -14,6 +14,7 @@
 
 package com.iucn.whp.dbservice.model;
 
+import com.liferay.portal.kernel.bean.AutoEscape;
 import com.liferay.portal.model.BaseModel;
 import com.liferay.portal.model.CacheModel;
 import com.liferay.portal.service.ServiceContext;
@@ -211,6 +212,21 @@ public interface site_assessmentModel extends BaseModel<site_assessment> {
 	 * @param is_active the is_active of this site_assessment
 	 */
 	public void setIs_active(boolean is_active);
+
+	/**
+	 * Returns the assessment_cycle of this site_assessment.
+	 *
+	 * @return the assessment_cycle of this site_assessment
+	 */
+	@AutoEscape
+	public String getAssessment_cycle();
+
+	/**
+	 * Sets the assessment_cycle of this site_assessment.
+	 *
+	 * @param assessment_cycle the assessment_cycle of this site_assessment
+	 */
+	public void setAssessment_cycle(String assessment_cycle);
 
 	public boolean isNew();
 

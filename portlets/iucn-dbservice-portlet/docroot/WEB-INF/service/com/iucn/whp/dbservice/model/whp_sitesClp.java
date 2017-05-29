@@ -100,6 +100,7 @@ public class whp_sitesClp extends BaseModelImpl<whp_sites> implements whp_sites 
 		attributes.put("thumbnailid", getThumbnailid());
 		attributes.put("thumbnailid_small", getThumbnailid_small());
 		attributes.put("description", getDescription());
+		attributes.put("information_updating", getInformation_updating());
 
 		return attributes;
 	}
@@ -317,6 +318,13 @@ public class whp_sitesClp extends BaseModelImpl<whp_sites> implements whp_sites 
 
 		if (description != null) {
 			setDescription(description);
+		}
+
+		Boolean information_updating = (Boolean)attributes.get(
+				"information_updating");
+
+		if (information_updating != null) {
+			setInformation_updating(information_updating);
 		}
 	}
 
@@ -660,6 +668,18 @@ public class whp_sitesClp extends BaseModelImpl<whp_sites> implements whp_sites 
 		_description = description;
 	}
 
+	public boolean getInformation_updating() {
+		return _information_updating;
+	}
+
+	public boolean isInformation_updating() {
+		return _information_updating;
+	}
+
+	public void setInformation_updating(boolean information_updating) {
+		_information_updating = information_updating;
+	}
+
 	public java.lang.String getThumbnailURL(
 		com.liferay.portal.theme.ThemeDisplay themeDisplay) {
 		throw new UnsupportedOperationException();
@@ -727,6 +747,7 @@ public class whp_sitesClp extends BaseModelImpl<whp_sites> implements whp_sites 
 		clone.setThumbnailid(getThumbnailid());
 		clone.setThumbnailid_small(getThumbnailid_small());
 		clone.setDescription(getDescription());
+		clone.setInformation_updating(getInformation_updating());
 
 		return clone;
 	}
@@ -775,7 +796,7 @@ public class whp_sitesClp extends BaseModelImpl<whp_sites> implements whp_sites 
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(71);
+		StringBundler sb = new StringBundler(73);
 
 		sb.append("{site_id=");
 		sb.append(getSite_id());
@@ -847,13 +868,15 @@ public class whp_sitesClp extends BaseModelImpl<whp_sites> implements whp_sites 
 		sb.append(getThumbnailid_small());
 		sb.append(", description=");
 		sb.append(getDescription());
+		sb.append(", information_updating=");
+		sb.append(getInformation_updating());
 		sb.append("}");
 
 		return sb.toString();
 	}
 
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(109);
+		StringBundler sb = new StringBundler(112);
 
 		sb.append("<model><model-name>");
 		sb.append("com.iucn.whp.dbservice.model.whp_sites");
@@ -999,6 +1022,10 @@ public class whp_sitesClp extends BaseModelImpl<whp_sites> implements whp_sites 
 			"<column><column-name>description</column-name><column-value><![CDATA[");
 		sb.append(getDescription());
 		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>information_updating</column-name><column-value><![CDATA[");
+		sb.append(getInformation_updating());
+		sb.append("]]></column-value></column>");
 
 		sb.append("</model>");
 
@@ -1040,5 +1067,6 @@ public class whp_sitesClp extends BaseModelImpl<whp_sites> implements whp_sites 
 	private long _thumbnailid;
 	private long _thumbnailid_small;
 	private String _description;
+	private boolean _information_updating;
 	private BaseModel<?> _whp_sitesRemoteModel;
 }

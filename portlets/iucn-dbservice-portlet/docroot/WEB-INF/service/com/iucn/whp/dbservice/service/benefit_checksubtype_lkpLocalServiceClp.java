@@ -115,9 +115,13 @@ public class benefit_checksubtype_lkpLocalServiceClp
 
 		_methodParameterTypes17 = new String[] { "java.lang.String" };
 
-		_methodName19 = "findAll";
+		_methodName19 = "findBenefitCheckSubTypeByActiveStatus";
 
-		_methodParameterTypes19 = new String[] {  };
+		_methodParameterTypes19 = new String[] { "boolean" };
+
+		_methodName20 = "findAll";
+
+		_methodParameterTypes20 = new String[] {  };
 	}
 
 	public com.iucn.whp.dbservice.model.benefit_checksubtype_lkp addbenefit_checksubtype_lkp(
@@ -657,14 +661,42 @@ public class benefit_checksubtype_lkpLocalServiceClp
 		throw new UnsupportedOperationException();
 	}
 
+	public java.util.List<com.iucn.whp.dbservice.model.benefit_checksubtype_lkp> findBenefitCheckSubTypeByActiveStatus(
+		boolean active_)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		Object returnObj = null;
+
+		try {
+			returnObj = _invokableLocalService.invokeMethod(_methodName19,
+					_methodParameterTypes19, new Object[] { active_ });
+		}
+		catch (Throwable t) {
+			t = ClpSerializer.translateThrowable(t);
+
+			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
+				throw (com.liferay.portal.kernel.exception.SystemException)t;
+			}
+
+			if (t instanceof RuntimeException) {
+				throw (RuntimeException)t;
+			}
+			else {
+				throw new RuntimeException(t.getClass().getName() +
+					" is not a valid exception");
+			}
+		}
+
+		return (java.util.List<com.iucn.whp.dbservice.model.benefit_checksubtype_lkp>)ClpSerializer.translateOutput(returnObj);
+	}
+
 	public java.util.List<com.iucn.whp.dbservice.model.benefit_checksubtype_lkp> findAll()
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName19,
-					_methodParameterTypes19, new Object[] {  });
+			returnObj = _invokableLocalService.invokeMethod(_methodName20,
+					_methodParameterTypes20, new Object[] {  });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -728,4 +760,6 @@ public class benefit_checksubtype_lkpLocalServiceClp
 	private String[] _methodParameterTypes17;
 	private String _methodName19;
 	private String[] _methodParameterTypes19;
+	private String _methodName20;
+	private String[] _methodParameterTypes20;
 }

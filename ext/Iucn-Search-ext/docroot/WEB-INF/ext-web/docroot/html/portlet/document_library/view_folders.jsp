@@ -143,7 +143,7 @@ String navigation = ParamUtil.getString(request, "navigation", "home");
 						request.setAttribute("view_entries.jsp-repositoryId", String.valueOf(repositoryId));
 						%>
 
-						<li class="folder <%= (navigation.equals("home") && (folderId == rootFolderId) && (fileEntryTypeId == -1)) ? "selected" : StringPool.BLANK %>">
+						<li style="display: <%= (request.isUserInRole("Reviewer")) ? "none": "" %>" class="folder <%= (navigation.equals("home") && (folderId == rootFolderId) && (fileEntryTypeId == -1)) ? "selected" : StringPool.BLANK %>">
 							 <liferay-util:include page="/html/portlet/document_library/folder_action.jsp" /> 
 
 							<c:if test="<%= (foldersCount > 0) %>">

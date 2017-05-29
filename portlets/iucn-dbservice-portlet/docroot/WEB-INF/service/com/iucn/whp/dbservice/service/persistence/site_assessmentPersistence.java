@@ -224,6 +224,125 @@ public interface site_assessmentPersistence extends BasePersistence<site_assessm
 			com.liferay.portal.kernel.exception.SystemException;
 
 	/**
+	* Returns all the site_assessments where current_userid = &#63;.
+	*
+	* @param current_userid the current_userid
+	* @return the matching site_assessments
+	* @throws SystemException if a system exception occurred
+	*/
+	public java.util.List<com.iucn.whp.dbservice.model.site_assessment> findBycurrentUserIdAll(
+		long current_userid)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Returns a range of all the site_assessments where current_userid = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+	* </p>
+	*
+	* @param current_userid the current_userid
+	* @param start the lower bound of the range of site_assessments
+	* @param end the upper bound of the range of site_assessments (not inclusive)
+	* @return the range of matching site_assessments
+	* @throws SystemException if a system exception occurred
+	*/
+	public java.util.List<com.iucn.whp.dbservice.model.site_assessment> findBycurrentUserIdAll(
+		long current_userid, int start, int end)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Returns an ordered range of all the site_assessments where current_userid = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+	* </p>
+	*
+	* @param current_userid the current_userid
+	* @param start the lower bound of the range of site_assessments
+	* @param end the upper bound of the range of site_assessments (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of matching site_assessments
+	* @throws SystemException if a system exception occurred
+	*/
+	public java.util.List<com.iucn.whp.dbservice.model.site_assessment> findBycurrentUserIdAll(
+		long current_userid, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Returns the first site_assessment in the ordered set where current_userid = &#63;.
+	*
+	* @param current_userid the current_userid
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching site_assessment
+	* @throws com.iucn.whp.dbservice.NoSuchsite_assessmentException if a matching site_assessment could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public com.iucn.whp.dbservice.model.site_assessment findBycurrentUserIdAll_First(
+		long current_userid,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.iucn.whp.dbservice.NoSuchsite_assessmentException,
+			com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Returns the first site_assessment in the ordered set where current_userid = &#63;.
+	*
+	* @param current_userid the current_userid
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching site_assessment, or <code>null</code> if a matching site_assessment could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public com.iucn.whp.dbservice.model.site_assessment fetchBycurrentUserIdAll_First(
+		long current_userid,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Returns the last site_assessment in the ordered set where current_userid = &#63;.
+	*
+	* @param current_userid the current_userid
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching site_assessment
+	* @throws com.iucn.whp.dbservice.NoSuchsite_assessmentException if a matching site_assessment could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public com.iucn.whp.dbservice.model.site_assessment findBycurrentUserIdAll_Last(
+		long current_userid,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.iucn.whp.dbservice.NoSuchsite_assessmentException,
+			com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Returns the last site_assessment in the ordered set where current_userid = &#63;.
+	*
+	* @param current_userid the current_userid
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching site_assessment, or <code>null</code> if a matching site_assessment could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public com.iucn.whp.dbservice.model.site_assessment fetchBycurrentUserIdAll_Last(
+		long current_userid,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Returns the site_assessments before and after the current site_assessment in the ordered set where current_userid = &#63;.
+	*
+	* @param assessment_id the primary key of the current site_assessment
+	* @param current_userid the current_userid
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the previous, current, and next site_assessment
+	* @throws com.iucn.whp.dbservice.NoSuchsite_assessmentException if a site_assessment with the primary key could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public com.iucn.whp.dbservice.model.site_assessment[] findBycurrentUserIdAll_PrevAndNext(
+		long assessment_id, long current_userid,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.iucn.whp.dbservice.NoSuchsite_assessmentException,
+			com.liferay.portal.kernel.exception.SystemException;
+
+	/**
 	* Returns all the site_assessments where site_id = &#63;.
 	*
 	* @param site_id the site_id
@@ -641,6 +760,15 @@ public interface site_assessmentPersistence extends BasePersistence<site_assessm
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
+	* Removes all the site_assessments where current_userid = &#63; from the database.
+	*
+	* @param current_userid the current_userid
+	* @throws SystemException if a system exception occurred
+	*/
+	public void removeBycurrentUserIdAll(long current_userid)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
 	* Removes all the site_assessments where site_id = &#63; from the database.
 	*
 	* @param site_id the site_id
@@ -684,6 +812,16 @@ public interface site_assessmentPersistence extends BasePersistence<site_assessm
 	* @throws SystemException if a system exception occurred
 	*/
 	public int countBycurrentuserid(long current_userid)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Returns the number of site_assessments where current_userid = &#63;.
+	*
+	* @param current_userid the current_userid
+	* @return the number of matching site_assessments
+	* @throws SystemException if a system exception occurred
+	*/
+	public int countBycurrentUserIdAll(long current_userid)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**

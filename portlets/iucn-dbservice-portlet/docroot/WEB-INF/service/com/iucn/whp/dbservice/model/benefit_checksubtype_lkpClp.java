@@ -68,6 +68,8 @@ public class benefit_checksubtype_lkpClp extends BaseModelImpl<benefit_checksubt
 		attributes.put("subbenefit_id", getSubbenefit_id());
 		attributes.put("benefit_checksubtype", getBenefit_checksubtype());
 		attributes.put("parent_id", getParent_id());
+		attributes.put("position", getPosition());
+		attributes.put("active", getActive());
 
 		return attributes;
 	}
@@ -91,6 +93,18 @@ public class benefit_checksubtype_lkpClp extends BaseModelImpl<benefit_checksubt
 
 		if (parent_id != null) {
 			setParent_id(parent_id);
+		}
+
+		Long position = (Long)attributes.get("position");
+
+		if (position != null) {
+			setPosition(position);
+		}
+
+		Boolean active = (Boolean)attributes.get("active");
+
+		if (active != null) {
+			setActive(active);
 		}
 	}
 
@@ -116,6 +130,26 @@ public class benefit_checksubtype_lkpClp extends BaseModelImpl<benefit_checksubt
 
 	public void setParent_id(long parent_id) {
 		_parent_id = parent_id;
+	}
+
+	public long getPosition() {
+		return _position;
+	}
+
+	public void setPosition(long position) {
+		_position = position;
+	}
+
+	public boolean getActive() {
+		return _active;
+	}
+
+	public boolean isActive() {
+		return _active;
+	}
+
+	public void setActive(boolean active) {
+		_active = active;
 	}
 
 	public BaseModel<?> getbenefit_checksubtype_lkpRemoteModel() {
@@ -150,6 +184,8 @@ public class benefit_checksubtype_lkpClp extends BaseModelImpl<benefit_checksubt
 		clone.setSubbenefit_id(getSubbenefit_id());
 		clone.setBenefit_checksubtype(getBenefit_checksubtype());
 		clone.setParent_id(getParent_id());
+		clone.setPosition(getPosition());
+		clone.setActive(getActive());
 
 		return clone;
 	}
@@ -200,7 +236,7 @@ public class benefit_checksubtype_lkpClp extends BaseModelImpl<benefit_checksubt
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(7);
+		StringBundler sb = new StringBundler(11);
 
 		sb.append("{subbenefit_id=");
 		sb.append(getSubbenefit_id());
@@ -208,13 +244,17 @@ public class benefit_checksubtype_lkpClp extends BaseModelImpl<benefit_checksubt
 		sb.append(getBenefit_checksubtype());
 		sb.append(", parent_id=");
 		sb.append(getParent_id());
+		sb.append(", position=");
+		sb.append(getPosition());
+		sb.append(", active=");
+		sb.append(getActive());
 		sb.append("}");
 
 		return sb.toString();
 	}
 
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(13);
+		StringBundler sb = new StringBundler(19);
 
 		sb.append("<model><model-name>");
 		sb.append("com.iucn.whp.dbservice.model.benefit_checksubtype_lkp");
@@ -232,6 +272,14 @@ public class benefit_checksubtype_lkpClp extends BaseModelImpl<benefit_checksubt
 			"<column><column-name>parent_id</column-name><column-value><![CDATA[");
 		sb.append(getParent_id());
 		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>position</column-name><column-value><![CDATA[");
+		sb.append(getPosition());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>active</column-name><column-value><![CDATA[");
+		sb.append(getActive());
+		sb.append("]]></column-value></column>");
 
 		sb.append("</model>");
 
@@ -241,5 +289,7 @@ public class benefit_checksubtype_lkpClp extends BaseModelImpl<benefit_checksubt
 	private long _subbenefit_id;
 	private String _benefit_checksubtype;
 	private long _parent_id;
+	private long _position;
+	private boolean _active;
 	private BaseModel<?> _benefit_checksubtype_lkpRemoteModel;
 }

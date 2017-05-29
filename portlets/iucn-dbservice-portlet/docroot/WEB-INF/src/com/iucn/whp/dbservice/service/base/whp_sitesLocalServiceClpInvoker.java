@@ -104,173 +104,177 @@ public class whp_sitesLocalServiceClpInvoker {
 				"com.iucn.whp.dbservice.model.whp_sites", "boolean"
 			};
 
-		_methodName424 = "getBeanIdentifier";
+		_methodName432 = "getBeanIdentifier";
 
-		_methodParameterTypes424 = new String[] {  };
+		_methodParameterTypes432 = new String[] {  };
 
-		_methodName425 = "setBeanIdentifier";
+		_methodName433 = "setBeanIdentifier";
 
-		_methodParameterTypes425 = new String[] { "java.lang.String" };
+		_methodParameterTypes433 = new String[] { "java.lang.String" };
 
-		_methodName430 = "getSiteBySiteId";
-
-		_methodParameterTypes430 = new String[] { "long" };
-
-		_methodName431 = "getSiteByNameEn";
-
-		_methodParameterTypes431 = new String[] { "java.lang.String" };
-
-		_methodName432 = "getSiteByWdpaId";
-
-		_methodParameterTypes432 = new String[] { "long" };
-
-		_methodName433 = "getSiteCountryBySiteId";
-
-		_methodParameterTypes433 = new String[] { "long" };
-
-		_methodName434 = "getCountryListBySiteId";
-
-		_methodParameterTypes434 = new String[] { "long" };
-
-		_methodName435 = "getWhpSitesInscriptionCriteriaBySiteId";
-
-		_methodParameterTypes435 = new String[] { "long" };
-
-		_methodName436 = "getWhpSitesInscriptionHistoryBySiteId";
-
-		_methodParameterTypes436 = new String[] { "long" };
-
-		_methodName437 = "getInscriptionBySiteId";
-
-		_methodParameterTypes437 = new String[] { "long" };
-
-		_methodName438 = "getwhpSitesComponentBySiteId";
+		_methodName438 = "getSiteBySiteId";
 
 		_methodParameterTypes438 = new String[] { "long" };
 
-		_methodName439 = "getwhpSitesVisitorsBySiteId";
+		_methodName439 = "getSiteByNameEn";
 
-		_methodParameterTypes439 = new String[] { "long" };
+		_methodParameterTypes439 = new String[] { "java.lang.String" };
 
-		_methodName440 = "getwhpSitesBudgetBySiteId";
+		_methodName440 = "getSiteByWdpaId";
 
 		_methodParameterTypes440 = new String[] { "long" };
 
-		_methodName441 = "getwhpSitesSoouvBySiteId";
+		_methodName441 = "getSiteCountryBySiteId";
 
 		_methodParameterTypes441 = new String[] { "long" };
 
-		_methodName442 = "getwhpSitesDsocrBySiteId";
+		_methodName442 = "getCountryListBySiteId";
 
 		_methodParameterTypes442 = new String[] { "long" };
 
-		_methodName443 = "getwhpSitesIndigenousCommunitiesBySiteId1";
+		_methodName443 = "getWhpSitesInscriptionCriteriaBySiteId";
 
 		_methodParameterTypes443 = new String[] { "long" };
 
-		_methodName444 = "getContactCategoryByCategoryId";
+		_methodName444 = "getWhpSitesInscriptionHistoryBySiteId";
 
-		_methodParameterTypes444 = new String[] { "int" };
+		_methodParameterTypes444 = new String[] { "long" };
 
-		_methodName445 = "getwhpSitesContactBySiteId";
+		_methodName445 = "getInscriptionBySiteId";
 
 		_methodParameterTypes445 = new String[] { "long" };
 
-		_methodName446 = "getWhpContactListBySiteId";
+		_methodName446 = "getwhpSitesComponentBySiteId";
 
 		_methodParameterTypes446 = new String[] { "long" };
 
-		_methodName447 = "getIucnRegionCountry";
+		_methodName447 = "getwhpSitesVisitorsBySiteId";
 
-		_methodParameterTypes447 = new String[] { "int" };
+		_methodParameterTypes447 = new String[] { "long" };
 
-		_methodName448 = "getIucnRegionBySiteId";
+		_methodName448 = "getwhpSitesBudgetBySiteId";
 
 		_methodParameterTypes448 = new String[] { "long" };
 
-		_methodName449 = "updateMGMT_PLANflag";
+		_methodName449 = "getwhpSitesSoouvBySiteId";
 
-		_methodParameterTypes449 = new String[] { "long", "boolean" };
+		_methodParameterTypes449 = new String[] { "long" };
 
-		_methodName450 = "updatemissionflag";
+		_methodName450 = "getwhpSitesDsocrBySiteId";
 
-		_methodParameterTypes450 = new String[] { "long", "boolean" };
+		_methodParameterTypes450 = new String[] { "long" };
 
-		_methodName451 = "updatesocflag";
+		_methodName451 = "getwhpSitesIndigenousCommunitiesBySiteId1";
 
-		_methodParameterTypes451 = new String[] { "long", "boolean" };
+		_methodParameterTypes451 = new String[] { "long" };
 
-		_methodName452 = "updatemeeflag";
+		_methodName452 = "getContactCategoryByCategoryId";
 
-		_methodParameterTypes452 = new String[] { "long", "boolean" };
+		_methodParameterTypes452 = new String[] { "int" };
 
-		_methodName453 = "getUnescoRegionCountry";
+		_methodName453 = "getwhpSitesContactBySiteId";
 
-		_methodParameterTypes453 = new String[] { "int" };
+		_methodParameterTypes453 = new String[] { "long" };
 
-		_methodName454 = "getUnescoRegionBySiteId";
+		_methodName454 = "getWhpContactListBySiteId";
 
 		_methodParameterTypes454 = new String[] { "long" };
 
-		_methodName455 = "getAllActiveSites";
+		_methodName455 = "getIucnRegionCountry";
 
-		_methodParameterTypes455 = new String[] {  };
+		_methodParameterTypes455 = new String[] { "int" };
 
-		_methodName456 = "getWhpSiteDangerListBySiteId";
+		_methodName456 = "getIucnRegionBySiteId";
 
 		_methodParameterTypes456 = new String[] { "long" };
 
-		_methodName457 = "getWhpSiterecommendationListBySiteId";
+		_methodName457 = "updateMGMT_PLANflag";
 
-		_methodParameterTypes457 = new String[] { "long" };
+		_methodParameterTypes457 = new String[] { "long", "boolean" };
 
-		_methodName458 = "getWhpSiteBoundaryModificationBySiteId";
+		_methodName458 = "updatemissionflag";
 
-		_methodParameterTypes458 = new String[] { "long" };
+		_methodParameterTypes458 = new String[] { "long", "boolean" };
 
-		_methodName459 = "getWhpSiteFlagshipSpeciesBySiteId";
+		_methodName459 = "updatesocflag";
 
-		_methodParameterTypes459 = new String[] { "long" };
+		_methodParameterTypes459 = new String[] { "long", "boolean" };
 
-		_methodName460 = "getWhpSiteIUCNPACategoryBySiteId";
+		_methodName460 = "updatemeeflag";
 
-		_methodParameterTypes460 = new String[] { "long" };
+		_methodParameterTypes460 = new String[] { "long", "boolean" };
 
-		_methodName461 = "getWhpSiteOtherDesignationsBySiteId";
+		_methodName461 = "getUnescoRegionCountry";
 
-		_methodParameterTypes461 = new String[] { "long" };
+		_methodParameterTypes461 = new String[] { "int" };
 
-		_methodName462 = "getWhpSiteMgmtPlanStatesBySiteId";
+		_methodName462 = "getUnescoRegionBySiteId";
 
 		_methodParameterTypes462 = new String[] { "long" };
 
-		_methodName463 = "getWhpSiteMissionBySiteId";
+		_methodName463 = "getAllActiveSites";
 
-		_methodParameterTypes463 = new String[] { "long" };
+		_methodParameterTypes463 = new String[] {  };
 
-		_methodName464 = "getWhpSiteMeeBySiteId";
+		_methodName464 = "getAllActiveSitesByUserId";
 
 		_methodParameterTypes464 = new String[] { "long" };
 
-		_methodName465 = "getWhpSiteSocReportsBySiteId";
+		_methodName465 = "getWhpSiteDangerListBySiteId";
 
 		_methodParameterTypes465 = new String[] { "long" };
 
-		_methodName466 = "getDocs_SiteDataBySiteId";
+		_methodName466 = "getWhpSiterecommendationListBySiteId";
 
 		_methodParameterTypes466 = new String[] { "long" };
 
-		_methodName467 = "updateThumbnail";
+		_methodName467 = "getWhpSiteBoundaryModificationBySiteId";
 
-		_methodParameterTypes467 = new String[] { "long", "byte[][]" };
+		_methodParameterTypes467 = new String[] { "long" };
 
-		_methodName468 = "deleteThumbnail";
+		_methodName468 = "getWhpSiteFlagshipSpeciesBySiteId";
 
 		_methodParameterTypes468 = new String[] { "long" };
 
-		_methodName469 = "getWhp_sitesByCustomQuery";
+		_methodName469 = "getWhpSiteIUCNPACategoryBySiteId";
 
-		_methodParameterTypes469 = new String[] { "java.lang.String", "int", "int" };
+		_methodParameterTypes469 = new String[] { "long" };
+
+		_methodName470 = "getWhpSiteOtherDesignationsBySiteId";
+
+		_methodParameterTypes470 = new String[] { "long" };
+
+		_methodName471 = "getWhpSiteMgmtPlanStatesBySiteId";
+
+		_methodParameterTypes471 = new String[] { "long" };
+
+		_methodName472 = "getWhpSiteMissionBySiteId";
+
+		_methodParameterTypes472 = new String[] { "long" };
+
+		_methodName473 = "getWhpSiteMeeBySiteId";
+
+		_methodParameterTypes473 = new String[] { "long" };
+
+		_methodName474 = "getWhpSiteSocReportsBySiteId";
+
+		_methodParameterTypes474 = new String[] { "long" };
+
+		_methodName475 = "getDocs_SiteDataBySiteId";
+
+		_methodParameterTypes475 = new String[] { "long" };
+
+		_methodName476 = "updateThumbnail";
+
+		_methodParameterTypes476 = new String[] { "long", "byte[][]" };
+
+		_methodName477 = "deleteThumbnail";
+
+		_methodParameterTypes477 = new String[] { "long" };
+
+		_methodName478 = "getWhp_sitesByCustomQuery";
+
+		_methodParameterTypes478 = new String[] { "java.lang.String", "int", "int" };
 	}
 
 	public Object invokeMethod(String name, String[] parameterTypes,
@@ -362,218 +366,223 @@ public class whp_sitesLocalServiceClpInvoker {
 				((Boolean)arguments[1]).booleanValue());
 		}
 
-		if (_methodName424.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes424, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.getBeanIdentifier();
-		}
-
-		if (_methodName425.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes425, parameterTypes)) {
-			whp_sitesLocalServiceUtil.setBeanIdentifier((java.lang.String)arguments[0]);
-		}
-
-		if (_methodName430.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes430, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.getSiteBySiteId(((Long)arguments[0]).longValue());
-		}
-
-		if (_methodName431.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes431, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.getSiteByNameEn((java.lang.String)arguments[0]);
-		}
-
 		if (_methodName432.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes432, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.getSiteByWdpaId(((Long)arguments[0]).longValue());
+			return whp_sitesLocalServiceUtil.getBeanIdentifier();
 		}
 
 		if (_methodName433.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes433, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.getSiteCountryBySiteId(((Long)arguments[0]).longValue());
-		}
-
-		if (_methodName434.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes434, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.getCountryListBySiteId(((Long)arguments[0]).longValue());
-		}
-
-		if (_methodName435.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes435, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.getWhpSitesInscriptionCriteriaBySiteId(((Long)arguments[0]).longValue());
-		}
-
-		if (_methodName436.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes436, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.getWhpSitesInscriptionHistoryBySiteId(((Long)arguments[0]).longValue());
-		}
-
-		if (_methodName437.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes437, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.getInscriptionBySiteId(((Long)arguments[0]).longValue());
+			whp_sitesLocalServiceUtil.setBeanIdentifier((java.lang.String)arguments[0]);
 		}
 
 		if (_methodName438.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes438, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.getwhpSitesComponentBySiteId(((Long)arguments[0]).longValue());
+			return whp_sitesLocalServiceUtil.getSiteBySiteId(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName439.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes439, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.getwhpSitesVisitorsBySiteId(((Long)arguments[0]).longValue());
+			return whp_sitesLocalServiceUtil.getSiteByNameEn((java.lang.String)arguments[0]);
 		}
 
 		if (_methodName440.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes440, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.getwhpSitesBudgetBySiteId(((Long)arguments[0]).longValue());
+			return whp_sitesLocalServiceUtil.getSiteByWdpaId(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName441.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes441, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.getwhpSitesSoouvBySiteId(((Long)arguments[0]).longValue());
+			return whp_sitesLocalServiceUtil.getSiteCountryBySiteId(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName442.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes442, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.getwhpSitesDsocrBySiteId(((Long)arguments[0]).longValue());
+			return whp_sitesLocalServiceUtil.getCountryListBySiteId(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName443.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes443, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.getwhpSitesIndigenousCommunitiesBySiteId1(((Long)arguments[0]).longValue());
+			return whp_sitesLocalServiceUtil.getWhpSitesInscriptionCriteriaBySiteId(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName444.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes444, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.getContactCategoryByCategoryId(((Integer)arguments[0]).intValue());
+			return whp_sitesLocalServiceUtil.getWhpSitesInscriptionHistoryBySiteId(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName445.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes445, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.getwhpSitesContactBySiteId(((Long)arguments[0]).longValue());
+			return whp_sitesLocalServiceUtil.getInscriptionBySiteId(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName446.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes446, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.getWhpContactListBySiteId(((Long)arguments[0]).longValue());
+			return whp_sitesLocalServiceUtil.getwhpSitesComponentBySiteId(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName447.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes447, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.getIucnRegionCountry(((Integer)arguments[0]).intValue());
+			return whp_sitesLocalServiceUtil.getwhpSitesVisitorsBySiteId(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName448.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes448, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.getIucnRegionBySiteId(((Long)arguments[0]).longValue());
+			return whp_sitesLocalServiceUtil.getwhpSitesBudgetBySiteId(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName449.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes449, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.updateMGMT_PLANflag(((Long)arguments[0]).longValue(),
-				((Boolean)arguments[1]).booleanValue());
+			return whp_sitesLocalServiceUtil.getwhpSitesSoouvBySiteId(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName450.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes450, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.updatemissionflag(((Long)arguments[0]).longValue(),
-				((Boolean)arguments[1]).booleanValue());
+			return whp_sitesLocalServiceUtil.getwhpSitesDsocrBySiteId(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName451.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes451, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.updatesocflag(((Long)arguments[0]).longValue(),
-				((Boolean)arguments[1]).booleanValue());
+			return whp_sitesLocalServiceUtil.getwhpSitesIndigenousCommunitiesBySiteId1(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName452.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes452, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.updatemeeflag(((Long)arguments[0]).longValue(),
-				((Boolean)arguments[1]).booleanValue());
+			return whp_sitesLocalServiceUtil.getContactCategoryByCategoryId(((Integer)arguments[0]).intValue());
 		}
 
 		if (_methodName453.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes453, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.getUnescoRegionCountry(((Integer)arguments[0]).intValue());
+			return whp_sitesLocalServiceUtil.getwhpSitesContactBySiteId(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName454.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes454, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.getUnescoRegionBySiteId(((Long)arguments[0]).longValue());
+			return whp_sitesLocalServiceUtil.getWhpContactListBySiteId(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName455.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes455, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.getAllActiveSites();
+			return whp_sitesLocalServiceUtil.getIucnRegionCountry(((Integer)arguments[0]).intValue());
 		}
 
 		if (_methodName456.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes456, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.getWhpSiteDangerListBySiteId(((Long)arguments[0]).longValue());
+			return whp_sitesLocalServiceUtil.getIucnRegionBySiteId(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName457.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes457, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.getWhpSiterecommendationListBySiteId(((Long)arguments[0]).longValue());
+			return whp_sitesLocalServiceUtil.updateMGMT_PLANflag(((Long)arguments[0]).longValue(),
+				((Boolean)arguments[1]).booleanValue());
 		}
 
 		if (_methodName458.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes458, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.getWhpSiteBoundaryModificationBySiteId(((Long)arguments[0]).longValue());
+			return whp_sitesLocalServiceUtil.updatemissionflag(((Long)arguments[0]).longValue(),
+				((Boolean)arguments[1]).booleanValue());
 		}
 
 		if (_methodName459.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes459, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.getWhpSiteFlagshipSpeciesBySiteId(((Long)arguments[0]).longValue());
+			return whp_sitesLocalServiceUtil.updatesocflag(((Long)arguments[0]).longValue(),
+				((Boolean)arguments[1]).booleanValue());
 		}
 
 		if (_methodName460.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes460, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.getWhpSiteIUCNPACategoryBySiteId(((Long)arguments[0]).longValue());
+			return whp_sitesLocalServiceUtil.updatemeeflag(((Long)arguments[0]).longValue(),
+				((Boolean)arguments[1]).booleanValue());
 		}
 
 		if (_methodName461.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes461, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.getWhpSiteOtherDesignationsBySiteId(((Long)arguments[0]).longValue());
+			return whp_sitesLocalServiceUtil.getUnescoRegionCountry(((Integer)arguments[0]).intValue());
 		}
 
 		if (_methodName462.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes462, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.getWhpSiteMgmtPlanStatesBySiteId(((Long)arguments[0]).longValue());
+			return whp_sitesLocalServiceUtil.getUnescoRegionBySiteId(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName463.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes463, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.getWhpSiteMissionBySiteId(((Long)arguments[0]).longValue());
+			return whp_sitesLocalServiceUtil.getAllActiveSites();
 		}
 
 		if (_methodName464.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes464, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.getWhpSiteMeeBySiteId(((Long)arguments[0]).longValue());
+			return whp_sitesLocalServiceUtil.getAllActiveSitesByUserId(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName465.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes465, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.getWhpSiteSocReportsBySiteId(((Long)arguments[0]).longValue());
+			return whp_sitesLocalServiceUtil.getWhpSiteDangerListBySiteId(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName466.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes466, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.getDocs_SiteDataBySiteId(((Long)arguments[0]).longValue());
+			return whp_sitesLocalServiceUtil.getWhpSiterecommendationListBySiteId(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName467.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes467, parameterTypes)) {
-			return whp_sitesLocalServiceUtil.updateThumbnail(((Long)arguments[0]).longValue(),
-				(byte[])arguments[1]);
+			return whp_sitesLocalServiceUtil.getWhpSiteBoundaryModificationBySiteId(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName468.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes468, parameterTypes)) {
-			whp_sitesLocalServiceUtil.deleteThumbnail(((Long)arguments[0]).longValue());
+			return whp_sitesLocalServiceUtil.getWhpSiteFlagshipSpeciesBySiteId(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName469.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes469, parameterTypes)) {
+			return whp_sitesLocalServiceUtil.getWhpSiteIUCNPACategoryBySiteId(((Long)arguments[0]).longValue());
+		}
+
+		if (_methodName470.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes470, parameterTypes)) {
+			return whp_sitesLocalServiceUtil.getWhpSiteOtherDesignationsBySiteId(((Long)arguments[0]).longValue());
+		}
+
+		if (_methodName471.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes471, parameterTypes)) {
+			return whp_sitesLocalServiceUtil.getWhpSiteMgmtPlanStatesBySiteId(((Long)arguments[0]).longValue());
+		}
+
+		if (_methodName472.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes472, parameterTypes)) {
+			return whp_sitesLocalServiceUtil.getWhpSiteMissionBySiteId(((Long)arguments[0]).longValue());
+		}
+
+		if (_methodName473.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes473, parameterTypes)) {
+			return whp_sitesLocalServiceUtil.getWhpSiteMeeBySiteId(((Long)arguments[0]).longValue());
+		}
+
+		if (_methodName474.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes474, parameterTypes)) {
+			return whp_sitesLocalServiceUtil.getWhpSiteSocReportsBySiteId(((Long)arguments[0]).longValue());
+		}
+
+		if (_methodName475.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes475, parameterTypes)) {
+			return whp_sitesLocalServiceUtil.getDocs_SiteDataBySiteId(((Long)arguments[0]).longValue());
+		}
+
+		if (_methodName476.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes476, parameterTypes)) {
+			return whp_sitesLocalServiceUtil.updateThumbnail(((Long)arguments[0]).longValue(),
+				(byte[])arguments[1]);
+		}
+
+		if (_methodName477.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes477, parameterTypes)) {
+			whp_sitesLocalServiceUtil.deleteThumbnail(((Long)arguments[0]).longValue());
+		}
+
+		if (_methodName478.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes478, parameterTypes)) {
 			return whp_sitesLocalServiceUtil.getWhp_sitesByCustomQuery((java.lang.String)arguments[0],
 				((Integer)arguments[1]).intValue(),
 				((Integer)arguments[2]).intValue());
@@ -614,26 +623,10 @@ public class whp_sitesLocalServiceClpInvoker {
 	private String[] _methodParameterTypes14;
 	private String _methodName15;
 	private String[] _methodParameterTypes15;
-	private String _methodName424;
-	private String[] _methodParameterTypes424;
-	private String _methodName425;
-	private String[] _methodParameterTypes425;
-	private String _methodName430;
-	private String[] _methodParameterTypes430;
-	private String _methodName431;
-	private String[] _methodParameterTypes431;
 	private String _methodName432;
 	private String[] _methodParameterTypes432;
 	private String _methodName433;
 	private String[] _methodParameterTypes433;
-	private String _methodName434;
-	private String[] _methodParameterTypes434;
-	private String _methodName435;
-	private String[] _methodParameterTypes435;
-	private String _methodName436;
-	private String[] _methodParameterTypes436;
-	private String _methodName437;
-	private String[] _methodParameterTypes437;
 	private String _methodName438;
 	private String[] _methodParameterTypes438;
 	private String _methodName439;
@@ -698,4 +691,22 @@ public class whp_sitesLocalServiceClpInvoker {
 	private String[] _methodParameterTypes468;
 	private String _methodName469;
 	private String[] _methodParameterTypes469;
+	private String _methodName470;
+	private String[] _methodParameterTypes470;
+	private String _methodName471;
+	private String[] _methodParameterTypes471;
+	private String _methodName472;
+	private String[] _methodParameterTypes472;
+	private String _methodName473;
+	private String[] _methodParameterTypes473;
+	private String _methodName474;
+	private String[] _methodParameterTypes474;
+	private String _methodName475;
+	private String[] _methodParameterTypes475;
+	private String _methodName476;
+	private String[] _methodParameterTypes476;
+	private String _methodName477;
+	private String[] _methodParameterTypes477;
+	private String _methodName478;
+	private String[] _methodParameterTypes478;
 }

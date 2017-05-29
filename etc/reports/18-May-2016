@@ -1,0 +1,9 @@
+Daily Report, 17 May 2016
+
+#32093 - New Cycle Assessment - Make ‘2016 Cycle’ the default Site Assessments seen - 70% done 
+Site Information page - column with Assessment Cycles from database , 
+Site Assessment  page -  column with Assessment Cycles from database,
+
+#32094 - New Cycle Assessment - Add additional dropdown to see Cycles - 90% done 
+Site Assessment  page - Assessment Cycle dropdown added (DB queries updates)
+

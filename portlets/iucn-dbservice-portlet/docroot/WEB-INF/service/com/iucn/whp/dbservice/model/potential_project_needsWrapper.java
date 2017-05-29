@@ -51,6 +51,8 @@ public class potential_project_needsWrapper implements potential_project_needs,
 		attributes.put("organization_individual", getOrganization_individual());
 		attributes.put("description", getDescription());
 		attributes.put("contact_details", getContact_details());
+		attributes.put("projectDurationFrom", getProjectDurationFrom());
+		attributes.put("projectDurationTo", getProjectDurationTo());
 
 		return attributes;
 	}
@@ -86,6 +88,19 @@ public class potential_project_needsWrapper implements potential_project_needs,
 
 		if (contact_details != null) {
 			setContact_details(contact_details);
+		}
+
+		String projectDurationFrom = (String)attributes.get(
+				"projectDurationFrom");
+
+		if (projectDurationFrom != null) {
+			setProjectDurationFrom(projectDurationFrom);
+		}
+
+		String projectDurationTo = (String)attributes.get("projectDurationTo");
+
+		if (projectDurationTo != null) {
+			setProjectDurationTo(projectDurationTo);
 		}
 	}
 
@@ -196,6 +211,42 @@ public class potential_project_needsWrapper implements potential_project_needs,
 	*/
 	public void setContact_details(java.lang.String contact_details) {
 		_potential_project_needs.setContact_details(contact_details);
+	}
+
+	/**
+	* Returns the project duration from of this potential_project_needs.
+	*
+	* @return the project duration from of this potential_project_needs
+	*/
+	public java.lang.String getProjectDurationFrom() {
+		return _potential_project_needs.getProjectDurationFrom();
+	}
+
+	/**
+	* Sets the project duration from of this potential_project_needs.
+	*
+	* @param projectDurationFrom the project duration from of this potential_project_needs
+	*/
+	public void setProjectDurationFrom(java.lang.String projectDurationFrom) {
+		_potential_project_needs.setProjectDurationFrom(projectDurationFrom);
+	}
+
+	/**
+	* Returns the project duration to of this potential_project_needs.
+	*
+	* @return the project duration to of this potential_project_needs
+	*/
+	public java.lang.String getProjectDurationTo() {
+		return _potential_project_needs.getProjectDurationTo();
+	}
+
+	/**
+	* Sets the project duration to of this potential_project_needs.
+	*
+	* @param projectDurationTo the project duration to of this potential_project_needs
+	*/
+	public void setProjectDurationTo(java.lang.String projectDurationTo) {
+		_potential_project_needs.setProjectDurationTo(projectDurationTo);
 	}
 
 	public boolean isNew() {

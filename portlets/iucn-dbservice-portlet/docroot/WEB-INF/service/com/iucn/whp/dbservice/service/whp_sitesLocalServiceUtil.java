@@ -513,6 +513,13 @@ public class whp_sitesLocalServiceUtil {
 		return getService().getAllActiveSites();
 	}
 
+	public static java.util.List<com.iucn.whp.dbservice.model.whp_sites> getAllActiveSitesByUserId(
+		long id)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return getService().getAllActiveSitesByUserId(id);
+	}
+
 	/**
 	* WHP_DANGER LIST********************************
 	*/

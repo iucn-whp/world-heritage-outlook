@@ -1,0 +1,17 @@
+Daily Report, 30 May 2016
+
+#32487 - "Create coordinator Role" - 100% done.
+    'Coordinator' role created.
+    Test user with this role created: coordinator@lilo.com / 1111
+
+#32516  - "Enable coordinators to launch new site assessment cycles" - 100% done.
+    Users with coordinator role are able to launch new site assessments now:
+    http://ec2-52-34-48-63.us-west-2.compute.amazonaws.com:8080/web/iucn/sites-data
+    coordinator@lilo.com / 1111
+
+#32514 - "Insert capacity for administrators to add copyright creditation to images" - 100% done.
+    Implemented hook on document library for the requested functionality.
+    See redmine update: https://redmine.aimprosoft.com/issues/32514#note-3
+    
+#32513 - "The styling and design of this page" - In Progress.
+    Please, answer redmine question: https://redmine.aimprosoft.com/issues/32513#note-2

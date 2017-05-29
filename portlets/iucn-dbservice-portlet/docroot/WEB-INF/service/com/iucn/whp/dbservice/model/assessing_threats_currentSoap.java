@@ -34,6 +34,7 @@ public class assessing_threats_currentSoap implements Serializable {
 		soapModel.setAssessment_version_id(model.getAssessment_version_id());
 		soapModel.setCurrent_threat(model.getCurrent_threat());
 		soapModel.setJustification(model.getJustification());
+		soapModel.setThreadExtentValue(model.getThreadExtentValue());
 		soapModel.setInside_site(model.getInside_site());
 		soapModel.setOutside_site(model.getOutside_site());
 		soapModel.setThreat_rating_id(model.getThreat_rating_id());
@@ -124,6 +125,14 @@ public class assessing_threats_currentSoap implements Serializable {
 		_justification = justification;
 	}
 
+	public String getThreadExtentValue() {
+		return _threadExtentValue;
+	}
+
+	public void setThreadExtentValue(String threadExtentValue) {
+		_threadExtentValue = threadExtentValue;
+	}
+
 	public boolean getInside_site() {
 		return _inside_site;
 	}
@@ -160,6 +169,7 @@ public class assessing_threats_currentSoap implements Serializable {
 	private long _assessment_version_id;
 	private String _current_threat;
 	private String _justification;
+	private String _threadExtentValue;
 	private boolean _inside_site;
 	private boolean _outside_site;
 	private long _threat_rating_id;

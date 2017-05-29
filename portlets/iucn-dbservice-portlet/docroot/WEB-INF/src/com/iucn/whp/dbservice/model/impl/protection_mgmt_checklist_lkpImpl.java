@@ -14,22 +14,34 @@
 
 package com.iucn.whp.dbservice.model.impl;
 
+import com.iucn.whp.dbservice.model.protection_mgmt_checklist_lkp;
+
 /**
  * The extended model implementation for the protection_mgmt_checklist_lkp service. Represents a row in the &quot;whp_protection_mgmt_checklist_lkp&quot; database table, with each column mapped to a property of this class.
  *
  * <p>
- * Helper methods and all application logic should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link com.iucn.whp.dbservice.model.protection_mgmt_checklist_lkp} interface.
+ * Helper methods and all application logic should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link protection_mgmt_checklist_lkp} interface.
  * </p>
  *
  * @author alok.sen
  */
 public class protection_mgmt_checklist_lkpImpl
 	extends protection_mgmt_checklist_lkpBaseImpl {
+	private int topic_sort;
+
+	public int getTopic_sort() {
+		return topic_sort;
+	}
+
+	public void setTopic_sort(int topic_sort) {
+		this.topic_sort = topic_sort;
+	}
+
 	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never reference this class directly. All methods that expect a protection_mgmt_checklist_lkp model instance should use the {@link com.iucn.whp.dbservice.model.protection_mgmt_checklist_lkp} interface instead.
-	 */
+         * NOTE FOR DEVELOPERS:
+         *
+         * Never reference this class directly. All methods that expect a protection_mgmt_checklist_lkp model instance should use the {@link com.iucn.whp.dbservice.model.protection_mgmt_checklist_lkp} interface instead.
+         */
 	public protection_mgmt_checklist_lkpImpl() {
 	}
 }

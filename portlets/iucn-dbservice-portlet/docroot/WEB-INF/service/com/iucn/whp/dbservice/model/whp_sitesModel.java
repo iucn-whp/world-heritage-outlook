@@ -657,6 +657,27 @@ public interface whp_sitesModel extends BaseModel<whp_sites> {
 	 */
 	public void setDescription(String description);
 
+	/**
+	 * Returns the information_updating of this whp_sites.
+	 *
+	 * @return the information_updating of this whp_sites
+	 */
+	public boolean getInformation_updating();
+
+	/**
+	 * Returns <code>true</code> if this whp_sites is information_updating.
+	 *
+	 * @return <code>true</code> if this whp_sites is information_updating; <code>false</code> otherwise
+	 */
+	public boolean isInformation_updating();
+
+	/**
+	 * Sets whether this whp_sites is information_updating.
+	 *
+	 * @param information_updating the information_updating of this whp_sites
+	 */
+	public void setInformation_updating(boolean information_updating);
+
 	public boolean isNew();
 
 	public void setNew(boolean n);

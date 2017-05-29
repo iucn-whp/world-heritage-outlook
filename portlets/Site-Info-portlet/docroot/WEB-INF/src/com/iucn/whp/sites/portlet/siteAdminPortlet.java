@@ -1,79 +1,11 @@
 package com.iucn.whp.sites.portlet;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import javax.portlet.ActionRequest;
-import javax.portlet.ActionResponse;
-import javax.portlet.PortletException;
-import javax.portlet.PortletRequestDispatcher;
-import javax.portlet.ResourceRequest;
-import javax.portlet.ResourceResponse;
-
-import com.iucn.whp.dbservice.model.country_lkp;
-import com.iucn.whp.dbservice.model.inscription_criteria_lkp;
-import com.iucn.whp.dbservice.model.site_assessment;
-import com.iucn.whp.dbservice.model.sites_thematic;
-import com.iucn.whp.dbservice.model.whp_contact;
-import com.iucn.whp.dbservice.model.whp_site_danger_list;
-import com.iucn.whp.dbservice.model.whp_sites;
-import com.iucn.whp.dbservice.model.whp_sites_boundary_modification;
-import com.iucn.whp.dbservice.model.whp_sites_budget;
-import com.iucn.whp.dbservice.model.whp_sites_component;
-import com.iucn.whp.dbservice.model.whp_sites_contacts;
-import com.iucn.whp.dbservice.model.whp_sites_country;
-import com.iucn.whp.dbservice.model.whp_sites_dsocr;
-import com.iucn.whp.dbservice.model.whp_sites_flagship_species;
-import com.iucn.whp.dbservice.model.whp_sites_indigenous_communities;
-import com.iucn.whp.dbservice.model.whp_sites_inscription_criteria;
-import com.iucn.whp.dbservice.model.whp_sites_inscription_date;
-import com.iucn.whp.dbservice.model.whp_sites_iucn_pa_category;
-import com.iucn.whp.dbservice.model.whp_sites_iucn_recommendation;
-import com.iucn.whp.dbservice.model.whp_sites_other_designations;
-import com.iucn.whp.dbservice.model.whp_sites_soouv;
-import com.iucn.whp.dbservice.model.whp_sites_visitors;
-import com.iucn.whp.dbservice.service.ClpSerializer;
-import com.iucn.whp.dbservice.service.country_lkpLocalServiceUtil;
-import com.iucn.whp.dbservice.service.iucn_region_countryLocalServiceUtil;
-import com.iucn.whp.dbservice.service.site_assessmentLocalServiceUtil;
-import com.iucn.whp.dbservice.service.sites_thematicLocalServiceUtil;
-import com.iucn.whp.dbservice.service.unesco_region_countryLocalServiceUtil;
-import com.iucn.whp.dbservice.service.whp_contactLocalServiceUtil;
-import com.iucn.whp.dbservice.service.whp_site_danger_listLocalServiceUtil;
-import com.iucn.whp.dbservice.service.whp_sitesLocalServiceUtil;
-import com.iucn.whp.dbservice.service.whp_sites_boundary_modificationLocalServiceUtil;
-import com.iucn.whp.dbservice.service.whp_sites_budgetLocalServiceUtil;
-import com.iucn.whp.dbservice.service.whp_sites_componentLocalServiceUtil;
-import com.iucn.whp.dbservice.service.whp_sites_contactsLocalServiceUtil;
-import com.iucn.whp.dbservice.service.whp_sites_countryLocalServiceUtil;
-import com.iucn.whp.dbservice.service.whp_sites_dsocrLocalServiceUtil;
-import com.iucn.whp.dbservice.service.whp_sites_flagship_speciesLocalServiceUtil;
-import com.iucn.whp.dbservice.service.whp_sites_indigenous_communitiesLocalServiceUtil;
-import com.iucn.whp.dbservice.service.whp_sites_inscription_criteriaLocalServiceUtil;
-import com.iucn.whp.dbservice.service.whp_sites_inscription_dateLocalServiceUtil;
-import com.iucn.whp.dbservice.service.whp_sites_iucn_pa_categoryLocalServiceUtil;
-import com.iucn.whp.dbservice.service.whp_sites_iucn_recommendationLocalServiceUtil;
-import com.iucn.whp.dbservice.service.whp_sites_other_designationsLocalServiceUtil;
-import com.iucn.whp.dbservice.service.whp_sites_soouvLocalServiceUtil;
-import com.iucn.whp.dbservice.service.whp_sites_visitorsLocalServiceUtil;
+import com.iucn.whp.dbservice.model.*;
+import com.iucn.whp.dbservice.service.*;
 import com.iucn.whp.sites.utils.SiteSearchUtil;
 import com.liferay.counter.service.CounterLocalServiceUtil;
 import com.liferay.portal.kernel.bean.PortletBeanLocatorUtil;
-import com.liferay.portal.kernel.dao.orm.DynamicQuery;
-import com.liferay.portal.kernel.dao.orm.DynamicQueryFactoryUtil;
-import com.liferay.portal.kernel.dao.orm.ProjectionFactoryUtil;
-import com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil;
-import com.liferay.portal.kernel.dao.orm.RestrictionsFactoryUtil;
-import com.liferay.portal.kernel.dao.search.DisplayTerms;
+import com.liferay.portal.kernel.dao.orm.*;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSONArray;
@@ -84,19 +16,23 @@ import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.Folder;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.upload.UploadPortletRequest;
-import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.service.ServiceContextFactory;
-import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portlet.documentlibrary.model.DLFileEntry;
 import com.liferay.portlet.documentlibrary.model.DLFolderConstants;
 import com.liferay.portlet.documentlibrary.service.DLAppServiceUtil;
-import com.liferay.portlet.documentlibrary.util.DLUtil;
 import com.liferay.portlet.documentlibrary.util.ImageProcessorUtil;
 import com.liferay.portlet.expando.service.ExpandoColumnLocalServiceUtil;
 import com.liferay.util.bridges.mvc.MVCPortlet;
+
+import javax.portlet.*;
+import java.io.IOException;
+import java.io.InputStream;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * @author Saurabh.Mehta
@@ -1651,7 +1587,8 @@ public void isContactExistForSite(ResourceRequest resourceRequest, ResourceRespo
 			//check is assessment is already started
 			site_assessment objsite_assessment = null;
 			boolean isAssessmentInProgress=false;
-			List<site_assessment> lstsite_assessment = site_assessmentLocalServiceUtil.getActiveAssessmentBySiteId(siteID);
+			List<site_assessment> lstsite_assessment = new ArrayList<site_assessment>();
+			lstsite_assessment.addAll(site_assessmentLocalServiceUtil.getActiveAssessmentBySiteId(siteID));
 			//siteAssessmentByFlag(true,false);
 					
 			for(site_assessment site_assessmentobj:lstsite_assessment){
@@ -1705,6 +1642,8 @@ public void isContactExistForSite(ResourceRequest resourceRequest, ResourceRespo
 				objsite_assessment.setCurrent_stageid(1);
 				objsite_assessment.setArchived(false);
 				objsite_assessment.setIs_active(true);
+				// previous version is '2016'
+				objsite_assessment.setAssessment_cycle("2017");
 
 				site_assessmentLocalServiceUtil
 						.addsite_assessment(objsite_assessment);
@@ -1714,8 +1653,9 @@ public void isContactExistForSite(ResourceRequest resourceRequest, ResourceRespo
 
 		} catch (Exception ex) {
 			SessionErrors.add(request, "error");
-			// System.out.println("ex---------"+ex.getCause());
-			ex.getCause();
+//			System.out.println("ex---------"+ex.getCause());
+//			ex.getCause();
+			ex.printStackTrace();
 		}
 	}
 	public void site_searchFilterURL(ActionRequest actionRequest, ActionResponse actionResponse) throws Exception{

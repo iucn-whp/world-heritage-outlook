@@ -227,7 +227,8 @@ $(function() {
 	String Sitecriteria="";
 	String finalcriteria="";
 	Date Date_publish=null;
-	
+
+	boolean isAssessmentInProgress = false;
 	
 	String rParameter_wdpaid = request.getParameter("wdpaid");
 	String rParameter_language = request.getParameter("language");
@@ -259,6 +260,12 @@ $(function() {
 		
 		whp_sites selectedSite = whp_sitesLocalServiceUtil.getSiteByWdpaId(selWdpaid);
 		assessmntVersionLangMap = utils.getLangVersionDetails(selectedSite.getSite_id());
+		// See 'whp_assessment_status' table - 'In progress' status
+
+		if(selectedSite.isInformation_updating()){
+			isAssessmentInProgress = true;
+		}
+
 		
 		site_ids=  Long.toString(selectedSite.getSite_id()); 
 		
@@ -266,7 +273,6 @@ $(function() {
 			lastass_version_id = assessmntVersionLangMap.get(rParameter_language);
 			version_id=Long.toString(lastass_version_id);
 			
-			//System.out.print(rParameter_language + " assVid :" + lastass_version_id);
 		}
 		siteName_en = selectedSite.getName_en();
 		
@@ -314,7 +320,7 @@ $(function() {
 			{
 				obj=inscription_criteria_lkpLocalServiceUtil.getinscription_criteria_lkp(lstcriteria.get(n).getCriteria_id());
 				criteria=obj.getCriteria();
-				Sitecriteria = Sitecriteria+","+criteria;
+				Sitecriteria = Sitecriteria+", "+criteria;
 
 			}
 			 finalcriteria=Sitecriteria.substring(1);
@@ -486,37 +492,48 @@ if(lastass_version_id > 0){
 	
 <!--siteAssessmentPublicPageLeftBlock starts here-->
 		<div class="siteAssessmentPublicPageLeftBlock">
-		
-		<h1 class="pageHeaderTitle"><%=siteName_en %></h1>
-		<p class="siteAssessmentPublicPageInfo">Learn more about the state of conservation of this natural World Heritage site by scrolling down to read assessment summaries.More details can be found by navigating to the "Full references" tab, where conservation issues, benefits and projects are cited alongside values, threats, and protection and management.Sources of information are listed under references.</p>
 
-	<ul class='tabs'>
-			<li class="selectedTabLi">
-				<a href='#tab1' class="tab tabSelected tabIndex" tabindex="1000">
-					<span class="leftCorner leftCornerBlue"></span>
-					<span class="rightCorner rightCornerBlue"></span>
-				Summary
-				</a>		
-			</li>	
+			<div class="left">
+				<h1 class="pageHeaderTitle"><%=siteName_en %></h1>
+			</div>
+			<div>
+				<% if ( isAssessmentInProgress ) { %>
+				<p class="siteAssessmentNotificationBlock">* New information has been received for this site. Update due soon.</p>
+				<% } %>
+			</div>
 
-			
-			<li>		
-				<a href='#tab2' class="tab" tabindex="1001">
-					<span class="leftCorner tabShadow"></span>
-					<span class="rightCorner rightCornerGrey"></span>
-					Full assessment
-				</a>		
-			</li>
-			
-			
-			<li>			
-				<a href='#tab3' class="tab" tabindex="1002">
-				<span class="leftCorner tabShadow"></span>
-				<span class="rightCorner rightCornerGrey"></span>
-				References
-				</a>		
-			</li>
-		</ul>
+			<p class="siteAssessmentPublicPageInfo">
+				Learn more about the state of conservation of this natural World Heritage site by scrolling down to
+				read assessment summaries.More details can be found by navigating to the "Full references" tab,
+				where conservation issues, benefits and projects are cited alongside values, threats, and protection
+				and management.Sources of information are listed under references.
+			</p>
+
+			<ul class='tabs'>
+				<li class="selectedTabLi">
+					<a href='#tab1' class="tab tabSelected tabIndex" tabindex="1000">
+						<span class="leftCorner leftCornerBlue"></span>
+						<span class="rightCorner rightCornerBlue"></span>
+						Summary
+					</a>
+				</li>
+
+				<li>
+					<a href='#tab2' class="tab" tabindex="1001">
+						<span class="leftCorner tabShadow"></span>
+						<span class="rightCorner rightCornerGrey"></span>
+						Full assessment
+					</a>
+				</li>
+
+				<li>
+					<a href='#tab3' class="tab" tabindex="1002">
+						<span class="leftCorner tabShadow"></span>
+						<span class="rightCorner rightCornerGrey"></span>
+						References
+					</a>
+				</li>
+			</ul>
 	<div class="backBtnHolder">
 	<a href="<%= backURL%>" class="backBtn">Back to Search</a>
 		
@@ -551,25 +568,25 @@ if(lastass_version_id > 0){
 	
 		<div id="publish_date">
 		<%
-		String publish_date="";
-		System.out.println("Version ID = "+version_id);		
-		List<assessment_lang_version> lstlangversion =assessment_lang_versionLocalServiceUtil.findByAssessmentIdByAssessmentVersionId(Long.parseLong(version_id));
-				
-				for(assessment_lang_version varpublishdate:lstlangversion){
-					
-					if(varpublishdate.isPublished())
-						publish_date=varpublishdate.getPublished_date().toGMTString().substring(0,11);
-					
-					break;
-				
-					
-				}
-				
+		String publish_date = "";
+		System.out.println("Version ID = "+version_id);
 
-		
+		if (!version_id.isEmpty()) {
+			List<assessment_lang_version> lstlangversion = assessment_lang_versionLocalServiceUtil.findByAssessmentIdByAssessmentVersionId(Long.parseLong(version_id));
+
+			for(assessment_lang_version varpublishdate:lstlangversion) {
+
+				if(varpublishdate.isPublished()) {
+					publish_date = varpublishdate.getPublished_date().toGMTString().substring(0,11);
+				}
+
+				break;
+			}
+		}
+
 		%>
 		
-	   <span class="Publishdateclass">Published on <%=publish_date%></span>
+	   <span class="Publishdateclass">Finalised on <%=publish_date%></span>
 	
 		</div>
 	
@@ -869,8 +886,15 @@ if(lastass_version_id > 0){
 					
 						</div>	
 						  
-						<h2 class="blockTitleHeading">Assessment Information</h2>  
-				
+						<h2 class="blockTitleHeading">Assessment Information
+
+							<div id="publish_date">
+
+								<span class="Publishdateclass">Finalised on <%=publish_date%></span>
+							</div>
+
+						</h2>
+
 						<h3>Values</h3>
 								
 						 
@@ -1641,7 +1665,9 @@ if(lastass_version_id > 0){
 									String str_topic = "";
 									if(topic_Id > 0){
 										protection_mgmt_checklist_lkp obj_protection_mgmt_checklist_lkp = protection_mgmt_checklist_lkpLocalServiceUtil.fetchprotection_mgmt_checklist_lkp(topic_Id);
-										str_topic = obj_protection_mgmt_checklist_lkp.getTopic();
+										if(obj_protection_mgmt_checklist_lkp !=null){
+											str_topic = obj_protection_mgmt_checklist_lkp.getTopic();
+										}
 									}
 									
 									String str_protect_rating = "";
@@ -2580,12 +2606,13 @@ The current management of the property is effective in general, but should be im
 				siteddescription=objsite.getDescription();
 				
 				%>
-				
 				<%if(!siteddescription.isEmpty()){ %>
 				<p>
 				<%=siteddescription %>
 				</p>
-			  
+
+		         <p>&#9426 UNESCO</p>
+
 			   <%}else{ %>
 			   	<p>No Description available</p>
 			
@@ -2689,8 +2716,9 @@ The current management of the property is effective in general, but should be im
 				<h3>More on this site</h3>
 				<ul>
 					<li><a href="<%=ppnet_url1%>"  target="_blank">&gt;&nbsp;Protected Planet Website</a></li>
-					<li><a href="<%=unesco_url1%>" target="_blank">&gt;&nbsp;Unesco World Heritage Convention</a></li>
-					<li><a href="http://www.iucn.org" target="_blank">&gt;&nbsp;IUCN</a></li>
+					<li><a href="<%=unesco_url1%>" target="_blank">&gt;&nbsp;UNESCO World Heritage Centre</a></li>
+					<%--href="http://www.iucn.org"--%>
+					<%--<li><a target="_blank">&gt;&nbsp;IUCN</a></li>--%>
 				</ul>
 			</div>
 			
@@ -2702,14 +2730,13 @@ The current management of the property is effective in general, but should be im
 					<li><a href="http://www.worldheritageoutlook.iucn.org/methodology">&gt;&nbsp;Methodology</a></li>
 				</ul>
 			</div>
-			
+
 			<div class="moreInfo">
 				<h3>Download pdf</h3>
 				<ul>
-					<li><a  href="<%=pdfURL%>"  target="_blank" ><span>&gt;&nbsp;Download Pdf</span></a></li>
-	
+					<li><a href="<%=pdfURL%>" target="_blank"><span>&gt;&nbsp;Download Pdf</span></a></li>
 				</ul>
-				</div>
+			</div>
 				
 			<div class="moreInfo">
 				<h3>Give us feedback</h3>

@@ -66,6 +66,7 @@ public class whp_sitesSoap implements Serializable {
 		soapModel.setThumbnailid(model.getThumbnailid());
 		soapModel.setThumbnailid_small(model.getThumbnailid_small());
 		soapModel.setDescription(model.getDescription());
+		soapModel.setInformation_updating(model.getInformation_updating());
 
 		return soapModel;
 	}
@@ -458,6 +459,18 @@ public class whp_sitesSoap implements Serializable {
 		_description = description;
 	}
 
+	public boolean getInformation_updating() {
+		return _information_updating;
+	}
+
+	public boolean isInformation_updating() {
+		return _information_updating;
+	}
+
+	public void setInformation_updating(boolean information_updating) {
+		_information_updating = information_updating;
+	}
+
 	private long _site_id;
 	private long _groupId;
 	private long _companyId;
@@ -493,4 +506,5 @@ public class whp_sitesSoap implements Serializable {
 	private long _thumbnailid;
 	private long _thumbnailid_small;
 	private String _description;
+	private boolean _information_updating;
 }

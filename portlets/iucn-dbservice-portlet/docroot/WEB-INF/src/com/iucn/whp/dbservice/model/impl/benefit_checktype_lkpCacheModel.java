@@ -33,12 +33,14 @@ public class benefit_checktype_lkpCacheModel implements CacheModel<benefit_check
 	Serializable {
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(5);
+		StringBundler sb = new StringBundler(7);
 
 		sb.append("{benefit_id=");
 		sb.append(benefit_id);
 		sb.append(", benefit_checktype=");
 		sb.append(benefit_checktype);
+		sb.append(", active=");
+		sb.append(active);
 		sb.append("}");
 
 		return sb.toString();
@@ -56,6 +58,8 @@ public class benefit_checktype_lkpCacheModel implements CacheModel<benefit_check
 			benefit_checktype_lkpImpl.setBenefit_checktype(benefit_checktype);
 		}
 
+		benefit_checktype_lkpImpl.setActive(active);
+
 		benefit_checktype_lkpImpl.resetOriginalValues();
 
 		return benefit_checktype_lkpImpl;
@@ -63,4 +67,5 @@ public class benefit_checktype_lkpCacheModel implements CacheModel<benefit_check
 
 	public long benefit_id;
 	public String benefit_checktype;
+	public boolean active;
 }

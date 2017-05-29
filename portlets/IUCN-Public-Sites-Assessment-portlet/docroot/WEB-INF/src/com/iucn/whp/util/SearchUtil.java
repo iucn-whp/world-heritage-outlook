@@ -1,23 +1,19 @@
 package com.iucn.whp.util;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 import com.iucn.whp.dbservice.model.country_lkp;
 import com.iucn.whp.dbservice.model.whp_sites;
 import com.iucn.whp.dbservice.model.whp_sites_country;
 import com.iucn.whp.dbservice.service.ClpSerializer;
 import com.iucn.whp.dbservice.service.whp_sitesLocalServiceUtil;
 import com.liferay.portal.kernel.bean.PortletBeanLocatorUtil;
-import com.liferay.portal.kernel.dao.orm.DynamicQuery;
-import com.liferay.portal.kernel.dao.orm.DynamicQueryFactoryUtil;
-import com.liferay.portal.kernel.dao.orm.ProjectionFactoryUtil;
-import com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil;
-import com.liferay.portal.kernel.dao.orm.RestrictionsFactoryUtil;
+import com.liferay.portal.kernel.dao.orm.*;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 
 
@@ -42,7 +38,6 @@ public class SearchUtil {
 		.add(RestrictionsFactoryUtil.ilike("whpSites.name_en","%"+searchPattern+"%"));
 =======
 		.add(RestrictionsFactoryUtil.ilike("whpSites.name_en","%"+searchPattern+"%")).add(RestrictionsFactoryUtil.eq("whpSites.active", "true"));*/
->>>>>>> .r1972
 		
 		DynamicQuery dqGetSitesFromSiteNames = DynamicQueryFactoryUtil.forClass(whp_sites.class,"whpSites",classLoader)
 		.add(PropertyFactoryUtil.forName("whpSites.active").eq(true))	 

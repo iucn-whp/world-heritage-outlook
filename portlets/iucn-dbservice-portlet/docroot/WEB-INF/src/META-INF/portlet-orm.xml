@@ -14,6 +14,8 @@
 			<basic name="organization_individual" />
 			<basic name="description" />
 			<basic name="contact_details" />
+			<basic name="projectDurationFrom" />
+			<basic name="projectDurationTo" />
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
@@ -73,6 +75,7 @@
 			<basic name="assessment_version_id" />
 			<basic name="current_threat" />
 			<basic name="justification" />
+			<basic name="threadExtentValue" />
 			<basic name="inside_site" />
 			<basic name="outside_site" />
 			<basic name="threat_rating_id" />
@@ -87,6 +90,7 @@
 			<basic name="assessment_version_id" />
 			<basic name="potential_threat" />
 			<basic name="justification" />
+			<basic name="threadExtentValue" />
 			<basic name="threat_rating" />
 			<basic name="inside_site" />
 			<basic name="outside_site" />
@@ -178,6 +182,10 @@
 			<id name="subbenefit_id" />
 			<basic name="benefit_checksubtype" />
 			<basic name="parent_id" />
+			<basic name="position" />
+			<basic name="active">
+				<column name="ACTIVE_" />
+			</basic>
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
@@ -187,6 +195,9 @@
 		<attributes>
 			<id name="benefit_id" />
 			<basic name="benefit_checktype" />
+			<basic name="active">
+				<column name="ACTIVE_" />
+			</basic>
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
@@ -210,6 +221,19 @@
 			<basic name="assessment_version_id" />
 			<basic name="selected_benefit" />
 			<basic name="summary" />
+			<basic name="habitatChangeLevel" />
+			<basic name="habitatChangeTrend" />
+			<basic name="pollutionLevel" />
+			<basic name="pollutionTrend" />
+			<basic name="overExploitationLevel" />
+			<basic name="overExploitationTrend" />
+			<basic name="climateChangeLevel" />
+			<basic name="climateChangeTrend" />
+			<basic name="invasiveSpeciesLevel" />
+			<basic name="invasiveSpeciesTrend" />
+			<basic name="comment">
+				<column name="COMMENT_" />
+			</basic>
 			<basic name="data_deficient" />
 			<basic name="community_within_site" />
 			<basic name="community_outside_site" />
@@ -524,6 +548,26 @@
 			<transient name="primaryKeyObj" />
 		</attributes>
 	</mapped-superclass>
+	<mapped-superclass class="com.iucn.whp.dbservice.model.impl.negative_factors_level_impactModelImpl">
+		<attributes>
+			<id name="level_id" />
+			<basic name="level_impact" />
+			<basic name="description" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.iucn.whp.dbservice.model.impl.negative_factors_trendModelImpl">
+		<attributes>
+			<id name="trend_id" />
+			<basic name="trend" />
+			<basic name="description" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
 	<mapped-superclass class="com.iucn.whp.dbservice.model.impl.other_designation_lkpModelImpl">
 		<attributes>
 			<id name="other_designations_id" />
@@ -540,6 +584,8 @@
 			<basic name="organization_individual" />
 			<basic name="description" />
 			<basic name="contact_details" />
+			<basic name="projectDurationFrom" />
+			<basic name="projectDurationTo" />
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
@@ -616,6 +662,7 @@
 		<attributes>
 			<id name="topic_id" />
 			<basic name="topic" />
+			<basic name="topic_sort" />
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
@@ -669,6 +716,7 @@
 			<basic name="base_langid" />
 			<basic name="archived" />
 			<basic name="is_active" />
+			<basic name="assessment_cycle" />
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
@@ -939,6 +987,7 @@
 			<basic name="thumbnailid" />
 			<basic name="thumbnailid_small" />
 			<basic name="description" />
+			<basic name="information_updating" />
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
@@ -1359,6 +1408,14 @@
 	</entity>
 	<entity class="com.iucn.whp.dbservice.model.impl.mission_lkpImpl" name="mission_lkp">
 		<table name="whp_mission_lkp" />
+		<attributes />
+	</entity>
+	<entity class="com.iucn.whp.dbservice.model.impl.negative_factors_level_impactImpl" name="negative_factors_level_impact">
+		<table name="whp_negative_factors_level_impact" />
+		<attributes />
+	</entity>
+	<entity class="com.iucn.whp.dbservice.model.impl.negative_factors_trendImpl" name="negative_factors_trend">
+		<table name="whp_negative_factors_trend" />
 		<attributes />
 	</entity>
 	<entity class="com.iucn.whp.dbservice.model.impl.other_designation_lkpImpl" name="other_designation_lkp">

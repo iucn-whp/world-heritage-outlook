@@ -16,16 +16,16 @@ String selectedPkey=request.getParameter("keyVal");
 long current_Assessment_id= objAssessment_VersionDTO.getAssessmentId();
 long pversion_id= objAssessment_VersionDTO.getVersionId();
 //long passessmentId=objAssessment_VersionDTO.get
+String assessmentVersionId = ParamUtil.getString(request, "versionIdVal");
 %>
 
 <liferay-ui:icon-menu>
-
-   <portlet:actionURL var="fillFromPrevAssessmentURL" name="fillFromPrevAssessmentAction" >
-          <portlet:param name="assessmentId" value="<%= selectedPkey %>" />
-         <portlet:param name="pversionId" value="<%= String.valueOf(pversion_id) %>" />
+    <portlet:actionURL var="fillFromPrevAssessmentURL" name="fillFromPrevAssessmentAction">
+        <portlet:param name="assessmentId" value="<%= selectedPkey %>"/>
+        <portlet:param name="pversionId" value="<%= String.valueOf(pversion_id) %>"/>
+        <portlet:param name="assessmentVersionId" value="<%= assessmentVersionId %>"/>
     </portlet:actionURL>
-    
-    <liferay-ui:icon image="edit" message="FILL" url="<%= fillFromPrevAssessmentURL.toString() %>" />
-       
+
+    <liferay-ui:icon image="edit" message="FILL" url="<%= fillFromPrevAssessmentURL.toString() %>"/>
 
 </liferay-ui:icon-menu>

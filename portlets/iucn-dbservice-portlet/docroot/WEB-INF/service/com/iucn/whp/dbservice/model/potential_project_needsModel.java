@@ -130,6 +130,36 @@ public interface potential_project_needsModel extends BaseModel<potential_projec
 	 */
 	public void setContact_details(String contact_details);
 
+	/**
+	 * Returns the project duration from of this potential_project_needs.
+	 *
+	 * @return the project duration from of this potential_project_needs
+	 */
+	@AutoEscape
+	public String getProjectDurationFrom();
+
+	/**
+	 * Sets the project duration from of this potential_project_needs.
+	 *
+	 * @param projectDurationFrom the project duration from of this potential_project_needs
+	 */
+	public void setProjectDurationFrom(String projectDurationFrom);
+
+	/**
+	 * Returns the project duration to of this potential_project_needs.
+	 *
+	 * @return the project duration to of this potential_project_needs
+	 */
+	@AutoEscape
+	public String getProjectDurationTo();
+
+	/**
+	 * Sets the project duration to of this potential_project_needs.
+	 *
+	 * @param projectDurationTo the project duration to of this potential_project_needs
+	 */
+	public void setProjectDurationTo(String projectDurationTo);
+
 	public boolean isNew();
 
 	public void setNew(boolean n);

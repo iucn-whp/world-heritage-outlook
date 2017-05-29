@@ -1,0 +1,13 @@
+Daily Report, 16 May 2016
+
+#32088 - Ensure ALL functionality is working on the development environments - 90% done
+
+(most of functionality tested)
+
+#32093 - New Cycle Assessment - Make ‘2016 Cycle’ the default Site Assessments seen - 30% done
+
+(added new column ' assessment_cycle' to 'Site info' portlet, working on assessment_cycle database table model)
+
+#32094 - New Cycle Assessment - Add additional dropdown to see Cycles - 50% done
+
+(dropdown added, working on refreshing datatable after changing dropdown value)

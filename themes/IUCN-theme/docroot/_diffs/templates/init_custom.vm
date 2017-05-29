@@ -1,5 +1,0 @@
-#*
-This file allows you to override and define new Velocity variables.
-*#
-
-#set ($isHome = 'test')

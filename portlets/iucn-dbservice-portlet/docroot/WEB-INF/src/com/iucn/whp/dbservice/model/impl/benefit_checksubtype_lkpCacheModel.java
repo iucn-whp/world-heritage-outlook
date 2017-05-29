@@ -33,7 +33,7 @@ public class benefit_checksubtype_lkpCacheModel implements CacheModel<benefit_ch
 	Serializable {
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(7);
+		StringBundler sb = new StringBundler(11);
 
 		sb.append("{subbenefit_id=");
 		sb.append(subbenefit_id);
@@ -41,6 +41,10 @@ public class benefit_checksubtype_lkpCacheModel implements CacheModel<benefit_ch
 		sb.append(benefit_checksubtype);
 		sb.append(", parent_id=");
 		sb.append(parent_id);
+		sb.append(", position=");
+		sb.append(position);
+		sb.append(", active=");
+		sb.append(active);
 		sb.append("}");
 
 		return sb.toString();
@@ -59,6 +63,8 @@ public class benefit_checksubtype_lkpCacheModel implements CacheModel<benefit_ch
 		}
 
 		benefit_checksubtype_lkpImpl.setParent_id(parent_id);
+		benefit_checksubtype_lkpImpl.setPosition(position);
+		benefit_checksubtype_lkpImpl.setActive(active);
 
 		benefit_checksubtype_lkpImpl.resetOriginalValues();
 
@@ -68,4 +74,6 @@ public class benefit_checksubtype_lkpCacheModel implements CacheModel<benefit_ch
 	public long subbenefit_id;
 	public String benefit_checksubtype;
 	public long parent_id;
+	public long position;
+	public boolean active;
 }

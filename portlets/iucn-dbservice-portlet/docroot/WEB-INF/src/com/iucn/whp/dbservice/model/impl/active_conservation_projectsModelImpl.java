@@ -62,9 +62,11 @@ public class active_conservation_projectsModelImpl extends BaseModelImpl<active_
 			{ "assessment_version_id", Types.BIGINT },
 			{ "organization_individual", Types.VARCHAR },
 			{ "description", Types.VARCHAR },
-			{ "contact_details", Types.VARCHAR }
+			{ "contact_details", Types.VARCHAR },
+			{ "projectDurationFrom", Types.VARCHAR },
+			{ "projectDurationTo", Types.VARCHAR }
 		};
-	public static final String TABLE_SQL_CREATE = "create table whp_active_conservation_projects (acpid LONG not null primary key,assessment_version_id LONG,organization_individual VARCHAR(400) null,description STRING null,contact_details VARCHAR(500) null)";
+	public static final String TABLE_SQL_CREATE = "create table whp_active_conservation_projects (acpid LONG not null primary key,assessment_version_id LONG,organization_individual VARCHAR(400) null,description STRING null,contact_details VARCHAR(500) null,projectDurationFrom VARCHAR(75) null,projectDurationTo VARCHAR(75) null)";
 	public static final String TABLE_SQL_DROP = "drop table whp_active_conservation_projects";
 	public static final String DATA_SOURCE = "liferayDataSource";
 	public static final String SESSION_FACTORY = "liferaySessionFactory";
@@ -118,6 +120,8 @@ public class active_conservation_projectsModelImpl extends BaseModelImpl<active_
 		attributes.put("organization_individual", getOrganization_individual());
 		attributes.put("description", getDescription());
 		attributes.put("contact_details", getContact_details());
+		attributes.put("projectDurationFrom", getProjectDurationFrom());
+		attributes.put("projectDurationTo", getProjectDurationTo());
 
 		return attributes;
 	}
@@ -154,6 +158,19 @@ public class active_conservation_projectsModelImpl extends BaseModelImpl<active_
 
 		if (contact_details != null) {
 			setContact_details(contact_details);
+		}
+
+		String projectDurationFrom = (String)attributes.get(
+				"projectDurationFrom");
+
+		if (projectDurationFrom != null) {
+			setProjectDurationFrom(projectDurationFrom);
+		}
+
+		String projectDurationTo = (String)attributes.get("projectDurationTo");
+
+		if (projectDurationTo != null) {
+			setProjectDurationTo(projectDurationTo);
 		}
 	}
 
@@ -224,6 +241,32 @@ public class active_conservation_projectsModelImpl extends BaseModelImpl<active_
 		_contact_details = contact_details;
 	}
 
+	public String getProjectDurationFrom() {
+		if (_projectDurationFrom == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _projectDurationFrom;
+		}
+	}
+
+	public void setProjectDurationFrom(String projectDurationFrom) {
+		_projectDurationFrom = projectDurationFrom;
+	}
+
+	public String getProjectDurationTo() {
+		if (_projectDurationTo == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _projectDurationTo;
+		}
+	}
+
+	public void setProjectDurationTo(String projectDurationTo) {
+		_projectDurationTo = projectDurationTo;
+	}
+
 	public long getColumnBitmask() {
 		return _columnBitmask;
 	}
@@ -261,6 +304,8 @@ public class active_conservation_projectsModelImpl extends BaseModelImpl<active_
 		active_conservation_projectsImpl.setOrganization_individual(getOrganization_individual());
 		active_conservation_projectsImpl.setDescription(getDescription());
 		active_conservation_projectsImpl.setContact_details(getContact_details());
+		active_conservation_projectsImpl.setProjectDurationFrom(getProjectDurationFrom());
+		active_conservation_projectsImpl.setProjectDurationTo(getProjectDurationTo());
 
 		active_conservation_projectsImpl.resetOriginalValues();
 
@@ -358,12 +403,29 @@ public class active_conservation_projectsModelImpl extends BaseModelImpl<active_
 			active_conservation_projectsCacheModel.contact_details = null;
 		}
 
+		active_conservation_projectsCacheModel.projectDurationFrom = getProjectDurationFrom();
+
+		String projectDurationFrom = active_conservation_projectsCacheModel.projectDurationFrom;
+
+		if ((projectDurationFrom != null) &&
+				(projectDurationFrom.length() == 0)) {
+			active_conservation_projectsCacheModel.projectDurationFrom = null;
+		}
+
+		active_conservation_projectsCacheModel.projectDurationTo = getProjectDurationTo();
+
+		String projectDurationTo = active_conservation_projectsCacheModel.projectDurationTo;
+
+		if ((projectDurationTo != null) && (projectDurationTo.length() == 0)) {
+			active_conservation_projectsCacheModel.projectDurationTo = null;
+		}
+
 		return active_conservation_projectsCacheModel;
 	}
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(11);
+		StringBundler sb = new StringBundler(15);
 
 		sb.append("{acpid=");
 		sb.append(getAcpid());
@@ -375,13 +437,17 @@ public class active_conservation_projectsModelImpl extends BaseModelImpl<active_
 		sb.append(getDescription());
 		sb.append(", contact_details=");
 		sb.append(getContact_details());
+		sb.append(", projectDurationFrom=");
+		sb.append(getProjectDurationFrom());
+		sb.append(", projectDurationTo=");
+		sb.append(getProjectDurationTo());
 		sb.append("}");
 
 		return sb.toString();
 	}
 
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(19);
+		StringBundler sb = new StringBundler(25);
 
 		sb.append("<model><model-name>");
 		sb.append("com.iucn.whp.dbservice.model.active_conservation_projects");
@@ -407,6 +473,14 @@ public class active_conservation_projectsModelImpl extends BaseModelImpl<active_
 			"<column><column-name>contact_details</column-name><column-value><![CDATA[");
 		sb.append(getContact_details());
 		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>projectDurationFrom</column-name><column-value><![CDATA[");
+		sb.append(getProjectDurationFrom());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>projectDurationTo</column-name><column-value><![CDATA[");
+		sb.append(getProjectDurationTo());
+		sb.append("]]></column-value></column>");
 
 		sb.append("</model>");
 
@@ -424,6 +498,8 @@ public class active_conservation_projectsModelImpl extends BaseModelImpl<active_
 	private String _organization_individual;
 	private String _description;
 	private String _contact_details;
+	private String _projectDurationFrom;
+	private String _projectDurationTo;
 	private long _columnBitmask;
 	private active_conservation_projects _escapedModelProxy;
 }

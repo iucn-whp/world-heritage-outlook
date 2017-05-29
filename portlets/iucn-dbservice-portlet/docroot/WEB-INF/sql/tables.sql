@@ -3,7 +3,9 @@ create table whp_active_conservation_projects (
 	assessment_version_id LONG,
 	organization_individual VARCHAR(400) null,
 	description STRING null,
-	contact_details VARCHAR(500) null
+	contact_details VARCHAR(500) null,
+	projectDurationFrom VARCHAR(75) null,
+	projectDurationTo VARCHAR(75) null
 );
 
 create table whp_advance_query_assessment (
@@ -47,6 +49,7 @@ create table whp_assessing_threats_current (
 	assessment_version_id LONG,
 	current_threat STRING null,
 	justification STRING null,
+	threadExtentValue VARCHAR(100) null,
 	inside_site BOOLEAN,
 	outside_site BOOLEAN,
 	threat_rating_id LONG
@@ -57,6 +60,7 @@ create table whp_assessing_threats_potential (
 	assessment_version_id LONG,
 	potential_threat STRING null,
 	justification STRING null,
+	threadExtentValue VARCHAR(100) null,
 	threat_rating LONG,
 	inside_site BOOLEAN,
 	outside_site BOOLEAN
@@ -121,12 +125,15 @@ create table whp_assessment_whvalues_whcriterion (
 create table whp_benefit_checksubtype_lkp (
 	subbenefit_id LONG not null primary key,
 	benefit_checksubtype VARCHAR(200) null,
-	parent_id LONG
+	parent_id LONG,
+	position LONG,
+	active_ BOOLEAN
 );
 
 create table whp_benefit_checktype_lkp (
 	benefit_id LONG not null primary key,
-	benefit_checktype VARCHAR(50) null
+	benefit_checktype VARCHAR(50) null,
+	active_ BOOLEAN
 );
 
 create table whp_benefit_rating_lkp (
@@ -140,6 +147,17 @@ create table whp_benefits (
 	assessment_version_id LONG,
 	selected_benefit LONG,
 	summary STRING null,
+	habitatChangeLevel LONG,
+	habitatChangeTrend LONG,
+	pollutionLevel LONG,
+	pollutionTrend LONG,
+	overExploitationLevel LONG,
+	overExploitationTrend LONG,
+	climateChangeLevel LONG,
+	climateChangeTrend LONG,
+	invasiveSpeciesLevel LONG,
+	invasiveSpeciesTrend LONG,
+	comment_ STRING null,
 	data_deficient BOOLEAN,
 	community_within_site LONG,
 	community_outside_site LONG,
@@ -327,6 +345,18 @@ create table whp_mission_lkp (
 	mission_type VARCHAR(100) null
 );
 
+create table whp_negative_factors_level_impact (
+	level_id LONG not null primary key,
+	level_impact VARCHAR(75) null,
+	description VARCHAR(75) null
+);
+
+create table whp_negative_factors_trend (
+	trend_id LONG not null primary key,
+	trend VARCHAR(75) null,
+	description VARCHAR(75) null
+);
+
 create table whp_other_designation_lkp (
 	other_designations_id INTEGER not null primary key,
 	designation VARCHAR(100) null
@@ -337,7 +367,9 @@ create table whp_potential_project_needs (
 	assessment_version_id LONG,
 	organization_individual VARCHAR(400) null,
 	description STRING null,
-	contact_details VARCHAR(500) null
+	contact_details VARCHAR(500) null,
+	projectDurationFrom VARCHAR(75) null,
+	projectDurationTo VARCHAR(75) null
 );
 
 create table whp_potential_threat_assessment_cat (
@@ -383,7 +415,8 @@ create table whp_protection_management_ratings_lkp (
 
 create table whp_protection_mgmt_checklist_lkp (
 	topic_id LONG not null primary key,
-	topic VARCHAR(100) null
+	topic VARCHAR(100) null,
+	topic_sort INTEGER
 );
 
 create table whp_recommendation_type_lkp (
@@ -414,7 +447,8 @@ create table whp_site_assessment (
 	assessment_initiated_by LONG,
 	base_langid LONG,
 	archived BOOLEAN,
-	is_active BOOLEAN
+	is_active BOOLEAN,
+	assessment_cycle VARCHAR(75) null
 );
 
 create table whp_site_assessment_versions (
@@ -595,7 +629,8 @@ create table whp_whp_sites (
 	active_ BOOLEAN,
 	thumbnailid LONG,
 	thumbnailid_small LONG,
-	description STRING null
+	description STRING null,
+	information_updating BOOLEAN
 );
 
 create table whp_whp_sites_boundary_modification (

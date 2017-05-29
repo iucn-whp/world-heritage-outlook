@@ -70,6 +70,8 @@ public class active_conservation_projectsClp extends BaseModelImpl<active_conser
 		attributes.put("organization_individual", getOrganization_individual());
 		attributes.put("description", getDescription());
 		attributes.put("contact_details", getContact_details());
+		attributes.put("projectDurationFrom", getProjectDurationFrom());
+		attributes.put("projectDurationTo", getProjectDurationTo());
 
 		return attributes;
 	}
@@ -106,6 +108,19 @@ public class active_conservation_projectsClp extends BaseModelImpl<active_conser
 
 		if (contact_details != null) {
 			setContact_details(contact_details);
+		}
+
+		String projectDurationFrom = (String)attributes.get(
+				"projectDurationFrom");
+
+		if (projectDurationFrom != null) {
+			setProjectDurationFrom(projectDurationFrom);
+		}
+
+		String projectDurationTo = (String)attributes.get("projectDurationTo");
+
+		if (projectDurationTo != null) {
+			setProjectDurationTo(projectDurationTo);
 		}
 	}
 
@@ -149,6 +164,22 @@ public class active_conservation_projectsClp extends BaseModelImpl<active_conser
 		_contact_details = contact_details;
 	}
 
+	public String getProjectDurationFrom() {
+		return _projectDurationFrom;
+	}
+
+	public void setProjectDurationFrom(String projectDurationFrom) {
+		_projectDurationFrom = projectDurationFrom;
+	}
+
+	public String getProjectDurationTo() {
+		return _projectDurationTo;
+	}
+
+	public void setProjectDurationTo(String projectDurationTo) {
+		_projectDurationTo = projectDurationTo;
+	}
+
 	public BaseModel<?> getactive_conservation_projectsRemoteModel() {
 		return _active_conservation_projectsRemoteModel;
 	}
@@ -183,6 +214,8 @@ public class active_conservation_projectsClp extends BaseModelImpl<active_conser
 		clone.setOrganization_individual(getOrganization_individual());
 		clone.setDescription(getDescription());
 		clone.setContact_details(getContact_details());
+		clone.setProjectDurationFrom(getProjectDurationFrom());
+		clone.setProjectDurationTo(getProjectDurationTo());
 
 		return clone;
 	}
@@ -234,7 +267,7 @@ public class active_conservation_projectsClp extends BaseModelImpl<active_conser
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(11);
+		StringBundler sb = new StringBundler(15);
 
 		sb.append("{acpid=");
 		sb.append(getAcpid());
@@ -246,13 +279,17 @@ public class active_conservation_projectsClp extends BaseModelImpl<active_conser
 		sb.append(getDescription());
 		sb.append(", contact_details=");
 		sb.append(getContact_details());
+		sb.append(", projectDurationFrom=");
+		sb.append(getProjectDurationFrom());
+		sb.append(", projectDurationTo=");
+		sb.append(getProjectDurationTo());
 		sb.append("}");
 
 		return sb.toString();
 	}
 
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(19);
+		StringBundler sb = new StringBundler(25);
 
 		sb.append("<model><model-name>");
 		sb.append("com.iucn.whp.dbservice.model.active_conservation_projects");
@@ -278,6 +315,14 @@ public class active_conservation_projectsClp extends BaseModelImpl<active_conser
 			"<column><column-name>contact_details</column-name><column-value><![CDATA[");
 		sb.append(getContact_details());
 		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>projectDurationFrom</column-name><column-value><![CDATA[");
+		sb.append(getProjectDurationFrom());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>projectDurationTo</column-name><column-value><![CDATA[");
+		sb.append(getProjectDurationTo());
+		sb.append("]]></column-value></column>");
 
 		sb.append("</model>");
 
@@ -289,5 +334,7 @@ public class active_conservation_projectsClp extends BaseModelImpl<active_conser
 	private String _organization_individual;
 	private String _description;
 	private String _contact_details;
+	private String _projectDurationFrom;
+	private String _projectDurationTo;
 	private BaseModel<?> _active_conservation_projectsRemoteModel;
 }

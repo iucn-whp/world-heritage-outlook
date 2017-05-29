@@ -1,51 +1,63 @@
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.util.List"%>
-<%@page import="com.iucn.whp.dbservice.service.*"%>
-<%@page import="com.iucn.whp.dbservice.model.*"%>
-<%@page import="com.iucn.whp.dto.AssessmentTrends"%>
+<%@include file="/init.jsp" %>
+<%
+    Long currentAssessmentId = ParamUtil.getLong(request, "assesmentId");
+%>
 <!--mainBlock Starts Here-->
 <portlet:resourceURL var="updateStatusStep4"/>
 <div class="mainBlock siteInfoMainBlock">
-		<div class="tableWrapper tableWrapperSiteInfoContacts">
-		
-			<div class="infoSection">
-					<h2 class="siteAssessmentSubHeadings">Assessing The Current State And Trend Of Values
-					</h2>
-				<div class="tipsSection">
-				<p class="tiptext">The current state of values is assessed against five ratings: Good, Low Concern, High Concern, Critical and Data Deficient . The baseline for the assessment should be the condition at the time of inscription, with reference to the best-recorded historical conservation state. Trend is assessed in relation to whether the condition of a value is Improving, Stable, Deteriorating or Data Deficient, and is intended to be snapshot of recent developments over the last five years.</p>
-				</div>
-					<div id="step4MainDiv" class="infoSectionContent">
-					<jsp:include page="/assessment_jsp/innerJsp/step4_ctatv.jsp"></jsp:include>
-					</div>
-		    </div>
+	<div class="tableWrapper tableWrapperSiteInfoContacts">
+
 		<div class="infoSection">
-					<h2 class="siteAssessmentSubHeadings">Summary of the Values
-					</h2>
-					<div id="step4whDiv" class="infoSectionContent"> 
-					
-					<jsp:include page="/assessment_jsp/innerJsp/step4_whvalue_overall.jsp"></jsp:include>
-					
-					</div>
-		</div>
-		  </div>
+			<h2 class="siteAssessmentSubHeadings">Assessing The Current State And Trend Of Values</h2>
 
+			<div class="tipsSection">
+				<p class="tiptext">
 
-			<div class="wizardFooter">
-			<a href="#" class="roundedcornerBTN" onclick="javascript:$('#step3').click();"><span>&#60;&#60; Previous</span></a>
-			<a href="#" class="roundedcornerBTN" onclick="javascript:$('#step5').click();"><span>Next &#62;&#62;</span></a>
+					Assess the current state and trend of values for the World Heritage site. The current state of
+					values is assessed against five ratings: Good, Low Concern, High Concern, Critical and Data
+					Deficient). The baseline for the assessment should be the condition at the time of inscription,
+					with reference to the best-recorded historical conservation state. Trend is assessed in relation
+					to whether the condition of a value is Improving, Stable, Deteriorating or Data Deficient,
+					and is intended to be a snapshot of recent developments over the last five years. The
+					'Justification for assessment' must be systematically referenced, e.g. (SOC report, 2009).
+					<a target="_blank" href="<%= themeDisplay.getURLPortal().concat("/")
+            .concat("IUCN-Site-Assessment-portlet/Guidelines_IUCN_Conservation_Outlook_Assessments_Version_2_0_FINAL.pdf") %>">Access Guidelines for this Step.</a>
+				</p>
 			</div>
+			<div id="step4MainDiv">
+				<jsp:include page="/assessment_jsp/innerJsp/step4_ctatv.jsp"></jsp:include>
+			</div>
+			<%--<div id="step4whDiv">--%>
+				<%--<jsp:include page="/assessment_jsp/innerJsp/step4_whvalue_overall.jsp"></jsp:include>--%>
+			<%--</div>--%>
+		</div>
+		<div class="infoSection">
+			<h2 class="siteAssessmentSubHeadings">Summary of the Values</h2>
+			<div id="step4whDiv" class="infoSectionContent">
+				<jsp:include page="/assessment_jsp/innerJsp/step4_whvalue_overall.jsp"></jsp:include>
+			</div>
+		</div>
+	</div>
+
+	<div class="wizardFooter">
+		<a href="#" class="roundedcornerBTN" onclick="javascript:$('#step3').click();"><span>&#60;&#60; Previous</span></a>
+		<a href="#" class="roundedcornerBTN" onclick="javascript:$('#step5').click();"><span>Save and continue &#62;&#62;</span></a>
+	</div>
 
 </div>
-
+<%--
 <div class="buttonsSiteAssessment hideAdminAction">
 
 <!-- <input type="button" value="Fill from previous assessment" /> -->
-	
-	<input type="button" value="View Differences" onClick="javascript: viewDiff_4();"/>
-	<input type="button" value="Clear Highlights" onClick="javascript: removeDiff_4();"/>
+	<c:if test="<%= AssessmentActionUtil.hasLinkVisible(currentAssessmentId, user.getUserId(), AssessmentContstant.ACTION_VIEW_DIFFERENCES) %>">
+		<input type="button" value="View Differences" onClick="javascript: viewDiff_4();"/>
+	</c:if>
+	<c:if test="<%= AssessmentActionUtil.hasLinkVisible(currentAssessmentId, user.getUserId(), AssessmentContstant.ACTION_CLEAR_HIGHLIGHTS) %>">
+		<input type="button" value="Clear Highlights" onClick="javascript: removeDiff_4();"/>
+	</c:if>
 	<jsp:include page="/assessment_jsp/tab_buttons.jsp" />
 
-</div>
+</div>--%>
 <script>
 
 function viewDiff_4(){
@@ -223,10 +235,6 @@ function viewDiff_4(){
 	}catch(Exception ex){
 		ex.printStackTrace();
 	}
-
-	
-	
-		
 	%>
 }
 function removeDiff_4(){

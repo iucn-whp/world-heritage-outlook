@@ -68,6 +68,17 @@ public class benefitsClp extends BaseModelImpl<benefits> implements benefits {
 		attributes.put("assessment_version_id", getAssessment_version_id());
 		attributes.put("selected_benefit", getSelected_benefit());
 		attributes.put("summary", getSummary());
+		attributes.put("habitatChangeLevel", getHabitatChangeLevel());
+		attributes.put("habitatChangeTrend", getHabitatChangeTrend());
+		attributes.put("pollutionLevel", getPollutionLevel());
+		attributes.put("pollutionTrend", getPollutionTrend());
+		attributes.put("overExploitationLevel", getOverExploitationLevel());
+		attributes.put("overExploitationTrend", getOverExploitationTrend());
+		attributes.put("climateChangeLevel", getClimateChangeLevel());
+		attributes.put("climateChangeTrend", getClimateChangeTrend());
+		attributes.put("invasiveSpeciesLevel", getInvasiveSpeciesLevel());
+		attributes.put("invasiveSpeciesTrend", getInvasiveSpeciesTrend());
+		attributes.put("comment", getComment());
 		attributes.put("data_deficient", getData_deficient());
 		attributes.put("community_within_site", getCommunity_within_site());
 		attributes.put("community_outside_site", getCommunity_outside_site());
@@ -101,6 +112,74 @@ public class benefitsClp extends BaseModelImpl<benefits> implements benefits {
 
 		if (summary != null) {
 			setSummary(summary);
+		}
+
+		Long habitatChangeLevel = (Long)attributes.get("habitatChangeLevel");
+
+		if (habitatChangeLevel != null) {
+			setHabitatChangeLevel(habitatChangeLevel);
+		}
+
+		Long habitatChangeTrend = (Long)attributes.get("habitatChangeTrend");
+
+		if (habitatChangeTrend != null) {
+			setHabitatChangeTrend(habitatChangeTrend);
+		}
+
+		Long pollutionLevel = (Long)attributes.get("pollutionLevel");
+
+		if (pollutionLevel != null) {
+			setPollutionLevel(pollutionLevel);
+		}
+
+		Long pollutionTrend = (Long)attributes.get("pollutionTrend");
+
+		if (pollutionTrend != null) {
+			setPollutionTrend(pollutionTrend);
+		}
+
+		Long overExploitationLevel = (Long)attributes.get(
+				"overExploitationLevel");
+
+		if (overExploitationLevel != null) {
+			setOverExploitationLevel(overExploitationLevel);
+		}
+
+		Long overExploitationTrend = (Long)attributes.get(
+				"overExploitationTrend");
+
+		if (overExploitationTrend != null) {
+			setOverExploitationTrend(overExploitationTrend);
+		}
+
+		Long climateChangeLevel = (Long)attributes.get("climateChangeLevel");
+
+		if (climateChangeLevel != null) {
+			setClimateChangeLevel(climateChangeLevel);
+		}
+
+		Long climateChangeTrend = (Long)attributes.get("climateChangeTrend");
+
+		if (climateChangeTrend != null) {
+			setClimateChangeTrend(climateChangeTrend);
+		}
+
+		Long invasiveSpeciesLevel = (Long)attributes.get("invasiveSpeciesLevel");
+
+		if (invasiveSpeciesLevel != null) {
+			setInvasiveSpeciesLevel(invasiveSpeciesLevel);
+		}
+
+		Long invasiveSpeciesTrend = (Long)attributes.get("invasiveSpeciesTrend");
+
+		if (invasiveSpeciesTrend != null) {
+			setInvasiveSpeciesTrend(invasiveSpeciesTrend);
+		}
+
+		String comment = (String)attributes.get("comment");
+
+		if (comment != null) {
+			setComment(comment);
 		}
 
 		Boolean data_deficient = (Boolean)attributes.get("data_deficient");
@@ -160,6 +239,94 @@ public class benefitsClp extends BaseModelImpl<benefits> implements benefits {
 
 	public void setSummary(String summary) {
 		_summary = summary;
+	}
+
+	public long getHabitatChangeLevel() {
+		return _habitatChangeLevel;
+	}
+
+	public void setHabitatChangeLevel(long habitatChangeLevel) {
+		_habitatChangeLevel = habitatChangeLevel;
+	}
+
+	public long getHabitatChangeTrend() {
+		return _habitatChangeTrend;
+	}
+
+	public void setHabitatChangeTrend(long habitatChangeTrend) {
+		_habitatChangeTrend = habitatChangeTrend;
+	}
+
+	public long getPollutionLevel() {
+		return _pollutionLevel;
+	}
+
+	public void setPollutionLevel(long pollutionLevel) {
+		_pollutionLevel = pollutionLevel;
+	}
+
+	public long getPollutionTrend() {
+		return _pollutionTrend;
+	}
+
+	public void setPollutionTrend(long pollutionTrend) {
+		_pollutionTrend = pollutionTrend;
+	}
+
+	public long getOverExploitationLevel() {
+		return _overExploitationLevel;
+	}
+
+	public void setOverExploitationLevel(long overExploitationLevel) {
+		_overExploitationLevel = overExploitationLevel;
+	}
+
+	public long getOverExploitationTrend() {
+		return _overExploitationTrend;
+	}
+
+	public void setOverExploitationTrend(long overExploitationTrend) {
+		_overExploitationTrend = overExploitationTrend;
+	}
+
+	public long getClimateChangeLevel() {
+		return _climateChangeLevel;
+	}
+
+	public void setClimateChangeLevel(long climateChangeLevel) {
+		_climateChangeLevel = climateChangeLevel;
+	}
+
+	public long getClimateChangeTrend() {
+		return _climateChangeTrend;
+	}
+
+	public void setClimateChangeTrend(long climateChangeTrend) {
+		_climateChangeTrend = climateChangeTrend;
+	}
+
+	public long getInvasiveSpeciesLevel() {
+		return _invasiveSpeciesLevel;
+	}
+
+	public void setInvasiveSpeciesLevel(long invasiveSpeciesLevel) {
+		_invasiveSpeciesLevel = invasiveSpeciesLevel;
+	}
+
+	public long getInvasiveSpeciesTrend() {
+		return _invasiveSpeciesTrend;
+	}
+
+	public void setInvasiveSpeciesTrend(long invasiveSpeciesTrend) {
+		_invasiveSpeciesTrend = invasiveSpeciesTrend;
+	}
+
+	public String getComment() {
+		return _comment;
+	}
+
+	public void setComment(String comment) {
+		_comment = comment;
 	}
 
 	public boolean getData_deficient() {
@@ -229,6 +396,17 @@ public class benefitsClp extends BaseModelImpl<benefits> implements benefits {
 		clone.setAssessment_version_id(getAssessment_version_id());
 		clone.setSelected_benefit(getSelected_benefit());
 		clone.setSummary(getSummary());
+		clone.setHabitatChangeLevel(getHabitatChangeLevel());
+		clone.setHabitatChangeTrend(getHabitatChangeTrend());
+		clone.setPollutionLevel(getPollutionLevel());
+		clone.setPollutionTrend(getPollutionTrend());
+		clone.setOverExploitationLevel(getOverExploitationLevel());
+		clone.setOverExploitationTrend(getOverExploitationTrend());
+		clone.setClimateChangeLevel(getClimateChangeLevel());
+		clone.setClimateChangeTrend(getClimateChangeTrend());
+		clone.setInvasiveSpeciesLevel(getInvasiveSpeciesLevel());
+		clone.setInvasiveSpeciesTrend(getInvasiveSpeciesTrend());
+		clone.setComment(getComment());
 		clone.setData_deficient(getData_deficient());
 		clone.setCommunity_within_site(getCommunity_within_site());
 		clone.setCommunity_outside_site(getCommunity_outside_site());
@@ -283,7 +461,7 @@ public class benefitsClp extends BaseModelImpl<benefits> implements benefits {
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(17);
+		StringBundler sb = new StringBundler(39);
 
 		sb.append("{benefits_id=");
 		sb.append(getBenefits_id());
@@ -293,6 +471,28 @@ public class benefitsClp extends BaseModelImpl<benefits> implements benefits {
 		sb.append(getSelected_benefit());
 		sb.append(", summary=");
 		sb.append(getSummary());
+		sb.append(", habitatChangeLevel=");
+		sb.append(getHabitatChangeLevel());
+		sb.append(", habitatChangeTrend=");
+		sb.append(getHabitatChangeTrend());
+		sb.append(", pollutionLevel=");
+		sb.append(getPollutionLevel());
+		sb.append(", pollutionTrend=");
+		sb.append(getPollutionTrend());
+		sb.append(", overExploitationLevel=");
+		sb.append(getOverExploitationLevel());
+		sb.append(", overExploitationTrend=");
+		sb.append(getOverExploitationTrend());
+		sb.append(", climateChangeLevel=");
+		sb.append(getClimateChangeLevel());
+		sb.append(", climateChangeTrend=");
+		sb.append(getClimateChangeTrend());
+		sb.append(", invasiveSpeciesLevel=");
+		sb.append(getInvasiveSpeciesLevel());
+		sb.append(", invasiveSpeciesTrend=");
+		sb.append(getInvasiveSpeciesTrend());
+		sb.append(", comment=");
+		sb.append(getComment());
 		sb.append(", data_deficient=");
 		sb.append(getData_deficient());
 		sb.append(", community_within_site=");
@@ -307,7 +507,7 @@ public class benefitsClp extends BaseModelImpl<benefits> implements benefits {
 	}
 
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(28);
+		StringBundler sb = new StringBundler(61);
 
 		sb.append("<model><model-name>");
 		sb.append("com.iucn.whp.dbservice.model.benefits");
@@ -328,6 +528,50 @@ public class benefitsClp extends BaseModelImpl<benefits> implements benefits {
 		sb.append(
 			"<column><column-name>summary</column-name><column-value><![CDATA[");
 		sb.append(getSummary());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>habitatChangeLevel</column-name><column-value><![CDATA[");
+		sb.append(getHabitatChangeLevel());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>habitatChangeTrend</column-name><column-value><![CDATA[");
+		sb.append(getHabitatChangeTrend());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>pollutionLevel</column-name><column-value><![CDATA[");
+		sb.append(getPollutionLevel());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>pollutionTrend</column-name><column-value><![CDATA[");
+		sb.append(getPollutionTrend());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>overExploitationLevel</column-name><column-value><![CDATA[");
+		sb.append(getOverExploitationLevel());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>overExploitationTrend</column-name><column-value><![CDATA[");
+		sb.append(getOverExploitationTrend());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>climateChangeLevel</column-name><column-value><![CDATA[");
+		sb.append(getClimateChangeLevel());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>climateChangeTrend</column-name><column-value><![CDATA[");
+		sb.append(getClimateChangeTrend());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>invasiveSpeciesLevel</column-name><column-value><![CDATA[");
+		sb.append(getInvasiveSpeciesLevel());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>invasiveSpeciesTrend</column-name><column-value><![CDATA[");
+		sb.append(getInvasiveSpeciesTrend());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>comment</column-name><column-value><![CDATA[");
+		sb.append(getComment());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>data_deficient</column-name><column-value><![CDATA[");
@@ -355,6 +599,17 @@ public class benefitsClp extends BaseModelImpl<benefits> implements benefits {
 	private long _assessment_version_id;
 	private long _selected_benefit;
 	private String _summary;
+	private long _habitatChangeLevel;
+	private long _habitatChangeTrend;
+	private long _pollutionLevel;
+	private long _pollutionTrend;
+	private long _overExploitationLevel;
+	private long _overExploitationTrend;
+	private long _climateChangeLevel;
+	private long _climateChangeTrend;
+	private long _invasiveSpeciesLevel;
+	private long _invasiveSpeciesTrend;
+	private String _comment;
 	private boolean _data_deficient;
 	private long _community_within_site;
 	private long _community_outside_site;

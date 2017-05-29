@@ -34,7 +34,7 @@ import java.util.Date;
 public class whp_sitesCacheModel implements CacheModel<whp_sites>, Serializable {
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(71);
+		StringBundler sb = new StringBundler(73);
 
 		sb.append("{site_id=");
 		sb.append(site_id);
@@ -106,6 +106,8 @@ public class whp_sitesCacheModel implements CacheModel<whp_sites>, Serializable 
 		sb.append(thumbnailid_small);
 		sb.append(", description=");
 		sb.append(description);
+		sb.append(", information_updating=");
+		sb.append(information_updating);
 		sb.append("}");
 
 		return sb.toString();
@@ -196,6 +198,8 @@ public class whp_sitesCacheModel implements CacheModel<whp_sites>, Serializable 
 			whp_sitesImpl.setDescription(description);
 		}
 
+		whp_sitesImpl.setInformation_updating(information_updating);
+
 		whp_sitesImpl.resetOriginalValues();
 
 		return whp_sitesImpl;
@@ -236,4 +240,5 @@ public class whp_sitesCacheModel implements CacheModel<whp_sites>, Serializable 
 	public long thumbnailid;
 	public long thumbnailid_small;
 	public String description;
+	public boolean information_updating;
 }

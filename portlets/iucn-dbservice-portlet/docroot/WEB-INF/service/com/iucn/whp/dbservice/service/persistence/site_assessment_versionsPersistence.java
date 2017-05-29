@@ -469,6 +469,133 @@ public interface site_assessment_versionsPersistence extends BasePersistence<sit
 			com.liferay.portal.kernel.exception.SystemException;
 
 	/**
+	* Returns all the site_assessment_versionses where userid = &#63; and stage_id = &#63;.
+	*
+	* @param userid the userid
+	* @param stage_id the stage_id
+	* @return the matching site_assessment_versionses
+	* @throws SystemException if a system exception occurred
+	*/
+	public java.util.List<com.iucn.whp.dbservice.model.site_assessment_versions> findByversionByuserIdAndStageId(
+		long userid, long stage_id)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Returns a range of all the site_assessment_versionses where userid = &#63; and stage_id = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+	* </p>
+	*
+	* @param userid the userid
+	* @param stage_id the stage_id
+	* @param start the lower bound of the range of site_assessment_versionses
+	* @param end the upper bound of the range of site_assessment_versionses (not inclusive)
+	* @return the range of matching site_assessment_versionses
+	* @throws SystemException if a system exception occurred
+	*/
+	public java.util.List<com.iucn.whp.dbservice.model.site_assessment_versions> findByversionByuserIdAndStageId(
+		long userid, long stage_id, int start, int end)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Returns an ordered range of all the site_assessment_versionses where userid = &#63; and stage_id = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+	* </p>
+	*
+	* @param userid the userid
+	* @param stage_id the stage_id
+	* @param start the lower bound of the range of site_assessment_versionses
+	* @param end the upper bound of the range of site_assessment_versionses (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of matching site_assessment_versionses
+	* @throws SystemException if a system exception occurred
+	*/
+	public java.util.List<com.iucn.whp.dbservice.model.site_assessment_versions> findByversionByuserIdAndStageId(
+		long userid, long stage_id, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Returns the first site_assessment_versions in the ordered set where userid = &#63; and stage_id = &#63;.
+	*
+	* @param userid the userid
+	* @param stage_id the stage_id
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching site_assessment_versions
+	* @throws com.iucn.whp.dbservice.NoSuchsite_assessment_versionsException if a matching site_assessment_versions could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public com.iucn.whp.dbservice.model.site_assessment_versions findByversionByuserIdAndStageId_First(
+		long userid, long stage_id,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.iucn.whp.dbservice.NoSuchsite_assessment_versionsException,
+			com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Returns the first site_assessment_versions in the ordered set where userid = &#63; and stage_id = &#63;.
+	*
+	* @param userid the userid
+	* @param stage_id the stage_id
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching site_assessment_versions, or <code>null</code> if a matching site_assessment_versions could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public com.iucn.whp.dbservice.model.site_assessment_versions fetchByversionByuserIdAndStageId_First(
+		long userid, long stage_id,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Returns the last site_assessment_versions in the ordered set where userid = &#63; and stage_id = &#63;.
+	*
+	* @param userid the userid
+	* @param stage_id the stage_id
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching site_assessment_versions
+	* @throws com.iucn.whp.dbservice.NoSuchsite_assessment_versionsException if a matching site_assessment_versions could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public com.iucn.whp.dbservice.model.site_assessment_versions findByversionByuserIdAndStageId_Last(
+		long userid, long stage_id,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.iucn.whp.dbservice.NoSuchsite_assessment_versionsException,
+			com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Returns the last site_assessment_versions in the ordered set where userid = &#63; and stage_id = &#63;.
+	*
+	* @param userid the userid
+	* @param stage_id the stage_id
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching site_assessment_versions, or <code>null</code> if a matching site_assessment_versions could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public com.iucn.whp.dbservice.model.site_assessment_versions fetchByversionByuserIdAndStageId_Last(
+		long userid, long stage_id,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Returns the site_assessment_versionses before and after the current site_assessment_versions in the ordered set where userid = &#63; and stage_id = &#63;.
+	*
+	* @param assessment_version_id the primary key of the current site_assessment_versions
+	* @param userid the userid
+	* @param stage_id the stage_id
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the previous, current, and next site_assessment_versions
+	* @throws com.iucn.whp.dbservice.NoSuchsite_assessment_versionsException if a site_assessment_versions with the primary key could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public com.iucn.whp.dbservice.model.site_assessment_versions[] findByversionByuserIdAndStageId_PrevAndNext(
+		long assessment_version_id, long userid, long stage_id,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.iucn.whp.dbservice.NoSuchsite_assessment_versionsException,
+			com.liferay.portal.kernel.exception.SystemException;
+
+	/**
 	* Returns all the site_assessment_versionses.
 	*
 	* @return the site_assessment_versionses
@@ -541,6 +668,16 @@ public interface site_assessment_versionsPersistence extends BasePersistence<sit
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
+	* Removes all the site_assessment_versionses where userid = &#63; and stage_id = &#63; from the database.
+	*
+	* @param userid the userid
+	* @param stage_id the stage_id
+	* @throws SystemException if a system exception occurred
+	*/
+	public void removeByversionByuserIdAndStageId(long userid, long stage_id)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
 	* Removes all the site_assessment_versionses from the database.
 	*
 	* @throws SystemException if a system exception occurred
@@ -578,6 +715,17 @@ public interface site_assessment_versionsPersistence extends BasePersistence<sit
 	*/
 	public int countBypreviousVersionCode(long assessment_id,
 		double version_code)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Returns the number of site_assessment_versionses where userid = &#63; and stage_id = &#63;.
+	*
+	* @param userid the userid
+	* @param stage_id the stage_id
+	* @return the number of matching site_assessment_versionses
+	* @throws SystemException if a system exception occurred
+	*/
+	public int countByversionByuserIdAndStageId(long userid, long stage_id)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**

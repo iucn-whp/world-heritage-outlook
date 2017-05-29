@@ -2,6 +2,9 @@
 <%@page import="com.iucn.whp.dto.SiteAssessmentDTO" %>
 <%@page import="com.iucn.whp.assesment.utils.*" %>
 <%@page import="javax.portlet.*"%>
+<%@ page import="com.liferay.portal.theme.ThemeDisplay" %>
+<%@ page import="com.liferay.portal.model.Role" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <%@include file="/init.jsp" %>
 <portlet:defineObjects />
 <liferay-theme:defineObjects />
@@ -10,7 +13,9 @@
 
 ResultRow row = (ResultRow) request.getAttribute(WebKeys.SEARCH_CONTAINER_RESULT_ROW);
 SiteAssessmentDTO objSiteAssessmentDTO = (SiteAssessmentDTO) row.getObject();
-// long groupId = themeDisplay.getLayout().getGroupId(); 
+
+long siteId = objSiteAssessmentDTO.getSite_Assessment().getSite_id();
+// long groupId = themeDisplay.getLayout().getGroupId();
 String name = SiteAssessmentDTO.class.getName();
 String primKey = String.valueOf(objSiteAssessmentDTO.getAssessmentId()); 
 long assessment_id= Long.parseLong(primKey);
@@ -88,7 +93,16 @@ String viewVersionURL="javascript:assessmentActionPopup('"+jspVersionPage+"','"+
       <liferay-ui:icon image="edit" message="<%=AssessmentContstant.ACTION_ASSIGN_REVIEWER %>" url="#" onClick="<%=assignReviewerURL %>" />
      </c:if>
      
-     
+     <!-- Changed Make by NIRAV -->
+ 	<c:if test="<%= AssessmentActionUtil.hasLinkVisible(assessment_id,user.getUserId(),AssessmentContstant.ACTION_EDIT_PUBLISHED) %>">
+		<%
+    	String jspeditPage="/assessment_jsp/workflow_jsp/edit_assessment_popup.jsp";
+    	String editAssessmentURL="javascript:assessmentActionPopup('"+jspeditPage+"','"+primKey+"','1','edit Assessment','"+AssessmentContstant.ACTION_ASSIGN_TRANSLATOR+"')";
+    %>
+     <liferay-ui:icon image="edit" message="<%=AssessmentContstant.ACTION_EDIT_PUBLISHED %>" url="<%=editAssessmentURL.toString() %>"  />
+     </c:if>
+     <!-- END NIRAV -->
+
     <c:if test="<%= AssessmentActionUtil.hasLinkVisible(assessment_id,user.getUserId(),AssessmentContstant.ACTION_REVIEW) %>">
      <portlet:actionURL var="reviewAssessmentURL" name="reviewAssessmentAction" >
          <portlet:param name="assessmentId" value="<%= primKey %>" />
@@ -104,6 +118,7 @@ String viewVersionURL="javascript:assessmentActionPopup('"+jspVersionPage+"','"+
     <portlet:actionURL var="approveAssessmentURL" name="approveAssessmentAction" >
          <portlet:param name="assessmentId" value="<%= primKey %>" />
          <portlet:param name="userId" value="<%= String.valueOf(user.getUserId()) %>" />
+         <portlet:param name="siteId" value="<%= String.valueOf(objSiteAssessmentDTO.getSite_Assessment().getSite_id()) %>" />
     </portlet:actionURL>
     
     <liferay-ui:icon image="edit" message="<%=AssessmentContstant.ACTION_APPROVE %>" url="<%= approveAssessmentURL.toString() %>" />
@@ -111,18 +126,18 @@ String viewVersionURL="javascript:assessmentActionPopup('"+jspVersionPage+"','"+
      </c:if>
      
     <c:if test="<%= AssessmentActionUtil.hasLinkVisible(assessment_id,user.getUserId(),AssessmentContstant.ACTION_PUBLISH) %>">
-   
-    
+
+
     <%-- <portlet:actionURL var="publishAssessmentURL" name="publishAssessmentAction" >
          <portlet:param name="assessmentId" value="<%= primKey %>" />
          <portlet:param name="userId" value="<%= String.valueOf(user.getUserId()) %>" />
     </portlet:actionURL> --%>
-    
+
     <%
     String jspPublishPage="/assessment_jsp/workflow_jsp/publish_assessment_popup.jsp";
     String publishAssessmentURL="javascript:assessmentActionPopup('"+jspPublishPage+"','"+primKey+"','1','Publish Assessment','"+AssessmentContstant.ACTION_ASSIGN_TRANSLATOR+"')";
     %>
-    
+
     <liferay-ui:icon image="edit" message="<%=AssessmentContstant.ACTION_PUBLISH %>" url="#" onClick="<%=publishAssessmentURL %>" />
      <%
     String jspeditPage="/assessment_jsp/workflow_jsp/edit_assessment_popup.jsp";
@@ -186,6 +201,38 @@ String viewVersionURL="javascript:assessmentActionPopup('"+jspVersionPage+"','"+
     %>
     <liferay-ui:icon image="edit" message="View" url="#" onClick="<%=viewURL.toString() %>" />
     <%} %>
+
+    <%-- coordinator notification --%>
+
+    <%
+        whp_sites whp_sites = whp_sitesLocalServiceUtil.getwhp_sites(objSiteAssessmentDTO.getSite_Assessment().getSite_id());
+        boolean isUpdating=  whp_sites.isInformation_updating();
+        List<Role> userRoles = ((ThemeDisplay) request.getAttribute(WebKeys.THEME_DISPLAY)).getUser().getRoles();
+        boolean isCoordinator=false;
+        for (Role role: userRoles) {
+            if("Coordinator".equalsIgnoreCase(role.getName()) && !isUpdating) {
+                isCoordinator = true;
+                break;
+            }
+        }
+    %>
+
+    <c:if test="<%= isCoordinator %>">
+        <portlet:actionURL var="newInformationURL" name="newInformationAction" >
+            <portlet:param name="assessment_id" value="<%= primKey %>" />
+            <portlet:param name="userId" value="<%= String.valueOf(user.getUserId()) %>" />
+            <portlet:param name="siteId" value="<%= String.valueOf(objSiteAssessmentDTO.getSite_Assessment().getSite_id()) %>" />
+            <portlet:param name="mode" value="view" />
+        </portlet:actionURL>
+
+        <%
+            String notification = "javascript:getXhrRequest('" + newInformationURL + "', function(){alert('Notification has been updated')})";
+        %>
+
+        <liferay-ui:icon image="edit" message="<%=AssessmentContstant.ACTION_NEW_INFORMATION %>" url="#" onClick="<%= notification %>" />
+
+    </c:if>
+    <%-- end coordinator notification --%>
     
    
    <!-- delete assessment added by kamal  -->
@@ -203,4 +250,39 @@ String viewVersionURL="javascript:assessmentActionPopup('"+jspVersionPage+"','"+
    </c:if>
      
   
+<%
+if(AssessmentActionUtil.hasLinkVisible(assessment_id,user.getUserId(),AssessmentContstant.ACTION_PDF) ) {
+    String Version_Id;
+    if(objSiteAssessmentDTO.getSite_AssessmentVersions()!=null){
+        Version_Id= String.valueOf(objSiteAssessmentDTO.getSite_AssessmentVersions().getAssessment_version_id());
+    }else{
+        Version_Id="0";
+    }
+
+    Date initiationDate = objSiteAssessmentDTO.getSite_Assessment().getInitiation_date();
+
+    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+    String formattedDate = dateFormat.format(initiationDate);
+
+%>
+
+
+    <portlet:resourceURL var="pdfURL">
+        <portlet:param name="ACTION_CMD" value="GETPDF"/>
+        <portlet:param name="SITE_ID" value="<%=String.valueOf(objSiteAssessmentDTO.getSite_Assessment().getSite_id()) %>"/>
+        <portlet:param name="VERSION_ID" value="<%= Version_Id %>"/>
+    </portlet:resourceURL>
+<%----%>
+    <%--<liferay-ui:icon image="edit" message="<%=AssessmentContstant.ACTION_PDF %>" url="<%= pdfURL.toString() %>" />--%>
+
+    <portlet:resourceURL var="wordURL">
+        <portlet:param name="ACTION_CMD" value="DOWNLOAD_WORD_DOCUMENT"/>
+        <portlet:param name="INITIATION_DATE" value="<%= formattedDate %>"/>
+        <portlet:param name="SITE_ID" value="<%=String.valueOf(objSiteAssessmentDTO.getSite_Assessment().getSite_id()) %>"/>
+        <portlet:param name="VERSION_ID" value="<%= Version_Id %>"/>
+    </portlet:resourceURL>
+
+    <liferay-ui:icon image="edit" message="<%=AssessmentContstant.ACTION_WORD %>" url="<%= wordURL %>" />
+<% } %>
 </liferay-ui:icon-menu>

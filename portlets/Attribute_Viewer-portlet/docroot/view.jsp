@@ -263,7 +263,7 @@ $(document).keypress(function(e) {
 var hilites;
 var vector_layer;
 var vector_point;
-/* var url = "http://localhost:8080/geoserver/IUCN/wms"; */
+// var url = "http://localhost:8080/geoserver/IUCN/wms";
 var url = "http://www.worldheritageoutlook.iucn.org/geoserver/IUCN/wms";
 var map;
 var gsat;

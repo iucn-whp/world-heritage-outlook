@@ -70,6 +70,7 @@
         <column name="thumbnailid" type="long"></column>
          <column name="thumbnailid_small" type="long"></column>
         <column name="description" type="String"></column>
+        <column name="information_updating" type="boolean"></column>
         <order by="asc">
             <order-column name="name_en"></order-column>
         </order>
@@ -577,6 +578,8 @@
         <column name="organization_individual" type="String"></column>
         <column name="description" type="String"></column>
         <column name="contact_details" type="String"></column>
+        <column name="projectDurationFrom" type="String"></column>
+        <column name="projectDurationTo" type="String"></column>
         <finder name="assessment_version_id" return-type="Collection">
             <finder-column name="assessment_version_id"></finder-column>
         </finder>
@@ -652,12 +655,21 @@
         <column name="subbenefit_id" type="long" primary="true"></column>
         <column name="benefit_checksubtype" type="String"></column>
         <column name="parent_id" type="long"></column>
+        <column name="position" type="long"></column>
+        <column name="active" type="boolean"></column>
+        <finder name="ActiveStatus" return-type="Collection">
+            <finder-column name="active"></finder-column>
+        </finder>
   	</entity>
     <!-- 12 -->
     <entity name="benefit_checktype_lkp" local-service="true" remote-service="false">
         <column name="benefit_id" type="long" primary="true"></column>
         <column name="benefit_checktype" type="String"></column>
+        <column name="active" type="boolean"></column>
         <column name="benefit_checksubtype_lkp_ref" type="Collection" entity="benefit_checksubtype_lkp" mapping-key="parent_id"></column>
+        <finder name="ActiveStatus" return-type="Collection">
+            <finder-column name="active"></finder-column>
+        </finder>
   	</entity>
     <!-- 13 -->
     <entity name="benefit_rating_lkp" local-service="true" remote-service="false">
@@ -765,6 +777,8 @@
         <column name="organization_individual" type="String"></column>
         <column name="description" type="String"></column>
         <column name="contact_details" type="String"></column>
+        <column name="projectDurationFrom" type="String"></column>
+        <column name="projectDurationTo" type="String"></column>
         <finder name="assessment_version_id" return-type="Collection">
             <finder-column name="assessment_version_id"></finder-column>
         </finder>
@@ -819,6 +833,7 @@
   	<entity name="protection_mgmt_checklist_lkp" local-service="true" remote-service="false">
         <column name="topic_id" type="long" primary="true"></column>
         <column name="topic" type="String"></column>
+        <column name="topic_sort" type="int"></column>
   	</entity>
   	
   	<!-- 32 -->
@@ -930,12 +945,16 @@
         <column name="base_langid" type="long"></column>
         <column name="archived" type="boolean"></column>
         <column name="is_active" type="boolean"></column>
+        <column name="assessment_cycle" type="String"></column>
         <column name="assessment_version_ref" type="Collection" entity="site_assessment_versions" mapping-key="assessment_version_id"></column>
         <column name="assessment_lang_ref" entity="assessment_lang_version" mapping-key="assessmentid" type="Collection"></column>
         <order by="desc">
             <order-column name="initiation_date"></order-column>
         </order>
         <finder name="currentuserid" return-type="Collection" where="archived is false">
+            <finder-column name="current_userid"></finder-column>
+        </finder>
+        <finder name="currentUserIdAll" return-type="Collection">
             <finder-column name="current_userid"></finder-column>
         </finder>
         <finder name="wip_siteids" return-type="Collection" where="archived is false">
@@ -1000,6 +1019,18 @@
             <finder-column name="assessment_id"></finder-column>
             <finder-column name="version_code"></finder-column>
         </finder>
+<!--     /* 
+       	 * START: Change added by Jayesh for role implementation 
+    	 */ -->
+        
+         <finder name="versionByuserIdAndStageId" return-type="Collection">
+            <finder-column name="userid"></finder-column>
+            <finder-column name="stage_id"></finder-column>
+        </finder>
+        
+        <!--     /* 
+       	 * END: Change added by Jayesh for role implementation 
+    	 */ -->
    	</entity>
   	
     <!-- Site Assessment Module Entities -->
@@ -1008,6 +1039,7 @@
         <column name="assessment_version_id" type="long"></column>
         <column name="current_threat" type="String"></column>
         <column name="justification" type="String"></column>
+        <column name="threadExtentValue" type="String"></column>
         <column name="inside_site" type="boolean"></column>
         <column name="outside_site" type="boolean"></column>
         <column name="threat_rating_id" type="long"></column>
@@ -1022,6 +1054,7 @@
         <column name="assessment_version_id" type="long"></column>
         <column name="potential_threat" type="String"></column>
         <column name="justification" type="String"></column>
+        <column name="threadExtentValue" type="String"></column>
         <column name="threat_rating" type="long"></column>
         <column name="inside_site" type="boolean"></column>
         <column name="outside_site" type="boolean"></column>
@@ -1129,6 +1162,19 @@
         <column name="benefit_checksubtype" type="long"></column> -->
         <column name="selected_benefit" type="long"></column>
         <column name="summary" type="String"></column>
+
+        <column name="habitatChangeLevel" type="long"></column>
+        <column name="habitatChangeTrend" type="long"></column>
+        <column name="pollutionLevel" type="long"></column>
+        <column name="pollutionTrend" type="long"></column>
+        <column name="overExploitationLevel" type="long"></column>
+        <column name="overExploitationTrend" type="long"></column>
+        <column name="climateChangeLevel" type="long"></column>
+        <column name="climateChangeTrend" type="long"></column>
+        <column name="invasiveSpeciesLevel" type="long"></column>
+        <column name="invasiveSpeciesTrend" type="long"></column>
+        <column name="comment" type="String"></column>
+
         <column name="data_deficient" type="boolean"></column>
         <column name="community_within_site" type="long"></column>
         <column name="community_outside_site" type="long"></column>
@@ -1138,6 +1184,19 @@
             <finder-column name="assessment_version_id"></finder-column>
         </finder>
   	</entity>
+
+    <entity name="negative_factors_level_impact" local-service="true" remote-service="false">
+        <column name="level_id" type="long" primary="true"></column>
+        <column name="level_impact" type="String"></column>
+        <column name="description" type="String"></column>
+    </entity>
+
+    <entity name="negative_factors_trend" local-service="true" remote-service="false">
+        <column name="trend_id" type="long" primary="true"></column>
+        <column name="trend" type="String"></column>
+        <column name="description" type="String"></column>
+    </entity>
+
     <entity name="assessment_validation" local-service="true" remote-service="false">
         <column name="assessment_ver_val_id" type="long" primary="true"></column>
         <column name="assessment_version_id" type="long"></column>

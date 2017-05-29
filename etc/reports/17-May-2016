@@ -1,0 +1,13 @@
+Daily Report, 17 May 2016
+
+#32088 - Ensure ALL functionality is working on the development environments - 100% done
+
+(All the functionality tested and verified)
+
+#32093 - New Cycle Assessment - Make ‘2016 Cycle’ the default Site Assessments seen - 50% done
+
+('iucn-dbservice-portlet' changes, Liferay service builder updates implemented)
+
+#32094 - New Cycle Assessment - Add additional dropdown to see Cycles - 70% done
+
+(Liferay search container updates, DB queries updates)

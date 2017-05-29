@@ -77,6 +77,7 @@ public class site_assessmentClp extends BaseModelImpl<site_assessment>
 		attributes.put("base_langid", getBase_langid());
 		attributes.put("archived", getArchived());
 		attributes.put("is_active", getIs_active());
+		attributes.put("assessment_cycle", getAssessment_cycle());
 
 		return attributes;
 	}
@@ -142,6 +143,12 @@ public class site_assessmentClp extends BaseModelImpl<site_assessment>
 
 		if (is_active != null) {
 			setIs_active(is_active);
+		}
+
+		String assessment_cycle = (String)attributes.get("assessment_cycle");
+
+		if (assessment_cycle != null) {
+			setAssessment_cycle(assessment_cycle);
 		}
 	}
 
@@ -233,6 +240,14 @@ public class site_assessmentClp extends BaseModelImpl<site_assessment>
 		_is_active = is_active;
 	}
 
+	public String getAssessment_cycle() {
+		return _assessment_cycle;
+	}
+
+	public void setAssessment_cycle(String assessment_cycle) {
+		_assessment_cycle = assessment_cycle;
+	}
+
 	public BaseModel<?> getsite_assessmentRemoteModel() {
 		return _site_assessmentRemoteModel;
 	}
@@ -272,6 +287,7 @@ public class site_assessmentClp extends BaseModelImpl<site_assessment>
 		clone.setBase_langid(getBase_langid());
 		clone.setArchived(getArchived());
 		clone.setIs_active(getIs_active());
+		clone.setAssessment_cycle(getAssessment_cycle());
 
 		return clone;
 	}
@@ -323,7 +339,7 @@ public class site_assessmentClp extends BaseModelImpl<site_assessment>
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(21);
+		StringBundler sb = new StringBundler(23);
 
 		sb.append("{assessment_id=");
 		sb.append(getAssessment_id());
@@ -345,13 +361,15 @@ public class site_assessmentClp extends BaseModelImpl<site_assessment>
 		sb.append(getArchived());
 		sb.append(", is_active=");
 		sb.append(getIs_active());
+		sb.append(", assessment_cycle=");
+		sb.append(getAssessment_cycle());
 		sb.append("}");
 
 		return sb.toString();
 	}
 
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(34);
+		StringBundler sb = new StringBundler(37);
 
 		sb.append("<model><model-name>");
 		sb.append("com.iucn.whp.dbservice.model.site_assessment");
@@ -397,6 +415,10 @@ public class site_assessmentClp extends BaseModelImpl<site_assessment>
 			"<column><column-name>is_active</column-name><column-value><![CDATA[");
 		sb.append(getIs_active());
 		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>assessment_cycle</column-name><column-value><![CDATA[");
+		sb.append(getAssessment_cycle());
+		sb.append("]]></column-value></column>");
 
 		sb.append("</model>");
 
@@ -413,5 +435,6 @@ public class site_assessmentClp extends BaseModelImpl<site_assessment>
 	private long _base_langid;
 	private boolean _archived;
 	private boolean _is_active;
+	private String _assessment_cycle;
 	private BaseModel<?> _site_assessmentRemoteModel;
 }

@@ -52,6 +52,8 @@ public class active_conservation_projectsWrapper
 		attributes.put("organization_individual", getOrganization_individual());
 		attributes.put("description", getDescription());
 		attributes.put("contact_details", getContact_details());
+		attributes.put("projectDurationFrom", getProjectDurationFrom());
+		attributes.put("projectDurationTo", getProjectDurationTo());
 
 		return attributes;
 	}
@@ -87,6 +89,19 @@ public class active_conservation_projectsWrapper
 
 		if (contact_details != null) {
 			setContact_details(contact_details);
+		}
+
+		String projectDurationFrom = (String)attributes.get(
+				"projectDurationFrom");
+
+		if (projectDurationFrom != null) {
+			setProjectDurationFrom(projectDurationFrom);
+		}
+
+		String projectDurationTo = (String)attributes.get("projectDurationTo");
+
+		if (projectDurationTo != null) {
+			setProjectDurationTo(projectDurationTo);
 		}
 	}
 
@@ -197,6 +212,42 @@ public class active_conservation_projectsWrapper
 	*/
 	public void setContact_details(java.lang.String contact_details) {
 		_active_conservation_projects.setContact_details(contact_details);
+	}
+
+	/**
+	* Returns the project duration from of this active_conservation_projects.
+	*
+	* @return the project duration from of this active_conservation_projects
+	*/
+	public java.lang.String getProjectDurationFrom() {
+		return _active_conservation_projects.getProjectDurationFrom();
+	}
+
+	/**
+	* Sets the project duration from of this active_conservation_projects.
+	*
+	* @param projectDurationFrom the project duration from of this active_conservation_projects
+	*/
+	public void setProjectDurationFrom(java.lang.String projectDurationFrom) {
+		_active_conservation_projects.setProjectDurationFrom(projectDurationFrom);
+	}
+
+	/**
+	* Returns the project duration to of this active_conservation_projects.
+	*
+	* @return the project duration to of this active_conservation_projects
+	*/
+	public java.lang.String getProjectDurationTo() {
+		return _active_conservation_projects.getProjectDurationTo();
+	}
+
+	/**
+	* Sets the project duration to of this active_conservation_projects.
+	*
+	* @param projectDurationTo the project duration to of this active_conservation_projects
+	*/
+	public void setProjectDurationTo(java.lang.String projectDurationTo) {
+		_active_conservation_projects.setProjectDurationTo(projectDurationTo);
 	}
 
 	public boolean isNew() {

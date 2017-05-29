@@ -116,6 +116,21 @@ public interface assessing_threats_currentModel extends BaseModel<assessing_thre
 	public void setJustification(String justification);
 
 	/**
+	 * Returns the thread extent value of this assessing_threats_current.
+	 *
+	 * @return the thread extent value of this assessing_threats_current
+	 */
+	@AutoEscape
+	public String getThreadExtentValue();
+
+	/**
+	 * Sets the thread extent value of this assessing_threats_current.
+	 *
+	 * @param threadExtentValue the thread extent value of this assessing_threats_current
+	 */
+	public void setThreadExtentValue(String threadExtentValue);
+
+	/**
 	 * Returns the inside_site of this assessing_threats_current.
 	 *
 	 * @return the inside_site of this assessing_threats_current

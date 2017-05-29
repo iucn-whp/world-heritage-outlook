@@ -2198,7 +2198,7 @@ border-left-width:0PX;
 	
 	.AssessorP
 	{
-	width:320px;
+		width:212px;
 	}
 	
 	.versionP
@@ -2285,10 +2285,13 @@ padding:0 0.7em 0 0.7em;
     color: #333333;
     margin: 0;
     padding: 0.4em 0.3em 0.3em 2.3em;
-    font-size:11px;
+    font-size:12px;
     font-style: italic;
 }
-	
+
+.noteInfo{
+	padding-left: 0.5em;
+}
 
 
 .roundedwhiteBTN {
@@ -2403,6 +2406,11 @@ width: 650px;
 
 	
 	}
+
+.negative-factors-table {
+	display: inline-block;
+	width:150px;
+}
 	
 	.multiLinetxt
 	{
@@ -2724,6 +2732,24 @@ position: relative;
 {
 	width: 50px;
 	margin-left: 0.2em;
+}
+
+/* Site Assessment */
+
+table.tab_data th.good {
+	background: #92d050;
+}
+
+table.tab_data th.low-concern {
+	background: #acd373;
+}
+
+table.tab_data th.high-concern {
+	background: #ffc000;
+}
+
+table.tab_data th.critical {
+	background: #ff0000;
 }
 
 /*Query Builder CSS End Here*/

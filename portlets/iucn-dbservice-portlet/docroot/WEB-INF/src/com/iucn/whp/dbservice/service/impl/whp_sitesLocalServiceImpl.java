@@ -390,6 +390,13 @@ public class whp_sitesLocalServiceImpl extends whp_sitesLocalServiceBaseImpl {
 
 		return whp_sitesPersistence.findByactiveSites(true);
 	}
+
+	public List<whp_sites> getAllActiveSitesByUserId(long id) throws PortalException,
+			SystemException {
+
+//		return whp_sitesPersistence.findActiveSiteByUserId(true, id);
+		return whp_sitesPersistence.findAll(0, 10);
+	}
 	
 /*********************************WHP_DANGER LIST*********************************/
 	

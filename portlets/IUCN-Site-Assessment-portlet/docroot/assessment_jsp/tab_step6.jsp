@@ -1,53 +1,60 @@
 <%@page import="com.iucn.whp.dbservice.service.key_conservation_issuesLocalServiceUtil"%>
 <%@page import="com.iucn.whp.dbservice.service.site_assessment_versionsLocalServiceUtil"%>
-<%@page import="com.iucn.whp.dbservice.model.site_assessment_versions"%>
 <%@page import="com.iucn.whp.dbservice.model.key_conservation_issues"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.util.List"%>
 
-
+<%@include file="/init.jsp" %>
+<%
+    Long currentAssessmentId = ParamUtil.getLong(request, "assesmentId");
+%>
 
 <!--mainBlock Starts Here-->
 <div class="mainBlock siteInfoMainBlock">
-<div class="tableWrapper tableWrapperSiteInfoContacts">
-
-
-<div id="outerstep5Div">
-
-				<div class="infoSection">
+	<div class="tableWrapper tableWrapperSiteInfoContacts">
+		<div id="outerstep5Div">
+			<div class="infoSection">
 				<h2 class="siteAssessmentSubHeadings">Understanding Key Conservation Issues
-				<a href="#" onclick="javascript:dynamicPopup('/assessment_jsp/popup/site6_keyconservation_issue_pop.jsp','','Add Key Conservation Issues',event); return false;" class="addBtn hideAdminAction">+Add  Conservation Issues</a>
+					<a href="#"
+					   onclick="javascript:dynamicPopup('/assessment_jsp/popup/site6_keyconservation_issue_pop.jsp','','Add Key Conservation Issues',event); return false;"
+					   class="addBtn hideAdminAction">+Add Conservation Issues</a>
 				</h2>
-				
+
 				<div class="tipsSection">
-				<p class="tiptext">The conservation issues identified through this assessment are not meant to be detailed recommendations for action. Such recommendations will be part of the follow up to Conservation Outlook Assessments, but are not part of the assessment itself. The description of issues should summarize the key conservation problems affecting a site, including whether these could be locally resolved by the management authority, or require the implication of the other actors such as a national government or the international community.</p>
+					<p class="tiptext">
+						The conservation issues identified through this assessment are not meant to be
+						detailed recommendations for action. Such recommendations will be part of the follow up to
+						Conservation Outlook Assessments, but are not part of the assessment itself. The description of
+						issues should summarize the key conservation problems affecting a site, including whether these
+						could be locally resolved by the management authority, or require the implication of the other
+						actors such as a national government or the international community.
+						<a target="_blank" href="<%= themeDisplay.getURLPortal().concat("/")
+            .concat("IUCN-Site-Assessment-portlet/Guidelines_IUCN_Conservation_Outlook_Assessments_Version_2_0_FINAL.pdf") %>">Access Guidelines for this Step.</a>
+					</p>
 				</div>
-		
-		
+
 				<div id="step6Div" class="infoSectionContent">
-				<jsp:include page="/assessment_jsp/innerJsp/step6_key_cois.jsp"></jsp:include>
+					<jsp:include page="/assessment_jsp/innerJsp/step6_key_cois.jsp"></jsp:include>
 				</div>
-				
-				</div>
-</div>
-
-</div>
-
-			<div class="wizardFooter">
-			<a href="#" class="roundedcornerBTN" onclick="javascript:$('#step5').click();"><span>&#60;&#60; Previous</span></a>
-			<a href="#" class="roundedcornerBTN" onclick="javascript:$('#step7').click();"><span>Next &#62;&#62;</span></a>
 			</div>
+		</div>
+	</div>
+
+	<div class="wizardFooter">
+		<a href="#" class="roundedcornerBTN" onclick="javascript:$('#step5').click();"><span>&#60;&#60; Previous</span></a>
+		<a href="#" class="roundedcornerBTN" onclick="javascript:$('#step7').click();"><span>Save and continue &#62;&#62;</span></a>
+	</div>
 
 </div>
 
-<div class="buttonsSiteAssessment hideAdminAction">
-	 
-     <%@include file="/assessment_jsp/tab_step9_buttons.jsp" %>
-	<input type="button" value="View Differences" onClick="javascript: viewDiff_6();"/>
-	<input type="button" value="Clear Highlights" onClick="javascript: removeDiff_6();"/>
-	<%-- <jsp:include page="/assessment_jsp/tab_buttons.jsp" /> --%>
-	
-</div>
+<%--<div class="buttonsSiteAssessment hideAdminAction">--%>
+	<%--<%@include file="/assessment_jsp/tab_step9_buttons.jsp" %>--%>
+	<%--<c:if test="<%= AssessmentActionUtil.hasLinkVisible(currentAssessmentId, user.getUserId(), AssessmentContstant.ACTION_VIEW_DIFFERENCES) %>">--%>
+		<%--<input type="button" value="View Differences" onClick="javascript: viewDiff_6();"/>--%>
+	<%--</c:if>--%>
+	<%--<c:if test="<%= AssessmentActionUtil.hasLinkVisible(currentAssessmentId, user.getUserId(), AssessmentContstant.ACTION_CLEAR_HIGHLIGHTS) %>">--%>
+		<%--<input type="button" value="Clear Highlights" onClick="javascript: removeDiff_6();"/>--%>
+	<%--</c:if>--%>
+	<%--&lt;%&ndash; <jsp:include page="/assessment_jsp/tab_buttons.jsp" /> &ndash;%&gt;--%>
+<%--</div>--%>
 
 <script type="text/javascript">
 

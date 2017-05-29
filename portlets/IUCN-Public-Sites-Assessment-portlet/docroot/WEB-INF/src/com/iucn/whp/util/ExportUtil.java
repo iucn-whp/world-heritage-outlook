@@ -242,6 +242,53 @@ public class ExportUtil {
     			}
         
     		}
+
+			document.add(Chunk.NEWLINE);
+
+			//start status gauge
+			List<conservation_outlook> conservationOutlooks = conservation_outlookLocalServiceUtil.getconservationOutllokByVersion(lastass_version_id);
+
+			int rating = 0;
+			String pathToPic;
+
+			if (!conservationOutlooks.isEmpty()) {
+				rating = (int) (long) conservationOutlooks.get(0).getRating();
+			}
+
+			switch (rating) {
+				case 1 : {
+					pathToPic = "/images/status_good.png";
+					break;
+				}
+				case 2 : {
+					pathToPic = "/images/status_goodwithSomeConcerns.png";
+					break;
+				}
+				case 3 : {
+					pathToPic = "/images/status_significantconcern.png";
+					break;
+				}
+				case 4 : {
+					pathToPic = "/images/status_critical.png";
+					break;
+				}
+				case 5 : {
+					pathToPic = "/images/status_datadeficient.png";
+					break;
+				}
+				default: {
+					pathToPic = "/images/status_datadeficient.png";
+				}
+			}
+
+			String statusUrl = resourceRequest.getPortletSession().getPortletContext().getResource(pathToPic).toString();
+
+			Image image = Image.getInstance(new URL(statusUrl));
+            image.setAbsolutePosition(140f, 50f);
+	        image.scaleToFit(300f, 300f);
+			document.add(image);
+			//end status gauge
+
             
     		document.newPage();
     		

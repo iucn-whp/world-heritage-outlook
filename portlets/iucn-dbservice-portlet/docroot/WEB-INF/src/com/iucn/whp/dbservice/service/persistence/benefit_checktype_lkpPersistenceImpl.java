@@ -42,6 +42,7 @@ import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.PropsUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.model.CacheModel;
 import com.liferay.portal.model.ModelListener;
@@ -80,6 +81,28 @@ public class benefit_checktype_lkpPersistenceImpl extends BasePersistenceImpl<be
 		".List1";
 	public static final String FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION = FINDER_CLASS_NAME_ENTITY +
 		".List2";
+	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_ACTIVESTATUS =
+		new FinderPath(benefit_checktype_lkpModelImpl.ENTITY_CACHE_ENABLED,
+			benefit_checktype_lkpModelImpl.FINDER_CACHE_ENABLED,
+			benefit_checktype_lkpImpl.class,
+			FINDER_CLASS_NAME_LIST_WITH_PAGINATION, "findByActiveStatus",
+			new String[] {
+				Boolean.class.getName(),
+				
+			"java.lang.Integer", "java.lang.Integer",
+				"com.liferay.portal.kernel.util.OrderByComparator"
+			});
+	public static final FinderPath FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_ACTIVESTATUS =
+		new FinderPath(benefit_checktype_lkpModelImpl.ENTITY_CACHE_ENABLED,
+			benefit_checktype_lkpModelImpl.FINDER_CACHE_ENABLED,
+			benefit_checktype_lkpImpl.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findByActiveStatus",
+			new String[] { Boolean.class.getName() },
+			benefit_checktype_lkpModelImpl.ACTIVE_COLUMN_BITMASK);
+	public static final FinderPath FINDER_PATH_COUNT_BY_ACTIVESTATUS = new FinderPath(benefit_checktype_lkpModelImpl.ENTITY_CACHE_ENABLED,
+			benefit_checktype_lkpModelImpl.FINDER_CACHE_ENABLED, Long.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByActiveStatus",
+			new String[] { Boolean.class.getName() });
 	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_ALL = new FinderPath(benefit_checktype_lkpModelImpl.ENTITY_CACHE_ENABLED,
 			benefit_checktype_lkpModelImpl.FINDER_CACHE_ENABLED,
 			benefit_checktype_lkpImpl.class,
@@ -274,6 +297,8 @@ public class benefit_checktype_lkpPersistenceImpl extends BasePersistenceImpl<be
 
 		boolean isNew = benefit_checktype_lkp.isNew();
 
+		benefit_checktype_lkpModelImpl benefit_checktype_lkpModelImpl = (benefit_checktype_lkpModelImpl)benefit_checktype_lkp;
+
 		Session session = null;
 
 		try {
@@ -292,8 +317,31 @@ public class benefit_checktype_lkpPersistenceImpl extends BasePersistenceImpl<be
 
 		FinderCacheUtil.clearCache(FINDER_CLASS_NAME_LIST_WITH_PAGINATION);
 
-		if (isNew) {
+		if (isNew || !benefit_checktype_lkpModelImpl.COLUMN_BITMASK_ENABLED) {
 			FinderCacheUtil.clearCache(FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION);
+		}
+
+		else {
+			if ((benefit_checktype_lkpModelImpl.getColumnBitmask() &
+					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_ACTIVESTATUS.getColumnBitmask()) != 0) {
+				Object[] args = new Object[] {
+						Boolean.valueOf(benefit_checktype_lkpModelImpl.getOriginalActive())
+					};
+
+				FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_ACTIVESTATUS,
+					args);
+				FinderCacheUtil.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_ACTIVESTATUS,
+					args);
+
+				args = new Object[] {
+						Boolean.valueOf(benefit_checktype_lkpModelImpl.getActive())
+					};
+
+				FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_ACTIVESTATUS,
+					args);
+				FinderCacheUtil.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_ACTIVESTATUS,
+					args);
+			}
 		}
 
 		EntityCacheUtil.putResult(benefit_checktype_lkpModelImpl.ENTITY_CACHE_ENABLED,
@@ -316,6 +364,7 @@ public class benefit_checktype_lkpPersistenceImpl extends BasePersistenceImpl<be
 
 		benefit_checktype_lkpImpl.setBenefit_id(benefit_checktype_lkp.getBenefit_id());
 		benefit_checktype_lkpImpl.setBenefit_checktype(benefit_checktype_lkp.getBenefit_checktype());
+		benefit_checktype_lkpImpl.setActive(benefit_checktype_lkp.isActive());
 
 		return benefit_checktype_lkpImpl;
 	}
@@ -418,6 +467,382 @@ public class benefit_checktype_lkpPersistenceImpl extends BasePersistenceImpl<be
 		}
 
 		return benefit_checktype_lkp;
+	}
+
+	/**
+	 * Returns all the benefit_checktype_lkps where active = &#63;.
+	 *
+	 * @param active the active
+	 * @return the matching benefit_checktype_lkps
+	 * @throws SystemException if a system exception occurred
+	 */
+	public List<benefit_checktype_lkp> findByActiveStatus(boolean active)
+		throws SystemException {
+		return findByActiveStatus(active, QueryUtil.ALL_POS, QueryUtil.ALL_POS,
+			null);
+	}
+
+	/**
+	 * Returns a range of all the benefit_checktype_lkps where active = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+	 * </p>
+	 *
+	 * @param active the active
+	 * @param start the lower bound of the range of benefit_checktype_lkps
+	 * @param end the upper bound of the range of benefit_checktype_lkps (not inclusive)
+	 * @return the range of matching benefit_checktype_lkps
+	 * @throws SystemException if a system exception occurred
+	 */
+	public List<benefit_checktype_lkp> findByActiveStatus(boolean active,
+		int start, int end) throws SystemException {
+		return findByActiveStatus(active, start, end, null);
+	}
+
+	/**
+	 * Returns an ordered range of all the benefit_checktype_lkps where active = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+	 * </p>
+	 *
+	 * @param active the active
+	 * @param start the lower bound of the range of benefit_checktype_lkps
+	 * @param end the upper bound of the range of benefit_checktype_lkps (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @return the ordered range of matching benefit_checktype_lkps
+	 * @throws SystemException if a system exception occurred
+	 */
+	public List<benefit_checktype_lkp> findByActiveStatus(boolean active,
+		int start, int end, OrderByComparator orderByComparator)
+		throws SystemException {
+		FinderPath finderPath = null;
+		Object[] finderArgs = null;
+
+		if ((start == QueryUtil.ALL_POS) && (end == QueryUtil.ALL_POS) &&
+				(orderByComparator == null)) {
+			finderPath = FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_ACTIVESTATUS;
+			finderArgs = new Object[] { active };
+		}
+		else {
+			finderPath = FINDER_PATH_WITH_PAGINATION_FIND_BY_ACTIVESTATUS;
+			finderArgs = new Object[] { active, start, end, orderByComparator };
+		}
+
+		List<benefit_checktype_lkp> list = (List<benefit_checktype_lkp>)FinderCacheUtil.getResult(finderPath,
+				finderArgs, this);
+
+		if ((list != null) && !list.isEmpty()) {
+			for (benefit_checktype_lkp benefit_checktype_lkp : list) {
+				if ((active != benefit_checktype_lkp.getActive())) {
+					list = null;
+
+					break;
+				}
+			}
+		}
+
+		if (list == null) {
+			StringBundler query = null;
+
+			if (orderByComparator != null) {
+				query = new StringBundler(3 +
+						(orderByComparator.getOrderByFields().length * 3));
+			}
+			else {
+				query = new StringBundler(2);
+			}
+
+			query.append(_SQL_SELECT_BENEFIT_CHECKTYPE_LKP_WHERE);
+
+			query.append(_FINDER_COLUMN_ACTIVESTATUS_ACTIVE_2);
+
+			if (orderByComparator != null) {
+				appendOrderByComparator(query, _ORDER_BY_ENTITY_ALIAS,
+					orderByComparator);
+			}
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(active);
+
+				list = (List<benefit_checktype_lkp>)QueryUtil.list(q,
+						getDialect(), start, end);
+			}
+			catch (Exception e) {
+				throw processException(e);
+			}
+			finally {
+				if (list == null) {
+					FinderCacheUtil.removeResult(finderPath, finderArgs);
+				}
+				else {
+					cacheResult(list);
+
+					FinderCacheUtil.putResult(finderPath, finderArgs, list);
+				}
+
+				closeSession(session);
+			}
+		}
+
+		return list;
+	}
+
+	/**
+	 * Returns the first benefit_checktype_lkp in the ordered set where active = &#63;.
+	 *
+	 * @param active the active
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching benefit_checktype_lkp
+	 * @throws com.iucn.whp.dbservice.NoSuchbenefit_checktype_lkpException if a matching benefit_checktype_lkp could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	public benefit_checktype_lkp findByActiveStatus_First(boolean active,
+		OrderByComparator orderByComparator)
+		throws NoSuchbenefit_checktype_lkpException, SystemException {
+		benefit_checktype_lkp benefit_checktype_lkp = fetchByActiveStatus_First(active,
+				orderByComparator);
+
+		if (benefit_checktype_lkp != null) {
+			return benefit_checktype_lkp;
+		}
+
+		StringBundler msg = new StringBundler(4);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("active=");
+		msg.append(active);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchbenefit_checktype_lkpException(msg.toString());
+	}
+
+	/**
+	 * Returns the first benefit_checktype_lkp in the ordered set where active = &#63;.
+	 *
+	 * @param active the active
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching benefit_checktype_lkp, or <code>null</code> if a matching benefit_checktype_lkp could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	public benefit_checktype_lkp fetchByActiveStatus_First(boolean active,
+		OrderByComparator orderByComparator) throws SystemException {
+		List<benefit_checktype_lkp> list = findByActiveStatus(active, 0, 1,
+				orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the last benefit_checktype_lkp in the ordered set where active = &#63;.
+	 *
+	 * @param active the active
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching benefit_checktype_lkp
+	 * @throws com.iucn.whp.dbservice.NoSuchbenefit_checktype_lkpException if a matching benefit_checktype_lkp could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	public benefit_checktype_lkp findByActiveStatus_Last(boolean active,
+		OrderByComparator orderByComparator)
+		throws NoSuchbenefit_checktype_lkpException, SystemException {
+		benefit_checktype_lkp benefit_checktype_lkp = fetchByActiveStatus_Last(active,
+				orderByComparator);
+
+		if (benefit_checktype_lkp != null) {
+			return benefit_checktype_lkp;
+		}
+
+		StringBundler msg = new StringBundler(4);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("active=");
+		msg.append(active);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchbenefit_checktype_lkpException(msg.toString());
+	}
+
+	/**
+	 * Returns the last benefit_checktype_lkp in the ordered set where active = &#63;.
+	 *
+	 * @param active the active
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching benefit_checktype_lkp, or <code>null</code> if a matching benefit_checktype_lkp could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	public benefit_checktype_lkp fetchByActiveStatus_Last(boolean active,
+		OrderByComparator orderByComparator) throws SystemException {
+		int count = countByActiveStatus(active);
+
+		List<benefit_checktype_lkp> list = findByActiveStatus(active,
+				count - 1, count, orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the benefit_checktype_lkps before and after the current benefit_checktype_lkp in the ordered set where active = &#63;.
+	 *
+	 * @param benefit_id the primary key of the current benefit_checktype_lkp
+	 * @param active the active
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the previous, current, and next benefit_checktype_lkp
+	 * @throws com.iucn.whp.dbservice.NoSuchbenefit_checktype_lkpException if a benefit_checktype_lkp with the primary key could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	public benefit_checktype_lkp[] findByActiveStatus_PrevAndNext(
+		long benefit_id, boolean active, OrderByComparator orderByComparator)
+		throws NoSuchbenefit_checktype_lkpException, SystemException {
+		benefit_checktype_lkp benefit_checktype_lkp = findByPrimaryKey(benefit_id);
+
+		Session session = null;
+
+		try {
+			session = openSession();
+
+			benefit_checktype_lkp[] array = new benefit_checktype_lkpImpl[3];
+
+			array[0] = getByActiveStatus_PrevAndNext(session,
+					benefit_checktype_lkp, active, orderByComparator, true);
+
+			array[1] = benefit_checktype_lkp;
+
+			array[2] = getByActiveStatus_PrevAndNext(session,
+					benefit_checktype_lkp, active, orderByComparator, false);
+
+			return array;
+		}
+		catch (Exception e) {
+			throw processException(e);
+		}
+		finally {
+			closeSession(session);
+		}
+	}
+
+	protected benefit_checktype_lkp getByActiveStatus_PrevAndNext(
+		Session session, benefit_checktype_lkp benefit_checktype_lkp,
+		boolean active, OrderByComparator orderByComparator, boolean previous) {
+		StringBundler query = null;
+
+		if (orderByComparator != null) {
+			query = new StringBundler(6 +
+					(orderByComparator.getOrderByFields().length * 6));
+		}
+		else {
+			query = new StringBundler(3);
+		}
+
+		query.append(_SQL_SELECT_BENEFIT_CHECKTYPE_LKP_WHERE);
+
+		query.append(_FINDER_COLUMN_ACTIVESTATUS_ACTIVE_2);
+
+		if (orderByComparator != null) {
+			String[] orderByConditionFields = orderByComparator.getOrderByConditionFields();
+
+			if (orderByConditionFields.length > 0) {
+				query.append(WHERE_AND);
+			}
+
+			for (int i = 0; i < orderByConditionFields.length; i++) {
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+				query.append(orderByConditionFields[i]);
+
+				if ((i + 1) < orderByConditionFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(WHERE_GREATER_THAN_HAS_NEXT);
+					}
+					else {
+						query.append(WHERE_LESSER_THAN_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(WHERE_GREATER_THAN);
+					}
+					else {
+						query.append(WHERE_LESSER_THAN);
+					}
+				}
+			}
+
+			query.append(ORDER_BY_CLAUSE);
+
+			String[] orderByFields = orderByComparator.getOrderByFields();
+
+			for (int i = 0; i < orderByFields.length; i++) {
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+				query.append(orderByFields[i]);
+
+				if ((i + 1) < orderByFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(ORDER_BY_ASC_HAS_NEXT);
+					}
+					else {
+						query.append(ORDER_BY_DESC_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(ORDER_BY_ASC);
+					}
+					else {
+						query.append(ORDER_BY_DESC);
+					}
+				}
+			}
+		}
+
+		String sql = query.toString();
+
+		Query q = session.createQuery(sql);
+
+		q.setFirstResult(0);
+		q.setMaxResults(2);
+
+		QueryPos qPos = QueryPos.getInstance(q);
+
+		qPos.add(active);
+
+		if (orderByComparator != null) {
+			Object[] values = orderByComparator.getOrderByConditionValues(benefit_checktype_lkp);
+
+			for (Object value : values) {
+				qPos.add(value);
+			}
+		}
+
+		List<benefit_checktype_lkp> list = q.list();
+
+		if (list.size() == 2) {
+			return list.get(1);
+		}
+		else {
+			return null;
+		}
 	}
 
 	/**
@@ -536,6 +961,19 @@ public class benefit_checktype_lkpPersistenceImpl extends BasePersistenceImpl<be
 	}
 
 	/**
+	 * Removes all the benefit_checktype_lkps where active = &#63; from the database.
+	 *
+	 * @param active the active
+	 * @throws SystemException if a system exception occurred
+	 */
+	public void removeByActiveStatus(boolean active) throws SystemException {
+		for (benefit_checktype_lkp benefit_checktype_lkp : findByActiveStatus(
+				active)) {
+			remove(benefit_checktype_lkp);
+		}
+	}
+
+	/**
 	 * Removes all the benefit_checktype_lkps from the database.
 	 *
 	 * @throws SystemException if a system exception occurred
@@ -544,6 +982,59 @@ public class benefit_checktype_lkpPersistenceImpl extends BasePersistenceImpl<be
 		for (benefit_checktype_lkp benefit_checktype_lkp : findAll()) {
 			remove(benefit_checktype_lkp);
 		}
+	}
+
+	/**
+	 * Returns the number of benefit_checktype_lkps where active = &#63;.
+	 *
+	 * @param active the active
+	 * @return the number of matching benefit_checktype_lkps
+	 * @throws SystemException if a system exception occurred
+	 */
+	public int countByActiveStatus(boolean active) throws SystemException {
+		Object[] finderArgs = new Object[] { active };
+
+		Long count = (Long)FinderCacheUtil.getResult(FINDER_PATH_COUNT_BY_ACTIVESTATUS,
+				finderArgs, this);
+
+		if (count == null) {
+			StringBundler query = new StringBundler(2);
+
+			query.append(_SQL_COUNT_BENEFIT_CHECKTYPE_LKP_WHERE);
+
+			query.append(_FINDER_COLUMN_ACTIVESTATUS_ACTIVE_2);
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(active);
+
+				count = (Long)q.uniqueResult();
+			}
+			catch (Exception e) {
+				throw processException(e);
+			}
+			finally {
+				if (count == null) {
+					count = Long.valueOf(0);
+				}
+
+				FinderCacheUtil.putResult(FINDER_PATH_COUNT_BY_ACTIVESTATUS,
+					finderArgs, count);
+
+				closeSession(session);
+			}
+		}
+
+		return count.intValue();
 	}
 
 	/**
@@ -938,6 +1429,10 @@ public class benefit_checktype_lkpPersistenceImpl extends BasePersistenceImpl<be
 	protected key_conservation_scale_lkpPersistence key_conservation_scale_lkpPersistence;
 	@BeanReference(type = mission_lkpPersistence.class)
 	protected mission_lkpPersistence mission_lkpPersistence;
+	@BeanReference(type = negative_factors_level_impactPersistence.class)
+	protected negative_factors_level_impactPersistence negative_factors_level_impactPersistence;
+	@BeanReference(type = negative_factors_trendPersistence.class)
+	protected negative_factors_trendPersistence negative_factors_trendPersistence;
 	@BeanReference(type = other_designation_lkpPersistence.class)
 	protected other_designation_lkpPersistence other_designation_lkpPersistence;
 	@BeanReference(type = potential_project_needsPersistence.class)
@@ -1076,12 +1571,16 @@ public class benefit_checktype_lkpPersistenceImpl extends BasePersistenceImpl<be
 	}
 
 	private static final String _SQL_SELECT_BENEFIT_CHECKTYPE_LKP = "SELECT benefit_checktype_lkp FROM benefit_checktype_lkp benefit_checktype_lkp";
+	private static final String _SQL_SELECT_BENEFIT_CHECKTYPE_LKP_WHERE = "SELECT benefit_checktype_lkp FROM benefit_checktype_lkp benefit_checktype_lkp WHERE ";
 	private static final String _SQL_COUNT_BENEFIT_CHECKTYPE_LKP = "SELECT COUNT(benefit_checktype_lkp) FROM benefit_checktype_lkp benefit_checktype_lkp";
+	private static final String _SQL_COUNT_BENEFIT_CHECKTYPE_LKP_WHERE = "SELECT COUNT(benefit_checktype_lkp) FROM benefit_checktype_lkp benefit_checktype_lkp WHERE ";
 	private static final String _SQL_GETBENEFIT_CHECKSUBTYPE_LKPS = "SELECT {whp_benefit_checksubtype_lkp.*} FROM whp_benefit_checksubtype_lkp INNER JOIN whp_benefit_checktype_lkp ON (whp_benefit_checktype_lkp.benefit_id = whp_benefit_checksubtype_lkp.benefit_id) WHERE (whp_benefit_checktype_lkp.benefit_id = ?)";
 	private static final String _SQL_GETBENEFIT_CHECKSUBTYPE_LKPSSIZE = "SELECT COUNT(*) AS COUNT_VALUE FROM whp_benefit_checksubtype_lkp WHERE benefit_id = ?";
 	private static final String _SQL_CONTAINSBENEFIT_CHECKSUBTYPE_LKP = "SELECT COUNT(*) AS COUNT_VALUE FROM whp_benefit_checksubtype_lkp WHERE benefit_id = ? AND subbenefit_id = ?";
+	private static final String _FINDER_COLUMN_ACTIVESTATUS_ACTIVE_2 = "benefit_checktype_lkp.active = ?";
 	private static final String _ORDER_BY_ENTITY_ALIAS = "benefit_checktype_lkp.";
 	private static final String _NO_SUCH_ENTITY_WITH_PRIMARY_KEY = "No benefit_checktype_lkp exists with the primary key ";
+	private static final String _NO_SUCH_ENTITY_WITH_KEY = "No benefit_checktype_lkp exists with the key {";
 	private static final boolean _HIBERNATE_CACHE_USE_SECOND_LEVEL_CACHE = GetterUtil.getBoolean(PropsUtil.get(
 				PropsKeys.HIBERNATE_CACHE_USE_SECOND_LEVEL_CACHE));
 	private static Log _log = LogFactoryUtil.getLog(benefit_checktype_lkpPersistenceImpl.class);

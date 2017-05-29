@@ -103,6 +103,28 @@ public class site_assessmentPersistenceImpl extends BasePersistenceImpl<site_ass
 			site_assessmentModelImpl.FINDER_CACHE_ENABLED, Long.class,
 			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countBycurrentuserid",
 			new String[] { Long.class.getName() });
+	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_CURRENTUSERIDALL =
+		new FinderPath(site_assessmentModelImpl.ENTITY_CACHE_ENABLED,
+			site_assessmentModelImpl.FINDER_CACHE_ENABLED,
+			site_assessmentImpl.class, FINDER_CLASS_NAME_LIST_WITH_PAGINATION,
+			"findBycurrentUserIdAll",
+			new String[] {
+				Long.class.getName(),
+				
+			"java.lang.Integer", "java.lang.Integer",
+				"com.liferay.portal.kernel.util.OrderByComparator"
+			});
+	public static final FinderPath FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_CURRENTUSERIDALL =
+		new FinderPath(site_assessmentModelImpl.ENTITY_CACHE_ENABLED,
+			site_assessmentModelImpl.FINDER_CACHE_ENABLED,
+			site_assessmentImpl.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION,
+			"findBycurrentUserIdAll", new String[] { Long.class.getName() },
+			site_assessmentModelImpl.CURRENT_USERID_COLUMN_BITMASK);
+	public static final FinderPath FINDER_PATH_COUNT_BY_CURRENTUSERIDALL = new FinderPath(site_assessmentModelImpl.ENTITY_CACHE_ENABLED,
+			site_assessmentModelImpl.FINDER_CACHE_ENABLED, Long.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION,
+			"countBycurrentUserIdAll", new String[] { Long.class.getName() });
 	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_WIP_SITEIDS =
 		new FinderPath(site_assessmentModelImpl.ENTITY_CACHE_ENABLED,
 			site_assessmentModelImpl.FINDER_CACHE_ENABLED,
@@ -413,6 +435,27 @@ public class site_assessmentPersistenceImpl extends BasePersistenceImpl<site_ass
 			}
 
 			if ((site_assessmentModelImpl.getColumnBitmask() &
+					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_CURRENTUSERIDALL.getColumnBitmask()) != 0) {
+				Object[] args = new Object[] {
+						Long.valueOf(site_assessmentModelImpl.getOriginalCurrent_userid())
+					};
+
+				FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_CURRENTUSERIDALL,
+					args);
+				FinderCacheUtil.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_CURRENTUSERIDALL,
+					args);
+
+				args = new Object[] {
+						Long.valueOf(site_assessmentModelImpl.getCurrent_userid())
+					};
+
+				FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_CURRENTUSERIDALL,
+					args);
+				FinderCacheUtil.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_CURRENTUSERIDALL,
+					args);
+			}
+
+			if ((site_assessmentModelImpl.getColumnBitmask() &
 					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_WIP_SITEIDS.getColumnBitmask()) != 0) {
 				Object[] args = new Object[] {
 						Long.valueOf(site_assessmentModelImpl.getOriginalSite_id())
@@ -505,6 +548,7 @@ public class site_assessmentPersistenceImpl extends BasePersistenceImpl<site_ass
 		site_assessmentImpl.setBase_langid(site_assessment.getBase_langid());
 		site_assessmentImpl.setArchived(site_assessment.isArchived());
 		site_assessmentImpl.setIs_active(site_assessment.isIs_active());
+		site_assessmentImpl.setAssessment_cycle(site_assessment.getAssessment_cycle());
 
 		return site_assessmentImpl;
 	}
@@ -908,6 +952,395 @@ public class site_assessmentPersistenceImpl extends BasePersistenceImpl<site_ass
 		query.append(_SQL_SELECT_SITE_ASSESSMENT_WHERE);
 
 		query.append(_FINDER_COLUMN_CURRENTUSERID_CURRENT_USERID_2);
+
+		if (orderByComparator != null) {
+			String[] orderByConditionFields = orderByComparator.getOrderByConditionFields();
+
+			if (orderByConditionFields.length > 0) {
+				query.append(WHERE_AND);
+			}
+
+			for (int i = 0; i < orderByConditionFields.length; i++) {
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+				query.append(orderByConditionFields[i]);
+
+				if ((i + 1) < orderByConditionFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(WHERE_GREATER_THAN_HAS_NEXT);
+					}
+					else {
+						query.append(WHERE_LESSER_THAN_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(WHERE_GREATER_THAN);
+					}
+					else {
+						query.append(WHERE_LESSER_THAN);
+					}
+				}
+			}
+
+			query.append(ORDER_BY_CLAUSE);
+
+			String[] orderByFields = orderByComparator.getOrderByFields();
+
+			for (int i = 0; i < orderByFields.length; i++) {
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+				query.append(orderByFields[i]);
+
+				if ((i + 1) < orderByFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(ORDER_BY_ASC_HAS_NEXT);
+					}
+					else {
+						query.append(ORDER_BY_DESC_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(ORDER_BY_ASC);
+					}
+					else {
+						query.append(ORDER_BY_DESC);
+					}
+				}
+			}
+		}
+
+		else {
+			query.append(site_assessmentModelImpl.ORDER_BY_JPQL);
+		}
+
+		String sql = query.toString();
+
+		Query q = session.createQuery(sql);
+
+		q.setFirstResult(0);
+		q.setMaxResults(2);
+
+		QueryPos qPos = QueryPos.getInstance(q);
+
+		qPos.add(current_userid);
+
+		if (orderByComparator != null) {
+			Object[] values = orderByComparator.getOrderByConditionValues(site_assessment);
+
+			for (Object value : values) {
+				qPos.add(value);
+			}
+		}
+
+		List<site_assessment> list = q.list();
+
+		if (list.size() == 2) {
+			return list.get(1);
+		}
+		else {
+			return null;
+		}
+	}
+
+	/**
+	 * Returns all the site_assessments where current_userid = &#63;.
+	 *
+	 * @param current_userid the current_userid
+	 * @return the matching site_assessments
+	 * @throws SystemException if a system exception occurred
+	 */
+	public List<site_assessment> findBycurrentUserIdAll(long current_userid)
+		throws SystemException {
+		return findBycurrentUserIdAll(current_userid, QueryUtil.ALL_POS,
+			QueryUtil.ALL_POS, null);
+	}
+
+	/**
+	 * Returns a range of all the site_assessments where current_userid = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+	 * </p>
+	 *
+	 * @param current_userid the current_userid
+	 * @param start the lower bound of the range of site_assessments
+	 * @param end the upper bound of the range of site_assessments (not inclusive)
+	 * @return the range of matching site_assessments
+	 * @throws SystemException if a system exception occurred
+	 */
+	public List<site_assessment> findBycurrentUserIdAll(long current_userid,
+		int start, int end) throws SystemException {
+		return findBycurrentUserIdAll(current_userid, start, end, null);
+	}
+
+	/**
+	 * Returns an ordered range of all the site_assessments where current_userid = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+	 * </p>
+	 *
+	 * @param current_userid the current_userid
+	 * @param start the lower bound of the range of site_assessments
+	 * @param end the upper bound of the range of site_assessments (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @return the ordered range of matching site_assessments
+	 * @throws SystemException if a system exception occurred
+	 */
+	public List<site_assessment> findBycurrentUserIdAll(long current_userid,
+		int start, int end, OrderByComparator orderByComparator)
+		throws SystemException {
+		FinderPath finderPath = null;
+		Object[] finderArgs = null;
+
+		if ((start == QueryUtil.ALL_POS) && (end == QueryUtil.ALL_POS) &&
+				(orderByComparator == null)) {
+			finderPath = FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_CURRENTUSERIDALL;
+			finderArgs = new Object[] { current_userid };
+		}
+		else {
+			finderPath = FINDER_PATH_WITH_PAGINATION_FIND_BY_CURRENTUSERIDALL;
+			finderArgs = new Object[] {
+					current_userid,
+					
+					start, end, orderByComparator
+				};
+		}
+
+		List<site_assessment> list = (List<site_assessment>)FinderCacheUtil.getResult(finderPath,
+				finderArgs, this);
+
+		if ((list != null) && !list.isEmpty()) {
+			for (site_assessment site_assessment : list) {
+				if ((current_userid != site_assessment.getCurrent_userid())) {
+					list = null;
+
+					break;
+				}
+			}
+		}
+
+		if (list == null) {
+			StringBundler query = null;
+
+			if (orderByComparator != null) {
+				query = new StringBundler(3 +
+						(orderByComparator.getOrderByFields().length * 3));
+			}
+			else {
+				query = new StringBundler(3);
+			}
+
+			query.append(_SQL_SELECT_SITE_ASSESSMENT_WHERE);
+
+			query.append(_FINDER_COLUMN_CURRENTUSERIDALL_CURRENT_USERID_2);
+
+			if (orderByComparator != null) {
+				appendOrderByComparator(query, _ORDER_BY_ENTITY_ALIAS,
+					orderByComparator);
+			}
+
+			else {
+				query.append(site_assessmentModelImpl.ORDER_BY_JPQL);
+			}
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(current_userid);
+
+				list = (List<site_assessment>)QueryUtil.list(q, getDialect(),
+						start, end);
+			}
+			catch (Exception e) {
+				throw processException(e);
+			}
+			finally {
+				if (list == null) {
+					FinderCacheUtil.removeResult(finderPath, finderArgs);
+				}
+				else {
+					cacheResult(list);
+
+					FinderCacheUtil.putResult(finderPath, finderArgs, list);
+				}
+
+				closeSession(session);
+			}
+		}
+
+		return list;
+	}
+
+	/**
+	 * Returns the first site_assessment in the ordered set where current_userid = &#63;.
+	 *
+	 * @param current_userid the current_userid
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching site_assessment
+	 * @throws com.iucn.whp.dbservice.NoSuchsite_assessmentException if a matching site_assessment could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	public site_assessment findBycurrentUserIdAll_First(long current_userid,
+		OrderByComparator orderByComparator)
+		throws NoSuchsite_assessmentException, SystemException {
+		site_assessment site_assessment = fetchBycurrentUserIdAll_First(current_userid,
+				orderByComparator);
+
+		if (site_assessment != null) {
+			return site_assessment;
+		}
+
+		StringBundler msg = new StringBundler(4);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("current_userid=");
+		msg.append(current_userid);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchsite_assessmentException(msg.toString());
+	}
+
+	/**
+	 * Returns the first site_assessment in the ordered set where current_userid = &#63;.
+	 *
+	 * @param current_userid the current_userid
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching site_assessment, or <code>null</code> if a matching site_assessment could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	public site_assessment fetchBycurrentUserIdAll_First(long current_userid,
+		OrderByComparator orderByComparator) throws SystemException {
+		List<site_assessment> list = findBycurrentUserIdAll(current_userid, 0,
+				1, orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the last site_assessment in the ordered set where current_userid = &#63;.
+	 *
+	 * @param current_userid the current_userid
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching site_assessment
+	 * @throws com.iucn.whp.dbservice.NoSuchsite_assessmentException if a matching site_assessment could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	public site_assessment findBycurrentUserIdAll_Last(long current_userid,
+		OrderByComparator orderByComparator)
+		throws NoSuchsite_assessmentException, SystemException {
+		site_assessment site_assessment = fetchBycurrentUserIdAll_Last(current_userid,
+				orderByComparator);
+
+		if (site_assessment != null) {
+			return site_assessment;
+		}
+
+		StringBundler msg = new StringBundler(4);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("current_userid=");
+		msg.append(current_userid);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchsite_assessmentException(msg.toString());
+	}
+
+	/**
+	 * Returns the last site_assessment in the ordered set where current_userid = &#63;.
+	 *
+	 * @param current_userid the current_userid
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching site_assessment, or <code>null</code> if a matching site_assessment could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	public site_assessment fetchBycurrentUserIdAll_Last(long current_userid,
+		OrderByComparator orderByComparator) throws SystemException {
+		int count = countBycurrentUserIdAll(current_userid);
+
+		List<site_assessment> list = findBycurrentUserIdAll(current_userid,
+				count - 1, count, orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the site_assessments before and after the current site_assessment in the ordered set where current_userid = &#63;.
+	 *
+	 * @param assessment_id the primary key of the current site_assessment
+	 * @param current_userid the current_userid
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the previous, current, and next site_assessment
+	 * @throws com.iucn.whp.dbservice.NoSuchsite_assessmentException if a site_assessment with the primary key could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	public site_assessment[] findBycurrentUserIdAll_PrevAndNext(
+		long assessment_id, long current_userid,
+		OrderByComparator orderByComparator)
+		throws NoSuchsite_assessmentException, SystemException {
+		site_assessment site_assessment = findByPrimaryKey(assessment_id);
+
+		Session session = null;
+
+		try {
+			session = openSession();
+
+			site_assessment[] array = new site_assessmentImpl[3];
+
+			array[0] = getBycurrentUserIdAll_PrevAndNext(session,
+					site_assessment, current_userid, orderByComparator, true);
+
+			array[1] = site_assessment;
+
+			array[2] = getBycurrentUserIdAll_PrevAndNext(session,
+					site_assessment, current_userid, orderByComparator, false);
+
+			return array;
+		}
+		catch (Exception e) {
+			throw processException(e);
+		}
+		finally {
+			closeSession(session);
+		}
+	}
+
+	protected site_assessment getBycurrentUserIdAll_PrevAndNext(
+		Session session, site_assessment site_assessment, long current_userid,
+		OrderByComparator orderByComparator, boolean previous) {
+		StringBundler query = null;
+
+		if (orderByComparator != null) {
+			query = new StringBundler(6 +
+					(orderByComparator.getOrderByFields().length * 6));
+		}
+		else {
+			query = new StringBundler(3);
+		}
+
+		query.append(_SQL_SELECT_SITE_ASSESSMENT_WHERE);
+
+		query.append(_FINDER_COLUMN_CURRENTUSERIDALL_CURRENT_USERID_2);
 
 		if (orderByComparator != null) {
 			String[] orderByConditionFields = orderByComparator.getOrderByConditionFields();
@@ -2314,6 +2747,20 @@ public class site_assessmentPersistenceImpl extends BasePersistenceImpl<site_ass
 	}
 
 	/**
+	 * Removes all the site_assessments where current_userid = &#63; from the database.
+	 *
+	 * @param current_userid the current_userid
+	 * @throws SystemException if a system exception occurred
+	 */
+	public void removeBycurrentUserIdAll(long current_userid)
+		throws SystemException {
+		for (site_assessment site_assessment : findBycurrentUserIdAll(
+				current_userid)) {
+			remove(site_assessment);
+		}
+	}
+
+	/**
 	 * Removes all the site_assessments where site_id = &#63; from the database.
 	 *
 	 * @param site_id the site_id
@@ -2410,6 +2857,60 @@ public class site_assessmentPersistenceImpl extends BasePersistenceImpl<site_ass
 				}
 
 				FinderCacheUtil.putResult(FINDER_PATH_COUNT_BY_CURRENTUSERID,
+					finderArgs, count);
+
+				closeSession(session);
+			}
+		}
+
+		return count.intValue();
+	}
+
+	/**
+	 * Returns the number of site_assessments where current_userid = &#63;.
+	 *
+	 * @param current_userid the current_userid
+	 * @return the number of matching site_assessments
+	 * @throws SystemException if a system exception occurred
+	 */
+	public int countBycurrentUserIdAll(long current_userid)
+		throws SystemException {
+		Object[] finderArgs = new Object[] { current_userid };
+
+		Long count = (Long)FinderCacheUtil.getResult(FINDER_PATH_COUNT_BY_CURRENTUSERIDALL,
+				finderArgs, this);
+
+		if (count == null) {
+			StringBundler query = new StringBundler(2);
+
+			query.append(_SQL_COUNT_SITE_ASSESSMENT_WHERE);
+
+			query.append(_FINDER_COLUMN_CURRENTUSERIDALL_CURRENT_USERID_2);
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(current_userid);
+
+				count = (Long)q.uniqueResult();
+			}
+			catch (Exception e) {
+				throw processException(e);
+			}
+			finally {
+				if (count == null) {
+					count = Long.valueOf(0);
+				}
+
+				FinderCacheUtil.putResult(FINDER_PATH_COUNT_BY_CURRENTUSERIDALL,
 					finderArgs, count);
 
 				closeSession(session);
@@ -3217,6 +3718,10 @@ public class site_assessmentPersistenceImpl extends BasePersistenceImpl<site_ass
 	protected key_conservation_scale_lkpPersistence key_conservation_scale_lkpPersistence;
 	@BeanReference(type = mission_lkpPersistence.class)
 	protected mission_lkpPersistence mission_lkpPersistence;
+	@BeanReference(type = negative_factors_level_impactPersistence.class)
+	protected negative_factors_level_impactPersistence negative_factors_level_impactPersistence;
+	@BeanReference(type = negative_factors_trendPersistence.class)
+	protected negative_factors_trendPersistence negative_factors_trendPersistence;
 	@BeanReference(type = other_designation_lkpPersistence.class)
 	protected other_designation_lkpPersistence other_designation_lkpPersistence;
 	@BeanReference(type = potential_project_needsPersistence.class)
@@ -3394,6 +3899,8 @@ public class site_assessmentPersistenceImpl extends BasePersistenceImpl<site_ass
 	private static final String _SQL_GETASSESSMENT_LANG_VERSIONSSIZE = "SELECT COUNT(*) AS COUNT_VALUE FROM whp_assessment_lang_version WHERE assessment_id = ?";
 	private static final String _SQL_CONTAINSASSESSMENT_LANG_VERSION = "SELECT COUNT(*) AS COUNT_VALUE FROM whp_assessment_lang_version WHERE assessment_id = ? AND lang_ver_id = ?";
 	private static final String _FINDER_COLUMN_CURRENTUSERID_CURRENT_USERID_2 = "site_assessment.current_userid = ? AND site_assessment.archived is false";
+	private static final String _FINDER_COLUMN_CURRENTUSERIDALL_CURRENT_USERID_2 =
+		"site_assessment.current_userid = ?";
 	private static final String _FINDER_COLUMN_WIP_SITEIDS_SITE_ID_2 = "site_assessment.site_id = ? AND site_assessment.archived is false";
 	private static final String _FINDER_COLUMN_ALLACTIVESITEASSESSMENT_ARCHIVED_2 =
 		"site_assessment.archived = ? AND site_assessment.archived is false";

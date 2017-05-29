@@ -104,113 +104,113 @@ public class site_assessmentLocalServiceClpInvoker {
 				"com.iucn.whp.dbservice.model.site_assessment", "boolean"
 			};
 
-		_methodName418 = "getBeanIdentifier";
-
-		_methodParameterTypes418 = new String[] {  };
-
-		_methodName419 = "setBeanIdentifier";
-
-		_methodParameterTypes419 = new String[] { "java.lang.String" };
-
-		_methodName424 = "getAllActiveSiteAssessment";
-
-		_methodParameterTypes424 = new String[] {  };
-
-		_methodName425 = "getAllStates";
-
-		_methodParameterTypes425 = new String[] {  };
-
-		_methodName426 = "getAllTrends";
+		_methodName426 = "getBeanIdentifier";
 
 		_methodParameterTypes426 = new String[] {  };
 
-		_methodName427 = "getBiodiversityValuesByVersion";
+		_methodName427 = "setBeanIdentifier";
 
-		_methodParameterTypes427 = new String[] { "long" };
+		_methodParameterTypes427 = new String[] { "java.lang.String" };
 
-		_methodName428 = "getCurrent_state_trendByVersion";
+		_methodName432 = "getAllActiveSiteAssessment";
 
-		_methodParameterTypes428 = new String[] { "long" };
+		_methodParameterTypes432 = new String[] {  };
 
-		_methodName429 = "getAllThreatCategories";
+		_methodName433 = "getAllStates";
 
-		_methodParameterTypes429 = new String[] {  };
+		_methodParameterTypes433 = new String[] {  };
 
-		_methodName430 = "getAllThreatRating";
+		_methodName434 = "getAllTrends";
 
-		_methodParameterTypes430 = new String[] {  };
+		_methodParameterTypes434 = new String[] {  };
 
-		_methodName431 = "getAllThreatSubCategories";
-
-		_methodParameterTypes431 = new String[] {  };
-
-		_methodName432 = "getAssessment_whvaluesByVersion";
-
-		_methodParameterTypes432 = new String[] { "long" };
-
-		_methodName433 = "getStatetrendbiodivvalsByVersion";
-
-		_methodParameterTypes433 = new String[] { "long" };
-
-		_methodName434 = "getState_trend_whvaluesByVersion";
-
-		_methodParameterTypes434 = new String[] { "long" };
-
-		_methodName435 = "getAssessingThreatsCurrentByVersion";
+		_methodName435 = "getBiodiversityValuesByVersion";
 
 		_methodParameterTypes435 = new String[] { "long" };
 
-		_methodName436 = "getAssessingThreatsPotentialByVersion";
+		_methodName436 = "getCurrent_state_trendByVersion";
 
 		_methodParameterTypes436 = new String[] { "long" };
 
-		_methodName437 = "getThreatSummaryCurrentByVersion";
+		_methodName437 = "getAllThreatCategories";
 
-		_methodParameterTypes437 = new String[] { "long" };
+		_methodParameterTypes437 = new String[] {  };
 
-		_methodName438 = "getThreatSummaryOverallByVersion";
+		_methodName438 = "getAllThreatRating";
 
-		_methodParameterTypes438 = new String[] { "long" };
+		_methodParameterTypes438 = new String[] {  };
 
-		_methodName439 = "getThreatSummaryPotentialByVersion";
+		_methodName439 = "getAllThreatSubCategories";
 
-		_methodParameterTypes439 = new String[] { "long" };
+		_methodParameterTypes439 = new String[] {  };
 
-		_methodName440 = "getCurrentThreatAssessmentCatByThreatId";
+		_methodName440 = "getAssessment_whvaluesByVersion";
 
 		_methodParameterTypes440 = new String[] { "long" };
 
-		_methodName441 = "getPotentialThreatAssessmentCatByThreatId";
+		_methodName441 = "getStatetrendbiodivvalsByVersion";
 
 		_methodParameterTypes441 = new String[] { "long" };
 
-		_methodName442 = "getPotentialThreatValuesByThreatId";
+		_methodName442 = "getState_trend_whvaluesByVersion";
 
 		_methodParameterTypes442 = new String[] { "long" };
 
-		_methodName443 = "getCurrentlThreatValuesByThreatId";
+		_methodName443 = "getAssessingThreatsCurrentByVersion";
 
 		_methodParameterTypes443 = new String[] { "long" };
 
-		_methodName444 = "getActiveAssessmentBySiteId";
+		_methodName444 = "getAssessingThreatsPotentialByVersion";
 
 		_methodParameterTypes444 = new String[] { "long" };
 
-		_methodName445 = "getActiveAssessmentByUserId";
+		_methodName445 = "getThreatSummaryCurrentByVersion";
 
 		_methodParameterTypes445 = new String[] { "long" };
 
-		_methodName446 = "getPublishedSiteAssessmentEntry";
+		_methodName446 = "getThreatSummaryOverallByVersion";
 
 		_methodParameterTypes446 = new String[] { "long" };
 
-		_methodName447 = "getAllActiveSiteAssessment";
+		_methodName447 = "getThreatSummaryPotentialByVersion";
 
-		_methodParameterTypes447 = new String[] { "java.lang.String", "int", "int" };
+		_methodParameterTypes447 = new String[] { "long" };
 
-		_methodName448 = "siteAssessmentByFlag";
+		_methodName448 = "getCurrentThreatAssessmentCatByThreatId";
 
-		_methodParameterTypes448 = new String[] { "boolean", "boolean" };
+		_methodParameterTypes448 = new String[] { "long" };
+
+		_methodName449 = "getPotentialThreatAssessmentCatByThreatId";
+
+		_methodParameterTypes449 = new String[] { "long" };
+
+		_methodName450 = "getPotentialThreatValuesByThreatId";
+
+		_methodParameterTypes450 = new String[] { "long" };
+
+		_methodName451 = "getCurrentlThreatValuesByThreatId";
+
+		_methodParameterTypes451 = new String[] { "long" };
+
+		_methodName452 = "getActiveAssessmentBySiteId";
+
+		_methodParameterTypes452 = new String[] { "long" };
+
+		_methodName453 = "getActiveAssessmentByUserId";
+
+		_methodParameterTypes453 = new String[] { "long" };
+
+		_methodName454 = "getPublishedSiteAssessmentEntry";
+
+		_methodParameterTypes454 = new String[] { "long" };
+
+		_methodName455 = "getAllActiveSiteAssessment";
+
+		_methodParameterTypes455 = new String[] { "java.lang.String", "int", "int" };
+
+		_methodName456 = "siteAssessmentByFlag";
+
+		_methodParameterTypes456 = new String[] { "boolean", "boolean" };
 	}
 
 	public Object invokeMethod(String name, String[] parameterTypes,
@@ -302,140 +302,140 @@ public class site_assessmentLocalServiceClpInvoker {
 				((Boolean)arguments[1]).booleanValue());
 		}
 
-		if (_methodName418.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes418, parameterTypes)) {
-			return site_assessmentLocalServiceUtil.getBeanIdentifier();
-		}
-
-		if (_methodName419.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes419, parameterTypes)) {
-			site_assessmentLocalServiceUtil.setBeanIdentifier((java.lang.String)arguments[0]);
-		}
-
-		if (_methodName424.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes424, parameterTypes)) {
-			return site_assessmentLocalServiceUtil.getAllActiveSiteAssessment();
-		}
-
-		if (_methodName425.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes425, parameterTypes)) {
-			return site_assessmentLocalServiceUtil.getAllStates();
-		}
-
 		if (_methodName426.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes426, parameterTypes)) {
-			return site_assessmentLocalServiceUtil.getAllTrends();
+			return site_assessmentLocalServiceUtil.getBeanIdentifier();
 		}
 
 		if (_methodName427.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes427, parameterTypes)) {
-			return site_assessmentLocalServiceUtil.getBiodiversityValuesByVersion(((Long)arguments[0]).longValue());
-		}
-
-		if (_methodName428.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes428, parameterTypes)) {
-			return site_assessmentLocalServiceUtil.getCurrent_state_trendByVersion(((Long)arguments[0]).longValue());
-		}
-
-		if (_methodName429.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes429, parameterTypes)) {
-			return site_assessmentLocalServiceUtil.getAllThreatCategories();
-		}
-
-		if (_methodName430.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes430, parameterTypes)) {
-			return site_assessmentLocalServiceUtil.getAllThreatRating();
-		}
-
-		if (_methodName431.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes431, parameterTypes)) {
-			return site_assessmentLocalServiceUtil.getAllThreatSubCategories();
+			site_assessmentLocalServiceUtil.setBeanIdentifier((java.lang.String)arguments[0]);
 		}
 
 		if (_methodName432.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes432, parameterTypes)) {
-			return site_assessmentLocalServiceUtil.getAssessment_whvaluesByVersion(((Long)arguments[0]).longValue());
+			return site_assessmentLocalServiceUtil.getAllActiveSiteAssessment();
 		}
 
 		if (_methodName433.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes433, parameterTypes)) {
-			return site_assessmentLocalServiceUtil.getStatetrendbiodivvalsByVersion(((Long)arguments[0]).longValue());
+			return site_assessmentLocalServiceUtil.getAllStates();
 		}
 
 		if (_methodName434.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes434, parameterTypes)) {
-			return site_assessmentLocalServiceUtil.getState_trend_whvaluesByVersion(((Long)arguments[0]).longValue());
+			return site_assessmentLocalServiceUtil.getAllTrends();
 		}
 
 		if (_methodName435.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes435, parameterTypes)) {
-			return site_assessmentLocalServiceUtil.getAssessingThreatsCurrentByVersion(((Long)arguments[0]).longValue());
+			return site_assessmentLocalServiceUtil.getBiodiversityValuesByVersion(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName436.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes436, parameterTypes)) {
-			return site_assessmentLocalServiceUtil.getAssessingThreatsPotentialByVersion(((Long)arguments[0]).longValue());
+			return site_assessmentLocalServiceUtil.getCurrent_state_trendByVersion(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName437.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes437, parameterTypes)) {
-			return site_assessmentLocalServiceUtil.getThreatSummaryCurrentByVersion(((Long)arguments[0]).longValue());
+			return site_assessmentLocalServiceUtil.getAllThreatCategories();
 		}
 
 		if (_methodName438.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes438, parameterTypes)) {
-			return site_assessmentLocalServiceUtil.getThreatSummaryOverallByVersion(((Long)arguments[0]).longValue());
+			return site_assessmentLocalServiceUtil.getAllThreatRating();
 		}
 
 		if (_methodName439.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes439, parameterTypes)) {
-			return site_assessmentLocalServiceUtil.getThreatSummaryPotentialByVersion(((Long)arguments[0]).longValue());
+			return site_assessmentLocalServiceUtil.getAllThreatSubCategories();
 		}
 
 		if (_methodName440.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes440, parameterTypes)) {
-			return site_assessmentLocalServiceUtil.getCurrentThreatAssessmentCatByThreatId(((Long)arguments[0]).longValue());
+			return site_assessmentLocalServiceUtil.getAssessment_whvaluesByVersion(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName441.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes441, parameterTypes)) {
-			return site_assessmentLocalServiceUtil.getPotentialThreatAssessmentCatByThreatId(((Long)arguments[0]).longValue());
+			return site_assessmentLocalServiceUtil.getStatetrendbiodivvalsByVersion(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName442.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes442, parameterTypes)) {
-			return site_assessmentLocalServiceUtil.getPotentialThreatValuesByThreatId(((Long)arguments[0]).longValue());
+			return site_assessmentLocalServiceUtil.getState_trend_whvaluesByVersion(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName443.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes443, parameterTypes)) {
-			return site_assessmentLocalServiceUtil.getCurrentlThreatValuesByThreatId(((Long)arguments[0]).longValue());
+			return site_assessmentLocalServiceUtil.getAssessingThreatsCurrentByVersion(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName444.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes444, parameterTypes)) {
-			return site_assessmentLocalServiceUtil.getActiveAssessmentBySiteId(((Long)arguments[0]).longValue());
+			return site_assessmentLocalServiceUtil.getAssessingThreatsPotentialByVersion(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName445.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes445, parameterTypes)) {
-			return site_assessmentLocalServiceUtil.getActiveAssessmentByUserId(((Long)arguments[0]).longValue());
+			return site_assessmentLocalServiceUtil.getThreatSummaryCurrentByVersion(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName446.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes446, parameterTypes)) {
-			return site_assessmentLocalServiceUtil.getPublishedSiteAssessmentEntry(((Long)arguments[0]).longValue());
+			return site_assessmentLocalServiceUtil.getThreatSummaryOverallByVersion(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName447.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes447, parameterTypes)) {
+			return site_assessmentLocalServiceUtil.getThreatSummaryPotentialByVersion(((Long)arguments[0]).longValue());
+		}
+
+		if (_methodName448.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes448, parameterTypes)) {
+			return site_assessmentLocalServiceUtil.getCurrentThreatAssessmentCatByThreatId(((Long)arguments[0]).longValue());
+		}
+
+		if (_methodName449.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes449, parameterTypes)) {
+			return site_assessmentLocalServiceUtil.getPotentialThreatAssessmentCatByThreatId(((Long)arguments[0]).longValue());
+		}
+
+		if (_methodName450.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes450, parameterTypes)) {
+			return site_assessmentLocalServiceUtil.getPotentialThreatValuesByThreatId(((Long)arguments[0]).longValue());
+		}
+
+		if (_methodName451.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes451, parameterTypes)) {
+			return site_assessmentLocalServiceUtil.getCurrentlThreatValuesByThreatId(((Long)arguments[0]).longValue());
+		}
+
+		if (_methodName452.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes452, parameterTypes)) {
+			return site_assessmentLocalServiceUtil.getActiveAssessmentBySiteId(((Long)arguments[0]).longValue());
+		}
+
+		if (_methodName453.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes453, parameterTypes)) {
+			return site_assessmentLocalServiceUtil.getActiveAssessmentByUserId(((Long)arguments[0]).longValue());
+		}
+
+		if (_methodName454.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes454, parameterTypes)) {
+			return site_assessmentLocalServiceUtil.getPublishedSiteAssessmentEntry(((Long)arguments[0]).longValue());
+		}
+
+		if (_methodName455.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes455, parameterTypes)) {
 			return site_assessmentLocalServiceUtil.getAllActiveSiteAssessment((java.lang.String)arguments[0],
 				((Integer)arguments[1]).intValue(),
 				((Integer)arguments[2]).intValue());
 		}
 
-		if (_methodName448.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes448, parameterTypes)) {
+		if (_methodName456.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes456, parameterTypes)) {
 			return site_assessmentLocalServiceUtil.siteAssessmentByFlag(((Boolean)arguments[0]).booleanValue(),
 				((Boolean)arguments[1]).booleanValue());
 		}
@@ -475,26 +475,10 @@ public class site_assessmentLocalServiceClpInvoker {
 	private String[] _methodParameterTypes14;
 	private String _methodName15;
 	private String[] _methodParameterTypes15;
-	private String _methodName418;
-	private String[] _methodParameterTypes418;
-	private String _methodName419;
-	private String[] _methodParameterTypes419;
-	private String _methodName424;
-	private String[] _methodParameterTypes424;
-	private String _methodName425;
-	private String[] _methodParameterTypes425;
 	private String _methodName426;
 	private String[] _methodParameterTypes426;
 	private String _methodName427;
 	private String[] _methodParameterTypes427;
-	private String _methodName428;
-	private String[] _methodParameterTypes428;
-	private String _methodName429;
-	private String[] _methodParameterTypes429;
-	private String _methodName430;
-	private String[] _methodParameterTypes430;
-	private String _methodName431;
-	private String[] _methodParameterTypes431;
 	private String _methodName432;
 	private String[] _methodParameterTypes432;
 	private String _methodName433;
@@ -529,4 +513,20 @@ public class site_assessmentLocalServiceClpInvoker {
 	private String[] _methodParameterTypes447;
 	private String _methodName448;
 	private String[] _methodParameterTypes448;
+	private String _methodName449;
+	private String[] _methodParameterTypes449;
+	private String _methodName450;
+	private String[] _methodParameterTypes450;
+	private String _methodName451;
+	private String[] _methodParameterTypes451;
+	private String _methodName452;
+	private String[] _methodParameterTypes452;
+	private String _methodName453;
+	private String[] _methodParameterTypes453;
+	private String _methodName454;
+	private String[] _methodParameterTypes454;
+	private String _methodName455;
+	private String[] _methodParameterTypes455;
+	private String _methodName456;
+	private String[] _methodParameterTypes456;
 }

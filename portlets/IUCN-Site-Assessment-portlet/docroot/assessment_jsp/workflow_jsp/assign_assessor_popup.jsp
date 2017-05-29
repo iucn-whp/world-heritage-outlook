@@ -2,6 +2,7 @@
 <%@page import="com.liferay.portal.service.*" %>
 <%@page import="com.liferay.portal.model.*" %>
 <%@page import="com.iucn.whp.assesment.utils.*" %>
+<%@ page import="com.liferay.portal.kernel.util.OrderByComparator" %>
 <portlet:defineObjects />
 <portlet:actionURL name="updateAssessor" var="updateAssessorURL" />
 <portlet:actionURL name="assigneReviewer" var="assigneReviewerURL" />
@@ -54,8 +55,10 @@ List<User> assessorUserList= new ArrayList<User>();
 	    
 	    assessorUserList.addAll(tempUserList);
 	    assessorUserList.addAll(validWHPUserList);
-	    
-	    
+
+		OrderByComparator orderByComparator = CustomComparatorUtil.getUserOrderByComparator("First Name", "asc");
+
+		Collections.sort(assessorUserList,orderByComparator);
 	}
 	catch(Exception ex){
 	    ex.printStackTrace();
@@ -100,7 +103,7 @@ List<User> assessorUserList= new ArrayList<User>();
 		<label class="popuplbl">Select User : </label>
 	</td>
 	<td>
-		
+
 		<select  name="assessorId" id="assessorId" style="width:250px;">
 		<option  value=="" >Please Select </option>
 			<%

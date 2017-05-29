@@ -67,6 +67,7 @@ public class protection_mgmt_checklist_lkpClp extends BaseModelImpl<protection_m
 
 		attributes.put("topic_id", getTopic_id());
 		attributes.put("topic", getTopic());
+		attributes.put("topic_sort", getTopic_sort());
 
 		return attributes;
 	}
@@ -84,6 +85,12 @@ public class protection_mgmt_checklist_lkpClp extends BaseModelImpl<protection_m
 		if (topic != null) {
 			setTopic(topic);
 		}
+
+		Integer topic_sort = (Integer)attributes.get("topic_sort");
+
+		if (topic_sort != null) {
+			setTopic_sort(topic_sort);
+		}
 	}
 
 	public long getTopic_id() {
@@ -100,6 +107,14 @@ public class protection_mgmt_checklist_lkpClp extends BaseModelImpl<protection_m
 
 	public void setTopic(String topic) {
 		_topic = topic;
+	}
+
+	public int getTopic_sort() {
+		return _topic_sort;
+	}
+
+	public void setTopic_sort(int topic_sort) {
+		_topic_sort = topic_sort;
 	}
 
 	public BaseModel<?> getprotection_mgmt_checklist_lkpRemoteModel() {
@@ -133,6 +148,7 @@ public class protection_mgmt_checklist_lkpClp extends BaseModelImpl<protection_m
 
 		clone.setTopic_id(getTopic_id());
 		clone.setTopic(getTopic());
+		clone.setTopic_sort(getTopic_sort());
 
 		return clone;
 	}
@@ -184,19 +200,21 @@ public class protection_mgmt_checklist_lkpClp extends BaseModelImpl<protection_m
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(5);
+		StringBundler sb = new StringBundler(7);
 
 		sb.append("{topic_id=");
 		sb.append(getTopic_id());
 		sb.append(", topic=");
 		sb.append(getTopic());
+		sb.append(", topic_sort=");
+		sb.append(getTopic_sort());
 		sb.append("}");
 
 		return sb.toString();
 	}
 
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(10);
+		StringBundler sb = new StringBundler(13);
 
 		sb.append("<model><model-name>");
 		sb.append("com.iucn.whp.dbservice.model.protection_mgmt_checklist_lkp");
@@ -210,6 +228,10 @@ public class protection_mgmt_checklist_lkpClp extends BaseModelImpl<protection_m
 			"<column><column-name>topic</column-name><column-value><![CDATA[");
 		sb.append(getTopic());
 		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>topic_sort</column-name><column-value><![CDATA[");
+		sb.append(getTopic_sort());
+		sb.append("]]></column-value></column>");
 
 		sb.append("</model>");
 
@@ -218,5 +240,6 @@ public class protection_mgmt_checklist_lkpClp extends BaseModelImpl<protection_m
 
 	private long _topic_id;
 	private String _topic;
+	private int _topic_sort;
 	private BaseModel<?> _protection_mgmt_checklist_lkpRemoteModel;
 }

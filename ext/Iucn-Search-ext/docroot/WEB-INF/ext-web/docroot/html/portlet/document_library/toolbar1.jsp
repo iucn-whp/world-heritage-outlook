@@ -1,15 +1,14 @@
 
 
 <%@ include file="/html/portlet/document_library/init.jsp" %>
-<%@page import="java.util.ArrayList"%>
-<%@page import="com.liferay.portal.kernel.util.ListUtil"%>
+<%@page import="com.iucn.whp.dbservice.model.whp_sites"%>
+<%@page import="com.iucn.whp.dbservice.service.site_assessmentLocalServiceUtil"%>
 <%@page
 	import="com.iucn.whp.dbservice.service.whp_sitesLocalServiceUtil"%>
 <%@page
-	import="com.iucn.whp.dbservice.service.country_lkpLocalServiceUtil"%>
-<%@page import="java.util.List"%>
-<%@ page import="com.iucn.whp.dbservice.model.country_lkp"%>
-<%@ page import="com.iucn.whp.dbservice.model.whp_sites"%>
+	import="java.util.List"%>
+<%@ page import="com.iucn.whp.dbservice.model.site_assessment" %>
+<%@ page import="java.util.ArrayList" %>
 
 
 <%
@@ -33,35 +32,53 @@ List<Folder> mountFolders = DLAppServiceUtil.getMountFolders(repositoryId, DLFol
 		<%
 		String taglibOnClick = "javascript:" + liferayPortletResponse.getNamespace() + "searchFile();";
 		%>
-		
+
 		<aui:layout>
-		
+
 		<aui:column>
 
 				<span><b>Select Site Name</b></span>
-			
+
 		</aui:column>
 			<aui:column >
 
 				<aui:select  label="" id="keywords" name="keywords"  style="width:202px;" class="siteSelect">
 				       <aui:option label="Select Site"  value=""/>
-						
-						<%
-						
-						List<whp_sites> lst_whpsites = null;
 
-						
-						lst_whpsites=whp_sitesLocalServiceUtil.getAllActiveSites();
+						<%
+
+						List<whp_sites> lst_whpsites = new ArrayList<whp_sites>();
+						whp_sites site = null;
+
+                            final String ASSESS_REW_ROLE = "Reviewer";
+                            final String ASSESS_ASSESSOR_ROLE = "Assessor";
+
+                            if(request.isUserInRole(ASSESS_REW_ROLE) || request.isUserInRole(ASSESS_ASSESSOR_ROLE)){
+
+                                User currentUser = PortalUtil.getUser(request);
+//                                lst_whpsites=whp_sitesLocalServiceUtil.getAllActiveSitesByUserId(currentUser.getUserId());
+								List<site_assessment> siteAssessments = site_assessmentLocalServiceUtil.getActiveAssessmentByUserId(currentUser.getUserId());
+
+								for (site_assessment assessment : siteAssessments) {
+									site = whp_sitesLocalServiceUtil.fetchwhp_sites(assessment.getSite_id());
+									lst_whpsites.add(site);
+								}
+
+							}else {
+
+                                lst_whpsites=whp_sitesLocalServiceUtil.getAllActiveSites();
+                            }
+
 						for(int i=0;i<lst_whpsites.size();i++)
 						{
 							whp_sites currData=lst_whpsites.get(i);
-														
+
 							%>
 							<aui:option  value="<%=currData.getName_en()%>">
 							<%=currData.getName_en() %>
 						</aui:option>
 						<%} %>
-						
+
 						 </aui:select>
 			</aui:column>
 
@@ -85,7 +102,7 @@ List<Folder> mountFolders = DLAppServiceUtil.getMountFolders(repositoryId, DLFol
 					'<portlet:namespace />searchFolderId': '<%= folderId %>',
 					'<portlet:namespace />keywords': document.<portlet:namespace />fm22.<portlet:namespace />keywords.value,
 					'<portlet:namespace />searchType': <%= ((repositoryId == scopeGroupId) && (folderId == DLFolderConstants.DEFAULT_PARENT_FOLDER_ID)) ? DLSearchConstants.MULTIPLE : DLSearchConstants.SINGLE %>
-					
+
 				},
 				src: Liferay.DL_SEARCH
 			}

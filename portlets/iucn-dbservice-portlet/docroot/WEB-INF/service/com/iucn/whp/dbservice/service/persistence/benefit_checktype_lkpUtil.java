@@ -195,6 +195,148 @@ public class benefit_checktype_lkpUtil {
 	}
 
 	/**
+	* Returns all the benefit_checktype_lkps where active = &#63;.
+	*
+	* @param active the active
+	* @return the matching benefit_checktype_lkps
+	* @throws SystemException if a system exception occurred
+	*/
+	public static java.util.List<com.iucn.whp.dbservice.model.benefit_checktype_lkp> findByActiveStatus(
+		boolean active)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().findByActiveStatus(active);
+	}
+
+	/**
+	* Returns a range of all the benefit_checktype_lkps where active = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+	* </p>
+	*
+	* @param active the active
+	* @param start the lower bound of the range of benefit_checktype_lkps
+	* @param end the upper bound of the range of benefit_checktype_lkps (not inclusive)
+	* @return the range of matching benefit_checktype_lkps
+	* @throws SystemException if a system exception occurred
+	*/
+	public static java.util.List<com.iucn.whp.dbservice.model.benefit_checktype_lkp> findByActiveStatus(
+		boolean active, int start, int end)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().findByActiveStatus(active, start, end);
+	}
+
+	/**
+	* Returns an ordered range of all the benefit_checktype_lkps where active = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+	* </p>
+	*
+	* @param active the active
+	* @param start the lower bound of the range of benefit_checktype_lkps
+	* @param end the upper bound of the range of benefit_checktype_lkps (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of matching benefit_checktype_lkps
+	* @throws SystemException if a system exception occurred
+	*/
+	public static java.util.List<com.iucn.whp.dbservice.model.benefit_checktype_lkp> findByActiveStatus(
+		boolean active, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence()
+				   .findByActiveStatus(active, start, end, orderByComparator);
+	}
+
+	/**
+	* Returns the first benefit_checktype_lkp in the ordered set where active = &#63;.
+	*
+	* @param active the active
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching benefit_checktype_lkp
+	* @throws com.iucn.whp.dbservice.NoSuchbenefit_checktype_lkpException if a matching benefit_checktype_lkp could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.iucn.whp.dbservice.model.benefit_checktype_lkp findByActiveStatus_First(
+		boolean active,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.iucn.whp.dbservice.NoSuchbenefit_checktype_lkpException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence()
+				   .findByActiveStatus_First(active, orderByComparator);
+	}
+
+	/**
+	* Returns the first benefit_checktype_lkp in the ordered set where active = &#63;.
+	*
+	* @param active the active
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching benefit_checktype_lkp, or <code>null</code> if a matching benefit_checktype_lkp could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.iucn.whp.dbservice.model.benefit_checktype_lkp fetchByActiveStatus_First(
+		boolean active,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence()
+				   .fetchByActiveStatus_First(active, orderByComparator);
+	}
+
+	/**
+	* Returns the last benefit_checktype_lkp in the ordered set where active = &#63;.
+	*
+	* @param active the active
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching benefit_checktype_lkp
+	* @throws com.iucn.whp.dbservice.NoSuchbenefit_checktype_lkpException if a matching benefit_checktype_lkp could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.iucn.whp.dbservice.model.benefit_checktype_lkp findByActiveStatus_Last(
+		boolean active,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.iucn.whp.dbservice.NoSuchbenefit_checktype_lkpException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence()
+				   .findByActiveStatus_Last(active, orderByComparator);
+	}
+
+	/**
+	* Returns the last benefit_checktype_lkp in the ordered set where active = &#63;.
+	*
+	* @param active the active
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching benefit_checktype_lkp, or <code>null</code> if a matching benefit_checktype_lkp could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.iucn.whp.dbservice.model.benefit_checktype_lkp fetchByActiveStatus_Last(
+		boolean active,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence()
+				   .fetchByActiveStatus_Last(active, orderByComparator);
+	}
+
+	/**
+	* Returns the benefit_checktype_lkps before and after the current benefit_checktype_lkp in the ordered set where active = &#63;.
+	*
+	* @param benefit_id the primary key of the current benefit_checktype_lkp
+	* @param active the active
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the previous, current, and next benefit_checktype_lkp
+	* @throws com.iucn.whp.dbservice.NoSuchbenefit_checktype_lkpException if a benefit_checktype_lkp with the primary key could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.iucn.whp.dbservice.model.benefit_checktype_lkp[] findByActiveStatus_PrevAndNext(
+		long benefit_id, boolean active,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.iucn.whp.dbservice.NoSuchbenefit_checktype_lkpException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence()
+				   .findByActiveStatus_PrevAndNext(benefit_id, active,
+			orderByComparator);
+	}
+
+	/**
 	* Returns all the benefit_checktype_lkps.
 	*
 	* @return the benefit_checktype_lkps
@@ -244,6 +386,17 @@ public class benefit_checktype_lkpUtil {
 	}
 
 	/**
+	* Removes all the benefit_checktype_lkps where active = &#63; from the database.
+	*
+	* @param active the active
+	* @throws SystemException if a system exception occurred
+	*/
+	public static void removeByActiveStatus(boolean active)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		getPersistence().removeByActiveStatus(active);
+	}
+
+	/**
 	* Removes all the benefit_checktype_lkps from the database.
 	*
 	* @throws SystemException if a system exception occurred
@@ -251,6 +404,18 @@ public class benefit_checktype_lkpUtil {
 	public static void removeAll()
 		throws com.liferay.portal.kernel.exception.SystemException {
 		getPersistence().removeAll();
+	}
+
+	/**
+	* Returns the number of benefit_checktype_lkps where active = &#63;.
+	*
+	* @param active the active
+	* @return the number of matching benefit_checktype_lkps
+	* @throws SystemException if a system exception occurred
+	*/
+	public static int countByActiveStatus(boolean active)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().countByActiveStatus(active);
 	}
 
 	/**

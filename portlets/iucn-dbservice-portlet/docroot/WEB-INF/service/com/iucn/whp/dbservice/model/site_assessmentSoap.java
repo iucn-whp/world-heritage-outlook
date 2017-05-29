@@ -40,6 +40,7 @@ public class site_assessmentSoap implements Serializable {
 		soapModel.setBase_langid(model.getBase_langid());
 		soapModel.setArchived(model.getArchived());
 		soapModel.setIs_active(model.getIs_active());
+		soapModel.setAssessment_cycle(model.getAssessment_cycle());
 
 		return soapModel;
 	}
@@ -182,6 +183,14 @@ public class site_assessmentSoap implements Serializable {
 		_is_active = is_active;
 	}
 
+	public String getAssessment_cycle() {
+		return _assessment_cycle;
+	}
+
+	public void setAssessment_cycle(String assessment_cycle) {
+		_assessment_cycle = assessment_cycle;
+	}
+
 	private long _assessment_id;
 	private long _site_id;
 	private long _status_id;
@@ -192,4 +201,5 @@ public class site_assessmentSoap implements Serializable {
 	private long _base_langid;
 	private boolean _archived;
 	private boolean _is_active;
+	private String _assessment_cycle;
 }

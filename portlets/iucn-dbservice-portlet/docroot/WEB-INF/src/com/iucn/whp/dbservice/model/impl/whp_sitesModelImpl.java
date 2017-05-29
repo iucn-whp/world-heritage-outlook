@@ -98,9 +98,10 @@ public class whp_sitesModelImpl extends BaseModelImpl<whp_sites>
 			{ "active_", Types.BOOLEAN },
 			{ "thumbnailid", Types.BIGINT },
 			{ "thumbnailid_small", Types.BIGINT },
-			{ "description", Types.VARCHAR }
+			{ "description", Types.VARCHAR },
+			{ "information_updating", Types.BOOLEAN }
 		};
-	public static final String TABLE_SQL_CREATE = "create table whp_whp_sites (site_id LONG not null primary key,groupId LONG,companyId LONG,wdpa_id LONG,unesco_id LONG,name_en VARCHAR(200) null,name_fr VARCHAR(200) null,transboundary BOOLEAN,inscription_date DATE null,mixed_site BOOLEAN,cultural_landscape BOOLEAN,danger_list BOOLEAN,area DOUBLE,buffer_zone BOOLEAN,buffer_zone_area DOUBLE,boundary_modification BOOLEAN,serial BOOLEAN,missions BOOLEAN,soc_reports BOOLEAN,soouv BOOLEAN,dsocr BOOLEAN,management_plan BOOLEAN,mee BOOLEAN,staff LONG,staff_update_date DATE null,indigenous_communities BOOLEAN,population LONG,last_updated DATE null,creation_date DATE null,created_by LONG,updated_by LONG,active_ BOOLEAN,thumbnailid LONG,thumbnailid_small LONG,description STRING null)";
+	public static final String TABLE_SQL_CREATE = "create table whp_whp_sites (site_id LONG not null primary key,groupId LONG,companyId LONG,wdpa_id LONG,unesco_id LONG,name_en VARCHAR(200) null,name_fr VARCHAR(200) null,transboundary BOOLEAN,inscription_date DATE null,mixed_site BOOLEAN,cultural_landscape BOOLEAN,danger_list BOOLEAN,area DOUBLE,buffer_zone BOOLEAN,buffer_zone_area DOUBLE,boundary_modification BOOLEAN,serial BOOLEAN,missions BOOLEAN,soc_reports BOOLEAN,soouv BOOLEAN,dsocr BOOLEAN,management_plan BOOLEAN,mee BOOLEAN,staff LONG,staff_update_date DATE null,indigenous_communities BOOLEAN,population LONG,last_updated DATE null,creation_date DATE null,created_by LONG,updated_by LONG,active_ BOOLEAN,thumbnailid LONG,thumbnailid_small LONG,description STRING null,information_updating BOOLEAN)";
 	public static final String TABLE_SQL_DROP = "drop table whp_whp_sites";
 	public static final String ORDER_BY_JPQL = " ORDER BY whp_sites.name_en ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY whp_whp_sites.name_en ASC";
@@ -170,6 +171,7 @@ public class whp_sitesModelImpl extends BaseModelImpl<whp_sites>
 		model.setThumbnailid(soapModel.getThumbnailid());
 		model.setThumbnailid_small(soapModel.getThumbnailid_small());
 		model.setDescription(soapModel.getDescription());
+		model.setInformation_updating(soapModel.getInformation_updating());
 
 		return model;
 	}
@@ -263,6 +265,7 @@ public class whp_sitesModelImpl extends BaseModelImpl<whp_sites>
 		attributes.put("thumbnailid", getThumbnailid());
 		attributes.put("thumbnailid_small", getThumbnailid_small());
 		attributes.put("description", getDescription());
+		attributes.put("information_updating", getInformation_updating());
 
 		return attributes;
 	}
@@ -480,6 +483,13 @@ public class whp_sitesModelImpl extends BaseModelImpl<whp_sites>
 
 		if (description != null) {
 			setDescription(description);
+		}
+
+		Boolean information_updating = (Boolean)attributes.get(
+				"information_updating");
+
+		if (information_updating != null) {
+			setInformation_updating(information_updating);
 		}
 	}
 
@@ -931,6 +941,19 @@ public class whp_sitesModelImpl extends BaseModelImpl<whp_sites>
 		_description = description;
 	}
 
+	@JSON
+	public boolean getInformation_updating() {
+		return _information_updating;
+	}
+
+	public boolean isInformation_updating() {
+		return _information_updating;
+	}
+
+	public void setInformation_updating(boolean information_updating) {
+		_information_updating = information_updating;
+	}
+
 	public long getColumnBitmask() {
 		return _columnBitmask;
 	}
@@ -998,6 +1021,7 @@ public class whp_sitesModelImpl extends BaseModelImpl<whp_sites>
 		whp_sitesImpl.setThumbnailid(getThumbnailid());
 		whp_sitesImpl.setThumbnailid_small(getThumbnailid_small());
 		whp_sitesImpl.setDescription(getDescription());
+		whp_sitesImpl.setInformation_updating(getInformation_updating());
 
 		whp_sitesImpl.resetOriginalValues();
 
@@ -1191,12 +1215,14 @@ public class whp_sitesModelImpl extends BaseModelImpl<whp_sites>
 			whp_sitesCacheModel.description = null;
 		}
 
+		whp_sitesCacheModel.information_updating = getInformation_updating();
+
 		return whp_sitesCacheModel;
 	}
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(71);
+		StringBundler sb = new StringBundler(73);
 
 		sb.append("{site_id=");
 		sb.append(getSite_id());
@@ -1268,13 +1294,15 @@ public class whp_sitesModelImpl extends BaseModelImpl<whp_sites>
 		sb.append(getThumbnailid_small());
 		sb.append(", description=");
 		sb.append(getDescription());
+		sb.append(", information_updating=");
+		sb.append(getInformation_updating());
 		sb.append("}");
 
 		return sb.toString();
 	}
 
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(109);
+		StringBundler sb = new StringBundler(112);
 
 		sb.append("<model><model-name>");
 		sb.append("com.iucn.whp.dbservice.model.whp_sites");
@@ -1420,6 +1448,10 @@ public class whp_sitesModelImpl extends BaseModelImpl<whp_sites>
 			"<column><column-name>description</column-name><column-value><![CDATA[");
 		sb.append(getDescription());
 		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>information_updating</column-name><column-value><![CDATA[");
+		sb.append(getInformation_updating());
+		sb.append("]]></column-value></column>");
 
 		sb.append("</model>");
 
@@ -1474,6 +1506,7 @@ public class whp_sitesModelImpl extends BaseModelImpl<whp_sites>
 	private long _originalThumbnailid_small;
 	private boolean _setOriginalThumbnailid_small;
 	private String _description;
+	private boolean _information_updating;
 	private long _columnBitmask;
 	private whp_sites _escapedModelProxy;
 }

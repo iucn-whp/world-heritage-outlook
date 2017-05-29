@@ -116,6 +116,21 @@ public interface assessing_threats_potentialModel extends BaseModel<assessing_th
 	public void setJustification(String justification);
 
 	/**
+	 * Returns the thread extent value of this assessing_threats_potential.
+	 *
+	 * @return the thread extent value of this assessing_threats_potential
+	 */
+	@AutoEscape
+	public String getThreadExtentValue();
+
+	/**
+	 * Sets the thread extent value of this assessing_threats_potential.
+	 *
+	 * @param threadExtentValue the thread extent value of this assessing_threats_potential
+	 */
+	public void setThreadExtentValue(String threadExtentValue);
+
+	/**
 	 * Returns the threat_rating of this assessing_threats_potential.
 	 *
 	 * @return the threat_rating of this assessing_threats_potential

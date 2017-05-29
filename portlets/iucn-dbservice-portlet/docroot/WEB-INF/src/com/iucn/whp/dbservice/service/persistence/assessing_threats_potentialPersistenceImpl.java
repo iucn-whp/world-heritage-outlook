@@ -380,6 +380,7 @@ public class assessing_threats_potentialPersistenceImpl
 		assessing_threats_potentialImpl.setAssessment_version_id(assessing_threats_potential.getAssessment_version_id());
 		assessing_threats_potentialImpl.setPotential_threat(assessing_threats_potential.getPotential_threat());
 		assessing_threats_potentialImpl.setJustification(assessing_threats_potential.getJustification());
+		assessing_threats_potentialImpl.setThreadExtentValue(assessing_threats_potential.getThreadExtentValue());
 		assessing_threats_potentialImpl.setThreat_rating(assessing_threats_potential.getThreat_rating());
 		assessing_threats_potentialImpl.setInside_site(assessing_threats_potential.isInside_site());
 		assessing_threats_potentialImpl.setOutside_site(assessing_threats_potential.isOutside_site());
@@ -1706,6 +1707,10 @@ public class assessing_threats_potentialPersistenceImpl
 	protected key_conservation_scale_lkpPersistence key_conservation_scale_lkpPersistence;
 	@BeanReference(type = mission_lkpPersistence.class)
 	protected mission_lkpPersistence mission_lkpPersistence;
+	@BeanReference(type = negative_factors_level_impactPersistence.class)
+	protected negative_factors_level_impactPersistence negative_factors_level_impactPersistence;
+	@BeanReference(type = negative_factors_trendPersistence.class)
+	protected negative_factors_trendPersistence negative_factors_trendPersistence;
 	@BeanReference(type = other_designation_lkpPersistence.class)
 	protected other_designation_lkpPersistence other_designation_lkpPersistence;
 	@BeanReference(type = potential_project_needsPersistence.class)

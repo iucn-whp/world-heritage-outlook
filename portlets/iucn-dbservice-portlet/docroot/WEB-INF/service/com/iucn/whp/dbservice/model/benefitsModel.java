@@ -115,6 +115,161 @@ public interface benefitsModel extends BaseModel<benefits> {
 	public void setSummary(String summary);
 
 	/**
+	 * Returns the habitat change level of this benefits.
+	 *
+	 * @return the habitat change level of this benefits
+	 */
+	public long getHabitatChangeLevel();
+
+	/**
+	 * Sets the habitat change level of this benefits.
+	 *
+	 * @param habitatChangeLevel the habitat change level of this benefits
+	 */
+	public void setHabitatChangeLevel(long habitatChangeLevel);
+
+	/**
+	 * Returns the habitat change trend of this benefits.
+	 *
+	 * @return the habitat change trend of this benefits
+	 */
+	public long getHabitatChangeTrend();
+
+	/**
+	 * Sets the habitat change trend of this benefits.
+	 *
+	 * @param habitatChangeTrend the habitat change trend of this benefits
+	 */
+	public void setHabitatChangeTrend(long habitatChangeTrend);
+
+	/**
+	 * Returns the pollution level of this benefits.
+	 *
+	 * @return the pollution level of this benefits
+	 */
+	public long getPollutionLevel();
+
+	/**
+	 * Sets the pollution level of this benefits.
+	 *
+	 * @param pollutionLevel the pollution level of this benefits
+	 */
+	public void setPollutionLevel(long pollutionLevel);
+
+	/**
+	 * Returns the pollution trend of this benefits.
+	 *
+	 * @return the pollution trend of this benefits
+	 */
+	public long getPollutionTrend();
+
+	/**
+	 * Sets the pollution trend of this benefits.
+	 *
+	 * @param pollutionTrend the pollution trend of this benefits
+	 */
+	public void setPollutionTrend(long pollutionTrend);
+
+	/**
+	 * Returns the over exploitation level of this benefits.
+	 *
+	 * @return the over exploitation level of this benefits
+	 */
+	public long getOverExploitationLevel();
+
+	/**
+	 * Sets the over exploitation level of this benefits.
+	 *
+	 * @param overExploitationLevel the over exploitation level of this benefits
+	 */
+	public void setOverExploitationLevel(long overExploitationLevel);
+
+	/**
+	 * Returns the over exploitation trend of this benefits.
+	 *
+	 * @return the over exploitation trend of this benefits
+	 */
+	public long getOverExploitationTrend();
+
+	/**
+	 * Sets the over exploitation trend of this benefits.
+	 *
+	 * @param overExploitationTrend the over exploitation trend of this benefits
+	 */
+	public void setOverExploitationTrend(long overExploitationTrend);
+
+	/**
+	 * Returns the climate change level of this benefits.
+	 *
+	 * @return the climate change level of this benefits
+	 */
+	public long getClimateChangeLevel();
+
+	/**
+	 * Sets the climate change level of this benefits.
+	 *
+	 * @param climateChangeLevel the climate change level of this benefits
+	 */
+	public void setClimateChangeLevel(long climateChangeLevel);
+
+	/**
+	 * Returns the climate change trend of this benefits.
+	 *
+	 * @return the climate change trend of this benefits
+	 */
+	public long getClimateChangeTrend();
+
+	/**
+	 * Sets the climate change trend of this benefits.
+	 *
+	 * @param climateChangeTrend the climate change trend of this benefits
+	 */
+	public void setClimateChangeTrend(long climateChangeTrend);
+
+	/**
+	 * Returns the invasive species level of this benefits.
+	 *
+	 * @return the invasive species level of this benefits
+	 */
+	public long getInvasiveSpeciesLevel();
+
+	/**
+	 * Sets the invasive species level of this benefits.
+	 *
+	 * @param invasiveSpeciesLevel the invasive species level of this benefits
+	 */
+	public void setInvasiveSpeciesLevel(long invasiveSpeciesLevel);
+
+	/**
+	 * Returns the invasive species trend of this benefits.
+	 *
+	 * @return the invasive species trend of this benefits
+	 */
+	public long getInvasiveSpeciesTrend();
+
+	/**
+	 * Sets the invasive species trend of this benefits.
+	 *
+	 * @param invasiveSpeciesTrend the invasive species trend of this benefits
+	 */
+	public void setInvasiveSpeciesTrend(long invasiveSpeciesTrend);
+
+	/**
+	 * Returns the comment of this benefits.
+	 *
+	 * @return the comment of this benefits
+	 */
+	@AutoEscape
+	public String getComment();
+
+	/**
+	 * Sets the comment of this benefits.
+	 *
+	 * @param comment the comment of this benefits
+	 */
+	public void setComment(String comment);
+
+	/**
 	 * Returns the data_deficient of this benefits.
 	 *
 	 * @return the data_deficient of this benefits

@@ -32,6 +32,7 @@ public class benefit_checktype_lkpSoap implements Serializable {
 
 		soapModel.setBenefit_id(model.getBenefit_id());
 		soapModel.setBenefit_checktype(model.getBenefit_checktype());
+		soapModel.setActive(model.getActive());
 
 		return soapModel;
 	}
@@ -103,6 +104,19 @@ public class benefit_checktype_lkpSoap implements Serializable {
 		_benefit_checktype = benefit_checktype;
 	}
 
+	public boolean getActive() {
+		return _active;
+	}
+
+	public boolean isActive() {
+		return _active;
+	}
+
+	public void setActive(boolean active) {
+		_active = active;
+	}
+
 	private long _benefit_id;
 	private String _benefit_checktype;
+	private boolean _active;
 }

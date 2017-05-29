@@ -62,11 +62,12 @@ public class assessing_threats_potentialModelImpl extends BaseModelImpl<assessin
 			{ "assessment_version_id", Types.BIGINT },
 			{ "potential_threat", Types.VARCHAR },
 			{ "justification", Types.VARCHAR },
+			{ "threadExtentValue", Types.VARCHAR },
 			{ "threat_rating", Types.BIGINT },
 			{ "inside_site", Types.BOOLEAN },
 			{ "outside_site", Types.BOOLEAN }
 		};
-	public static final String TABLE_SQL_CREATE = "create table whp_assessing_threats_potential (potential_threat_id LONG not null primary key,assessment_version_id LONG,potential_threat STRING null,justification STRING null,threat_rating LONG,inside_site BOOLEAN,outside_site BOOLEAN)";
+	public static final String TABLE_SQL_CREATE = "create table whp_assessing_threats_potential (potential_threat_id LONG not null primary key,assessment_version_id LONG,potential_threat STRING null,justification STRING null,threadExtentValue VARCHAR(100) null,threat_rating LONG,inside_site BOOLEAN,outside_site BOOLEAN)";
 	public static final String TABLE_SQL_DROP = "drop table whp_assessing_threats_potential";
 	public static final String DATA_SOURCE = "liferayDataSource";
 	public static final String SESSION_FACTORY = "liferaySessionFactory";
@@ -119,6 +120,7 @@ public class assessing_threats_potentialModelImpl extends BaseModelImpl<assessin
 		attributes.put("assessment_version_id", getAssessment_version_id());
 		attributes.put("potential_threat", getPotential_threat());
 		attributes.put("justification", getJustification());
+		attributes.put("threadExtentValue", getThreadExtentValue());
 		attributes.put("threat_rating", getThreat_rating());
 		attributes.put("inside_site", getInside_site());
 		attributes.put("outside_site", getOutside_site());
@@ -151,6 +153,12 @@ public class assessing_threats_potentialModelImpl extends BaseModelImpl<assessin
 
 		if (justification != null) {
 			setJustification(justification);
+		}
+
+		String threadExtentValue = (String)attributes.get("threadExtentValue");
+
+		if (threadExtentValue != null) {
+			setThreadExtentValue(threadExtentValue);
 		}
 
 		Long threat_rating = (Long)attributes.get("threat_rating");
@@ -226,6 +234,19 @@ public class assessing_threats_potentialModelImpl extends BaseModelImpl<assessin
 		_justification = justification;
 	}
 
+	public String getThreadExtentValue() {
+		if (_threadExtentValue == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _threadExtentValue;
+		}
+	}
+
+	public void setThreadExtentValue(String threadExtentValue) {
+		_threadExtentValue = threadExtentValue;
+	}
+
 	public long getThreat_rating() {
 		return _threat_rating;
 	}
@@ -294,6 +315,7 @@ public class assessing_threats_potentialModelImpl extends BaseModelImpl<assessin
 		assessing_threats_potentialImpl.setAssessment_version_id(getAssessment_version_id());
 		assessing_threats_potentialImpl.setPotential_threat(getPotential_threat());
 		assessing_threats_potentialImpl.setJustification(getJustification());
+		assessing_threats_potentialImpl.setThreadExtentValue(getThreadExtentValue());
 		assessing_threats_potentialImpl.setThreat_rating(getThreat_rating());
 		assessing_threats_potentialImpl.setInside_site(getInside_site());
 		assessing_threats_potentialImpl.setOutside_site(getOutside_site());
@@ -385,6 +407,14 @@ public class assessing_threats_potentialModelImpl extends BaseModelImpl<assessin
 			assessing_threats_potentialCacheModel.justification = null;
 		}
 
+		assessing_threats_potentialCacheModel.threadExtentValue = getThreadExtentValue();
+
+		String threadExtentValue = assessing_threats_potentialCacheModel.threadExtentValue;
+
+		if ((threadExtentValue != null) && (threadExtentValue.length() == 0)) {
+			assessing_threats_potentialCacheModel.threadExtentValue = null;
+		}
+
 		assessing_threats_potentialCacheModel.threat_rating = getThreat_rating();
 
 		assessing_threats_potentialCacheModel.inside_site = getInside_site();
@@ -396,7 +426,7 @@ public class assessing_threats_potentialModelImpl extends BaseModelImpl<assessin
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(15);
+		StringBundler sb = new StringBundler(17);
 
 		sb.append("{potential_threat_id=");
 		sb.append(getPotential_threat_id());
@@ -406,6 +436,8 @@ public class assessing_threats_potentialModelImpl extends BaseModelImpl<assessin
 		sb.append(getPotential_threat());
 		sb.append(", justification=");
 		sb.append(getJustification());
+		sb.append(", threadExtentValue=");
+		sb.append(getThreadExtentValue());
 		sb.append(", threat_rating=");
 		sb.append(getThreat_rating());
 		sb.append(", inside_site=");
@@ -418,7 +450,7 @@ public class assessing_threats_potentialModelImpl extends BaseModelImpl<assessin
 	}
 
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(25);
+		StringBundler sb = new StringBundler(28);
 
 		sb.append("<model><model-name>");
 		sb.append("com.iucn.whp.dbservice.model.assessing_threats_potential");
@@ -439,6 +471,10 @@ public class assessing_threats_potentialModelImpl extends BaseModelImpl<assessin
 		sb.append(
 			"<column><column-name>justification</column-name><column-value><![CDATA[");
 		sb.append(getJustification());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>threadExtentValue</column-name><column-value><![CDATA[");
+		sb.append(getThreadExtentValue());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>threat_rating</column-name><column-value><![CDATA[");
@@ -468,6 +504,7 @@ public class assessing_threats_potentialModelImpl extends BaseModelImpl<assessin
 	private boolean _setOriginalAssessment_version_id;
 	private String _potential_threat;
 	private String _justification;
+	private String _threadExtentValue;
 	private long _threat_rating;
 	private boolean _inside_site;
 	private boolean _outside_site;

@@ -1,4 +1,6 @@
 <%@page import="com.iucn.whp.dto.AssessmentValueCssClass"%>
+<%@ page import="com.liferay.portal.kernel.exception.PortalException" %>
+<%@ page import="com.liferay.portal.kernel.exception.SystemException" %>
 <%@include file="/init_import.jsp" %>
 <%
 List<assessing_threats_current> lstthreats_current=null;
@@ -43,9 +45,21 @@ for(assessing_threats_current currentThreat:lstthreats_current){
 	 String justification = currentThreat.getJustification();
 	 AssessmentValueCssClass threatRating = new AssessmentValueCssClass();
 	 threatRating.setCssClass(currentThreat.getThreat_rating_id());
-	 String assessment = threat_rating_lkpLocalServiceUtil.getthreat_rating_lkp(currentThreat.getThreat_rating_id()).getRating();
-	 List<current_threat_assessment_cat> lstthreat_assessment_cat = site_assessmentLocalServiceUtil.getCurrentThreatAssessmentCatByThreatId(current_id);
-	 List<current_threat_values> lstthreat_values = site_assessmentLocalServiceUtil.getCurrentlThreatValuesByThreatId(current_id);
+
+	 String assessment = "";
+	try {
+		assessment = threat_rating_lkpLocalServiceUtil.getthreat_rating_lkp(currentThreat.getThreat_rating_id()).getRating();
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	List<current_threat_assessment_cat> lstthreat_assessment_cat = new ArrayList<current_threat_assessment_cat>();
+	try {
+		lstthreat_assessment_cat.addAll(site_assessmentLocalServiceUtil.getCurrentThreatAssessmentCatByThreatId(current_id));
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+
+	List<current_threat_values> lstthreat_values = site_assessmentLocalServiceUtil.getCurrentlThreatValuesByThreatId(current_id);
 	 String strwhValues = "";
 	 for(current_threat_values threatValue:lstthreat_values){
 		 if(!threatValue.getIs_biodiv_whval()){
@@ -66,6 +80,14 @@ for(assessing_threats_current currentThreat:lstthreats_current){
 	 }
 	 int rowcount = lstthreat_assessment_cat.size();
 	 Set<Long> setCategory = new HashSet<Long>();
+
+	Collections.sort(lstthreat_assessment_cat, new Comparator<current_threat_assessment_cat>() {
+		@Override
+		public int compare(current_threat_assessment_cat o1, current_threat_assessment_cat o2) {
+			return Long.compare(o1.getCur_threat_cat_id(), o2.getCur_threat_cat_id());
+		}
+	});
+
 	 for(current_threat_assessment_cat threatCat:lstthreat_assessment_cat){
 		 long category = threatCat.getCategory_id();
 		 setCategory.add(category);
@@ -83,6 +105,14 @@ for(assessing_threats_current currentThreat:lstthreats_current){
 			String category_val = threat_categories_lkpLocalServiceUtil.getthreat_categories_lkp(category_id).getThreat_category();
 			String subcatval="";
 			List<current_threat_assessment_cat> lstSubCat = current_threat_assessment_catLocalServiceUtil.getCurrentThreatAssessmentSubCategories(current_id,category_id);
+
+			Collections.sort(lstSubCat, new Comparator<current_threat_assessment_cat>() {
+				@Override
+				public int compare(current_threat_assessment_cat o1, current_threat_assessment_cat o2) {
+					return Long.compare(o1.getCur_threat_cat_id(), o2.getCur_threat_cat_id());
+				}
+			});
+
 			int subRowCount = lstSubCat.size();
 			int subCategoryCounter = 0;
 			for(current_threat_assessment_cat subCat:lstSubCat){
@@ -98,7 +128,7 @@ for(assessing_threats_current currentThreat:lstthreats_current){
 						<%=subCategoriesVal %>
 					</td>
 					<td rowspan = "<%=rowcount %>" id="${threatId}_CT_WH_TD"><%=strwhValues %></td>
-					<td rowspan = "<%=rowcount %>" id="${threatId}_CT_IN_TD"><%=currentThreat.getInside_site() ? "Yes" : "No"%></td>
+					<td rowspan = "<%=rowcount %>" id="${threatId}_CT_IN_TD"><%=currentThreat.getInside_site() ? "Yes, " + currentThreat.getThreadExtentValue() : "No"%></td>
 					<td rowspan = "<%=rowcount %>" id="${threatId}_CT_OUT_TD"><%=currentThreat.getOutside_site()? "Yes" : "No" %></td>
 					<td rowspan = "<%=rowcount %>" id="${threatId}_CT_JF_TD" ><%=justification%></td>
 					<td rowspan = "<%=rowcount %>" id="${threatId}_CT_RT_TD" ><span class ="<%=threatRating.getCssClass() %>"><%=assessment %></span></td>

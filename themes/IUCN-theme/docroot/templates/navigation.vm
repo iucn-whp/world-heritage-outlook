@@ -1,4 +1,3 @@
-    
 <nav class="$nav_css_class" id="navigation">
 	<!--h1>
 		<span>#language("navigation")</span>
@@ -31,9 +30,7 @@
 				#end
 			</li>
 		#end
-
 		<!--<span class="langspan">$theme.language()</span>-->
-		
 	</ul>
 	</div>
 </nav>

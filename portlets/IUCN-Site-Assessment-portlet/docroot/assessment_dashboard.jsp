@@ -56,12 +56,12 @@ String assessmentIds = "";
 List<SiteAssessmentDTO> siteAssessmentDTOList=new ArrayList<SiteAssessmentDTO>();
 List<site_assessment> site_assessmentList=null;
 	String isSearch=ParamUtil.getString(request, "isSearch");
-	
+	String assessmentCycleID=ParamUtil.getString(request, "assessmentCycleID");
 	//setting value of iterator of search container
     PortletURL assessmentPageURL=null;
 	String pageUrl="N";
 	
-	if(isSearch==null || isSearch.isEmpty() || isSearch.equalsIgnoreCase("N")){
+	if(isSearch==null || isSearch.isEmpty() || isSearch.equalsIgnoreCase(pageUrl)){
 		 site_assessmentList =AssessmentActionUtil.getSiteAssessmentByUserId(user.getUserId());
 	
 	
@@ -92,7 +92,8 @@ List<site_assessment> site_assessmentList=null;
 		site_assessment_versions currentSite_assessment_versions=null;
 		 
 		long siteAssessmentId=objSite_assessment.getAssessment_id();
-		List<site_assessment_versions> site_assessment_versionsList=site_assessment_versionsLocalServiceUtil.findByAssessmentId(siteAssessmentId);
+		List<site_assessment_versions> site_assessment_versionsList= new ArrayList();
+		   site_assessment_versionsList.addAll(site_assessment_versionsLocalServiceUtil.findByAssessmentId(siteAssessmentId));
 		
 		if(site_assessment_versionsList!=null && site_assessment_versionsList.size()>0){
 			Collections.sort(site_assessment_versionsList, new Comparator<site_assessment_versions>(){
@@ -140,14 +141,25 @@ List<site_assessment> site_assessmentList=null;
 		siteAssessmentDTOList.add(tempSiteAssessmentDTO);
 		
 	}
-	
+
+//		List<SiteAssessmentDTO> siteAssessmentDTOListTemp=new ArrayList<SiteAssessmentDTO>();
+//		for(SiteAssessmentDTO siteAssessmentDTOListObj : siteAssessmentDTOList){
+			// siteAssessmentDTOListObj.getSite_Assessment().getAssessment_cycle().equals("2016")
+//			if(siteAssessmentDTOListObj.getSite_Assessment().getAssessment_cycle().equals("2017") ){
+//				siteAssessmentDTOListTemp.add(siteAssessmentDTOListObj);
+//			}
+//		}
+//		siteAssessmentDTOList=siteAssessmentDTOListTemp;
+
+
 	}else{
 		siteAssessmentDTOList= (List<SiteAssessmentDTO>)session.getAttribute("siteAssessmentDTOList");
 		pageUrl="Y";
 	}
-	assessmentPageURL = (PortletURL)liferayPortletResponse.createRenderURL();
+	assessmentPageURL = liferayPortletResponse.createRenderURL();
 	assessmentPageURL.setParameter("jspPage", "/assessment_dashboard.jsp");
 	assessmentPageURL.setParameter("isSearch", pageUrl);
+	assessmentPageURL.setParameter("assessmentCycleID", assessmentCycleID);
 	//assessmentPageURL.setWindowState(WindowState.NORMAL);
 	pageContext.setAttribute("siteAssessmentDTOList", siteAssessmentDTOList,PageContext.SESSION_SCOPE);
 
@@ -229,10 +241,7 @@ for(int k=0;k<siteAssessmentDTOList.size();k++){
         <%
         long tempsites_assessmentID=siteAssessmentDTO.getAssessmentId();
         Date initiation_date=siteAssessmentDTO.getSite_Assessment().getInitiation_date();
-         
-        System.out.println("siteAssessmentDTO----"+siteAssessmentDTO);
-        
-        
+
       
         /*
         PortletURL rowURL = liferayPortletResponse.createRenderURL();
@@ -273,6 +282,12 @@ for(int k=0;k<siteAssessmentDTOList.size();k++){
           >
           <fmt:formatDate value="<%=initiation_date %>" pattern="dd/MM/yyyy" />
           </liferay-ui:search-container-column-text>
+
+		<liferay-ui:search-container-column-text
+				name="Assessment Cycle"
+				value="<%=siteAssessmentDTO.getSite_Assessment().getAssessment_cycle()%>">
+		</liferay-ui:search-container-column-text>
+
           
           <liferay-ui:search-container-column-text
           name="Version"
@@ -419,6 +434,21 @@ for(int k=0;k<siteAssessmentDTOList.size();k++){
 		  
 		 
 	});
+
+	function getXhrRequest(url, success, error) {
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET', url, true);
+		xhr.send();
+		xhr.onreadystatechange = function() {
+			if (this.readyState != 4) return;
+			if (this.status != 200) {
+				if (error && typeof error === 'function') error();
+			} else {
+				if (success && typeof success === 'function') success();
+			}
+
+		};
+	}
 	
 	
 </script>

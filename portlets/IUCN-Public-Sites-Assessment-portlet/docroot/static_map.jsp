@@ -42,11 +42,11 @@ long wdpa_id = Long.parseLong(request.getParameter("wdpaid"));
 <div style="width:100%; height: 100%" class="frame" id="map1" margin="1px"></div>
 
 <script type="text/javascript">
-$(document).ready(
-		function() {
+	$(document).ready(
+		function () {
 			var loadGoogleLayers = new mapLoader();
-			loadGoogleLayers.init('<%=wdpa_id%>'); 
-
-		});
-	</script>
+			loadGoogleLayers.init('<%=wdpa_id%>');
+        }
+	);
+</script>
 

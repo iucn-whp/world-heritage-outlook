@@ -33,7 +33,7 @@ public class assessing_threats_potentialCacheModel implements CacheModel<assessi
 	Serializable {
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(15);
+		StringBundler sb = new StringBundler(17);
 
 		sb.append("{potential_threat_id=");
 		sb.append(potential_threat_id);
@@ -43,6 +43,8 @@ public class assessing_threats_potentialCacheModel implements CacheModel<assessi
 		sb.append(potential_threat);
 		sb.append(", justification=");
 		sb.append(justification);
+		sb.append(", threadExtentValue=");
+		sb.append(threadExtentValue);
 		sb.append(", threat_rating=");
 		sb.append(threat_rating);
 		sb.append(", inside_site=");
@@ -74,6 +76,13 @@ public class assessing_threats_potentialCacheModel implements CacheModel<assessi
 			assessing_threats_potentialImpl.setJustification(justification);
 		}
 
+		if (threadExtentValue == null) {
+			assessing_threats_potentialImpl.setThreadExtentValue(StringPool.BLANK);
+		}
+		else {
+			assessing_threats_potentialImpl.setThreadExtentValue(threadExtentValue);
+		}
+
 		assessing_threats_potentialImpl.setThreat_rating(threat_rating);
 		assessing_threats_potentialImpl.setInside_site(inside_site);
 		assessing_threats_potentialImpl.setOutside_site(outside_site);
@@ -87,6 +96,7 @@ public class assessing_threats_potentialCacheModel implements CacheModel<assessi
 	public long assessment_version_id;
 	public String potential_threat;
 	public String justification;
+	public String threadExtentValue;
 	public long threat_rating;
 	public boolean inside_site;
 	public boolean outside_site;

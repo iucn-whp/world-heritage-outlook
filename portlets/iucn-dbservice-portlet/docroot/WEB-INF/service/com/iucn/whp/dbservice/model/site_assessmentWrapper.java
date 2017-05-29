@@ -56,6 +56,7 @@ public class site_assessmentWrapper implements site_assessment,
 		attributes.put("base_langid", getBase_langid());
 		attributes.put("archived", getArchived());
 		attributes.put("is_active", getIs_active());
+		attributes.put("assessment_cycle", getAssessment_cycle());
 
 		return attributes;
 	}
@@ -120,6 +121,12 @@ public class site_assessmentWrapper implements site_assessment,
 
 		if (is_active != null) {
 			setIs_active(is_active);
+		}
+
+		String assessment_cycle = (String)attributes.get("assessment_cycle");
+
+		if (assessment_cycle != null) {
+			setAssessment_cycle(assessment_cycle);
 		}
 	}
 
@@ -337,6 +344,24 @@ public class site_assessmentWrapper implements site_assessment,
 	*/
 	public void setIs_active(boolean is_active) {
 		_site_assessment.setIs_active(is_active);
+	}
+
+	/**
+	* Returns the assessment_cycle of this site_assessment.
+	*
+	* @return the assessment_cycle of this site_assessment
+	*/
+	public java.lang.String getAssessment_cycle() {
+		return _site_assessment.getAssessment_cycle();
+	}
+
+	/**
+	* Sets the assessment_cycle of this site_assessment.
+	*
+	* @param assessment_cycle the assessment_cycle of this site_assessment
+	*/
+	public void setAssessment_cycle(java.lang.String assessment_cycle) {
+		_site_assessment.setAssessment_cycle(assessment_cycle);
 	}
 
 	public boolean isNew() {

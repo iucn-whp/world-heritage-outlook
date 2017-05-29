@@ -32,4 +32,7 @@ public interface protection_mgmt_checklist_lkp
 	 *
 	 * Never modify this interface directly. Add methods to {@link com.iucn.whp.dbservice.model.impl.protection_mgmt_checklist_lkpImpl} and rerun ServiceBuilder to automatically copy the method declarations to this interface.
 	 */
+	public int getTopic_sort();
+
+	public void setTopic_sort(int topic_sort);
 }

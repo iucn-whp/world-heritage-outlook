@@ -48,6 +48,7 @@ public class benefit_checktype_lkpWrapper implements benefit_checktype_lkp,
 
 		attributes.put("benefit_id", getBenefit_id());
 		attributes.put("benefit_checktype", getBenefit_checktype());
+		attributes.put("active", getActive());
 
 		return attributes;
 	}
@@ -63,6 +64,12 @@ public class benefit_checktype_lkpWrapper implements benefit_checktype_lkp,
 
 		if (benefit_checktype != null) {
 			setBenefit_checktype(benefit_checktype);
+		}
+
+		Boolean active = (Boolean)attributes.get("active");
+
+		if (active != null) {
+			setActive(active);
 		}
 	}
 
@@ -118,6 +125,33 @@ public class benefit_checktype_lkpWrapper implements benefit_checktype_lkp,
 	*/
 	public void setBenefit_checktype(java.lang.String benefit_checktype) {
 		_benefit_checktype_lkp.setBenefit_checktype(benefit_checktype);
+	}
+
+	/**
+	* Returns the active of this benefit_checktype_lkp.
+	*
+	* @return the active of this benefit_checktype_lkp
+	*/
+	public boolean getActive() {
+		return _benefit_checktype_lkp.getActive();
+	}
+
+	/**
+	* Returns <code>true</code> if this benefit_checktype_lkp is active.
+	*
+	* @return <code>true</code> if this benefit_checktype_lkp is active; <code>false</code> otherwise
+	*/
+	public boolean isActive() {
+		return _benefit_checktype_lkp.isActive();
+	}
+
+	/**
+	* Sets whether this benefit_checktype_lkp is active.
+	*
+	* @param active the active of this benefit_checktype_lkp
+	*/
+	public void setActive(boolean active) {
+		_benefit_checktype_lkp.setActive(active);
 	}
 
 	public boolean isNew() {

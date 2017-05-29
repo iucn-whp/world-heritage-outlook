@@ -55,6 +55,8 @@ import com.iucn.whp.dbservice.model.iucn_region_countryClp;
 import com.iucn.whp.dbservice.model.key_conservation_issuesClp;
 import com.iucn.whp.dbservice.model.key_conservation_scale_lkpClp;
 import com.iucn.whp.dbservice.model.mission_lkpClp;
+import com.iucn.whp.dbservice.model.negative_factors_level_impactClp;
+import com.iucn.whp.dbservice.model.negative_factors_trendClp;
 import com.iucn.whp.dbservice.model.other_designation_lkpClp;
 import com.iucn.whp.dbservice.model.potential_project_needsClp;
 import com.iucn.whp.dbservice.model.potential_threat_assessment_catClp;
@@ -369,6 +371,15 @@ public class ClpSerializer {
 
 		if (oldModelClassName.equals(mission_lkpClp.class.getName())) {
 			return translateInputmission_lkp(oldModel);
+		}
+
+		if (oldModelClassName.equals(
+					negative_factors_level_impactClp.class.getName())) {
+			return translateInputnegative_factors_level_impact(oldModel);
+		}
+
+		if (oldModelClassName.equals(negative_factors_trendClp.class.getName())) {
+			return translateInputnegative_factors_trend(oldModel);
 		}
 
 		if (oldModelClassName.equals(other_designation_lkpClp.class.getName())) {
@@ -1043,6 +1054,28 @@ public class ClpSerializer {
 		mission_lkpClp oldClpModel = (mission_lkpClp)oldModel;
 
 		BaseModel<?> newModel = oldClpModel.getmission_lkpRemoteModel();
+
+		newModel.setModelAttributes(oldClpModel.getModelAttributes());
+
+		return newModel;
+	}
+
+	public static Object translateInputnegative_factors_level_impact(
+		BaseModel<?> oldModel) {
+		negative_factors_level_impactClp oldClpModel = (negative_factors_level_impactClp)oldModel;
+
+		BaseModel<?> newModel = oldClpModel.getnegative_factors_level_impactRemoteModel();
+
+		newModel.setModelAttributes(oldClpModel.getModelAttributes());
+
+		return newModel;
+	}
+
+	public static Object translateInputnegative_factors_trend(
+		BaseModel<?> oldModel) {
+		negative_factors_trendClp oldClpModel = (negative_factors_trendClp)oldModel;
+
+		BaseModel<?> newModel = oldClpModel.getnegative_factors_trendRemoteModel();
 
 		newModel.setModelAttributes(oldClpModel.getModelAttributes());
 
@@ -1824,6 +1857,16 @@ public class ClpSerializer {
 		}
 
 		if (oldModelClassName.equals(
+					"com.iucn.whp.dbservice.model.impl.negative_factors_level_impactImpl")) {
+			return translateOutputnegative_factors_level_impact(oldModel);
+		}
+
+		if (oldModelClassName.equals(
+					"com.iucn.whp.dbservice.model.impl.negative_factors_trendImpl")) {
+			return translateOutputnegative_factors_trend(oldModel);
+		}
+
+		if (oldModelClassName.equals(
 					"com.iucn.whp.dbservice.model.impl.other_designation_lkpImpl")) {
 			return translateOutputother_designation_lkp(oldModel);
 		}
@@ -2365,6 +2408,16 @@ public class ClpSerializer {
 		if (className.equals(
 					"com.iucn.whp.dbservice.NoSuchmission_lkpException")) {
 			return new com.iucn.whp.dbservice.NoSuchmission_lkpException();
+		}
+
+		if (className.equals(
+					"com.iucn.whp.dbservice.NoSuchnegative_factors_level_impactException")) {
+			return new com.iucn.whp.dbservice.NoSuchnegative_factors_level_impactException();
+		}
+
+		if (className.equals(
+					"com.iucn.whp.dbservice.NoSuchnegative_factors_trendException")) {
+			return new com.iucn.whp.dbservice.NoSuchnegative_factors_trendException();
 		}
 
 		if (className.equals(
@@ -3060,6 +3113,28 @@ public class ClpSerializer {
 		newModel.setModelAttributes(oldModel.getModelAttributes());
 
 		newModel.setmission_lkpRemoteModel(oldModel);
+
+		return newModel;
+	}
+
+	public static Object translateOutputnegative_factors_level_impact(
+		BaseModel<?> oldModel) {
+		negative_factors_level_impactClp newModel = new negative_factors_level_impactClp();
+
+		newModel.setModelAttributes(oldModel.getModelAttributes());
+
+		newModel.setnegative_factors_level_impactRemoteModel(oldModel);
+
+		return newModel;
+	}
+
+	public static Object translateOutputnegative_factors_trend(
+		BaseModel<?> oldModel) {
+		negative_factors_trendClp newModel = new negative_factors_trendClp();
+
+		newModel.setModelAttributes(oldModel.getModelAttributes());
+
+		newModel.setnegative_factors_trendRemoteModel(oldModel);
 
 		return newModel;
 	}

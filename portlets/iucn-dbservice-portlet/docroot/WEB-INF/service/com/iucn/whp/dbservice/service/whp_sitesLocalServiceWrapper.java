@@ -502,6 +502,13 @@ public class whp_sitesLocalServiceWrapper implements whp_sitesLocalService,
 		return _whp_sitesLocalService.getAllActiveSites();
 	}
 
+	public java.util.List<com.iucn.whp.dbservice.model.whp_sites> getAllActiveSitesByUserId(
+		long id)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _whp_sitesLocalService.getAllActiveSitesByUserId(id);
+	}
+
 	/**
 	* WHP_DANGER LIST********************************
 	*/

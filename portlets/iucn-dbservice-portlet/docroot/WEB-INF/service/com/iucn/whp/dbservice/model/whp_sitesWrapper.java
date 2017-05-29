@@ -80,6 +80,7 @@ public class whp_sitesWrapper implements whp_sites, ModelWrapper<whp_sites> {
 		attributes.put("thumbnailid", getThumbnailid());
 		attributes.put("thumbnailid_small", getThumbnailid_small());
 		attributes.put("description", getDescription());
+		attributes.put("information_updating", getInformation_updating());
 
 		return attributes;
 	}
@@ -296,6 +297,13 @@ public class whp_sitesWrapper implements whp_sites, ModelWrapper<whp_sites> {
 
 		if (description != null) {
 			setDescription(description);
+		}
+
+		Boolean information_updating = (Boolean)attributes.get(
+				"information_updating");
+
+		if (information_updating != null) {
+			setInformation_updating(information_updating);
 		}
 	}
 
@@ -1080,6 +1088,33 @@ public class whp_sitesWrapper implements whp_sites, ModelWrapper<whp_sites> {
 	*/
 	public void setDescription(java.lang.String description) {
 		_whp_sites.setDescription(description);
+	}
+
+	/**
+	* Returns the information_updating of this whp_sites.
+	*
+	* @return the information_updating of this whp_sites
+	*/
+	public boolean getInformation_updating() {
+		return _whp_sites.getInformation_updating();
+	}
+
+	/**
+	* Returns <code>true</code> if this whp_sites is information_updating.
+	*
+	* @return <code>true</code> if this whp_sites is information_updating; <code>false</code> otherwise
+	*/
+	public boolean isInformation_updating() {
+		return _whp_sites.isInformation_updating();
+	}
+
+	/**
+	* Sets whether this whp_sites is information_updating.
+	*
+	* @param information_updating the information_updating of this whp_sites
+	*/
+	public void setInformation_updating(boolean information_updating) {
+		_whp_sites.setInformation_updating(information_updating);
 	}
 
 	public boolean isNew() {

@@ -13,6 +13,7 @@
 <%@ taglib uri="http://liferay.com/tld/portlet" prefix="liferay-portlet" %>
 <%@page import="com.iucn.whp.dto.Assessment_VersionDTO" %>
 <%@page import="com.liferay.portal.kernel.portlet.LiferayWindowState" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <portlet:defineObjects /> 
 
 <%
@@ -76,10 +77,15 @@
 			}
 		}
 		
-		
+//		small fix for sorting version.
 		Collections.sort(assessment_VersionDTOList, new Comparator<Assessment_VersionDTO>(){
 		    public int compare(Assessment_VersionDTO one, Assessment_VersionDTO other) {
-		        return String.valueOf(one.getVersionCode()).compareTo(String.valueOf(other.getVersionCode()));
+				int compareVersion = String.valueOf(one.getVersionCode()).compareTo(String.valueOf(other.getVersionCode()));
+		        if (compareVersion == 0){
+					return Long.compare(one.getSite_AssessmentVersions().getAssessment_version_id(), other
+							.getSite_AssessmentVersions().getAssessment_version_id());
+				}
+				return compareVersion;
 		    }
 		});
 		
@@ -181,8 +187,34 @@ if(assessment_VersionDTOList!=null && assessment_VersionDTOList.size()>0){
           name="Language" align="center"
          >
   		<%=assessment_VersionDTO.getLanguages()!=null ? assessment_VersionDTO.getLanguages() : "N.A"  %></liferay-ui:search-container-column-text>        
-   
-       
+
+
+	     <liferay-ui:search-container-column-text name="Download Word" align="center">
+
+			 <%
+				 Long versionId = ((Assessment_VersionDTO) assessment_VersionDTO).getVersionId();
+
+				 Date initiationDate = objsite_assessment.getInitiation_date();
+
+				 SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+				 String formattedDate = dateFormat.format(initiationDate);
+
+			 %>
+
+			 <portlet:resourceURL var="wordURL">
+				 <portlet:param name="ACTION_CMD" value="DOWNLOAD_WORD_DOCUMENT"/>
+				 <portlet:param name="INITIATION_DATE" value="<%= formattedDate %>"/>
+				 <portlet:param name="SITE_ID" value="<%= String.valueOf(objsite_assessment.getSite_id()) %>"/>
+				 <portlet:param name="VERSION_ID" value="<%= String.valueOf(versionId) %>"/>
+			 </portlet:resourceURL>
+
+			 <a href="<%=wordURL %>"><%=AssessmentContstant.ACTION_WORD %></a>
+			 <%--<liferay-ui:icon image="edit" message="<%=AssessmentContstant.ACTION_WORD %>" url="<%= wordURL.toString() %>" />--%>
+
+			 <%--<%=assessment_VersionDTO.getLanguages()!=null ? assessment_VersionDTO.getLanguages() : "N.A"  %>--%>
+		 </liferay-ui:search-container-column-text>
+
     </liferay-ui:search-container-row>
 
     <liferay-ui:search-iterator paginate="false" />

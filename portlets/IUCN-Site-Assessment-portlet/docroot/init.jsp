@@ -52,21 +52,18 @@
 <%@page import="com.liferay.portal.kernel.portlet.*"%>
 <%@ page import="com.iucn.whp.dbservice.model.*" %>
 <%@ page import="com.iucn.whp.dbservice.service.*" %>
+<%@ page import="com.iucn.whp.assesment.utils.AssessmentActionUtil" %>
+<%@ page import="com.iucn.whp.assesment.utils.AssessmentContstant" %>
+<%@page import="com.iucn.whp.dto.AssessmentTrends"%>
 
 <%@page import="com.liferay.portal.PortalException"%>
-
-<%@page import="com.iucn.whp.dbservice.service.*"%>
-<%@page import="com.iucn.whp.dbservice.model.*"%>
-
 <%@ page import="com.liferay.portal.util.PortalUtil" %>
 
 
-<%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="java.util.*"%>
 <%@include file="saverefreshform.jsp" %>
 
+<liferay-theme:defineObjects />
 
 

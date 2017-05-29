@@ -104,25 +104,25 @@ public class whp_sites_contactsLocalServiceClpInvoker {
 				"com.iucn.whp.dbservice.model.whp_sites_contacts", "boolean"
 			};
 
-		_methodName418 = "getBeanIdentifier";
+		_methodName426 = "getBeanIdentifier";
 
-		_methodParameterTypes418 = new String[] {  };
+		_methodParameterTypes426 = new String[] {  };
 
-		_methodName419 = "setBeanIdentifier";
+		_methodName427 = "setBeanIdentifier";
 
-		_methodParameterTypes419 = new String[] { "java.lang.String" };
+		_methodParameterTypes427 = new String[] { "java.lang.String" };
 
-		_methodName424 = "getAllContactCategories";
+		_methodName432 = "getAllContactCategories";
 
-		_methodParameterTypes424 = new String[] { "java.lang.Long" };
+		_methodParameterTypes432 = new String[] { "java.lang.Long" };
 
-		_methodName425 = "getAllWhpContactsBySiteId";
+		_methodName433 = "getAllWhpContactsBySiteId";
 
-		_methodParameterTypes425 = new String[] { "java.lang.Long" };
+		_methodParameterTypes433 = new String[] { "java.lang.Long" };
 
-		_methodName426 = "getAllWhpSitesByContactId";
+		_methodName434 = "getAllWhpSitesByContactId";
 
-		_methodParameterTypes426 = new String[] { "java.lang.Integer" };
+		_methodParameterTypes434 = new String[] { "java.lang.Integer" };
 	}
 
 	public Object invokeMethod(String name, String[] parameterTypes,
@@ -214,28 +214,28 @@ public class whp_sites_contactsLocalServiceClpInvoker {
 				((Boolean)arguments[1]).booleanValue());
 		}
 
-		if (_methodName418.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes418, parameterTypes)) {
+		if (_methodName426.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes426, parameterTypes)) {
 			return whp_sites_contactsLocalServiceUtil.getBeanIdentifier();
 		}
 
-		if (_methodName419.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes419, parameterTypes)) {
+		if (_methodName427.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes427, parameterTypes)) {
 			whp_sites_contactsLocalServiceUtil.setBeanIdentifier((java.lang.String)arguments[0]);
 		}
 
-		if (_methodName424.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes424, parameterTypes)) {
+		if (_methodName432.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes432, parameterTypes)) {
 			return whp_sites_contactsLocalServiceUtil.getAllContactCategories((java.lang.Long)arguments[0]);
 		}
 
-		if (_methodName425.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes425, parameterTypes)) {
+		if (_methodName433.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes433, parameterTypes)) {
 			return whp_sites_contactsLocalServiceUtil.getAllWhpContactsBySiteId((java.lang.Long)arguments[0]);
 		}
 
-		if (_methodName426.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes426, parameterTypes)) {
+		if (_methodName434.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes434, parameterTypes)) {
 			return whp_sites_contactsLocalServiceUtil.getAllWhpSitesByContactId((java.lang.Integer)arguments[0]);
 		}
 
@@ -274,14 +274,14 @@ public class whp_sites_contactsLocalServiceClpInvoker {
 	private String[] _methodParameterTypes14;
 	private String _methodName15;
 	private String[] _methodParameterTypes15;
-	private String _methodName418;
-	private String[] _methodParameterTypes418;
-	private String _methodName419;
-	private String[] _methodParameterTypes419;
-	private String _methodName424;
-	private String[] _methodParameterTypes424;
-	private String _methodName425;
-	private String[] _methodParameterTypes425;
 	private String _methodName426;
 	private String[] _methodParameterTypes426;
+	private String _methodName427;
+	private String[] _methodParameterTypes427;
+	private String _methodName432;
+	private String[] _methodParameterTypes432;
+	private String _methodName433;
+	private String[] _methodParameterTypes433;
+	private String _methodName434;
+	private String[] _methodParameterTypes434;
 }

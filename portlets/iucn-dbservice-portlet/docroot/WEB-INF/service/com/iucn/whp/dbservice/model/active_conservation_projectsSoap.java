@@ -35,6 +35,8 @@ public class active_conservation_projectsSoap implements Serializable {
 		soapModel.setOrganization_individual(model.getOrganization_individual());
 		soapModel.setDescription(model.getDescription());
 		soapModel.setContact_details(model.getContact_details());
+		soapModel.setProjectDurationFrom(model.getProjectDurationFrom());
+		soapModel.setProjectDurationTo(model.getProjectDurationTo());
 
 		return soapModel;
 	}
@@ -130,9 +132,27 @@ public class active_conservation_projectsSoap implements Serializable {
 		_contact_details = contact_details;
 	}
 
+	public String getProjectDurationFrom() {
+		return _projectDurationFrom;
+	}
+
+	public void setProjectDurationFrom(String projectDurationFrom) {
+		_projectDurationFrom = projectDurationFrom;
+	}
+
+	public String getProjectDurationTo() {
+		return _projectDurationTo;
+	}
+
+	public void setProjectDurationTo(String projectDurationTo) {
+		_projectDurationTo = projectDurationTo;
+	}
+
 	private long _acpid;
 	private long _assessment_version_id;
 	private String _organization_individual;
 	private String _description;
 	private String _contact_details;
+	private String _projectDurationFrom;
+	private String _projectDurationTo;
 }

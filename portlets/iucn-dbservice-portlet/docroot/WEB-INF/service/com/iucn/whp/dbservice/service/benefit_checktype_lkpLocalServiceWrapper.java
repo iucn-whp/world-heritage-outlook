@@ -273,6 +273,12 @@ public class benefit_checktype_lkpLocalServiceWrapper
 			parameterTypes, arguments);
 	}
 
+	public java.util.List<com.iucn.whp.dbservice.model.benefit_checktype_lkp> findBenefitCheckTypeByActiveStatus(
+		boolean active_)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _benefit_checktype_lkpLocalService.findBenefitCheckTypeByActiveStatus(active_);
+	}
+
 	public java.util.List<com.iucn.whp.dbservice.model.benefit_checktype_lkp> findAll()
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {

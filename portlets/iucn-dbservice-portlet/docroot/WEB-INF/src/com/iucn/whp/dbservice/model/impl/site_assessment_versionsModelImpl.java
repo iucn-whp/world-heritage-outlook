@@ -85,8 +85,9 @@ public class site_assessment_versionsModelImpl extends BaseModelImpl<site_assess
 				"value.object.column.bitmask.enabled.com.iucn.whp.dbservice.model.site_assessment_versions"),
 			true);
 	public static long ASSESSMENT_ID_COLUMN_BITMASK = 1L;
-	public static long USERID_COLUMN_BITMASK = 2L;
-	public static long VERSION_CODE_COLUMN_BITMASK = 4L;
+	public static long STAGE_ID_COLUMN_BITMASK = 2L;
+	public static long USERID_COLUMN_BITMASK = 4L;
+	public static long VERSION_CODE_COLUMN_BITMASK = 8L;
 	public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.liferay.util.service.ServiceProps.get(
 				"lock.expiration.time.com.iucn.whp.dbservice.model.site_assessment_versions"));
 
@@ -221,7 +222,19 @@ public class site_assessment_versionsModelImpl extends BaseModelImpl<site_assess
 	}
 
 	public void setStage_id(long stage_id) {
+		_columnBitmask |= STAGE_ID_COLUMN_BITMASK;
+
+		if (!_setOriginalStage_id) {
+			_setOriginalStage_id = true;
+
+			_originalStage_id = _stage_id;
+		}
+
 		_stage_id = stage_id;
+	}
+
+	public long getOriginalStage_id() {
+		return _originalStage_id;
 	}
 
 	public long getAssessment_id() {
@@ -433,6 +446,10 @@ public class site_assessment_versionsModelImpl extends BaseModelImpl<site_assess
 	public void resetOriginalValues() {
 		site_assessment_versionsModelImpl site_assessment_versionsModelImpl = this;
 
+		site_assessment_versionsModelImpl._originalStage_id = site_assessment_versionsModelImpl._stage_id;
+
+		site_assessment_versionsModelImpl._setOriginalStage_id = false;
+
 		site_assessment_versionsModelImpl._originalAssessment_id = site_assessment_versionsModelImpl._assessment_id;
 
 		site_assessment_versionsModelImpl._setOriginalAssessment_id = false;
@@ -592,6 +609,8 @@ public class site_assessment_versionsModelImpl extends BaseModelImpl<site_assess
 		};
 	private long _assessment_version_id;
 	private long _stage_id;
+	private long _originalStage_id;
+	private boolean _setOriginalStage_id;
 	private long _assessment_id;
 	private long _originalAssessment_id;
 	private boolean _setOriginalAssessment_id;

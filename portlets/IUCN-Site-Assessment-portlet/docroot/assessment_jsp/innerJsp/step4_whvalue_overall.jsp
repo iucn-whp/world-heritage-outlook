@@ -2,14 +2,14 @@
 <%@include file="/init_import.jsp" %>
 <%
 List<state_trend_whvalues> lststate_trendWH=null;
-String trendwh = "n.a.";
-String statewh = "n.a.";
-String justificationwh = "n.a.";
+String trendwh = "";
+String statewh = "";
+String justificationwh = "";
 long state_trend_idwh = 0;
 List<state_trend_biodivvals> lstBiodivvals=null;
-String trendbio = "n.a.";
-String statebio = "n.a.";
-String justificationbio = "n.a.";
+String trendbio = "";
+String statebio = "";
+String justificationbio = "";
 long state_trend_idbio = 0;
 AssessmentValueCssClass threatRatingwh = new AssessmentValueCssClass();
 AssessmentValueCssClass threatRatingbio = new AssessmentValueCssClass();
@@ -82,7 +82,7 @@ lstBiodivvals = site_assessmentLocalServiceUtil.getStatetrendbiodivvalsByVersion
 <td class="editIcons hideAdminAction">
 <div class="editDelete">
 
-<a href="#" onclick="javascript:dynamicPopup('${UpdateUrlbio}','<%= state_trend_idbio%>','Edit Important biodiversity values',event); return false;" class="edit">edit</a>
+<a href="#" onclick="javascript:dynamicPopup('${UpdateUrlbio}','<%= state_trend_idbio%>','Edit other Important biodiversity values',event); return false;" class="edit">edit</a>
 
 </div>
 </td>

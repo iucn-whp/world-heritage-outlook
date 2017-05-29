@@ -80,6 +80,9 @@ int folderRowsPerPage = folderEnd - folderStart;
 String orderByCol = ParamUtil.getString(request, "orderByCol");
 String orderByType = ParamUtil.getString(request, "orderByType");
 
+	final String ASSESS_REW_ROLE = "Reviewer";
+	final String ASSESS_ASSESSOR_ROLE = "Assessor";
+
 if (Validator.isNotNull(orderByCol) && Validator.isNotNull(orderByType)) {
 	portalPreferences.setValue(PortletKeys.DOCUMENT_LIBRARY, "order-by-col", orderByCol);
 	portalPreferences.setValue(PortletKeys.DOCUMENT_LIBRARY, "order-by-type", orderByType);
@@ -91,6 +94,8 @@ request.setAttribute("view.jsp-folderId", String.valueOf(folderId));
 
 request.setAttribute("view.jsp-repositoryId", String.valueOf(repositoryId));
 %>
+
+
 
 <div id="<portlet:namespace />documentLibraryContainer">
 	<aui:layout cssClass="lfr-app-column-view">
@@ -114,7 +119,7 @@ request.setAttribute("view.jsp-repositoryId", String.valueOf(repositoryId));
 						<div class="seacrhBarTop">
 
 							<!-- <button id="btnAdvanceSearch">Advance Search</button> -->
-							<c:if test="<%= showFoldersSearch %>">
+							<c:if test="<%= showFoldersSearch && !(request.isUserInRole(ASSESS_REW_ROLE) || request.isUserInRole(ASSESS_ASSESSOR_ROLE)) %>">
 								<liferay-util:include
 									page="/html/portlet/document_library/file_entry_search.jsp" />
 							</c:if>
@@ -169,7 +174,7 @@ request.setAttribute("view.jsp-repositoryId", String.valueOf(repositoryId));
 
 	         </c:if>
 			
-			<c:if test="<%= !user.isDefaultUser() %>">
+			<c:if test="<%= !user.isDefaultUser() && !(request.isUserInRole(ASSESS_REW_ROLE) || request.isUserInRole(ASSESS_ASSESSOR_ROLE)) %>">
  						<aui:button id="btnAdvanceSearch" value="Advance Search" />
 
 						</c:if>					
@@ -321,7 +326,7 @@ if (folder != null) {
 	<%
 				
 		List<whp_sites> whp_sitesList=null;
-		
+
 	    try{
 	    	whp_sitesList=whp_sitesLocalServiceUtil.getAllActiveSites();
 	    	

@@ -60,9 +60,11 @@ public class benefit_checksubtype_lkpModelImpl extends BaseModelImpl<benefit_che
 	public static final Object[][] TABLE_COLUMNS = {
 			{ "subbenefit_id", Types.BIGINT },
 			{ "benefit_checksubtype", Types.VARCHAR },
-			{ "parent_id", Types.BIGINT }
+			{ "parent_id", Types.BIGINT },
+			{ "position", Types.BIGINT },
+			{ "active_", Types.BOOLEAN }
 		};
-	public static final String TABLE_SQL_CREATE = "create table whp_benefit_checksubtype_lkp (subbenefit_id LONG not null primary key,benefit_checksubtype VARCHAR(200) null,parent_id LONG)";
+	public static final String TABLE_SQL_CREATE = "create table whp_benefit_checksubtype_lkp (subbenefit_id LONG not null primary key,benefit_checksubtype VARCHAR(200) null,parent_id LONG,position LONG,active_ BOOLEAN)";
 	public static final String TABLE_SQL_DROP = "drop table whp_benefit_checksubtype_lkp";
 	public static final String DATA_SOURCE = "liferayDataSource";
 	public static final String SESSION_FACTORY = "liferaySessionFactory";
@@ -73,7 +75,10 @@ public class benefit_checksubtype_lkpModelImpl extends BaseModelImpl<benefit_che
 	public static final boolean FINDER_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
 				"value.object.finder.cache.enabled.com.iucn.whp.dbservice.model.benefit_checksubtype_lkp"),
 			true);
-	public static final boolean COLUMN_BITMASK_ENABLED = false;
+	public static final boolean COLUMN_BITMASK_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
+				"value.object.column.bitmask.enabled.com.iucn.whp.dbservice.model.benefit_checksubtype_lkp"),
+			true);
+	public static long ACTIVE_COLUMN_BITMASK = 1L;
 	public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.liferay.util.service.ServiceProps.get(
 				"lock.expiration.time.com.iucn.whp.dbservice.model.benefit_checksubtype_lkp"));
 
@@ -111,6 +116,8 @@ public class benefit_checksubtype_lkpModelImpl extends BaseModelImpl<benefit_che
 		attributes.put("subbenefit_id", getSubbenefit_id());
 		attributes.put("benefit_checksubtype", getBenefit_checksubtype());
 		attributes.put("parent_id", getParent_id());
+		attributes.put("position", getPosition());
+		attributes.put("active", getActive());
 
 		return attributes;
 	}
@@ -134,6 +141,18 @@ public class benefit_checksubtype_lkpModelImpl extends BaseModelImpl<benefit_che
 
 		if (parent_id != null) {
 			setParent_id(parent_id);
+		}
+
+		Long position = (Long)attributes.get("position");
+
+		if (position != null) {
+			setPosition(position);
+		}
+
+		Boolean active = (Boolean)attributes.get("active");
+
+		if (active != null) {
+			setActive(active);
 		}
 	}
 
@@ -164,6 +183,42 @@ public class benefit_checksubtype_lkpModelImpl extends BaseModelImpl<benefit_che
 
 	public void setParent_id(long parent_id) {
 		_parent_id = parent_id;
+	}
+
+	public long getPosition() {
+		return _position;
+	}
+
+	public void setPosition(long position) {
+		_position = position;
+	}
+
+	public boolean getActive() {
+		return _active;
+	}
+
+	public boolean isActive() {
+		return _active;
+	}
+
+	public void setActive(boolean active) {
+		_columnBitmask |= ACTIVE_COLUMN_BITMASK;
+
+		if (!_setOriginalActive) {
+			_setOriginalActive = true;
+
+			_originalActive = _active;
+		}
+
+		_active = active;
+	}
+
+	public boolean getOriginalActive() {
+		return _originalActive;
+	}
+
+	public long getColumnBitmask() {
+		return _columnBitmask;
 	}
 
 	@Override
@@ -197,6 +252,8 @@ public class benefit_checksubtype_lkpModelImpl extends BaseModelImpl<benefit_che
 		benefit_checksubtype_lkpImpl.setSubbenefit_id(getSubbenefit_id());
 		benefit_checksubtype_lkpImpl.setBenefit_checksubtype(getBenefit_checksubtype());
 		benefit_checksubtype_lkpImpl.setParent_id(getParent_id());
+		benefit_checksubtype_lkpImpl.setPosition(getPosition());
+		benefit_checksubtype_lkpImpl.setActive(getActive());
 
 		benefit_checksubtype_lkpImpl.resetOriginalValues();
 
@@ -249,6 +306,13 @@ public class benefit_checksubtype_lkpModelImpl extends BaseModelImpl<benefit_che
 
 	@Override
 	public void resetOriginalValues() {
+		benefit_checksubtype_lkpModelImpl benefit_checksubtype_lkpModelImpl = this;
+
+		benefit_checksubtype_lkpModelImpl._originalActive = benefit_checksubtype_lkpModelImpl._active;
+
+		benefit_checksubtype_lkpModelImpl._setOriginalActive = false;
+
+		benefit_checksubtype_lkpModelImpl._columnBitmask = 0;
 	}
 
 	@Override
@@ -268,12 +332,16 @@ public class benefit_checksubtype_lkpModelImpl extends BaseModelImpl<benefit_che
 
 		benefit_checksubtype_lkpCacheModel.parent_id = getParent_id();
 
+		benefit_checksubtype_lkpCacheModel.position = getPosition();
+
+		benefit_checksubtype_lkpCacheModel.active = getActive();
+
 		return benefit_checksubtype_lkpCacheModel;
 	}
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(7);
+		StringBundler sb = new StringBundler(11);
 
 		sb.append("{subbenefit_id=");
 		sb.append(getSubbenefit_id());
@@ -281,13 +349,17 @@ public class benefit_checksubtype_lkpModelImpl extends BaseModelImpl<benefit_che
 		sb.append(getBenefit_checksubtype());
 		sb.append(", parent_id=");
 		sb.append(getParent_id());
+		sb.append(", position=");
+		sb.append(getPosition());
+		sb.append(", active=");
+		sb.append(getActive());
 		sb.append("}");
 
 		return sb.toString();
 	}
 
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(13);
+		StringBundler sb = new StringBundler(19);
 
 		sb.append("<model><model-name>");
 		sb.append("com.iucn.whp.dbservice.model.benefit_checksubtype_lkp");
@@ -305,6 +377,14 @@ public class benefit_checksubtype_lkpModelImpl extends BaseModelImpl<benefit_che
 			"<column><column-name>parent_id</column-name><column-value><![CDATA[");
 		sb.append(getParent_id());
 		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>position</column-name><column-value><![CDATA[");
+		sb.append(getPosition());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>active</column-name><column-value><![CDATA[");
+		sb.append(getActive());
+		sb.append("]]></column-value></column>");
 
 		sb.append("</model>");
 
@@ -318,5 +398,10 @@ public class benefit_checksubtype_lkpModelImpl extends BaseModelImpl<benefit_che
 	private long _subbenefit_id;
 	private String _benefit_checksubtype;
 	private long _parent_id;
+	private long _position;
+	private boolean _active;
+	private boolean _originalActive;
+	private boolean _setOriginalActive;
+	private long _columnBitmask;
 	private benefit_checksubtype_lkp _escapedModelProxy;
 }

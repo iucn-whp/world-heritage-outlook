@@ -21,7 +21,7 @@ assessmentVersionId = Long.parseLong(request.getParameter("versionIdVal"));
 lstprotection_mgmt_checklist_lkp=protection_mgmt_checklist_lkpLocalServiceUtil.findAll();
 listprotection_management=protection_managementLocalServiceUtil.findByAssessementVersionId(assessmentVersionId);
  
-if(listprotection_management.size()>=lstprotection_mgmt_checklist_lkp.size())
+if(listprotection_management.size() >= lstprotection_mgmt_checklist_lkp.size() || (listprotection_management.size() == 15 && lstprotection_mgmt_checklist_lkp.size() == 16))
 { 
 
  try

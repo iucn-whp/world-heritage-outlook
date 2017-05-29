@@ -102,7 +102,7 @@
 				</aui:column>
 				
 				
-				<aui:column columnWidth="30" style="width:266px; margin-top:0.5em;">
+				<aui:column columnWidth="30" style="width:270px; margin-top:0.5em;">
 					<!-- aui:input cssClass="keywords lfr-search-combobox-item"
 						id="SiteName" label="SiteName" name="SiteName" type="text" /-->
 						<aui:select label="Region : " id="iucnRegionId" name="iucnRegionId" style="width:200px; margin-left:3px;" onChange="javascript:onRegionselectionChange();">
@@ -127,7 +127,7 @@ for (unesco_region tempIucn : unescoRegionList) {
 						
 				</aui:column>
 
-				<aui:column columnWidth="30" style="width:269px; margin-top:0.5em;">
+				<aui:column columnWidth="30" style="width:275px; margin-top:0.5em;">
 					<aui:select label="Country : " id="countryID" name="countryID"
 						style="width:200px; margin-left: 1px;">
 						<aui:option value="">Select Country</aui:option>
@@ -155,11 +155,10 @@ try{
 			
 					
 				</aui:column>
-				
-				
+
 				
 				<aui:column columnWidth="40" style="width:132px; height:30px; margin:1.6em 0.5em 0 0; float:right;">
-					<input type="button" value="Advance Search" class="advanceSearchBtn" onClick="javascript:advanceSearchPopup('Site Information Query Builder');"/>
+					<input type="button" value="Advanced Search" class="advanceSearchBtn" onClick="javascript:advanceSearchPopup('Site Information Query Builder');"/>
 				</aui:column>
 				<aui:column columnWidth="25" style="width:60px; margin:1.6em 0.5em 0 0; float:right;">
 					<%-- <aui:button name="search" onClick='<%= liferayPortletResponse.getNamespace() + "simpleSiteSearch();" %>' value="search" /> --%>
@@ -209,15 +208,22 @@ try{
 	      method: 'GET',
 	      //form: { id: '<portlet:namespace />'+fmsitesearch},
 	      data:{
-	    	  
-	    	 
-	         iucnRegionId: document.getElementById("<portlet:namespace/>iucnRegionId").value,
+
+			  <%--assessmentCycle: document.getElementById("<portlet:namespace/>assessmentCycleID").value,--%>
+			  iucnRegionId: document.getElementById("<portlet:namespace/>iucnRegionId").value,
 	    	 countryID:  document.getElementById("<portlet:namespace/>countryID").value,
 	    	 sitename:  document.getElementById("<portlet:namespace/>sitename").value
 	      },
 	      on: {
 	          success : function() { 
 	          //alert(this.get('responseData'));
+//				  console.log('-------obj this------------')
+//				  console.log(this)
+//				  var data = this.get('responseData')
+//				  console.log('-------responseData------------')
+//				  console.log(data)
+
+
 	        	 $('#siteDashboardDiv').html(this.get('responseData'));
 	          }
 	      }
